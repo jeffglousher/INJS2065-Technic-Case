@@ -1,0 +1,318 @@
+{
+  "architecture": "clamshell_is_technic_mount_v16_2_square_tooth",
+  "clamp_path": "flush_pocket_clip",
+  "printed_parts": [
+    "ClamshellA",
+    "ClamshellB",
+    "OutputHub",
+    "BuckleClipYP",
+    "BuckleClipYM"
+  ],
+  "purchased_proxies": [
+    "Servo",
+    "MR128"
+  ],
+  "frame": {
+    "shell_x": [
+      -12.0,
+      12.0
+    ],
+    "shell_y": [
+      -12.0,
+      12.0
+    ],
+    "shell_z0": 8.0,
+    "split_z": 20.0,
+    "face_z": 39.55,
+    "tab_x0": -9.2,
+    "tab_x1": 20.6,
+    "cav_x": [
+      -9.6,
+      12.5
+    ],
+    "cav_y": [
+      -6.55,
+      6.55
+    ],
+    "BODY_CLR": 0.05,
+    "ear_nest": {
+      "EAR_HALF_Y": 6.5,
+      "TAB_CLR": 0.12,
+      "NEST_Y": 6.62,
+      "TAB_Z_CLR": 0.1,
+      "TIP_WALL": 0.4,
+      "NEST_R": 0.35,
+      "ear_near": [
+        -9.2,
+        -5.8
+      ],
+      "ear_far": [
+        17.2,
+        20.6
+      ],
+      "x_span": [
+        -9.6,
+        -5.55
+      ],
+      "z_span": [
+        16.9,
+        19.6
+      ],
+      "body_cav_x0": -6.0
+    },
+    "uniform_xy": true,
+    "far_end_open": true,
+    "near_ear_trapped": true
+  },
+  "technic_side_x": [
+    -8.0,
+    8.0
+  ],
+  "technic_side_z_A": 14.0,
+  "technic_side_z_B": 26.0,
+  "technic_top": [
+    [
+      8.0,
+      8.0
+    ],
+    [
+      8.0,
+      -8.0
+    ],
+    [
+      -8.0,
+      8.0
+    ],
+    [
+      -8.0,
+      -8.0
+    ]
+  ],
+  "technic_top_depth": 10.5,
+  "technic_top_blind": true,
+  "align_nubs": {
+    "NUB_D": 2.2,
+    "NUB_FLAT": 0.0,
+    "NUB_ENGAGE": 0.7,
+    "NUB_BOSS_H": 0.3,
+    "NUB_STUB_H": 0.35,
+    "NUB_DOME_H": 0.35,
+    "SOCK_CLR": 0.18,
+    "SOCK_D": 2.3800000000000003,
+    "SOCK_DEPTH": 0.8999999999999999,
+    "nub_xy_A": [
+      [
+        8.4,
+        9.4
+      ],
+      [
+        -8.4,
+        -9.4
+      ]
+    ],
+    "sock_xy_A": [
+      [
+        8.4,
+        -9.4
+      ],
+      [
+        -8.4,
+        9.4
+      ]
+    ],
+    "alternating_4corner": true,
+    "profile": "stub_plus_dome_flat",
+    "aspect_engage_over_d": 0.3181818181818181,
+    "print_note": "Prefer nubs with Z=build direction (split face on bed) for shear strength"
+  },
+  "align_nubs_inboard": true,
+  "clip_pocket_clean": true,
+  "bearing": {
+    "BRG_POCKET": 12.1,
+    "JOURNAL": 7.88,
+    "brg_seat_z": 29.35,
+    "pocket_method": "cut_cyl",
+    "pocket_h": 4.3,
+    "deck_z0": 28.55
+  },
+  "hub": {
+    "SPLINE_SOCKET": 6.2,
+    "HUB_FLANGE_D": 10.6,
+    "JOURNAL": 7.88,
+    "AXLE_SPAN": 5.0,
+    "AXLE_ARM": 2.0,
+    "FACE_EXTRA": 5.5,
+    "face_z": 39.55,
+    "flange_z0": 26.3,
+    "flange_z1": 28.3,
+    "deck_z0": 28.55,
+    "tower_t": 11.0,
+    "JOURNAL_LEN": 11.249999999999996,
+    "HUB_FLANGE_T": 2.0,
+    "CROSS_DEPTH": 5.5,
+    "hub_height": 13.249999999999996,
+    "spline_depth": 6.0
+  },
+  "buckle": {
+    "style": "flush_square_inward_tooth",
+    "clip_count": 2,
+    "names": [
+      "BuckleClipYP",
+      "BuckleClipYM"
+    ],
+    "slot_half_x": 3.35,
+    "chan_half_x": 2.35,
+    "pocket_floor": 9.55,
+    "rail_y": 2.4499999999999993,
+    "rail_z": 3.0,
+    "lip_y": 2.4499999999999993,
+    "lip_z": 3.0,
+    "wall_to_cavity": 3.000000000000001,
+    "undercut": 0.6,
+    "tooth_inner_y": 8.950000000000001,
+    "tooth_join_y": 11.0,
+    "lead_style": "straight_35_trapezoid",
+    "knurl": {
+      "width": 0.8,
+      "proud": 0.4,
+      "faces": [
+        "min_z",
+        "max_z"
+      ],
+      "along": "x"
+    },
+    "arm_t": 1.2,
+    "hook_z": 2.2,
+    "z_interf": 0.5,
+    "lead_angle_deg": 35.0,
+    "lead_y": 0.9997036047194802,
+    "lead_z": 0.7,
+    "root_r": 0.0,
+    "clip_xw": 4.2,
+    "shoe_x": 6.0,
+    "hook_tip_y": 9.73,
+    "bite_top_y": 8.950000000000001,
+    "arm_inner_y": 10.8,
+    "hook_outer_y": 12.0,
+    "A_catch_z": 17.0,
+    "B_catch_z": 24.2,
+    "B_lip_z1": 27.2,
+    "A_pocket_z": [
+      14.9,
+      17.0
+    ],
+    "B_pocket_z": [
+      19.92,
+      24.2
+    ],
+    "A_chan_z": [
+      16.94,
+      20.08
+    ],
+    "A_hook_z": [
+      15.3,
+      17.5
+    ],
+    "B_hook_z": [
+      22.5,
+      24.7
+    ],
+    "min_section_mm": 1.2,
+    "clip_span_z": 9.399999999999999,
+    "spine_t": 1.2,
+    "spine_outer_y": 12.0,
+    "chan_floor": 9.55,
+    "stock_wall_y": 2.4499999999999993,
+    "hook_tip_clearance": 0.17999999999999972,
+    "slot_span_x": 6.7,
+    "probes": {
+      "rail_x": 2.675,
+      "lip_y_sample": 9.34,
+      "A_z": 18.5,
+      "B_z": 25.7,
+      "A_z_face": 17.0,
+      "B_z_face": 24.2,
+      "floor": 9.55
+    },
+    "pockets": [
+      [
+        -3.35,
+        9.55,
+        14.9,
+        3.35,
+        12.35,
+        17.0
+      ],
+      [
+        -3.35,
+        -12.35,
+        14.9,
+        3.35,
+        -9.55,
+        17.0
+      ],
+      [
+        -2.35,
+        9.55,
+        16.94,
+        2.35,
+        12.35,
+        20.08
+      ],
+      [
+        -2.35,
+        -12.35,
+        16.94,
+        2.35,
+        -9.55,
+        20.08
+      ],
+      [
+        -3.35,
+        9.55,
+        19.92,
+        3.35,
+        12.35,
+        24.2
+      ],
+      [
+        -3.35,
+        -12.35,
+        19.92,
+        3.35,
+        -9.55,
+        24.2
+      ]
+    ],
+    "print_orientation": "Clips print on their side: the hook profile (model YZ) lies in the printer XY plane; build direction is model X so layer lines run along the beam. Clamshells print Z-up, split horizontal (A: split on the bed; B: Technic face on the bed). B catch is NOT a bridge: the rail is uncut shell outboard of the pocket, so it prints as solid layers before the pocket is opened. The lip is a 2.45 mm step, loaded section 3.0 mm in Z."
+  },
+  "steps": 664,
+  "step_kinds": {
+    "call:sketch_begin": 74,
+    "call:sketch_set_grid_snap": 82,
+    "call:sketch_add_rectangle_locked": 29,
+    "call:sketch_finish": 74,
+    "call:solid_extrude": 50,
+    "let": 143,
+    "call:solid_move_copy": 50,
+    "call:solid_combine": 47,
+    "call:sketch_add_circle_locked": 41,
+    "call:set_body_appearance": 7,
+    "call:solid_hole": 14,
+    "call:construction_plane_offset": 20,
+    "call:solid_loft": 4,
+    "call:sketch_add_line_locked": 20,
+    "call:assembly_create_component": 7,
+    "call:solid_scene": 1,
+    "call:assembly_document": 1
+  },
+  "baseline_v12": 360,
+  "baseline_v12_1": 424,
+  "baseline_v12_2": 456,
+  "baseline_v12_3": 440,
+  "baseline_v12_7": 510,
+  "baseline_v11_2": 724,
+  "FACE_EXTRA": 5.5,
+  "AXLE_SPAN": 5.0,
+  "AXLE_ARM": 2.0
+}

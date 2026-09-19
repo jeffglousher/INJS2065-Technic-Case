@@ -1,0 +1,27 @@
+Lean pack: /workspace/servo-case/v16.8-print.tgz
+Box print dir: /workspace/servo-case/v16.8/print/
+Thunder target: C:\Users\jeffg\Documents\INJS2065\v16.8\print\
+machineId: 4e34e74d-0868-455b-8851-4b5e7ceff85d
+
+Files:
+  ClamshellA.3mf          (native solid_export_3mf definition/orca)
+  ClamshellB.3mf          (native solid_export_3mf definition/orca)
+  OutputHub.3mf           (from multi definition/orca split)
+  BuckleClipYP.3mf        (from multi definition/orca split)
+  BuckleClipYM.3mf        (from multi definition/orca split)
+  INJS2065-v16.8-printed.3mf  (multi, all five)
+  PRINT_NOTES.txt
+
+Review: PASS
+  - audit_v16_8.json overall PASS (open C, detent, wall-to-cavity=3.00)
+  - solid_export_preflight ok=true, timeline_errors=[]
+  - IFC shells↔clips: all interfering=false, overlap_mm3=0 (seated)
+  - printed parts exactly: ClamshellA/B, OutputHub, BuckleClipYP/YM (no Servo/MR128)
+
+Slicer: Orca Slicer preferred (3MF slicer_target=orca_slicer); else Bambu Studio / PrusaSlicer
+Orient: clips on side build//X; shells Z-up split on bed; PETG; detent ride ~0.12 mm
+DO NOT click Print / Send / Start.
+
+THUNDER STATUS (this executor): Shell.machineId / ListMachines / CopyToBox NOT available
+(same limitation as v12.7–v14 notes). Parent must copy pack → Thunder, launch slicer,
+open clip 3MFs, screenshot staged plate.

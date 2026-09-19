@@ -1,0 +1,184 @@
+{
+  "version": "v16.8",
+  "session_id": "c1eaa786-7d76-4cd5-8dc5-cb3c9112b27d",
+  "document_id": "320c97b5-fda0-4d0c-aa01-4969e93f91d7",
+  "overall": "PASS",
+  "notes": [
+    "NEW blank doc (was Untitled gen=1); did not overwrite 03c54bf6\u2026 or b29881db\u2026",
+    "Open C silhouette retained; soft detent bumps on leg insert faces + shallow channel seats",
+    "Slide tightened vs v16.7 0.20/0.20 \u2192 0.08 Y total / 0.10 Z total (0.05/end)"
+  ],
+  "geometry": {
+    "style": "OPEN_C",
+    "closed_frame": false,
+    "parts": [
+      "BuckleClipYP",
+      "BuckleClipYM"
+    ],
+    "CLIP_XW": 4.2,
+    "c_wall": 1.4,
+    "spine_inner_y": 10.6,
+    "c_outer_y": [
+      9.63,
+      12.0
+    ],
+    "c_outer_z": [
+      14.05,
+      26.45
+    ],
+    "measured_body45_BuckleClipYP": {
+      "X": [
+        -2.1,
+        2.1
+      ],
+      "Y": [
+        9.43,
+        12.0
+      ],
+      "Z": [
+        14.05,
+        26.45
+      ],
+      "faces": 16,
+      "edges": 36,
+      "note": "Ymin 9.43 = FRAME_Y_INNER 9.63 \u2212 DETENT_PROUD 0.20 (bump tip)"
+    },
+    "topology": "open C: unique Y\u2248[9.43 detent tip, 9.63 clamp, 10.6 spineInner, 12.0 outer]; legs at Z ends; mid-span spine only; no closed window",
+    "detents": true,
+    "detent": {
+      "proud_mm": 0.2,
+      "diameter_mm": 1.2,
+      "axis": "X (round YZ lead)",
+      "z_centers": [
+        14.75,
+        25.75
+      ],
+      "seat_diameter_mm": 1.3,
+      "seat_depth_mm": 0.18,
+      "ride_interference_vs_flat_floor_mm": 0.12,
+      "seated_tip_to_seat_clearance_mm": 0.058,
+      "role": "retention only; not load-bearing; kid-soft"
+    },
+    "barbs": 0,
+    "knurl": 0,
+    "hooks": 0
+  },
+  "fit_gdt": [
+    {
+      "item": "Channel Y floor\u2192outer",
+      "channel": "[9.55,12.00] depth 2.45",
+      "C": "[9.63,12.00] depth 2.37 (excl. detent tip)",
+      "role": "envelope+clr",
+      "pass": true
+    },
+    {
+      "item": "Channel Z",
+      "channel": "[14.00,26.50]",
+      "C": "[14.05,26.45]",
+      "role": "slide Z",
+      "pass": true
+    },
+    {
+      "item": "Slide clearance Y total (clamp/floor)",
+      "target": "0.05\u20130.10 (PETG locate/slip)",
+      "measured": 0.08,
+      "v16_7_was": 0.2,
+      "role": "clearance/locate not press; channel only as big as needed",
+      "pass": true
+    },
+    {
+      "item": "Slide clearance Z total (ends)",
+      "target": "~0.05\u20130.10 tightened vs v16.7",
+      "measured": 0.1,
+      "per_end": 0.05,
+      "v16_7_was": "0.20 total / 0.10 per end",
+      "role": "clearance",
+      "pass": true
+    },
+    {
+      "item": "Wall-to-cavity @ pocket floor",
+      "target": ">=3.00",
+      "measured": 3.0,
+      "cav_y": 6.55,
+      "floor": 9.55,
+      "pass": true
+    },
+    {
+      "item": "Lip/rail Y",
+      "target": ">=2.40",
+      "measured": 2.45,
+      "pass": true
+    },
+    {
+      "item": "Open C still open",
+      "target": "no closed frame / window",
+      "measured": "open mouth toward cavity; spine+2 legs only",
+      "pass": true
+    },
+    {
+      "item": "Manifold / feature errors",
+      "target": "0 feature errors",
+      "measured": 0,
+      "bodies": 7,
+      "pass": true
+    }
+  ],
+  "ifc": {
+    "method": "assembly/inspect assembly_interference_check clearance_threshold_mm=0.05",
+    "seated_pose": {
+      "volumetric_interferences": 0,
+      "clip_vs_shell": [
+        {
+          "pair": "ClamshellA\u2013BuckleClipYP",
+          "interfering": false,
+          "overlap_mm3": 0.0,
+          "min_clearance_mm": 0.05,
+          "note": "Z-end slip 0.05"
+        },
+        {
+          "pair": "ClamshellA\u2013BuckleClipYM",
+          "interfering": false,
+          "overlap_mm3": 0.0,
+          "min_clearance_mm": 0.05
+        },
+        {
+          "pair": "ClamshellB\u2013BuckleClipYP",
+          "interfering": false,
+          "overlap_mm3": 0.0,
+          "min_clearance_mm": 0.05
+        },
+        {
+          "pair": "ClamshellB\u2013BuckleClipYM",
+          "interfering": false,
+          "overlap_mm3": 0.0,
+          "min_clearance_mm": 0.05
+        }
+      ],
+      "detent_note": "At seated pose, bump nests in shallow seat: tip Y=9.43 vs seat deepest Y=9.372 \u2192 ~0.058 mm clearance; IFC overlap_volume=0 (no intentional seated solid clash). During Z-slide past flat floor before seat, design ride interference \u22480.12 mm (DETENT_PROUD\u2212SLIDE_CLR_Y) \u2014 soft PETG flex, retention only."
+    },
+    "honest_summary": "PASS \u2014 no seated volumetric IFC; detent is near-touch in seat (~0.06 clr) with intentional soft ride interference only during insertion"
+  },
+  "shots": [
+    "shots/retainer-side.png \u2014 alone +Y C, side along X (open C silhouette + detent bumps on leg tips)",
+    "shots/retainer-iso.png \u2014 alone +Y C isometric (detents visible)",
+    "shots/retainer-in-shell.png \u2014 A+B+both clips isometric",
+    "shots/retainer-in-shell-side.png \u2014 A+B+clips side",
+    "shots/retainer-detent-closeup.png \u2014 live x11grab crop of bottom-leg insert-face bump"
+  ],
+  "display": {
+    "windowsize": "1200x720",
+    "capture": "ffmpeg x11grab :1.0+20,20",
+    "session": "c1eaa786-7d76-4cd5-8dc5-cb3c9112b27d"
+  },
+  "pass_fail": {
+    "tighten_slide_0_05_to_0_10": "PASS (Y=0.08, Z=0.10)",
+    "soft_detent_retention_only": "PASS (proud=0.20, seatDepth=0.18, no barbs/hooks)",
+    "open_C_silhouette": "PASS",
+    "exactly_2_clips_YP_YM": "PASS",
+    "side_print_CLIP_XW": "PASS (4.2)",
+    "wall_to_cavity_ge_3": "PASS (3.00)",
+    "manifold_zero_feature_errors": "PASS",
+    "ifc_honest": "PASS (0 seated overlap; detent near-touch in seat)",
+    "overall": "PASS"
+  }
+}

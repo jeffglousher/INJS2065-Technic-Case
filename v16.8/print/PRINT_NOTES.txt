@@ -1,0 +1,30 @@
+INJS2065 Technic Clamshell Case — v16.8 print notes
+=====================================================
+Session: c1eaa786-7d76-4cd5-8dc5-cb3c9112b27d
+Document: 320c97b5-fda0-4d0c-aa01-4969e93f91d7
+Export: solid_export_3mf scope=definition slicer_target=orca_slicer
+Printed parts only (no Servo / MR128 proxies):
+  ClamshellA.3mf  ClamshellB.3mf  OutputHub.3mf
+  BuckleClipYP.3mf  BuckleClipYM.3mf
+  Optional plate: INJS2065-v16.8-printed.3mf (all five)
+
+Orientation
+-----------
+- Buckle clips: print on SIDE; build direction // X (CLIP_XW = 4.2 mm thickness on bed height).
+- Clamshells: Z-up, split face on the bed (A and B halves flat).
+- OutputHub: as exported (definition coords); flat stable face on bed preferred.
+
+Material
+--------
+PETG preferred (detent flex / retention soft ride).
+
+Fit / detent
+------------
+- Soft detent ride interference vs flat channel floor ≈ 0.12 mm (PETG flex, retention only).
+- Seated tip-to-seat clearance ≈ 0.06 mm (no intentional seated solid clash).
+- Slide clearance: Y total 0.08 mm, Z total 0.10 mm (0.05/end).
+- Wall-to-cavity @ pocket floor = 3.00 mm (≥3).
+
+DO NOT START PRINT
+------------------
+Stage plate / orient only. Do NOT click Print / Send / Start.

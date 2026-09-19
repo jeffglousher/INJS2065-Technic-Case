@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.tgz
+*.tar.gz
+replay-live/
+step/
+drawings/
+orca-staged.png
+orca-window.png
+*.stl
+.DS_Store
+Thumbs.db
