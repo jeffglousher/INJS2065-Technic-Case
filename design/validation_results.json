@@ -1,6 +1,6 @@
 {
-  "status": "v16.31 numeric PASS; hub strengthen + clip visual mass on split_z; JSONC regenerated; live CAD MCP not connected on this box",
-  "revision": "v16.31",
+  "status": "v16.32 JSONC tip; strength dome apex into solid (identity rot); live CAD MCP not connected on this box",
+  "revision": "v16.32",
   "fdm": {
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
@@ -114,11 +114,12 @@
       "pass": true
     },
     {
-      "name": "jsonc_regenerated_from_gen_v16_31",
-      "pass": true
+      "name": "jsonc_sot_design_v16_32_dome_into_solid",
+      "pass": true,
+      "detail": "horn_dome_flip identity [0,0,0,1] @ z=spline_depth; apex +Z into solid"
     }
   ],
-  "schematic": "design/shots/v16.31-hub-section-schematic.png",
+  "schematic": "design/shots/v16.32-hub-dome-into-solid-schematic.png",
   "thunder_machineId": "4e34e74d-0868-455b-8851-4b5e7ceff85d",
   "steps": 831
 }

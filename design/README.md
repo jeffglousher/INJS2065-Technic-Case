@@ -1,4 +1,4 @@
-# INJS2065 v16.31 — OutputHub strengthen + clip visual mass on split_z
+# INJS2065 v16.32 — strength dome into solid + clip visual mass on split_z
 
 Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25, shell_z0 8). Assembly remains **one-direction into upper_cover** (v16.25). Journal **Ø7.90** into BRG_ID 8.0. Friction open-C clips (no snaps).
 
@@ -7,9 +7,9 @@ Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25
 ### A) Clip visual centering
 Numeric v16.30 already had `clip_z_center == split_z == 18.25`, but Jeff’s live front photo (Design History ~298, proportions matching **v16.29**) showed the clip mid at ~20.25 → **+2 mm into upper/green**. Root cause: **stale JSONC / stale live replay**, not the v16.30 math.
 
-v16.31:
+v16.32:
 1. Confirms HEAD `gen_meta` clip mid == `split_z`.
-2. Regenerates JSONC from `gen_v16_31.py` (SoT) so disk matches.
+2. Tip SoT is versioned JSONC `design_v16_32.nbcad.jsonc` (edit directly; no Python generator).
 3. Places **3 cross-bars** with visual-mass centroid on `split_z` (middle rung straddles the green/blue line).
 4. Meta note for parent live replay: **equal clip height above/below split_z** in front view.
 
@@ -17,12 +17,12 @@ v16.31:
 Printed hub shed thin rings / spaghetti. Changes:
 1. **Larger servo mate** — flange Ø11.2→**Ø12.0**, T 2.0→**2.8**.
 2. **More solid column** — constant OD Ø12.0 from flange through column to bearing inner stop; horn wall **2.58→2.98 mm**.
-3. **Small dome** at blind end of horn socket (H=1.0, not flat).
+3. **Strength dome** at blind end of horn socket (H=1.0): base on floor, **apex into solid (+Z)** — not a bump into the cavity (v16.31 had QX180 wrong-way).
 4. Supports left to Jeff; structure first.
 
 ## Hub before / after
 
-| Dim | v16.30 | v16.31 |
+| Dim | v16.30 | v16.32 |
 |-----|--------|--------|
 | Flange D | 11.2 | **12.0** |
 | Flange T | 2.0 | **2.8** |
@@ -33,7 +33,7 @@ Printed hub shed thin rings / spaghetti. Changes:
 | Journal | 7.90 | 7.90 |
 | Spline depth | ~3.9 | ~3.9 |
 
-Schematic: `design/shots/v16.31-hub-section-schematic.png`
+Schematic: `design/shots/v16.32-hub-section-schematic.png`
 
 ## Clip Z (unchanged datum, regenerated + visual mass)
 
@@ -44,7 +44,7 @@ Schematic: `design/shots/v16.31-hub-section-schematic.png`
 | Engage A/B | 3.8 / 7.8 | **5.8 / 5.8** |
 | Cross-bars | 0 | **3** (mass on split_z) |
 
-**Expected front view (parent live):** equal clip height above/below the green/blue split line. If Design History ≈298 or mid sits in green, reload this JSONC.
+**Expected front view (parent live):** equal clip height above/below the green/blue split line. If Design History ≈298 or mid sits in green, reload `design_v16_32.nbcad.jsonc`.
 
 ## Assembly (mandatory)
 
@@ -54,10 +54,9 @@ Schematic: `design/shots/v16.31-hub-section-schematic.png`
 4. Lower clam over servo.
 5. Open-C clips last.
 
-## Generator
+## Source of truth (JSONC)
 
-```bash
-python3 design/gen_v16_31.py
-```
-
-Writes `injs2065-technic-clamshell.nbcad.jsonc` + `gen_meta.json`. Live CAD MCP not on this box — parent replays on Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`.
+- **Canonical:** `design/design_v16_32.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.32`).
+- **Deprecated:** `gen_v*.py` — deleted; do not recreate as SoT.
+- Live CAD MCP not on the box mirror — parent replays on Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`.

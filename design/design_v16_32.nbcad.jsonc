@@ -1,12 +1,12 @@
-// INJS2065 v16.31: PETG 0.4/0.2; hub strengthen (flange D12.0 T2.8 + dome); clip mid==split_z + 3 cross-bars; journal 7.90.
+// INJS2065 v16.32: PETG 0.4/0.2; hub strengthen; strength dome apex INTO solid (+Z), not into cavity.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
-// Journal D=7.9; horn socket D=6.05; flange T=2.8 constant OD D=12.0; horn dome H=1.0.
+// Journal D=7.9; horn socket D=6.05; flange T=2.8 constant OD D=12.0; horn dome H=1.0 (base @ spline_depth, identity rot).
 // Axle cross 4.85 x 1.85; clips 7.5 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.31 hub strengthen + clip visual mass",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.32 strength dome into solid + clip visual mass",
   "starting_state": "empty",
   "steps": [
     {
@@ -12163,10 +12163,10 @@
             "z": 0
           },
           "rotation": [
-            1.0,
             0.0,
             0.0,
-            0.0
+            0.0,
+            1.0
           ],
           "copy": false
         }

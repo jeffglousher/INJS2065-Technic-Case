@@ -1,6 +1,6 @@
 {
-  "version": "16.31",
-  "architecture": "clamshell_v16_31_hub_strengthen_clip_visual_mass",
+  "version": "16.32",
+  "architecture": "clamshell_v16_32_strength_dome_into_solid",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -196,10 +196,12 @@
     "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
     "spline_depth": 3.8999999999999995,
-    "servo_ledge": "v16.31 thicker/wider flange parks on servo; OD constant through column to inner stop; dome at horn blind end",
+    "servo_ledge": "v16.32 thicker/wider flange parks on servo; OD constant through column to inner stop; strength dome at horn blind end \u2014 apex into solid (+Z), not into cavity",
     "horn_dome_h": 1.0,
     "horn_dome_r": 2.8249999999999997,
-    "horn_wall_mm": 2.975
+    "horn_wall_mm": 2.975,
+    "horn_dome_orientation": "identity_rot_base_at_spline_depth_apex_plusZ_into_solid",
+    "horn_dome_note": "v16.32: loft sphere-cap base on blind floor (z=spline_depth\u22483.9); rotation identity [0,0,0,1] (was QX180). Apex extends +Z into column \u2014 thicker arched floor into solid, not a bump into the horn socket."
   },
   "buckle": {
     "style": "open_c_over_central_land",
@@ -354,7 +356,7 @@
     "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm."
   },
   "revision_notes": {
-    "revision": "v16.31",
+    "revision": "v16.32",
     "material": "PETG",
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
@@ -383,9 +385,28 @@
       "constant_od": true,
       "JOURNAL": 7.9
     },
-    "hub_strengthen_note": "Larger/thicker servo flange; constant OD column to bearing inner stop; thicker horn walls; small dome at blind horn end; journal 7.90 kept.",
+    "hub_strengthen_note": "Larger/thicker servo flange; constant OD column to bearing inner stop; thicker horn walls; strength dome at blind horn end with apex into solid (+Z); journal 7.90 kept.",
     "assembly_mode": "one_direction_into_upper",
-    "jsonc_sot": "injs2065-technic-clamshell.nbcad.jsonc regenerated from gen_v16_31.py"
+    "jsonc_sot": "design_v16_32.nbcad.jsonc (JSONC-first; no gen_v*.py)",
+    "horn_dome_flip": {
+      "was": "QX180 [1,0,0,0] @ z=spline_depth \u2192 apex into cavity (\u2212Z)",
+      "now": "identity [0,0,0,1] @ z=spline_depth \u2192 base on floor, apex into solid (+Z)",
+      "why": "strength: thicker arched floor into column, not bump into horn socket"
+    },
+    "hub_after_v16_32": {
+      "HUB_FLANGE_D": 12.0,
+      "HUB_FLANGE_T": 2.8,
+      "HUB_COLUMN_D": 12.0,
+      "horn_wall_mm": 2.975,
+      "CROSS_DEPTH": 8.0,
+      "horn_dome_h": 1.0,
+      "horn_dome_r": 2.8249999999999997,
+      "spline_depth": 3.8999999999999995,
+      "constant_od": true,
+      "JOURNAL": 7.9,
+      "horn_dome_orientation": "apex_into_solid"
+    },
+    "schematic": "design/shots/v16.32-hub-dome-into-solid-schematic.png"
   },
   "steps": 831,
   "step_kinds": {
