@@ -1,18 +1,13 @@
-# Session handover — resume at v16.25 (2026-09-20)
-
-## Process
-See [AGENTIC.md](./AGENTIC.md).
+# Session handover — resume at v16.29 (2026-09-20)
 
 ## Current
-- Source of truth: `design/` at **v16.25** (`gen_v16_25.py` + JSONC).
-- Repo branch: `cad-bot/v16.23-current`.
-- Assembly: **one-direction into upper_cover** (ClamshellB). Jeff rejected v16.24 both-halves-around.
+- Source of truth: `design/` at **v16.29** (`gen_v16_29.py` + JSONC + `gen_meta.json`).
+- Branch: `cad-bot/v16.23-current`.
+- Fix: clip centered **vertically (Z)** in clamshell slot (not X). Wider CLIP_XW=7.40, shorter span Z=11.60, X press 0.08 total.
 
 ## Pending
-1. Live CAD JSONC replay + true mesh IFC on Thunder (MCP was disconnected this session).
-2. Write `design/INJS2065-v16.25.nbcad` from live save after replay.
-3. Physical PETG fit / pin grip / axial load.
-4. Jeff confirm blind side Technic 8.2 mm vs through (through would open into hub cavity).
+1. Live CAD reload + viewport shots on Thunder (`machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`).
+2. Physical PETG fit of wider/shorter clip press.
 
 ## Next
-Pull branch on Thunder → blank-doc script replay of `design/injs2065-technic-clamshell.nbcad.jsonc` → save `.nbcad` → viewport section shots.
+Pull branch on Thunder → replay `design/injs2065-technic-clamshell.nbcad.jsonc` → screenshot clip vs pocket Z.

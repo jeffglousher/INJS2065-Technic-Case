@@ -2,7 +2,7 @@
 
 Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 
-**Current revision: v16.25** — one-direction assembly into **upper_cover** (ClamshellB). See `design/`.
+**Current revision: v16.29** — one-direction assembly into **upper_cover** (ClamshellB). See `design/` (v16.29: clip Z-centered in clamshell slot; wider+shorter open-C).
 
 | Path | What |
 |------|------|
@@ -15,4 +15,4 @@ Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 ## Workflow
 - Edit under `design/` only.
 - Versions = **git commits / PRs**, not `v16.N` folders.
-- Generator `design/gen_v16_25.py` → `injs2065-technic-clamshell.nbcad.jsonc` + `gen_meta.json` (JSONC is SoT for replay).
+- Generator `design/gen_v16_29.py` → `injs2065-technic-clamshell.nbcad.jsonc` + `gen_meta.json` (JSONC is SoT for replay).

@@ -1,58 +1,92 @@
 {
-  "status": "v16.28 numeric PASS; journal diametral clr 0.10 into BRG_ID; clip X equal press 0.03/side centered; nest BODY_CLR/TAB_Z_CLR bumped; live CAD MCP not connected on this box",
-  "revision": "v16.28",
-  "fdm": {"nozzle_mm": 0.4, "layer_mm": 0.2, "material": "PETG"},
+  "status": "v16.29 numeric PASS; clip Z center == slot Z center; wider+shorter open-C; tight X press kept; live CAD MCP not connected on this box",
+  "revision": "v16.29",
+  "fdm": {
+    "nozzle_mm": 0.4,
+    "layer_mm": 0.2,
+    "material": "PETG"
+  },
+  "clarification": "Center 50/50 in clamshell slot = VERTICAL (Z) along mating face, NOT side-to-side X. v16.27 X-centering was wrong axis.",
   "checks": [
+    {
+      "name": "clip_z_center_matches_slot",
+      "pass": true,
+      "detail": {
+        "clip_zc": 20.25,
+        "slot_zc": 20.25,
+        "tol_mm": 0.05,
+        "delta_mm": 0.0
+      }
+    },
+    {
+      "name": "equal_z_gaps_above_below",
+      "pass": true,
+      "detail": {
+        "gap_below": 0.45,
+        "gap_above": 0.45
+      }
+    },
+    {
+      "name": "clip_wider_than_v16_28",
+      "pass": true,
+      "detail": {
+        "before_xw": 7.2,
+        "after_xw": 7.4
+      }
+    },
+    {
+      "name": "clip_shorter_than_v16_28",
+      "pass": true,
+      "detail": {
+        "before_span_z": 12.4,
+        "after_span_z": 11.6
+      }
+    },
+    {
+      "name": "tight_x_press_preserved",
+      "pass": true,
+      "detail": {
+        "interf_each_mm": 0.04,
+        "interf_total_mm": 0.08,
+        "preferred_total_band": [
+          0.04,
+          0.1
+        ],
+        "side_gaps_x": [
+          -0.04,
+          -0.04
+        ]
+      }
+    },
     {
       "name": "journal_clearance_into_brg_id",
       "pass": true,
       "detail": {
         "JOURNAL": 7.9,
         "BRG_ID": 8.0,
-        "diametral_clearance_mm": 0.1,
-        "radial_clearance_mm": 0.05,
-        "note": "diametral = ID-OD; radial = diametral/2"
+        "diametral_clearance_mm": 0.1
       }
     },
     {
-      "name": "clip_x_center_matches_pocket",
-      "pass": true,
-      "detail": {"clip_xc": 0.0, "pocket_xc": 0.0, "tol_mm": 0.05}
-    },
-    {
-      "name": "equal_side_x_interference",
-      "pass": true,
-      "detail": {
-        "interf_each_mm": 0.03,
-        "interf_total_mm": 0.06,
-        "side_gaps_x": [-0.03, -0.03],
-        "note": "negative gap = interference (clip wider than pocket)",
-        "clip_x_bounds": [-3.6, 3.6],
-        "pocket_x_bounds": [-3.57, 3.57]
-      }
-    },
-    {
-      "name": "servo_nest_fdm_clearances",
+      "name": "nest_clearances_kept",
       "pass": true,
       "detail": {
         "BODY_CLR": 0.18,
-        "TAB_CLR": 0.15,
         "TAB_Z_CLR": 0.18,
-        "cav_y": [-6.68, 6.68],
-        "NEST_Y": 6.65,
-        "ear_z_span": [16.82, 19.68],
-        "WALL_TO_CAV": 2.32
+        "TAB_CLR": 0.15
+      }
+    },
+    {
+      "name": "hub_od_constant",
+      "pass": true,
+      "detail": {
+        "HUB_COLUMN_D": 11.2
       }
     },
     {
       "name": "open_c_friction_only",
       "pass": true,
-      "detail": "no new snaps; X press + Y clamp"
-    },
-    {
-      "name": "hub_od_constant_to_servo_step",
-      "pass": true,
-      "detail": {"HUB_COLUMN_D": 11.2, "HUB_FLANGE_D": 11.2}
+      "detail": "no new snaps"
     },
     {
       "name": "assembly_mode_one_direction",
@@ -60,37 +94,50 @@
       "detail": "one_direction_into_upper"
     },
     {
-      "name": "bearing_insertion_upper_from_split",
-      "pass": true,
-      "detail": "upper_from_split"
-    },
-    {
       "name": "mcp_ifc",
       "pass": false,
-      "detail": "user-nobs-cad not connected; numeric validation only"
+      "detail": "user-nobs-cad not connected; numeric validation only \u2014 parent screenshot on Thunder"
     }
   ],
-  "before_v16_27": {
-    "JOURNAL": 8.02,
-    "journal_diametral_vs_brg_id_mm": -0.02,
-    "clip_x_bounds": [-3.6, 3.6],
-    "pocket_x_bounds": [-3.7, 3.7],
-    "side_gaps_x": [0.1, 0.1],
-    "BODY_CLR": 0.05,
-    "TAB_CLR": 0.12,
-    "TAB_Z_CLR": 0.03
+  "before_v16_28": {
+    "clip_z_bounds": [
+      14.05,
+      26.45
+    ],
+    "slot_z_bounds": [
+      14.0,
+      26.5
+    ],
+    "clip_z_center": 20.25,
+    "slot_z_center": 20.25,
+    "z_gaps_below_above": [
+      0.05,
+      0.05
+    ],
+    "clip_span_z": 12.4,
+    "clip_xw": 7.2,
+    "x_interf_each": 0.03,
+    "x_interf_total": 0.06
   },
-  "after_v16_28": {
-    "JOURNAL": 7.9,
-    "journal_diametral_clearance_mm": 0.1,
-    "journal_radial_clearance_mm": 0.05,
-    "clip_x_bounds": [-3.6, 3.6],
-    "pocket_x_bounds": [-3.57, 3.57],
-    "side_gaps_x": [-0.03, -0.03],
-    "clip_x_interference_total_mm": 0.06,
-    "BODY_CLR": 0.18,
-    "TAB_CLR": 0.15,
-    "TAB_Z_CLR": 0.18
+  "after_v16_29": {
+    "clip_z_bounds": [
+      14.45,
+      26.05
+    ],
+    "slot_z_bounds": [
+      14.0,
+      26.5
+    ],
+    "clip_z_center": 20.25,
+    "slot_z_center": 20.25,
+    "z_gaps_below_above": [
+      0.45,
+      0.45
+    ],
+    "clip_span_z": 11.6,
+    "clip_xw": 7.4,
+    "x_interf_each": 0.04,
+    "x_interf_total": 0.08
   },
   "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
   "assembly_mode": "one_direction_into_upper",

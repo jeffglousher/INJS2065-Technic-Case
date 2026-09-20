@@ -1,12 +1,12 @@
-// INJS2065 v16.28: PETG 0.4 nozzle / 0.2 layer; journal clr into BRG_ID; tight X clip press; nest Z clr.
+// INJS2065 v16.29: PETG 0.4 nozzle / 0.2 layer; clip Z-centered in slot; wider/shorter open-C; tight X press; journal 7.90.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
 // Journal D=7.9; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
-// Axle cross 4.85 x 1.85; clips 7.2 wide over retained shell lands.
+// Axle cross 4.85 x 1.85; clips 7.4 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.28 FDM GD&T fits",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.29 clip Z-center wider/shorter",
   "starting_state": "empty",
   "steps": [
     {
@@ -1670,14 +1670,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": 12.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -1839,14 +1839,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": -10.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -2008,14 +2008,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": 12.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2052,7 +2052,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.700000000000001
+            "distance": 2.1000000000000014
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -2177,14 +2177,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": -9.0
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2221,7 +2221,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.700000000000001
+            "distance": 2.1000000000000014
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8106,14 +8106,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": 12.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8275,14 +8275,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": -10.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8444,14 +8444,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": 12.35
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8488,7 +8488,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.7000000000000028
+            "distance": 2.1000000000000014
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8543,7 +8543,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 24.799999999999997
+            "z": 24.4
           },
           "pivot": {
             "x": 0,
@@ -8613,14 +8613,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.5700000000000003,
+            "x": -3.66,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.5700000000000003,
+            "x": 3.66,
             "y": -9.0
           },
-          "width_mm": 7.140000000000001,
+          "width_mm": 7.32,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8657,7 +8657,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.7000000000000028
+            "distance": 2.1000000000000014
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8712,7 +8712,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 24.799999999999997
+            "z": 24.4
           },
           "pivot": {
             "x": 0,
@@ -12060,14 +12060,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.6,
+            "x": -3.7,
             "y": 9.05
           },
           "corner_hint": {
-            "x": 3.6,
+            "x": 3.7,
             "y": 12.0
           },
-          "width_mm": 7.2,
+          "width_mm": 7.4,
           "height_mm": 2.9499999999999993,
           "ctrl_held": true
         }
@@ -12104,7 +12104,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 12.399999999999999
+            "distance": 11.600000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12159,7 +12159,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.05
+            "z": 14.45
           },
           "pivot": {
             "x": 0,
@@ -12208,14 +12208,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.65,
+            "x": -3.75,
             "y": 8.55
           },
           "corner_hint": {
-            "x": 3.65,
+            "x": 3.75,
             "y": 10.4
           },
-          "width_mm": 7.3,
+          "width_mm": 7.5,
           "height_mm": 1.8499999999999996,
           "ctrl_held": true
         }
@@ -12252,7 +12252,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 9.2
+            "distance": 8.400000000000002
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12307,7 +12307,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 15.65
+            "z": 16.05
           },
           "pivot": {
             "x": 0,
@@ -12400,14 +12400,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.6,
+            "x": -3.7,
             "y": -12.0
           },
           "corner_hint": {
-            "x": 3.6,
+            "x": 3.7,
             "y": -9.05
           },
-          "width_mm": 7.2,
+          "width_mm": 7.4,
           "height_mm": 2.9499999999999993,
           "ctrl_held": true
         }
@@ -12444,7 +12444,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 12.399999999999999
+            "distance": 11.600000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12499,7 +12499,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.05
+            "z": 14.45
           },
           "pivot": {
             "x": 0,
@@ -12548,14 +12548,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.65,
+            "x": -3.75,
             "y": -10.4
           },
           "corner_hint": {
-            "x": 3.65,
+            "x": 3.75,
             "y": -8.55
           },
-          "width_mm": 7.3,
+          "width_mm": 7.5,
           "height_mm": 1.8499999999999996,
           "ctrl_held": true
         }
@@ -12592,7 +12592,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 9.2
+            "distance": 8.400000000000002
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12647,7 +12647,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 15.65
+            "z": 16.05
           },
           "pivot": {
             "x": 0,
