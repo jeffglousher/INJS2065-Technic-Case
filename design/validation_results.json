@@ -1,45 +1,101 @@
 {
-  "status": "v16.29 numeric PASS; clip Z center == slot Z center; wider+shorter open-C; tight X press kept; live CAD MCP not connected on this box",
-  "revision": "v16.29",
+  "status": "v16.30 numeric PASS; clip Z center == split_z; equal A/B engagement; wider open-C + 2 cross-bars; tight X press kept; live CAD MCP not connected on this box",
+  "revision": "v16.30",
   "fdm": {
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
     "material": "PETG"
   },
-  "clarification": "Center 50/50 in clamshell slot = VERTICAL (Z) along mating face, NOT side-to-side X. v16.27 X-centering was wrong axis.",
+  "clarification": "Clip Z datum = split_z (clamshell division / A/B mating plane), NOT mid of full pocket Z span. v16.29 mid-slot (~20.25) was wrong datum.",
+  "before_after": {
+    "split_z": {
+      "v16.29": 18.25,
+      "v16.30": 18.25
+    },
+    "clip_z_bounds": {
+      "v16.29": [
+        14.45,
+        26.05
+      ],
+      "v16.30": [
+        12.45,
+        24.05
+      ]
+    },
+    "clip_z_center": {
+      "v16.29": 20.25,
+      "v16.30": 18.25
+    },
+    "clip_vs_split_delta_mm": {
+      "v16.29": 2.0,
+      "v16.30": 0.0
+    },
+    "engage_a_b_mm": {
+      "v16.29": [
+        3.8,
+        7.8
+      ],
+      "v16.30": [
+        5.8,
+        5.8
+      ]
+    },
+    "clip_xw": {
+      "v16.29": 7.4,
+      "v16.30": 7.5
+    },
+    "cross_member_count": {
+      "v16.29": 0,
+      "v16.30": 2
+    },
+    "chan_z": {
+      "v16.29": [
+        14.0,
+        26.5
+      ],
+      "v16.30": [
+        12.0,
+        26.5
+      ]
+    },
+    "x_interf_total_mm": {
+      "v16.29": 0.08,
+      "v16.30": 0.08
+    }
+  },
   "checks": [
     {
-      "name": "clip_z_center_matches_slot",
+      "name": "clip_z_center_matches_split_z",
       "pass": true,
       "detail": {
-        "clip_zc": 20.25,
-        "slot_zc": 20.25,
+        "clip_zc": 18.25,
+        "split_z": 18.25,
         "tol_mm": 0.05,
         "delta_mm": 0.0
       }
     },
     {
-      "name": "equal_z_gaps_above_below",
+      "name": "equal_ab_engagement_across_split",
       "pass": true,
       "detail": {
-        "gap_below": 0.45,
-        "gap_above": 0.45
+        "engage_a_mm": 5.8,
+        "engage_b_mm": 5.8
       }
     },
     {
-      "name": "clip_wider_than_v16_28",
+      "name": "clip_wider_than_v16_29",
       "pass": true,
       "detail": {
-        "before_xw": 7.2,
-        "after_xw": 7.4
+        "before_xw": 7.4,
+        "after_xw": 7.5
       }
     },
     {
-      "name": "clip_shorter_than_v16_28",
+      "name": "cross_members_present",
       "pass": true,
       "detail": {
-        "before_span_z": 12.4,
-        "after_span_z": 11.6
+        "count": 2,
+        "t_mm": 1.2
       }
     },
     {
@@ -80,67 +136,32 @@
       "name": "hub_od_constant",
       "pass": true,
       "detail": {
-        "HUB_COLUMN_D": 11.2
+        "HUB_COLUMN_D": 11.2,
+        "HUB_FLANGE_D": 11.2
       }
     },
     {
-      "name": "open_c_friction_only",
+      "name": "one_direction_assembly",
       "pass": true,
-      "detail": "no new snaps"
+      "detail": {
+        "mode": "one_direction_into_upper"
+      }
     },
     {
-      "name": "assembly_mode_one_direction",
+      "name": "friction_open_c_no_snaps",
       "pass": true,
-      "detail": "one_direction_into_upper"
-    },
-    {
-      "name": "mcp_ifc",
-      "pass": false,
-      "detail": "user-nobs-cad not connected; numeric validation only \u2014 parent screenshot on Thunder"
+      "detail": {
+        "open_c": true,
+        "detents": false,
+        "barbs": false,
+        "hooks": false
+      }
     }
   ],
-  "before_v16_28": {
-    "clip_z_bounds": [
-      14.05,
-      26.45
-    ],
-    "slot_z_bounds": [
-      14.0,
-      26.5
-    ],
-    "clip_z_center": 20.25,
-    "slot_z_center": 20.25,
-    "z_gaps_below_above": [
-      0.05,
-      0.05
-    ],
-    "clip_span_z": 12.4,
-    "clip_xw": 7.2,
-    "x_interf_each": 0.03,
-    "x_interf_total": 0.06
+  "live_cad": {
+    "connected": false,
+    "thunder_machine_id": "4e34e74d-0868-455b-8851-4b5e7ceff85d",
+    "note": "MCP attach Not connected on this box; parent to reload JSONC on Thunder and send images."
   },
-  "after_v16_29": {
-    "clip_z_bounds": [
-      14.45,
-      26.05
-    ],
-    "slot_z_bounds": [
-      14.0,
-      26.5
-    ],
-    "clip_z_center": 20.25,
-    "slot_z_center": 20.25,
-    "z_gaps_below_above": [
-      0.45,
-      0.45
-    ],
-    "clip_span_z": 11.6,
-    "clip_xw": 7.4,
-    "x_interf_each": 0.04,
-    "x_interf_total": 0.08
-  },
-  "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
-  "assembly_mode": "one_direction_into_upper",
-  "upper_cover": "ClamshellB",
-  "lower_clam": "ClamshellA"
+  "schematic": "design/shots/v16.30-clip-split-z-center-schematic.png"
 }

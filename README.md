@@ -2,7 +2,7 @@
 
 Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 
-**Current revision: v16.29** — one-direction assembly into **upper_cover** (ClamshellB). See `design/` (v16.29: clip Z-centered in clamshell slot; wider+shorter open-C).
+**Current revision: v16.30** — one-direction assembly into **upper_cover** (ClamshellB). See `design/` (v16.30: clip Z-centered on **split_z**; wider open-C + cross-bars).
 
 | Path | What |
 |------|------|

@@ -1,5 +1,5 @@
 {
-  "architecture": "clamshell_v16_29_clip_z_center_wider_shorter",
+  "architecture": "clamshell_v16_30_clip_split_z_center_wider_crossbars",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -204,8 +204,8 @@
       "BuckleClipYP",
       "BuckleClipYM"
     ],
-    "slot_half_x": 3.66,
-    "chan_half_x": 3.66,
+    "slot_half_x": 3.71,
+    "chan_half_x": 3.71,
     "pocket_floor": 9.0,
     "rail_y": 3.0,
     "rail_z": 3.0,
@@ -213,13 +213,13 @@
     "lip_z": 3.0,
     "wall_to_cavity": 2.3200000000000003,
     "slide_clearance_y_total": 0.05,
-    "slide_clearance_z_total": 0.9,
-    "slide_clearance_note": "Y insertion clearance 0.05; Z end clearance equal above/below (clip Z-centered in slot); X equal press 0.04 each side (0.08 total interference); Y-clamp friction primary. Vertical 50/50 is Z, not X.",
+    "slide_clearance_z_total": 2.9,
+    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z (equal A/B engagement); channel end gaps may be unequal; X equal press 0.04 each side (0.08 total interference); Y-clamp friction primary. Datum = split_z, NOT pocket mid.",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
-      14.45,
-      26.05
+      12.45,
+      24.05
     ],
     "c_wall": 1.6,
     "spine_t": 1.6,
@@ -229,14 +229,14 @@
     "c_outer_yz": [
       9.05,
       12.0,
-      14.45,
-      26.05
+      12.45,
+      24.05
     ],
     "c_open_cut_yz": [
       8.55,
       10.4,
-      16.05,
-      24.45
+      14.049999999999999,
+      22.45
     ],
     "detents": false,
     "detent_style": "none_friction_only",
@@ -245,23 +245,23 @@
     "detent_seat_d_mm": 1.3,
     "detent_seat_depth_mm": 0.0,
     "detent_z": [
-      15.25,
-      25.25
+      13.25,
+      23.25
     ],
     "detent_ride_interference_mm": -0.05,
     "detent_note": "No detents; retention is Y-clamp friction of open-C over retained lands plus intentional equal X press.",
     "barbs": false,
     "knurl": false,
     "hooks": false,
-    "clip_xw": 7.4,
+    "clip_xw": 7.5,
     "clip_x_center": 0.0,
     "clip_x_bounds": [
-      -3.7,
-      3.7
+      -3.75,
+      3.75
     ],
     "pocket_x_bounds": [
-      -3.66,
-      3.66
+      -3.71,
+      3.71
     ],
     "slot_x_clearance_each_mm": -0.04,
     "slot_x_interference_each_mm": 0.04,
@@ -275,11 +275,11 @@
     "B_catch_z": 24.2,
     "B_lip_z1": 27.2,
     "chan_z": [
-      14.0,
+      12.0,
       26.5
     ],
     "A_pocket_z": [
-      14.0,
+      12.0,
       18.3
     ],
     "B_pocket_z": [
@@ -288,53 +288,60 @@
     ],
     "clip_span_z": 11.600000000000001,
     "clip_z_bounds": [
-      14.45,
-      26.05
+      12.45,
+      24.05
     ],
     "slot_z_bounds": [
-      14.0,
+      12.0,
       26.5
     ],
-    "clip_z_center": 20.25,
-    "slot_z_center": 20.25,
+    "clip_z_center": 18.25,
+    "slot_z_center": 19.25,
     "clip_z_gaps": [
       0.45,
-      0.45
+      2.45
     ],
-    "clip_z_center_note": "v16.29: mid-clip == mid-slot (Z); equal clearance above/below along mating face. v16.27 X-centering was wrong axis.",
+    "clip_z_center_note": "v16.30: mid-clip == split_z (clamshell division); equal land engagement A/B. v16.29 mid-slot (~20.25) was wrong datum.",
+    "clip_z_datum": "split_z",
+    "clip_engage_a_mm": 5.8,
+    "clip_engage_b_mm": 5.8,
+    "cross_member_count": 2,
+    "cross_member_t_mm": 1.2,
+    "cross_member_fillet_mm": 0.3,
+    "cross_member_note": "Horizontal rungs across open-C cavity (plus spine); FDM side orientation build +X; mouth stays open; no snaps.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
-    "slot_span_x": 7.32,
+    "slot_span_x": 7.42,
     "pockets": [
       [
-        -3.66,
+        -3.71,
         9.0,
-        14.0,
-        3.66,
+        12.0,
+        3.71,
         12.35,
         18.3
       ],
       [
-        -3.66,
+        -3.71,
         -12.35,
-        14.0,
-        3.66,
+        12.0,
+        3.71,
         -9.0,
         18.3
       ],
       [
-        -3.66,
+        -3.71,
         9.0,
         18.2,
-        3.66,
+        3.71,
         12.35,
         26.5
       ],
       [
-        -3.66,
+        -3.71,
         -12.35,
         18.2,
-        3.66,
+        3.71,
         -9.0,
         26.5
       ]
@@ -392,18 +399,24 @@
     "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
     "assembly_mode": "one_direction_into_upper",
     "tab_capture_each_mm": 1.25,
-    "clip_channel_width_mm": 7.32,
+    "clip_channel_width_mm": 7.42,
     "clip_width_interference_total_mm": 0.08000000000000007,
     "clip_x_side_clearance_each_mm": -0.04,
     "clip_x_interference_each_mm": 0.04,
-    "clip_z_centered_in_slot": true,
+    "clip_z_centered_on_split_z": true,
+    "clip_z_datum": "split_z",
     "clip_z_center_tol_mm": 0.05,
-    "clip_wider_than_v16_28": true,
-    "clip_shorter_than_v16_28": true,
-    "clip_xw_v16_28": 7.2,
+    "clip_engage_a_mm": 5.8,
+    "clip_engage_b_mm": 5.8,
+    "clip_wider_than_v16_29": true,
     "clip_xw_v16_29": 7.4,
-    "clip_span_z_v16_28": 12.4,
-    "clip_span_z_v16_29": 11.600000000000001,
+    "clip_xw_v16_30": 7.5,
+    "clip_span_z_v16_29": 11.6,
+    "clip_span_z_v16_30": 11.600000000000001,
+    "cross_member_count": 2,
+    "cross_member_t_mm": 1.2,
+    "chan_z0_v16_29": 14.0,
+    "chan_z0_v16_30": 12.0,
     "journal_vs_brg_id_diametral_clearance_mm": 0.09999999999999964,
     "journal_vs_brg_id_radial_clearance_mm": 0.04999999999999982,
     "journal_fit_note": "JOURNAL OD into BRG_ID: diametral clr = ID-OD; radial = half diametral",
@@ -415,16 +428,16 @@
     "central_land_retained": true,
     "no_detents": true
   },
-  "steps": 738,
+  "steps": 778,
   "step_kinds": {
-    "call:sketch_begin": 83,
-    "call:sketch_set_grid_snap": 98,
-    "call:sketch_add_rectangle_locked": 25,
-    "call:sketch_finish": 83,
-    "call:solid_extrude": 59,
-    "let": 157,
-    "call:solid_move_copy": 63,
-    "call:solid_combine": 56,
+    "call:sketch_begin": 87,
+    "call:sketch_set_grid_snap": 106,
+    "call:sketch_add_rectangle_locked": 29,
+    "call:sketch_finish": 87,
+    "call:solid_extrude": 63,
+    "let": 165,
+    "call:solid_move_copy": 67,
+    "call:solid_combine": 60,
     "call:sketch_add_circle_locked": 58,
     "call:set_body_appearance": 7,
     "call:construction_plane_offset": 20,

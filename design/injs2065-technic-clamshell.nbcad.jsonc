@@ -1,12 +1,12 @@
-// INJS2065 v16.29: PETG 0.4 nozzle / 0.2 layer; clip Z-centered in slot; wider/shorter open-C; tight X press; journal 7.90.
+// INJS2065 v16.30: PETG 0.4 nozzle / 0.2 layer; clip Z-centered on split_z; wider open-C + cross-bars; tight X press; journal 7.90.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
 // Journal D=7.9; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
-// Axle cross 4.85 x 1.85; clips 7.4 wide over retained shell lands.
+// Axle cross 4.85 x 1.85; clips 7.5 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.29 clip Z-center wider/shorter",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.30 clip split_z-center wider cross-bars",
   "starting_state": "empty",
   "steps": [
     {
@@ -1670,14 +1670,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": 12.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -1714,7 +1714,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 4.300000000000001
+            "distance": 6.300000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -1769,7 +1769,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.0
+            "z": 12.0
           },
           "pivot": {
             "x": 0,
@@ -1839,14 +1839,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": -10.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -1883,7 +1883,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 4.300000000000001
+            "distance": 6.300000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -1938,7 +1938,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.0
+            "z": 12.0
           },
           "pivot": {
             "x": 0,
@@ -2008,14 +2008,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": 12.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2052,7 +2052,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.1000000000000014
+            "distance": 2.0999999999999996
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -2107,7 +2107,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.0
+            "z": 12.0
           },
           "pivot": {
             "x": 0,
@@ -2177,14 +2177,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": -9.0
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2221,7 +2221,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.1000000000000014
+            "distance": 2.0999999999999996
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -2276,7 +2276,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.0
+            "z": 12.0
           },
           "pivot": {
             "x": 0,
@@ -8106,14 +8106,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": 12.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8275,14 +8275,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": -10.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8444,14 +8444,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": 12.35
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8488,7 +8488,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.1000000000000014
+            "distance": 4.100000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8543,7 +8543,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 24.4
+            "z": 22.4
           },
           "pivot": {
             "x": 0,
@@ -8613,14 +8613,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.66,
+            "x": -3.71,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.66,
+            "x": 3.71,
             "y": -9.0
           },
-          "width_mm": 7.32,
+          "width_mm": 7.42,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8657,7 +8657,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.1000000000000014
+            "distance": 4.100000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8712,7 +8712,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 24.4
+            "z": 22.4
           },
           "pivot": {
             "x": 0,
@@ -12060,14 +12060,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.75,
             "y": 9.05
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.75,
             "y": 12.0
           },
-          "width_mm": 7.4,
+          "width_mm": 7.5,
           "height_mm": 2.9499999999999993,
           "ctrl_held": true
         }
@@ -12159,7 +12159,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.45
+            "z": 12.45
           },
           "pivot": {
             "x": 0,
@@ -12208,14 +12208,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.75,
+            "x": -3.8,
             "y": 8.55
           },
           "corner_hint": {
-            "x": 3.75,
+            "x": 3.8,
             "y": 10.4
           },
-          "width_mm": 7.5,
+          "width_mm": 7.6,
           "height_mm": 1.8499999999999996,
           "ctrl_held": true
         }
@@ -12307,7 +12307,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.05
+            "z": 14.049999999999999
           },
           "pivot": {
             "x": 0,
@@ -12341,6 +12341,344 @@
             }
           ],
           "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cyp_xbar0",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": 9.200000000000001
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": 10.4
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cyp_xbar0_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cyp_xbar0",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar0_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar0_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar0_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar0_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cyp_xbar0_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar0_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cyp_xbar0_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 16.05
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cyp_xbar0",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_xbar0_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cyp_xbar1",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": 9.200000000000001
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": 10.4
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cyp_xbar1_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cyp_xbar1",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar1_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar1_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar1_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar1_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cyp_xbar1_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar1_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cyp_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 19.25
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cyp_xbar1",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
           "keep_tools": false
         }
       }
@@ -12400,14 +12738,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.75,
             "y": -12.0
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.75,
             "y": -9.05
           },
-          "width_mm": 7.4,
+          "width_mm": 7.5,
           "height_mm": 2.9499999999999993,
           "ctrl_held": true
         }
@@ -12499,7 +12837,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.45
+            "z": 12.45
           },
           "pivot": {
             "x": 0,
@@ -12548,14 +12886,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.75,
+            "x": -3.8,
             "y": -10.4
           },
           "corner_hint": {
-            "x": 3.75,
+            "x": 3.8,
             "y": -8.55
           },
-          "width_mm": 7.5,
+          "width_mm": 7.6,
           "height_mm": 1.8499999999999996,
           "ctrl_held": true
         }
@@ -12647,7 +12985,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.05
+            "z": 14.049999999999999
           },
           "pivot": {
             "x": 0,
@@ -12681,6 +13019,344 @@
             }
           ],
           "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cym_xbar0",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": -10.4
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": -9.200000000000001
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cym_xbar0_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cym_xbar0",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar0_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar0_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar0_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar0_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cym_xbar0_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar0_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cym_xbar0_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 16.05
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cym_xbar0",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_ym_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cym_xbar0_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cym_xbar1",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": -10.4
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": -9.200000000000001
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cym_xbar1_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cym_xbar1",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar1_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar1_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar1_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar1_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cym_xbar1_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar1_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cym_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 19.25
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cym_xbar1",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_ym_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cym_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
           "keep_tools": false
         }
       }
