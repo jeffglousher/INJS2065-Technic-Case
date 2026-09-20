@@ -7,7 +7,7 @@
 // Side bores: both ±X on +Y and both on −Y are open pin holes (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.34 deeper Technic cross + strength dome into solid",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.34 uniform Technic 8.0 + shared CLIP-POCKET",
   "starting_state": "empty",
   "steps": [
     {
