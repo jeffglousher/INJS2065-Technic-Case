@@ -1,11 +1,12 @@
-// INJS2065 v16.23: PETG 0.4 nozzle; fit candidate, not print-qualified.
+// INJS2065 v16.24: PETG 0.4 nozzle; inside bearing insert; fit candidate.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
-// Bearing pocket D=12.3; journal D=8.02; horn socket D=6.05.
+// Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
+// Journal D=8.02; horn socket D=6.05; flange T=2.0 neck D=8.5.
 // Axle cross 4.85 x 1.85; clips 7.2 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.23 tab split + reinforced hub + friction C",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.24 inside bearing + outer retain + thick hub",
   "starting_state": "empty",
   "steps": [
     {
@@ -4564,7 +4565,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.3
+            "distance": 2.3
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -4668,7 +4669,7 @@
             "type": "origin_plane",
             "plane": "xy"
           },
-          "distance": 27.3
+          "distance": 28.3
         }
       }
     },
@@ -4746,7 +4747,7 @@
             "type": "origin_plane",
             "plane": "xy"
           },
-          "distance": 29.0
+          "distance": 30.0
         }
       }
     },
@@ -4946,7 +4947,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 3.2
+            "distance": 2.2
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -5001,7 +5002,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 29.0
+            "z": 30.0
           },
           "pivot": {
             "x": 0,
@@ -5476,7 +5477,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 7.75
+            "distance": 3.6
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -5531,7 +5532,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 34.35
+            "z": 34.349999999999994
           },
           "pivot": {
             "x": 0,
@@ -5979,7 +5980,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6147,7 +6148,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6315,7 +6316,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6483,7 +6484,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6651,7 +6652,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6819,7 +6820,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -6987,7 +6988,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -7155,7 +7156,7 @@
             "z": 0
           },
           "rotation": [
-            0.7071067811865476,
+            0.7071067811865475,
             0.0,
             0.0,
             0.7071067811865476
@@ -11762,7 +11763,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.0
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11857,7 +11858,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 14.7
+            "distance": 13.7
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11912,7 +11913,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 1.0
+            "z": 2.0
           },
           "pivot": {
             "x": 0,
@@ -12005,7 +12006,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.0
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12109,7 +12110,7 @@
             "type": "origin_plane",
             "plane": "xy"
           },
-          "distance": 1.0
+          "distance": 2.0
         }
       }
     },
@@ -12187,7 +12188,7 @@
             "type": "origin_plane",
             "plane": "xy"
           },
-          "distance": 2.7
+          "distance": 3.7
         }
       }
     },
@@ -12238,10 +12239,10 @@
             "y": 0.0
           },
           "edge_hint": {
-            "x": 4.15,
+            "x": 4.25,
             "y": 0.0
           },
-          "diameter_text": "8.3",
+          "diameter_text": "8.5",
           "ctrl_held": false
         }
       }
@@ -12358,10 +12359,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 4.15,
+            "x": 4.25,
             "y": 0
           },
-          "diameter_text": "8.3",
+          "diameter_text": "8.5",
           "ctrl_held": false
         }
       }
@@ -12387,7 +12388,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 6.3
+            "distance": 5.299999999999991
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12442,7 +12443,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 1.0
+            "z": 2.0
           },
           "pivot": {
             "x": 0,
@@ -12590,7 +12591,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 7.3
+            "z": 7.299999999999991
           },
           "pivot": {
             "x": 0,

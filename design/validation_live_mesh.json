@@ -1,0 +1,45 @@
+{
+  "revision": "v16.24",
+  "live_cad": "replay_ok",
+  "session_id": "28392a74-aaae-4d65-a18a-5f75dcd7a748",
+  "features": 328,
+  "feature_errors": 0,
+  "mesh_checks": [
+    {
+      "name": "outside_lip_blocks_OD",
+      "pass": true,
+      "inner_wall_r": 4.233827425188469,
+      "expect": "blocked"
+    },
+    {
+      "name": "pocket_allows_OD",
+      "pass": true,
+      "inner_wall_r": 6.12659722582209,
+      "expect": "clear"
+    },
+    {
+      "name": "collar_zone",
+      "pass": true,
+      "inner_wall_r": 5.4292609303587644,
+      "expect": "info"
+    }
+  ],
+  "hub_radii": {
+    "flange": [
+      3.025,
+      5.6
+    ],
+    "neck": [
+      3.025,
+      4.925
+    ],
+    "journal_out": [
+      1.308,
+      4.01
+    ]
+  },
+  "bearing_proxy_z": [
+    34.35,
+    37.85
+  ]
+}

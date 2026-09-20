@@ -1,5 +1,5 @@
 {
-  "architecture": "clamshell_v16_23_tab_split_thick_hub_friction_clips",
+  "architecture": "clamshell_v16_24_inside_bearing_outer_retain_thick_hub",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -75,7 +75,7 @@
   "side_blind_x": null,
   "side_blind_z": null,
   "side_blind_depth": null,
-  "bearing_lift_mm": 6.0,
+  "bearing_lift_mm": 5.0,
   "technic_top": [
     [
       8.0,
@@ -135,16 +135,22 @@
   "clip_pocket_clean": true,
   "bearing": {
     "BRG_POCKET": 12.3,
+    "BRG_OD": 12.0,
+    "BRG_ID": 8.0,
+    "BRG_W": 3.5,
     "JOURNAL": 8.02,
+    "FACE_HOLE_D": 8.5,
     "brg_seat_z": 34.349999999999994,
     "pocket_method": "cut_cyl",
-    "pocket_h": 7.75,
-    "bearing_insertion": "front",
-    "bearing_seat_z": 34.35,
+    "pocket_h": 3.6,
+    "bearing_insertion": "inside",
+    "bearing_seat_z": 34.349999999999994,
     "bearing_seat_inner_diameter": 10.9,
+    "outer_retain_lip_id": 8.5,
+    "outer_retain_note": "Closed clamshell face lip ID < BRG_OD blocks outward escape; hub journal clearance-fit through face",
     "bearing_riser_diameter": 10.4,
     "bearing_riser_top_z": 34.14999999999999,
-    "deck_z0": 27.55
+    "deck_z0": 28.55
   },
   "hub": {
     "output_face_z": 42.0,
@@ -154,17 +160,19 @@
     "JOURNAL": 8.02,
     "AXLE_SPAN": 4.85,
     "AXLE_ARM": 1.85,
-    "FACE_EXTRA": 8.95,
+    "FACE_EXTRA": 7.95,
     "face_z": 42.0,
     "flange_z0": 26.3,
-    "flange_z1": 27.3,
-    "deck_z0": 27.55,
-    "tower_t": 14.45,
-    "JOURNAL_LEN": 14.7,
-    "HUB_FLANGE_T": 1.0,
+    "flange_z1": 28.3,
+    "deck_z0": 28.55,
+    "tower_t": 13.45,
+    "JOURNAL_LEN": 13.7,
+    "HUB_FLANGE_T": 2.0,
+    "HUB_NECK_D": 8.5,
     "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
-    "spline_depth": 3.8999999999999995
+    "spline_depth": 3.8999999999999995,
+    "servo_ledge": "flange top steps down to neck; flange parks on servo"
   },
   "buckle": {
     "style": "open_c_over_central_land",
@@ -290,11 +298,12 @@
     "horn_wall_mm": 2.5749999999999997,
     "short_socket_depth_mm": 3.8999999999999995,
     "hub_taper_z": [
-      27.3,
-      29.0
+      28.3,
+      30.0
     ],
-    "hub_neck_diameter": 8.3,
-    "minimum_horn_socket_wall_mm": 1.125,
+    "hub_neck_diameter": 8.5,
+    "minimum_horn_socket_wall_mm": 1.225,
+    "thick_flange_horn_wall_mm": 2.5749999999999997,
     "side_sleeve_nominal_wall_mm": 1.075,
     "clearance_profile_z_d": [
       [
@@ -302,11 +311,11 @@
         11.7
       ],
       [
-        27.3,
+        28.3,
         11.7
       ],
       [
-        29.0,
+        30.0,
         8.8
       ],
       [
@@ -326,11 +335,21 @@
         12.3
       ],
       [
-        42.1,
+        37.949999999999996,
         12.3
+      ],
+      [
+        37.949999999999996,
+        8.5
+      ],
+      [
+        42.1,
+        8.5
       ]
     ],
+    "face_pokeout_diametral_clearance_mm": 0.4800000000000004,
     "bearing_inner_start_z": 34.349999999999994,
+    "assembly": "inside bearing -> hub from inside -> close clamshell retains OD at face lip",
     "tab_capture_each_mm": 1.25,
     "clip_channel_width_mm": 7.16,
     "clip_width_interference_total_mm": 0.040000000000000036,
@@ -364,7 +383,7 @@
   "baseline_v12_3": 440,
   "baseline_v12_7": 510,
   "baseline_v11_2": 724,
-  "FACE_EXTRA": 8.95,
+  "FACE_EXTRA": 7.95,
   "AXLE_SPAN": 4.85,
   "AXLE_ARM": 1.85
 }
