@@ -1,6 +1,6 @@
 {
-  "version": "16.33",
-  "architecture": "clamshell_v16_33_deeper_technic_cross_strength_dome",
+  "version": "16.34",
+  "architecture": "clamshell_v16_34_uniform_technic_8_shared_clip_pocket",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -78,7 +78,7 @@
     8.0
   ],
   "side_blind_z": 30.0,
-  "side_blind_depth": 8.2,
+  "side_blind_depth": 8.0,
   "bearing_lift_mm": 4.2,
   "technic_top": [
     [
@@ -98,7 +98,7 @@
       -8.0
     ]
   ],
-  "technic_top_depth": 8.2,
+  "technic_top_depth": 8.0,
   "technic_top_blind": true,
   "align_nubs": {
     "NUB_D": 2.2,
@@ -193,17 +193,17 @@
     ],
     "bearing_inner_stop_z": 34.15,
     "bearing_inner_stop_gap": 0.2,
-    "CROSS_DEPTH": 10.0,
+    "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
     "spline_depth": 3.8999999999999995,
-    "servo_ledge": "v16.33 deeper Technic cross (CROSS_DEPTH 10) + strength dome apex into solid (+Z); flange \u00d812\u00d72.8 constant OD column",
+    "servo_ledge": "v16.34 uniform Technic CROSS_DEPTH 8.0 module + strength dome apex into solid (+Z); flange \u00d812\u00d72.8 constant OD column",
     "horn_dome_h": 1.0,
     "horn_dome_r": 2.8249999999999997,
     "horn_wall_mm": 2.975,
     "horn_dome_orientation": "identity_rot_base_at_spline_depth_apex_plusZ_into_solid",
     "horn_dome_note": "v16.32: loft sphere-cap base on blind floor (z=spline_depth\u22483.9); rotation identity [0,0,0,1] (was QX180). Apex extends +Z into column \u2014 thicker arched floor into solid, not a bump into the horn socket.",
-    "cross_slot_z0_local": 5.7,
-    "cross_slot_note": "v16.33: CROSS_DEPTH 8.0\u219210.0; slot bottom local z=5.7 (was 7.7); intrudes +2.0 mm deeper into mid column for torque. Gate: face_z - CROSS_DEPTH - (TOTAL_TO_SPLINE+0.2) = 1.8 mm min wall above horn floor."
+    "cross_slot_z0_local": 7.7,
+    "cross_slot_note": "v16.34: CROSS_DEPTH back to 8.0 module (was non-uniform 10.0 in v16.33); slot bottom local z=7.7; dome apex into solid unchanged. VERIFY: Technic pitch 8.0 / beam~7.8 / pin ID~4.8\u20135.05 FDM \u2014 depths standardize on 8.0 module."
   },
   "buckle": {
     "style": "open_c_over_central_land",
@@ -221,8 +221,8 @@
     "lip_z": 3.0,
     "wall_to_cavity": 2.3200000000000003,
     "slide_clearance_y_total": 0.05,
-    "slide_clearance_z_total": 2.9,
-    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z (equal A/B engagement); channel end gaps may be unequal; X equal press 0.04 each side (0.08 total interference); Y-clamp friction primary. Datum = split_z, NOT pocket mid.",
+    "slide_clearance_z_total": 0.9,
+    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR (equal pad); X equal press POCKET_X_PRESS each side; Y-clamp friction primary. Datum = shared CLIP envelope / split_z.",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
@@ -281,10 +281,10 @@
     "side_gaps_x_note": "negative = interference (clip wider than pocket); equal |gaps| = centered",
     "A_catch_z": 15.25,
     "B_catch_z": 24.2,
-    "B_lip_z1": 27.2,
+    "B_lip_z1": 24.5,
     "chan_z": [
       12.0,
-      26.5
+      24.5
     ],
     "A_pocket_z": [
       12.0,
@@ -292,7 +292,7 @@
     ],
     "B_pocket_z": [
       18.2,
-      26.5
+      24.5
     ],
     "clip_span_z": 11.600000000000001,
     "clip_z_bounds": [
@@ -301,13 +301,13 @@
     ],
     "slot_z_bounds": [
       12.0,
-      26.5
+      24.5
     ],
     "clip_z_center": 18.25,
-    "slot_z_center": 19.25,
+    "slot_z_center": 18.25,
     "clip_z_gaps": [
       0.45,
-      2.45
+      0.45
     ],
     "expected_front_view": "Equal clip height above/below split_z (green/blue line). Mid-clip == split_z == 18.25. If live Design History ~298 or mid looks into green, stale v16.29 replay \u2014 reload this JSONC.",
     "clip_z_center_note": "v16.31: mid-clip == split_z (clamshell division); equal land engagement A/B. v16.29 mid-slot (~20.25) was wrong datum.",
@@ -344,7 +344,7 @@
         18.2,
         3.71,
         12.35,
-        26.5
+        24.5
       ],
       [
         -3.71,
@@ -352,13 +352,26 @@
         18.2,
         3.71,
         -9.0,
-        26.5
+        24.5
       ]
     ],
-    "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm."
+    "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm.",
+    "shared_clip_envelope": {
+      "CLIP_Z0": 12.45,
+      "CLIP_Z1": 24.05,
+      "CLIP_X0": -3.75,
+      "CLIP_X1": 3.75,
+      "POCKET_Z_CLR": 0.45,
+      "POCKET_X_PRESS": 0.04,
+      "POCKET_Z0": 12.0,
+      "POCKET_Z1": 24.5,
+      "POCKET_X0": -3.71,
+      "POCKET_X1": 3.71,
+      "note": "POCKET = CLIP \u00b1 named CLR only; mating pocket cites CLIP envelope \u2014 no independent chan_z magic."
+    }
   },
   "revision_notes": {
-    "revision": "v16.33",
+    "revision": "v16.34",
     "material": "PETG",
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
@@ -425,6 +438,22 @@
       "constant_od": true,
       "JOURNAL": 7.9,
       "horn_dome_orientation": "apex_into_solid"
+    },
+    "uniform_technic_depths_8": true,
+    "shared_clip_pocket_refs": true,
+    "side_bore_both_open": true,
+    "hub_after_v16_34": {
+      "HUB_FLANGE_D": 12.0,
+      "HUB_FLANGE_T": 2.8,
+      "HUB_COLUMN_D": 12.0,
+      "horn_wall_mm": 2.975,
+      "CROSS_DEPTH": 8.0,
+      "horn_dome_h": 1.0,
+      "horn_dome_r": 2.8249999999999997,
+      "spline_depth": 3.8999999999999995,
+      "constant_od": true,
+      "JOURNAL": 7.9,
+      "cross_slot_z0_local": 7.7
     }
   },
   "steps": 831,
@@ -455,5 +484,8 @@
   "baseline_v11_2": 724,
   "FACE_EXTRA": 7.15,
   "AXLE_SPAN": 4.85,
-  "AXLE_ARM": 1.85
+  "AXLE_ARM": 1.85,
+  "technic_module_mm": 8.0,
+  "technic_depth_policy": "VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8\u20135.05 FDM; standardize all Technic hole/slot depths on 8.0 module (side_blind_depth, technic_top_depth, hub CROSS_DEPTH).",
+  "side_bore_fix": "v16.34: side face $select uses /plane/normal/1 \u00b11 AND /plane/origin/1 \u00b112 so second hole on each Y face does not bind to first hole blind floor."
 }

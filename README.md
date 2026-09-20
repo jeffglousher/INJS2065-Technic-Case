@@ -2,7 +2,7 @@
 
 Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 
-**Current revision: v16.33** — deeper Technic CROSS_DEPTH 10.0 + strength dome apex into solid (+Z); flange Ø12.0×2.8 + clip visual mass on **split_z**. See `design/`.
+**Current revision: v16.34** — deeper Technic CROSS_DEPTH 10.0 + strength dome apex into solid (+Z); flange Ø12.0×2.8 + clip visual mass on **split_z**. See `design/`.
 
 | Path | What |
 |------|------|
@@ -15,4 +15,4 @@ Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 ## Workflow
 - Edit under `design/` only.
 - Versions = **git commits / PRs**, not `v16.N` folders.
-- **SoT:** `design/design_v16_33.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.
+- **SoT:** `design/design_v16_34.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.

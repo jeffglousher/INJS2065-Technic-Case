@@ -1,12 +1,13 @@
-// INJS2065 v16.33: PETG 0.4/0.2; strength dome apex INTO solid (+Z); Technic CROSS_DEPTH 10.0 (was 8.0).
-// Split Z=18.25; tabs captured equally; no thin tab roof.
+// INJS2065 v16.34: PETG 0.4/0.2; uniform Technic depths on 8.0 module; shared CLIP↔POCKET refs.
+// VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
-// Journal D=7.9; horn socket D=6.05; flange T=2.8 constant OD D=12.0; horn dome H=1.0 (base @ spline_depth, identity rot).
-// Axle cross 4.85 x 1.85 depth 10.0 into mid column; clips 7.5 wide over retained shell lands.
-// Friction clips, no detents. Print clips on side, build along model X.
+// Split Z=18.25; tabs captured equally; no thin tab roof.
+// Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
+// Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
+// Side bores: both ±X on +Y and both on −Y are open pin holes (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.33 deeper Technic cross + strength dome into solid",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.34 deeper Technic cross + strength dome into solid",
   "starting_state": "empty",
   "steps": [
     {
@@ -1638,6 +1639,19 @@
         }
       }
     },
+    // =====================================================================
+    // SHARED CLIP ENVELOPE (SoT) — pockets cite these, not independent magic
+    // CLIP_Z0 = 12.45; CLIP_Z1 = 24.05  (= frame_z / c_outer_yz / clip_z_bounds)
+    // CLIP_X0 = -3.75; CLIP_X1 =  3.75  (= clip_x_bounds)
+    // POCKET_Z_CLR = 0.45;  POCKET_X_PRESS = 0.04
+    // POCKET_Z0 = CLIP_Z0 - POCKET_Z_CLR = 12.00
+    // POCKET_Z1 = CLIP_Z1 + POCKET_Z_CLR = 24.50
+    // POCKET_X0 = CLIP_X0 + POCKET_X_PRESS = -3.71
+    // POCKET_X1 = CLIP_X1 - POCKET_X_PRESS =  3.71
+    // A_pocket_z = [POCKET_Z0, 18.3]; B_pocket_z = [18.2, POCKET_Z1]
+    // (split_z 18.25 ±0.05 overlap). No orphan cavity above/below clip.
+    // TECHNIC_MODULE = 8.0; SIDE_BLIND_DEPTH = TOP_DEPTH = CROSS_DEPTH = 8.0
+    // =====================================================================
     {
       "id": "ca_spine_yp_begin",
       "call": {
@@ -4806,6 +4820,9 @@
         }
       }
     },
+    // SHARED TECHNIC SIDE FACES: reselect outer shell by normal+origin Y=±12
+    // (avoids blind-hole floor after first cut). Pattern positions from
+    // TECHNIC_SIDE_X=±8, SIDE_BLIND_Z=30, depth=SIDE_BLIND_DEPTH=8.0 module.
     {
       "let": {
         "cb_side_1_1_0_face": {
@@ -4827,7 +4844,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/1": 1
+              "/plane/normal/1": 1,
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -4864,7 +4882,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -4896,7 +4914,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/1": 1
+              "/plane/normal/1": 1,
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -4933,7 +4952,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -4965,7 +4984,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/1": -1
+              "/plane/normal/1": -1,
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5002,7 +5022,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -5034,7 +5054,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/1": -1
+              "/plane/normal/1": -1,
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5071,7 +5092,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -6447,7 +6468,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/2": 1
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
             },
             "take": "first"
           }
@@ -6484,7 +6506,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -6516,7 +6538,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/2": 1
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
             },
             "take": "first"
           }
@@ -6553,7 +6576,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -6585,7 +6608,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/2": 1
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
             },
             "take": "first"
           }
@@ -6622,7 +6646,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -6654,7 +6678,8 @@
             },
             "path": "/faces",
             "where": {
-              "/plane/normal/2": 1
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
             },
             "take": "first"
           }
@@ -6691,7 +6716,7 @@
           "diameter": 5.05,
           "extent": {
             "type": "distance",
-            "depth": 8.2
+            "depth": 8.0
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -8150,7 +8175,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.3
+            "distance": 6.3
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8319,7 +8344,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.3
+            "distance": 6.3
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8488,7 +8513,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 4.100000000000001
+            "distance": 2.1
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -8657,7 +8682,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 4.100000000000001
+            "distance": 2.1
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12269,7 +12294,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 10.6
+            "distance": 8.6
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12324,7 +12349,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 5.7
+            "z": 7.7
           },
           "pivot": {
             "x": 0,
@@ -12438,7 +12463,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 10.6
+            "distance": 8.6
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12493,7 +12518,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 5.7
+            "z": 7.7
           },
           "pivot": {
             "x": 0,

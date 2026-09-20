@@ -1,51 +1,50 @@
-# INJS2065 v16.33 — deeper Technic cross + strength dome into solid
+# INJS2065 v16.34 — uniform Technic 8.0 module + shared CLIP↔POCKET
 
 Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25, shell_z0 8). Assembly remains **one-direction into upper_cover** (v16.25). Journal **Ø7.90** into BRG_ID 8.0. Friction open-C clips (no snaps).
 
 ## Why this revision
 
-### A) Clip visual centering
-Numeric v16.30 already had `clip_z_center == split_z == 18.25`, but Jeff’s live front photo (Design History ~298, proportions matching **v16.29**) showed the clip mid at ~20.25 → **+2 mm into upper/green**. Root cause: **stale JSONC / stale live replay**, not the v16.30 math.
+### A) Uniform Technic depths → 8.0 mm module
+VERIFY: Technic pitch **8.0**, beam ~7.8, pin hole ID ~4.8–5.05 FDM. We standardize **depths on the 8.0 module**:
 
-v16.33:
-1. Confirms HEAD `gen_meta` clip mid == `split_z`.
-2. Tip SoT is versioned JSONC `design_v16_33.nbcad.jsonc` (edit directly; no Python generator).
-3. Places **3 cross-bars** with visual-mass centroid on `split_z` (middle rung straddles the green/blue line).
-4. Meta note for parent live replay: **equal clip height above/below split_z** in front view.
+| Param | v16.33 | v16.34 |
+|-------|--------|--------|
+| `side_blind_depth` / all `cb_side_*` | 8.2 | **8.0** |
+| `technic_top_depth` / all `cb_top*` | 8.2 | **8.0** |
+| Hub `CROSS_DEPTH` | 10.0 (non-uniform) | **8.0** |
+| Cross slot bottom local z | 5.7 | **7.7** |
+| Strength dome apex | into solid (+Z) | unchanged |
 
-### B) OutputHub structural failure
-Printed hub shed thin rings / spaghetti. Changes:
-1. **Larger servo mate** — flange Ø11.2→**Ø12.0**, T 2.0→**2.8**.
-2. **More solid column** — constant OD Ø12.0 from flange through column to bearing inner stop; horn wall **2.58→2.98 mm**.
-3. **Technic CROSS_DEPTH 10.0** (was 8.0) — slot bottom local z=5.7, +2 mm into mid column for torque.
-3. **Strength dome** at blind end of horn socket (H=1.0): base on floor, **apex into solid (+Z)** — not a bump into the cavity (v16.31 had QX180 wrong-way).
-4. Supports left to Jeff; structure first.
+### B) Missing center bore on one side hole
+Root cause: after `cb_side_1_1_0`, face `$select` with only `/plane/normal/1: 1` + `take: first` could bind the **blind floor** of the first hole (also +Y normal) instead of the outer shell — second hole never opens on the outer face.
 
-## Hub before / after
+Fix: reselect each side face with **`/plane/normal/1` ±1 AND `/plane/origin/1` ±12** (named outer shell). Same diameter/depth/style on both ±X holes on +Y and both on −Y. Top faces similarly gated with `/plane/origin/2: 42`.
 
-| Dim | v16.30 | v16.33 |
-|-----|--------|--------|
-| Flange D | 11.2 | **12.0** |
-| Flange T | 2.0 | **2.8** |
-| Column OD | 11.2 | **12.0** (constant to inner stop) |
-| Horn wall | 2.575 | **2.975** |
-| Horn dome H | 0 (flat) | **1.0** |
-| Cross depth | 8.0 (≤16.32) | **10.0** (+2 into mid column) |
-| Journal | 7.90 | 7.90 |
-| Spline depth | ~3.9 | ~3.9 |
+### C) Clip pocket from shared CLIP envelope
+Clip was correct (`CLIP_Z0/Z1 = 12.45/24.05`); pocket used independent `chan_z` / `B_pocket_z` → **26.5**, leaving an empty recess above the clip in green.
 
-Schematic: `design/shots/v16.33-hub-section-schematic.png`
+Shared refs (JSONC section comments + `gen_meta.buckle.shared_clip_envelope`):
 
-## Clip Z (unchanged datum, regenerated + visual mass)
+```
+CLIP_Z0 = 12.45; CLIP_Z1 = 24.05   // = frame_z / c_outer_yz / clip_z_bounds
+CLIP_X0 = -3.75; CLIP_X1 =  3.75   // = clip_x_bounds
+POCKET_Z_CLR = 0.45; POCKET_X_PRESS = 0.04
+POCKET_Z = CLIP_Z ± POCKET_Z_CLR = [12.00, 24.50]
+POCKET_X = CLIP_X ∓ POCKET_X_PRESS = [-3.71, 3.71]
+A_pocket_z = [POCKET_Z0, 18.3]; B_pocket_z = [18.2, POCKET_Z1]
+```
 
-| | v16.29 (stale live) | v16.30/31 |
-|--|---------------------|-----------|
-| Datum | pocket mid ~20.25 | **split_z 18.25** |
-| Clip mid | 20.25 (+2 into green) | **18.25** |
-| Engage A/B | 3.8 / 7.8 | **5.8 / 5.8** |
-| Cross-bars | 0 | **3** (mass on split_z) |
+No orphan cavity above/below the clip. Mating pocket cites CLIP ± named clearances only.
 
-**Expected front view (parent live):** equal clip height above/below the green/blue split line. If Design History ≈298 or mid sits in green, reload `design_v16_33.nbcad.jsonc`.
+## Depth audit (v16.34)
+
+| Feature | Depth (mm) | Notes |
+|---------|------------|-------|
+| Side Technic (`cb_side_*`) | **8.0** | module; dia 5.05 |
+| Top Technic (`cb_top*`) | **8.0** | module; dia 5.05 |
+| Hub axle cross | **8.0** | slot z0 local 7.7; dome into solid |
+| VERIFY pin ID | ~4.8–5.05 | FDM |
+| VERIFY pitch / beam | 8.0 / ~7.8 | Lego Technic |
 
 ## Assembly (mandatory)
 
@@ -57,7 +56,7 @@ Schematic: `design/shots/v16.33-hub-section-schematic.png`
 
 ## Source of truth (JSONC)
 
-- **Canonical:** `design/design_v16_33.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.33`).
+- **Canonical:** `design/design_v16_34.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.34`).
 - **Deprecated:** `gen_v*.py` — deleted; do not recreate as SoT.
-- Live CAD MCP not on the box mirror — parent replays on Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`.
+- Live CAD MCP: Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d` — parent live-replays after pull.
