@@ -1,9 +1,9 @@
 ﻿# Agentic CAD process (INJS2065)
 
 ## Source of truth
-- Current design: `design/` (v16.23).
+- Current design: `design/` (v16.25).
 - Prefer editing `design/injs2065-technic-clamshell.nbcad.jsonc` for non-trivial changes, then replay on a **blank** document (`cad_interface` action `script`, `mode: fast`).
-- Open `design/INJS2065-v16.23.nbcad` for live inspection / tiny MCP tweaks.
+- Open `design/INJS2065-v16.25.nbcad` (or latest `.nbcad` after live save) for live inspection / tiny MCP tweaks.
 - Do **not** create new `v16.N` folders — commit on git branches instead.
 
 ## MCP vs JSONC

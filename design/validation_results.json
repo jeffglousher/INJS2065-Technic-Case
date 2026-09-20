@@ -1,9 +1,24 @@
 {
-  "status": "v16.24 numeric+live mesh PASS; live viewport PNG not captured (no MCP screenshot); mesh section plots under design/shots/",
-  "revision": "v16.24",
+  "status": "v16.25 numeric 19/19 PASS; live CAD MCP disconnected \u2014 schematic section shots (not live mesh)",
+  "revision": "v16.25",
   "checks": [
     {
-      "name": "bearing_insertion_inside",
+      "name": "bearing_insertion_upper_from_split",
+      "pass": true,
+      "detail": "upper_from_split"
+    },
+    {
+      "name": "assembly_mode_one_direction",
+      "pass": true,
+      "detail": "one_direction_into_upper"
+    },
+    {
+      "name": "upper_is_ClamshellB",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "lower_is_ClamshellA",
       "pass": true,
       "detail": ""
     },
@@ -15,20 +30,35 @@
     {
       "name": "no_front_12.3_through",
       "pass": true,
-      "detail": ""
+      "detail": [
+        [
+          42.1,
+          8.5
+        ]
+      ]
     },
     {
-      "name": "12.3_ends_before_face",
+      "name": "insert_path_12.3",
       "pass": true,
-      "detail": 37.949999999999996
+      "detail": [
+        [
+          26.0,
+          12.3
+        ],
+        [
+          34.349999999999994,
+          12.3
+        ],
+        [
+          34.349999999999994,
+          12.3
+        ]
+      ]
     },
     {
       "name": "8.5_at_face",
       "pass": true,
-      "detail": [
-        37.949999999999996,
-        42.1
-      ]
+      "detail": ""
     },
     {
       "name": "lip_retains_OD",
@@ -66,49 +96,44 @@
       "detail": ""
     },
     {
-      "name": "side_sleeve_wall",
+      "name": "side_blind_8.2",
       "pass": true,
-      "detail": ""
+      "detail": 8.2
     },
     {
       "name": "pokeout_diametral_clearance",
       "pass": true,
-      "detail": 0.4800000000000004
+      "detail": ""
     },
     {
       "name": "buckle_friction_only",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "flange_fits_insert_path",
+      "pass": true,
+      "detail": [
+        11.2,
+        12.3
+      ]
     }
   ],
-  "assembly": "inside bearing -> hub from inside -> close clamshell retains OD at face lip",
+  "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
+  "assembly_mode": "one_direction_into_upper",
+  "upper_cover": "ClamshellB",
+  "lower_clam": "ClamshellA",
   "clearance_profile_z_d": [
     [
       26.0,
-      11.7
+      12.3
     ],
     [
-      28.3,
-      11.7
+      34.349999999999994,
+      12.3
     ],
     [
-      30.0,
-      8.8
-    ],
-    [
-      32.2,
-      8.8
-    ],
-    [
-      33.6,
-      10.9
-    ],
-    [
-      34.35,
-      10.9
-    ],
-    [
-      34.35,
+      34.349999999999994,
       12.3
     ],
     [
@@ -134,11 +159,16 @@
     "brg_seat_z": 34.349999999999994,
     "pocket_method": "cut_cyl",
     "pocket_h": 3.6,
-    "bearing_insertion": "inside",
+    "bearing_insertion": "upper_from_split",
     "bearing_seat_z": 34.349999999999994,
-    "bearing_seat_inner_diameter": 10.9,
+    "bearing_seat_inner_diameter": 12.3,
     "outer_retain_lip_id": 8.5,
-    "outer_retain_note": "Closed clamshell face lip ID < BRG_OD blocks outward escape; hub journal clearance-fit through face",
+    "outer_retain_note": "Upper alone: OD seats from split against face lip; journal clearance poke-out; NOT front \u00d812.3 tunnel",
+    "insert_path_diameter": 12.3,
+    "insert_path_z": [
+      26.0,
+      34.349999999999994
+    ],
     "bearing_riser_diameter": 10.4,
     "bearing_riser_top_z": 34.14999999999999,
     "deck_z0": 28.55
@@ -154,64 +184,23 @@
     "flange_z0": 26.3,
     "flange_z1": 28.3
   },
-  "live_cad": {
-    "revision": "v16.24",
-    "live_cad": "replay_ok",
-    "session_id": "28392a74-aaae-4d65-a18a-5f75dcd7a748",
-    "features": 328,
-    "feature_errors": 0,
-    "mesh_checks": [
-      {
-        "name": "outside_lip_blocks_OD",
-        "pass": true,
-        "inner_wall_r": 4.233827425188469,
-        "expect": "blocked"
-      },
-      {
-        "name": "pocket_allows_OD",
-        "pass": true,
-        "inner_wall_r": 6.12659722582209,
-        "expect": "clear"
-      },
-      {
-        "name": "collar_zone",
-        "pass": true,
-        "inner_wall_r": 5.4292609303587644,
-        "expect": "info"
-      }
-    ],
-    "hub_radii": {
-      "flange": [
-        3.025,
-        5.6
-      ],
-      "neck": [
-        3.025,
-        4.925
-      ],
-      "journal_out": [
-        1.308,
-        4.01
-      ]
-    },
-    "bearing_proxy_z": [
-      34.35,
-      37.85
-    ]
-  },
   "notes": [
-    "Outer \u00d812.3 through-face removed; pocket h=3.6; face hole \u00d88.5 retains OD.",
-    "Hub flange T=2.0 then neck \u00d88.5; side throat \u00d88.8 keeps ~1.075 mm sleeve walls.",
-    "Live CAD screenshot/replay still required on Thunder."
+    "Continuous \u00d812.3 insert path Z26\u2192seat for upper-alone bearing+hub.",
+    "Outer lip \u00d88.5 retains OD; not a front \u00d812.3 tunnel.",
+    "Side Technic blind 8.2 mm \u2014 through-sleeve wall sacrificed for assembly path."
   ],
-  "ifc_notes": {
-    "clip_shell_interference_mm3": "expected friction width interference (~0.34\u20130.60); not a new snap",
-    "bearing_hub_journal": "proxy ID8 vs journal 8.02 \u2192 small volumetric overlap (~0.88 mm3); qualify PETG",
-    "shell_bearing_seat": "touching contact at seat (clearance 0) \u2014 OK",
-    "shell_hub_neck_clearance_mm": 0.117
-  },
   "screenshots": [
-    "design/shots/v16.24-bearing-axis-section.png",
-    "design/shots/v16.24-inside-cavity-stack.png"
-  ]
+    "design/shots/v16.25-bearing-into-upper-from-split.png",
+    "design/shots/v16.25-hub-into-upper-bearing-stack.png",
+    "design/shots/v16.25-clearance-profile.png"
+  ],
+  "live_cad": {
+    "revision": "v16.25",
+    "live_cad": "mcp_disconnected",
+    "note": "user-nobs-cad Not connected during session; schematic section shots used; replay on Thunder after pull"
+  },
+  "blockers": [
+    "Live CAD MCP not connected \u2014 JSONC replay + true mesh IFC deferred to Thunder after push"
+  ],
+  "check_count": 19
 }

@@ -1,5 +1,5 @@
 {
-  "architecture": "clamshell_v16_24_inside_bearing_outer_retain_thick_hub",
+  "architecture": "clamshell_v16_25_one_direction_upper_od_insert",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -72,9 +72,12 @@
   "technic_side_z_upper": 30.0,
   "side_rows_in_body": "ClamshellB",
   "side_corner_setback": 12.0,
-  "side_blind_x": null,
-  "side_blind_z": null,
-  "side_blind_depth": null,
+  "side_blind_x": [
+    -8.0,
+    8.0
+  ],
+  "side_blind_z": 30.0,
+  "side_blind_depth": 8.2,
   "bearing_lift_mm": 5.0,
   "technic_top": [
     [
@@ -133,6 +136,9 @@
   },
   "align_nubs_inboard": true,
   "clip_pocket_clean": true,
+  "upper_cover": "ClamshellB",
+  "lower_clam": "ClamshellA",
+  "assembly_mode": "one_direction_into_upper",
   "bearing": {
     "BRG_POCKET": 12.3,
     "BRG_OD": 12.0,
@@ -143,11 +149,16 @@
     "brg_seat_z": 34.349999999999994,
     "pocket_method": "cut_cyl",
     "pocket_h": 3.6,
-    "bearing_insertion": "inside",
+    "bearing_insertion": "upper_from_split",
     "bearing_seat_z": 34.349999999999994,
-    "bearing_seat_inner_diameter": 10.9,
+    "bearing_seat_inner_diameter": 12.3,
     "outer_retain_lip_id": 8.5,
-    "outer_retain_note": "Closed clamshell face lip ID < BRG_OD blocks outward escape; hub journal clearance-fit through face",
+    "outer_retain_note": "Upper alone: OD seats from split against face lip; journal clearance poke-out; NOT front \u00d812.3 tunnel",
+    "insert_path_diameter": 12.3,
+    "insert_path_z": [
+      26.0,
+      34.349999999999994
+    ],
     "bearing_riser_diameter": 10.4,
     "bearing_riser_top_z": 34.14999999999999,
     "deck_z0": 28.55
@@ -304,34 +315,20 @@
     "hub_neck_diameter": 8.5,
     "minimum_horn_socket_wall_mm": 1.225,
     "thick_flange_horn_wall_mm": 2.5749999999999997,
-    "side_sleeve_nominal_wall_mm": 1.075,
+    "side_sleeve_nominal_wall_mm": null,
+    "side_bore_mode": "blind_8.2_each_face",
+    "side_bore_wall_note": "Through-sleeve wall collapsed by \u00d812.3 insert path at Z30; blind depth 8.2 preserves outer Technic land without opening pin corridor into hub cavity",
     "clearance_profile_z_d": [
       [
         26.0,
-        11.7
+        12.3
       ],
       [
-        28.3,
-        11.7
+        34.349999999999994,
+        12.3
       ],
       [
-        30.0,
-        8.8
-      ],
-      [
-        32.2,
-        8.8
-      ],
-      [
-        33.6,
-        10.9
-      ],
-      [
-        34.35,
-        10.9
-      ],
-      [
-        34.35,
+        34.349999999999994,
         12.3
       ],
       [
@@ -349,7 +346,8 @@
     ],
     "face_pokeout_diametral_clearance_mm": 0.4800000000000004,
     "bearing_inner_start_z": 34.349999999999994,
-    "assembly": "inside bearing -> hub from inside -> close clamshell retains OD at face lip",
+    "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
+    "assembly_mode": "one_direction_into_upper",
     "tab_capture_each_mm": 1.25,
     "clip_channel_width_mm": 7.16,
     "clip_width_interference_total_mm": 0.040000000000000036,
@@ -357,20 +355,20 @@
     "central_land_retained": true,
     "no_detents": true
   },
-  "steps": 804,
+  "steps": 760,
   "step_kinds": {
-    "call:sketch_begin": 92,
+    "call:sketch_begin": 86,
     "call:sketch_set_grid_snap": 98,
     "call:sketch_add_rectangle_locked": 25,
-    "call:sketch_finish": 92,
-    "call:solid_extrude": 62,
-    "let": 175,
-    "call:solid_move_copy": 66,
-    "call:solid_combine": 62,
-    "call:sketch_add_circle_locked": 67,
+    "call:sketch_finish": 86,
+    "call:solid_extrude": 60,
+    "let": 163,
+    "call:solid_move_copy": 64,
+    "call:solid_combine": 58,
+    "call:sketch_add_circle_locked": 61,
     "call:set_body_appearance": 7,
-    "call:construction_plane_offset": 26,
-    "call:solid_loft": 7,
+    "call:construction_plane_offset": 22,
+    "call:solid_loft": 5,
     "call:solid_hole": 10,
     "call:assembly_create_component": 7,
     "call:solid_scene": 4,

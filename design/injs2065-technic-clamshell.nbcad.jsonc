@@ -1,4 +1,4 @@
-// INJS2065 v16.24: PETG 0.4 nozzle; inside bearing insert; fit candidate.
+// INJS2065 v16.25: PETG 0.4 nozzle; one-direction into upper_cover; fit candidate.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
 // Journal D=8.02; horn socket D=6.05; flange T=2.0 neck D=8.5.
@@ -6,7 +6,7 @@
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.24 inside bearing + outer retain + thick hub",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.25 one-direction upper assembly",
   "starting_state": "empty",
   "steps": [
     {
@@ -4119,7 +4119,7 @@
             "b": 210,
             "a": 255
           },
-          "color_name": "ClamshellA PETG blue",
+          "color_name": "lower_clam ClamshellA PETG blue",
           "filament_type": "PETG",
           "material_name": "Generic PETG"
         }
@@ -4511,12 +4511,12 @@
       }
     },
     {
-      "id": "cb_horn_clearance_begin",
+      "id": "cb_od_insert_path_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "cb_horn_clearance",
+          "name": "cb_od_insert_path",
           "plane": {
             "type": "origin_plane",
             "plane": "xy"
@@ -4525,7 +4525,7 @@
       }
     },
     {
-      "id": "cb_horn_clearance_c",
+      "id": "cb_od_insert_path_c",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_add_circle_locked",
@@ -4536,16 +4536,16 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 5.85,
+            "x": 6.15,
             "y": 0
           },
-          "diameter_text": "11.7",
+          "diameter_text": "12.3",
           "ctrl_held": false
         }
       }
     },
     {
-      "id": "cb_horn_clearance_finish",
+      "id": "cb_od_insert_path_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -4553,19 +4553,19 @@
       }
     },
     {
-      "id": "cb_horn_clearance_ex",
+      "id": "cb_od_insert_path_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "cb_horn_clearance",
+          "sketch_name": "cb_od_insert_path",
           "profile_indices": [
             0
           ],
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.3
+            "distance": 8.349999999999994
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -4575,10 +4575,10 @@
     },
     {
       "let": {
-        "cb_horn_clearance_feat": {
+        "cb_od_insert_path_feat": {
           "$select": {
             "from": {
-              "$ref": "cb_horn_clearance_ex"
+              "$ref": "cb_od_insert_path_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -4589,15 +4589,15 @@
     },
     {
       "let": {
-        "cb_horn_clearance_tmp": {
+        "cb_od_insert_path_tmp": {
           "$select": {
             "from": {
-              "$ref": "cb_horn_clearance_ex"
+              "$ref": "cb_od_insert_path_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "cb_horn_clearance_feat"
+                "$ref": "cb_od_insert_path_feat"
               }
             },
             "take": "one"
@@ -4606,14 +4606,14 @@
       }
     },
     {
-      "id": "cb_horn_clearance_mv",
+      "id": "cb_od_insert_path_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "cb_horn_clearance_tmp",
+              "$ref": "cb_od_insert_path_tmp",
               "pointer": "/id"
             }
           ],
@@ -4638,7 +4638,7 @@
       }
     },
     {
-      "id": "cut_cb_horn_clearance",
+      "id": "cut_cb_od_insert_path",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -4649,771 +4649,7 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "cb_horn_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_0_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "cb_lower_clearance_0",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 28.3
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_lower_clearance_0_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "cb_lower_clearance_0_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "cb_lower_clearance_0"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_0_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_lower_clearance_0",
-          "plane": {
-            "$ref": "cb_lower_clearance_0_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_0_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 5.85,
-            "y": 0.0
-          },
-          "diameter_text": "11.7",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_0_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_lower_clearance_1_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "cb_lower_clearance_1",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 30.0
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_lower_clearance_1_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "cb_lower_clearance_1_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "cb_lower_clearance_1"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_1_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_lower_clearance_1",
-          "plane": {
-            "$ref": "cb_lower_clearance_1_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_1_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 4.4,
-            "y": 0.0
-          },
-          "diameter_text": "8.8",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_1_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_lower_clearance_loft",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_loft",
-        "arguments": {
-          "sections": [
-            {
-              "sketch_name": "cb_lower_clearance_0",
-              "profile_index": 0
-            },
-            {
-              "sketch_name": "cb_lower_clearance_1",
-              "profile_index": 0
-            }
-          ],
-          "ruled": true,
-          "operation": "new_body",
-          "target_body_ids": [],
-          "continuity": "g0",
-          "centerline": null,
-          "guide_rail": null
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_lower_clearance_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cb_lower_clearance_loft"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_lower_clearance_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cb_lower_clearance_loft"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cb_lower_clearance_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_lower_clearance_cut",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cb_lower_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cb_neck_clearance_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_neck_clearance",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_neck_clearance_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0,
-            "y": 0
-          },
-          "edge_hint": {
-            "x": 4.4,
-            "y": 0
-          },
-          "diameter_text": "8.8",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_neck_clearance_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_neck_clearance_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cb_neck_clearance",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 2.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_neck_clearance_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cb_neck_clearance_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_neck_clearance_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cb_neck_clearance_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cb_neck_clearance_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_neck_clearance_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cb_neck_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 30.0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_cb_neck_clearance",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cb_neck_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_0_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "cb_upper_clearance_0",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 32.2
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_upper_clearance_0_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "cb_upper_clearance_0_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "cb_upper_clearance_0"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_0_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_upper_clearance_0",
-          "plane": {
-            "$ref": "cb_upper_clearance_0_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_0_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 4.4,
-            "y": 0.0
-          },
-          "diameter_text": "8.8",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_0_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_upper_clearance_1_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "cb_upper_clearance_1",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 33.6
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_upper_clearance_1_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "cb_upper_clearance_1_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "cb_upper_clearance_1"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_1_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_upper_clearance_1",
-          "plane": {
-            "$ref": "cb_upper_clearance_1_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_1_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 5.45,
-            "y": 0.0
-          },
-          "diameter_text": "10.9",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_1_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_upper_clearance_loft",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_loft",
-        "arguments": {
-          "sections": [
-            {
-              "sketch_name": "cb_upper_clearance_0",
-              "profile_index": 0
-            },
-            {
-              "sketch_name": "cb_upper_clearance_1",
-              "profile_index": 0
-            }
-          ],
-          "ruled": true,
-          "operation": "new_body",
-          "target_body_ids": [],
-          "continuity": "g0",
-          "centerline": null,
-          "guide_rail": null
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_upper_clearance_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cb_upper_clearance_loft"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_upper_clearance_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cb_upper_clearance_loft"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cb_upper_clearance_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_upper_clearance_cut",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cb_upper_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cb_collar_clearance_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cb_collar_clearance",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_collar_clearance_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0,
-            "y": 0
-          },
-          "edge_hint": {
-            "x": 5.45,
-            "y": 0
-          },
-          "diameter_text": "10.9",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "cb_collar_clearance_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cb_collar_clearance_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cb_collar_clearance",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 0.75
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_collar_clearance_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cb_collar_clearance_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cb_collar_clearance_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cb_collar_clearance_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cb_collar_clearance_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_collar_clearance_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cb_collar_clearance_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 33.6
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_cb_collar_clearance",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cb_collar_clearance_tmp",
+              "$ref": "cb_od_insert_path_tmp",
               "pointer": "/id"
             }
           ],
@@ -5627,7 +4863,8 @@
           },
           "diameter": 5.05,
           "extent": {
-            "type": "through_all"
+            "type": "distance",
+            "depth": 8.2
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -5695,7 +4932,8 @@
           },
           "diameter": 5.05,
           "extent": {
-            "type": "through_all"
+            "type": "distance",
+            "depth": 8.2
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -5763,7 +5001,8 @@
           },
           "diameter": 5.05,
           "extent": {
-            "type": "through_all"
+            "type": "distance",
+            "depth": 8.2
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -5831,7 +5070,8 @@
           },
           "diameter": 5.05,
           "extent": {
-            "type": "through_all"
+            "type": "distance",
+            "depth": 8.2
           },
           "style": "simple",
           "counterbore_diameter": 0,
@@ -11484,7 +10724,7 @@
             "b": 100,
             "a": 255
           },
-          "color_name": "ClamshellB PETG green",
+          "color_name": "upper_cover ClamshellB PETG green",
           "filament_type": "PETG",
           "material_name": "Generic PETG"
         }
