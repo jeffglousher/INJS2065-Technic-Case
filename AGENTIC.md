@@ -1,10 +1,19 @@
 ﻿# Agentic CAD process (INJS2065)
 
 ## Source of truth
-- Current design: `design/` (v16.25).
+- Current design tip: use the version recorded in `design/gen_meta.json` and the single live `design/gen_v16_*.py` generator; do not hard-code a version here.
 - Prefer editing `design/injs2065-technic-clamshell.nbcad.jsonc` for non-trivial changes, then replay on a **blank** document (`cad_interface` action `script`, `mode: fast`).
-- Open `design/INJS2065-v16.25.nbcad` (or latest `.nbcad` after live save) for live inspection / tiny MCP tweaks.
+- Open the latest `.nbcad` export (after live save) for live inspection / tiny MCP tweaks.
 - Do **not** create new `v16.N` folders — commit on git branches instead.
+
+## Versioning
+- Keep one authoritative `VERSION` constant in the current Python generator (for example, `VERSION = "16.31"`).
+- The generator filename must match it: `design/gen_v{VERSION with dots→underscores}.py` (for example, `design/gen_v16_31.py`).
+- The same VERSION string must appear in the generator, `design/gen_meta.json` in the `version` field, and a header comment or metadata entry in `design/injs2065-technic-clamshell.nbcad.jsonc`.
+- Keep only the current `design/gen_v16_*.py` in the working tree. When cutting a new version, write the new generator, regenerate the JSONC and metadata, then delete prior `gen_v16_*.py` files. Git history retains old scripts; do not accumulate them on disk.
+- The stable source-of-truth path remains `design/injs2065-technic-clamshell.nbcad.jsonc` (unversioned); the version lives inside that file and in the generator filename.
+- Optional versioned 3MF/`.nbcad` exports may include VERSION in their names when Jeff asks for an export.
+- This is policy documentation only: do not invent a new design version or prune generators until that version is ready.
 
 ## MCP vs JSONC
 - Non-trivial: edit JSONC → blank-doc script replay.
