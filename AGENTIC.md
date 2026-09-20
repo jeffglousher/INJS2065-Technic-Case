@@ -7,6 +7,7 @@
 - Do **not** create new `v16.N` folders — commit on git branches instead.
 
 ## Versioning
+Version: 16.31
 - Keep one authoritative `VERSION = "M.N"` (or `DESIGN_VERSION = "M.N"`) at the top of the current Python generator; for example, `VERSION = "16.31"`.
 - Keep a matching one-line `Version: M.N` block in this document for the active generator; update it with the generator, metadata, and JSONC when a new version is cut, and do not guess a concrete version before then.
 - The generator filename must match it: `design/gen_v{VERSION with dots→underscores}.py` (for example, `design/gen_v16_31.py`).

@@ -28,6 +28,8 @@ import json
 import math
 from pathlib import Path
 
+VERSION = "16.31"
+
 # --- Injora INJS2065 ---
 BODY_X, BODY_Y, BODY_Z = 23.0, 13.0, 25.8
 TAB_SPAN, TAB_T, TAB_FROM_BASE = 29.8, 2.5, 17.0
