@@ -1,0 +1,22 @@
+INJS2065 v16.37 — far-tab encapsulate + face Technic grid (schematic)
+
+XY (top view), units mm:
+
+    X=-12                         X=0                        X=24
+    |-----------------------------|----------------------------|
+ Y=+12                                                     shell
+    |  nest_near     cav/body          nest_far   | tip wall|
+    | [-9.6,-5.55]  [-6 .. 17.4]     [16.95,21]   | 3.0 mm  |
+    |  ear[-9.2,-5.8]                ear[17.2,20.6]          |
+ Y=-12
+    |-----------------------------|----------------------------|
+
+Face Technic holes @ Z=42 (PITCH=8, Ø5.05 × depth 8.0):
+
+         x=-8      x=0      x=+8     x=+16
+    y=+8   ●        ●        ●        ●
+    y= 0          (hub) 
+    y=-8   ●        ●        ●        ●
+
+Flags: far_end_open=false; near_ear_trapped=true; both tabs pocketed.
+Y width unchanged ±12. OutputHub mates unchanged (7.94 / 8.15 / 12.3 / CROSS 8.0).

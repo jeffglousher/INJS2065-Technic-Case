@@ -1,14 +1,21 @@
-// INJS2065 v16.36: PETG 0.4/0.2; fix hub entry chamfer radius for Ø7.94; drop brittle clip edge:N chamfers.
+// INJS2065 v16.37: encapsulate BOTH servo tabs (grow +X); denser face Technic 8mm grid.
 // VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.15 (retain lip); journal Ø7.94 into BRG_ID 8.00.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
 // Side bores: both ±X on +Y and both on −Y are open pin holes (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
-// v16.36: hub_entries circle radius 3.95→3.97 (journal/2); remove clip_yp/ym_entry solid_chamfer (brittle /key edge:N @ ~825–827).
+// Shared ear-nest refs: TIP_WALL=0.4, TAB_CLR=0.15, ROOT_PAD=0.25, NEST_Y=6.65,
+//   EAR_NEAR=[-9.2, -5.8], EAR_FAR=[17.2, 20.6],
+//   NEST_NEAR_X=[-9.6, -5.55], NEST_FAR_X=[16.95, 21.0],
+//   SHELL_X=[-12.0, 24.0], SHELL_Y=[±12], CAV_X=[-6.0, 17.4].
+// Shared Technic face refs: PITCH=8.0, PIN_D=5.05, DEPTH=8.0,
+//   TECHNIC_TOP=[[8.0, 8.0], [8.0, -8.0], [-8.0, 8.0], [-8.0, -8.0], [16.0, 8.0], [16.0, -8.0], [0.0, 8.0], [0.0, -8.0]] (8 holes; was 4 corners).
+// far_end_open=false; near_ear_trapped=true; both tabs pocketed; one-direction assembly; no snaps.
+// v16.36 carry: hub_entries r=3.97; no brittle clip entry chamfers.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.36 hub chamfer select + drop brittle clip entry chamfers (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.37 far-tab encapsulate + denser face Technic (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1187,13 +1194,11 @@
           "mode": "two_point",
           "anchor": {
             "x": -12.0,
-            "y": -12.0
-          },
+            "y": -12.0},
           "corner_hint": {
-            "x": 12.0,
-            "y": 12.0
-          },
-          "width_mm": 24.0,
+            "x": 24.0,
+            "y": 12.0},
+          "width_mm": 36.0,
           "height_mm": 24.0,
           "ctrl_held": true
         }
@@ -1335,13 +1340,11 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.68
-          },
+            "y": -6.68},
           "corner_hint": {
-            "x": 12.5,
-            "y": 6.68
-          },
-          "width_mm": 18.5,
+            "x": 17.4,
+            "y": 6.68},
+          "width_mm": 23.4,
           "height_mm": 13.36,
           "ctrl_held": true
         }
@@ -1632,6 +1635,175 @@
           "tool_body_ids": [
             {
               "$ref": "ca_nest_pocket_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "ca_nest_far_pocket",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": 16.95,
+            "y": -6.65
+          },
+          "corner_hint": {
+            "x": 21.0,
+            "y": 6.65
+          },
+          "width_mm": 4.05,
+          "height_mm": 13.3,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "ca_nest_far_pocket",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 2.86
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "ca_nest_far_pocket_feat": {
+          "$select": {
+            "from": {
+              "$ref": "ca_nest_far_pocket_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "ca_nest_far_pocket_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "ca_nest_far_pocket_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "ca_nest_far_pocket_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "ca_nest_far_pocket_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "ca_nest_far_pocket_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 16.82
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_ca_nest_far_pocket",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_a",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "ca_nest_far_pocket_tmp",
               "pointer": "/id"
             }
           ],
@@ -4160,13 +4332,11 @@
           "mode": "two_point",
           "anchor": {
             "x": -12.0,
-            "y": -12.0
-          },
+            "y": -12.0},
           "corner_hint": {
-            "x": 12.0,
-            "y": 12.0
-          },
-          "width_mm": 24.0,
+            "x": 24.0,
+            "y": 12.0},
+          "width_mm": 36.0,
           "height_mm": 24.0,
           "ctrl_held": true
         }
@@ -4308,13 +4478,11 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.68
-          },
+            "y": -6.68},
           "corner_hint": {
-            "x": 12.5,
-            "y": 6.68
-          },
-          "width_mm": 18.5,
+            "x": 17.4,
+            "y": 6.68},
+          "width_mm": 23.4,
           "height_mm": 13.36,
           "ctrl_held": true
         }
@@ -6741,6 +6909,286 @@
       }
     },
     {
+      "id": "cb_top4",
+      "call": {
+        "group": "solid/refine",
+        "operation": "solid_hole",
+        "arguments": {
+          "body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "face_id": {
+            "$ref": "cb_tf3",
+            "pointer": "/id"
+          },
+          "position": {
+            "$project": {
+              "point": [
+                16.0,
+                8.0,
+                42.0
+              ],
+              "basis": {
+                "$ref": "cb_tf3",
+                "pointer": "/plane"
+              }
+            }
+          },
+          "diameter": 5.05,
+          "extent": {
+            "type": "distance",
+            "depth": 8.0
+          },
+          "style": "simple",
+          "counterbore_diameter": 0,
+          "counterbore_depth": 0,
+          "countersink_diameter": 0,
+          "countersink_angle_deg": 90,
+          "flip": false
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_tf4": {
+          "$select": {
+            "from": {
+              "$select": {
+                "from": {
+                  "$ref": "cb_top4"
+                },
+                "path": "/scene/bodies",
+                "where": {
+                  "/id": {
+                    "$ref": "clamshell_b",
+                    "pointer": "/id"
+                  }
+                },
+                "take": "one"
+              }
+            },
+            "path": "/faces",
+            "where": {
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
+            },
+            "take": "first"
+          }
+        }
+      }
+    },
+    {
+      "id": "cb_top5",
+      "call": {
+        "group": "solid/refine",
+        "operation": "solid_hole",
+        "arguments": {
+          "body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "face_id": {
+            "$ref": "cb_tf4",
+            "pointer": "/id"
+          },
+          "position": {
+            "$project": {
+              "point": [
+                16.0,
+                -8.0,
+                42.0
+              ],
+              "basis": {
+                "$ref": "cb_tf4",
+                "pointer": "/plane"
+              }
+            }
+          },
+          "diameter": 5.05,
+          "extent": {
+            "type": "distance",
+            "depth": 8.0
+          },
+          "style": "simple",
+          "counterbore_diameter": 0,
+          "counterbore_depth": 0,
+          "countersink_diameter": 0,
+          "countersink_angle_deg": 90,
+          "flip": false
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_tf5": {
+          "$select": {
+            "from": {
+              "$select": {
+                "from": {
+                  "$ref": "cb_top5"
+                },
+                "path": "/scene/bodies",
+                "where": {
+                  "/id": {
+                    "$ref": "clamshell_b",
+                    "pointer": "/id"
+                  }
+                },
+                "take": "one"
+              }
+            },
+            "path": "/faces",
+            "where": {
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
+            },
+            "take": "first"
+          }
+        }
+      }
+    },
+    {
+      "id": "cb_top6",
+      "call": {
+        "group": "solid/refine",
+        "operation": "solid_hole",
+        "arguments": {
+          "body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "face_id": {
+            "$ref": "cb_tf5",
+            "pointer": "/id"
+          },
+          "position": {
+            "$project": {
+              "point": [
+                0.0,
+                8.0,
+                42.0
+              ],
+              "basis": {
+                "$ref": "cb_tf5",
+                "pointer": "/plane"
+              }
+            }
+          },
+          "diameter": 5.05,
+          "extent": {
+            "type": "distance",
+            "depth": 8.0
+          },
+          "style": "simple",
+          "counterbore_diameter": 0,
+          "counterbore_depth": 0,
+          "countersink_diameter": 0,
+          "countersink_angle_deg": 90,
+          "flip": false
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_tf6": {
+          "$select": {
+            "from": {
+              "$select": {
+                "from": {
+                  "$ref": "cb_top6"
+                },
+                "path": "/scene/bodies",
+                "where": {
+                  "/id": {
+                    "$ref": "clamshell_b",
+                    "pointer": "/id"
+                  }
+                },
+                "take": "one"
+              }
+            },
+            "path": "/faces",
+            "where": {
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
+            },
+            "take": "first"
+          }
+        }
+      }
+    },
+    {
+      "id": "cb_top7",
+      "call": {
+        "group": "solid/refine",
+        "operation": "solid_hole",
+        "arguments": {
+          "body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "face_id": {
+            "$ref": "cb_tf6",
+            "pointer": "/id"
+          },
+          "position": {
+            "$project": {
+              "point": [
+                0.0,
+                -8.0,
+                42.0
+              ],
+              "basis": {
+                "$ref": "cb_tf6",
+                "pointer": "/plane"
+              }
+            }
+          },
+          "diameter": 5.05,
+          "extent": {
+            "type": "distance",
+            "depth": 8.0
+          },
+          "style": "simple",
+          "counterbore_diameter": 0,
+          "counterbore_depth": 0,
+          "countersink_diameter": 0,
+          "countersink_angle_deg": 90,
+          "flip": false
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_tf7": {
+          "$select": {
+            "from": {
+              "$select": {
+                "from": {
+                  "$ref": "cb_top7"
+                },
+                "path": "/scene/bodies",
+                "where": {
+                  "/id": {
+                    "$ref": "clamshell_b",
+                    "pointer": "/id"
+                  }
+                },
+                "take": "one"
+              }
+            },
+            "path": "/faces",
+            "where": {
+              "/plane/normal/2": 1,
+              "/plane/origin/2": 42
+            },
+            "take": "first"
+          }
+        }
+      }
+    },
+    {
       "id": "top_pin_0_entry_begin",
       "call": {
         "group": "sketch/draw",
@@ -8076,6 +8524,1350 @@
           "tool_body_ids": [
             {
               "$ref": "top_pin_3_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_4_entry",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 16.0,
+            "y": 8.0
+          },
+          "edge_hint": {
+            "x": 19.1,
+            "y": 8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_4_entry_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_4_entry",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 0.9
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_4_entry_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_4_entry_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_4_entry_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_4_entry_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_4_entry_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_entry_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_4_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 41.2
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_4_entry",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_4_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_4_tip",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 16.0,
+            "y": 8.0
+          },
+          "edge_hint": {
+            "x": 19.1,
+            "y": 8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_4_tip_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_4_tip",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_4_tip_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_4_tip_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_4_tip_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_4_tip_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_4_tip_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_4_tip_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_4_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 33.8
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_4_tip",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_4_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_5_entry",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 16.0,
+            "y": -8.0
+          },
+          "edge_hint": {
+            "x": 19.1,
+            "y": -8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_5_entry_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_5_entry",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 0.9
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_5_entry_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_5_entry_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_5_entry_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_5_entry_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_5_entry_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_entry_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_5_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 41.2
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_5_entry",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_5_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_5_tip",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 16.0,
+            "y": -8.0
+          },
+          "edge_hint": {
+            "x": 19.1,
+            "y": -8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_5_tip_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_5_tip",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_5_tip_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_5_tip_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_5_tip_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_5_tip_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_5_tip_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_5_tip_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_5_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 33.8
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_5_tip",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_5_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_6_entry",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 8.0
+          },
+          "edge_hint": {
+            "x": 3.1,
+            "y": 8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_6_entry_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_6_entry",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 0.9
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_6_entry_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_6_entry_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_6_entry_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_6_entry_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_6_entry_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_entry_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_6_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 41.2
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_6_entry",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_6_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_6_tip",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 8.0
+          },
+          "edge_hint": {
+            "x": 3.1,
+            "y": 8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_6_tip_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_6_tip",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_6_tip_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_6_tip_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_6_tip_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_6_tip_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_6_tip_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_6_tip_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_6_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 33.8
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_6_tip",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_6_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_7_entry",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": -8.0
+          },
+          "edge_hint": {
+            "x": 3.1,
+            "y": -8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_7_entry_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_7_entry",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 0.9
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_7_entry_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_7_entry_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_7_entry_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_7_entry_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_7_entry_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_entry_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_7_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 41.2
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_7_entry",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_7_entry_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "top_pin_7_tip",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_c_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": -8.0
+          },
+          "edge_hint": {
+            "x": 3.1,
+            "y": -8.0
+          },
+          "diameter_text": "6.2",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_c_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "top_pin_7_tip_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "top_pin_7_tip",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_7_tip_feat": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_7_tip_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "top_pin_7_tip_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "top_pin_7_tip_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "top_pin_7_tip_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "top_pin_7_tip_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "top_pin_7_tip_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 33.8
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_top_pin_7_tip",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "top_pin_7_tip_tmp",
               "pointer": "/id"
             }
           ],
@@ -10709,6 +12501,175 @@
           "tool_body_ids": [
             {
               "$ref": "cb_nest_pocket_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cb_nest_far_pocket",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": 16.95,
+            "y": -6.65
+          },
+          "corner_hint": {
+            "x": 21.0,
+            "y": 6.65
+          },
+          "width_mm": 4.05,
+          "height_mm": 13.3,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cb_nest_far_pocket",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 2.86
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_nest_far_pocket_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cb_nest_far_pocket_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cb_nest_far_pocket_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cb_nest_far_pocket_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cb_nest_far_pocket_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cb_nest_far_pocket_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cb_nest_far_pocket_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 16.82
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_cb_nest_far_pocket",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cb_nest_far_pocket_tmp",
               "pointer": "/id"
             }
           ],
