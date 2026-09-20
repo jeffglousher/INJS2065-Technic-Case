@@ -1,4 +1,4 @@
-// INJS2065 v16.26: PETG 0.4 nozzle; one-direction into upper_cover; constant hub OD.
+// INJS2065 v16.27: PETG 0.4 nozzle; one-direction into upper_cover; constant hub OD; clips centered in slot.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
 // Journal D=8.02; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
@@ -6,7 +6,7 @@
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.26 constant hub OD",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.27 clip centered in slot",
   "starting_state": "empty",
   "steps": [
     {
@@ -1670,14 +1670,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": 12.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -1839,14 +1839,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": -10.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -2008,14 +2008,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": 12.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2177,14 +2177,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": -9.0
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8106,14 +8106,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": 12.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8275,14 +8275,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": -10.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8444,14 +8444,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": 12.35
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8613,14 +8613,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.58,
+            "x": -3.7,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.58,
+            "x": 3.7,
             "y": -9.0
           },
-          "width_mm": 7.16,
+          "width_mm": 7.4,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }

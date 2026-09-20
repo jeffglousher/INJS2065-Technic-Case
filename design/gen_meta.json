@@ -1,5 +1,5 @@
 {
-  "architecture": "clamshell_v16_26_constant_hub_od",
+  "architecture": "clamshell_v16_27_clip_centered_in_slot",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -202,8 +202,8 @@
       "BuckleClipYP",
       "BuckleClipYM"
     ],
-    "slot_half_x": 3.58,
-    "chan_half_x": 3.58,
+    "slot_half_x": 3.7,
+    "chan_half_x": 3.7,
     "pocket_floor": 9.0,
     "rail_y": 3.0,
     "rail_z": 3.0,
@@ -212,7 +212,7 @@
     "wall_to_cavity": 2.45,
     "slide_clearance_y_total": 0.05,
     "slide_clearance_z_total": 0.1,
-    "slide_clearance_note": "Y insertion clearance 0.05; Z end clearance 0.10 total; width interference 0.04 total, with central load-bearing lands retained.",
+    "slide_clearance_note": "Y insertion clearance 0.05; Z end clearance 0.10 total; X side clearance 0.10 each side (clip centered in pocket); friction on Y clamp faces over retained lands.",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
@@ -247,11 +247,25 @@
       25.65
     ],
     "detent_ride_interference_mm": -0.05,
-    "detent_note": "No detents; retention is broad surface friction in X.",
+    "detent_note": "No detents; retention is Y-clamp friction of open-C over retained lands; X has equal side gaps.",
     "barbs": false,
     "knurl": false,
     "hooks": false,
     "clip_xw": 7.2,
+    "clip_x_center": 0.0,
+    "clip_x_bounds": [
+      -3.6,
+      3.6
+    ],
+    "pocket_x_bounds": [
+      -3.7,
+      3.7
+    ],
+    "slot_x_clearance_each_mm": 0.1,
+    "side_gaps_x": [
+      0.10000000000000009,
+      0.10000000000000009
+    ],
     "A_catch_z": 15.25,
     "B_catch_z": 24.2,
     "B_lip_z1": 27.2,
@@ -270,42 +284,42 @@
     "clip_span_z": 12.399999999999999,
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
-    "slot_span_x": 7.16,
+    "slot_span_x": 7.4,
     "pockets": [
       [
-        -3.58,
+        -3.7,
         9.0,
         14.0,
-        3.58,
+        3.7,
         12.35,
         18.3
       ],
       [
-        -3.58,
+        -3.7,
         -12.35,
         14.0,
-        3.58,
+        3.7,
         -9.0,
         18.3
       ],
       [
-        -3.58,
+        -3.7,
         9.0,
         18.2,
-        3.58,
+        3.7,
         12.35,
         26.5
       ],
       [
-        -3.58,
+        -3.7,
         -12.35,
         18.2,
-        3.58,
+        3.7,
         -9.0,
         26.5
       ]
     ],
-    "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm."
+    "print_orientationprint_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm."
   },
   "revision_notes": {
     "material": "PETG",
@@ -358,8 +372,10 @@
     "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
     "assembly_mode": "one_direction_into_upper",
     "tab_capture_each_mm": 1.25,
-    "clip_channel_width_mm": 7.16,
-    "clip_width_interference_total_mm": 0.040000000000000036,
+    "clip_channel_width_mm": 7.4,
+    "clip_width_interference_total_mm": -0.20000000000000018,
+    "clip_x_side_clearance_each_mm": 0.1,
+    "clip_pocket_x_centers_match": true,
     "spine_recess_floor_abs_y": 10.35,
     "central_land_retained": true,
     "no_detents": true
