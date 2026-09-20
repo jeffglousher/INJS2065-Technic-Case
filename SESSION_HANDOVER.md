@@ -1,13 +1,16 @@
-# Session handover — v16.35
+# Session handover — v16.36
 
-## Locked
-- Journal **Ø7.94** (was 7.90); diametral clr vs BRG_ID 8.00 = **0.06** (radial 0.03).
-- FACE_HOLE / outer retain lip / `cb_jnl` **Ø8.15** (was 8.50); diametral clr vs journal ≈ **0.21**.
-- Kept: BRG_POCKET 12.3, BRG_OD 12.0, CROSS_DEPTH 8.0, pin depths 8.0, lead-in Ø6.2×0.9, tip Ø6.2×1.2, dome into solid.
-- Technic module depths **8.0**; lead-in/tip rings are local features inside the 8.0 bore (not separate Technic depths).
+## Fits (unchanged from v16.35)
+- Journal **Ø7.94** (diametral clr vs BRG_ID 8.00 = **0.06**).
+- FACE_HOLE / retain lip / `cb_jnl` **Ø8.15** (diametral clr vs journal ≈ **0.21**).
+- Technic depths **8.0**; dome into solid kept.
 
-## Parent live-replay
-1. Pull `cad-bot/v16.23-current` on Thunder (`C:\Users\jeffg\dev\INJS2065-Technic-Case`, machineId `4e34e74d-0868-455b-8851-4b5e7ceff85d`).
-2. Blank-doc script replay `design/design_v16_35.nbcad.jsonc` (`cad_interface` action `script`, mode `fast`).
-3. Live-check: journal OD ~7.94; face hole ~8.15; bearing pocket still 12.3; Technic bores still depth 8.0.
-4. No new PRs (draft #1 ok).
+## Replay fix
+- **Failed:** blank-doc replay ~**826/831** chamfer `$select` — `clip_yp_entry` (825) / `clip_ym_entry` (827) used brittle `/key` `edge:N`; `hub_entries` (829) still selected journal circle **r=3.95** (Ø7.90) after v16.35 tighten to Ø7.94.
+- **Fix:** drop clip YP/YM entry chamfers (cosmetic 0.25); keep hub 0.2 entry chamfer with **r=3.97** @ z=42 + spline r=3.025 @ z=26.3.
+- Steps **831 → 827**.
+
+## Parent next
+1. `git pull` on Thunder `C:\Users\jeffg\dev\INJS2065-Technic-Case` branch `cad-bot/v16.23-current` (machineId `4e34e74d-0868-455b-8851-4b5e7ceff85d`).
+2. Blank-doc script replay `design/design_v16_36.nbcad.jsonc` (`cad_interface` action `script`, mode `fast`).
+3. Live-check: journal OD ~7.94; face hole ~8.15; bearing pocket 12.3; Technic bores depth 8.0; hub face entry chamfer present; clips unchamfered at mouth OK.

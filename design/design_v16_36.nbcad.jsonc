@@ -1,13 +1,14 @@
-// INJS2065 v16.35: PETG 0.4/0.2; tighten journal/face-hole for adapter force constraint; Technic 8.0 module kept.
+// INJS2065 v16.36: PETG 0.4/0.2; fix hub entry chamfer radius for Ø7.94; drop brittle clip edge:N chamfers.
 // VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.15 (retain lip); journal Ø7.94 into BRG_ID 8.00.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
 // Side bores: both ±X on +Y and both on −Y are open pin holes (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
+// v16.36: hub_entries circle radius 3.95→3.97 (journal/2); remove clip_yp/ym_entry solid_chamfer (brittle /key edge:N @ ~825–827).
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.35 tighter journal+face hole (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.36 hub chamfer select + drop brittle clip entry chamfers (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1639,19 +1640,6 @@
         }
       }
     },
-    // =====================================================================
-    // SHARED CLIP ENVELOPE (SoT) — pockets cite these, not independent magic
-    // CLIP_Z0 = 12.45; CLIP_Z1 = 24.05  (= frame_z / c_outer_yz / clip_z_bounds)
-    // CLIP_X0 = -3.75; CLIP_X1 =  3.75  (= clip_x_bounds)
-    // POCKET_Z_CLR = 0.45;  POCKET_X_PRESS = 0.04
-    // POCKET_Z0 = CLIP_Z0 - POCKET_Z_CLR = 12.00
-    // POCKET_Z1 = CLIP_Z1 + POCKET_Z_CLR = 24.50
-    // POCKET_X0 = CLIP_X0 + POCKET_X_PRESS = -3.71
-    // POCKET_X1 = CLIP_X1 - POCKET_X_PRESS =  3.71
-    // A_pocket_z = [POCKET_Z0, 18.3]; B_pocket_z = [18.2, POCKET_Z1]
-    // (split_z 18.25 ±0.05 overlap). No orphan cavity above/below clip.
-    // TECHNIC_MODULE = 8.0; SIDE_BLIND_DEPTH = TOP_DEPTH = CROSS_DEPTH = 8.0
-    // =====================================================================
     {
       "id": "ca_spine_yp_begin",
       "call": {
@@ -4820,9 +4808,6 @@
         }
       }
     },
-    // SHARED TECHNIC SIDE FACES: reselect outer shell by normal+origin Y=±12
-    // (avoids blind-hole floor after first cut). Pattern positions from
-    // TECHNIC_SIDE_X=±8, SIDE_BLIND_Z=30, depth=SIDE_BLIND_DEPTH=8.0 module.
     {
       "let": {
         "cb_side_1_1_0_face": {
@@ -14425,256 +14410,6 @@
       }
     },
     {
-      "id": "clip_yp_entry_scene",
-      "call": {
-        "group": "solid/check",
-        "operation": "solid_scene",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "clip_yp_entry",
-      "call": {
-        "group": "solid/refine",
-        "operation": "solid_chamfer",
-        "arguments": {
-          "body_id": {
-            "$ref": "clip_yp_body",
-            "pointer": "/id"
-          },
-          "edge_ids": [
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_yp_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_yp_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:1"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_yp_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_yp_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:3"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_yp_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_yp_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:9"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_yp_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_yp_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:17"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            }
-          ],
-          "distance": 0.25,
-          "tangent_chain": false
-        }
-      }
-    },
-    {
-      "id": "clip_ym_entry_scene",
-      "call": {
-        "group": "solid/check",
-        "operation": "solid_scene",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "clip_ym_entry",
-      "call": {
-        "group": "solid/refine",
-        "operation": "solid_chamfer",
-        "arguments": {
-          "body_id": {
-            "$ref": "clip_ym_body",
-            "pointer": "/id"
-          },
-          "edge_ids": [
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_ym_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_ym_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:6"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_ym_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_ym_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:10"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_ym_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_ym_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:12"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            },
-            {
-              "$select": {
-                "from": {
-                  "$select": {
-                    "from": {
-                      "$ref": "clip_ym_entry_scene"
-                    },
-                    "path": "/bodies",
-                    "where": {
-                      "/id": {
-                        "$ref": "clip_ym_body",
-                        "pointer": "/id"
-                      }
-                    },
-                    "take": "one"
-                  }
-                },
-                "path": "/edges",
-                "where": {
-                  "/key": "edge:16"
-                },
-                "take": "one",
-                "pointer": "/id"
-              }
-            }
-          ],
-          "distance": 0.25,
-          "tangent_chain": false
-        }
-      }
-    },
-    {
       "id": "hub_entries_scene",
       "call": {
         "group": "solid/check",
@@ -14712,7 +14447,7 @@
                 },
                 "path": "/edges",
                 "where": {
-                  "/circle/radius": 3.95,
+                  "/circle/radius": 3.97,
                   "/circle/center/z": 42.0
                 },
                 "take": "one",

@@ -1,4 +1,6 @@
-# INJS2065 v16.35 — tighter journal + face hole (adapter force constraint)
+# INJS2065 v16.36 — hub entry chamfer select fix + drop brittle clip entry chamfers
+
+Carries v16.35 fits (journal Ø7.94 / face Ø8.15). Replay fix only.
 
 Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25, shell_z0 8). Assembly remains **one-direction into upper_cover** (v16.25). Journal **Ø7.94** into BRG_ID 8.0. Friction open-C clips (no snaps).
 
@@ -38,7 +40,7 @@ Carried from v16.34: shared CLIP↔POCKET refs; side face `$select` with normal+
 
 ## Source of truth (JSONC)
 
-- **Canonical:** `design/design_v16_35.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.35`).
+- **Canonical:** `design/design_v16_36.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.36`).
 - **Deprecated:** `gen_v*.py` — deleted; do not recreate as SoT.
 - Live CAD MCP: Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d` — parent live-replays after pull.
