@@ -1,5 +1,8 @@
 ﻿# Session handover — resume at v16.23 (2026-09-20)
 
+## Process
+See [AGENTIC.md](./AGENTIC.md).
+
 ## Current
 - Source of truth: `design/` (= Codex `...\v16.23` on Thunder).
 - Repo branch for this park: `cad-bot/v16.23-current`.
@@ -24,3 +27,4 @@ Agents forked `gen_v16_N.py` and mesh `.cjs` probes because MCP one-step is slow
 
 ## Next edit session
 Resume in `design/`; open PR for changes; delete no new `v16.24` directories on disk.
+
