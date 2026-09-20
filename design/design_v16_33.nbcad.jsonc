@@ -1,12 +1,12 @@
-// INJS2065 v16.32: PETG 0.4/0.2; hub strengthen; strength dome apex INTO solid (+Z), not into cavity.
+// INJS2065 v16.33: PETG 0.4/0.2; strength dome apex INTO solid (+Z); Technic CROSS_DEPTH 10.0 (was 8.0).
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
 // Journal D=7.9; horn socket D=6.05; flange T=2.8 constant OD D=12.0; horn dome H=1.0 (base @ spline_depth, identity rot).
-// Axle cross 4.85 x 1.85; clips 7.5 wide over retained shell lands.
+// Axle cross 4.85 x 1.85 depth 10.0 into mid column; clips 7.5 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.32 strength dome into solid + clip visual mass",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.33 deeper Technic cross + strength dome into solid",
   "starting_state": "empty",
   "steps": [
     {
@@ -12269,7 +12269,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.6
+            "distance": 10.6
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12324,7 +12324,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 7.699999999999999
+            "z": 5.7
           },
           "pivot": {
             "x": 0,
@@ -12438,7 +12438,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.6
+            "distance": 10.6
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12493,7 +12493,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 7.699999999999999
+            "z": 5.7
           },
           "pivot": {
             "x": 0,

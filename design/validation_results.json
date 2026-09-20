@@ -1,6 +1,6 @@
 {
-  "status": "v16.32 JSONC tip; strength dome apex into solid (identity rot); live CAD MCP not connected on this box",
-  "revision": "v16.32",
+  "status": "v16.33 JSONC tip; CROSS_DEPTH 10.0; strength dome apex into solid; live CAD MCP not on box",
+  "revision": "v16.33",
   "fdm": {
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
@@ -114,9 +114,9 @@
       "pass": true
     },
     {
-      "name": "jsonc_sot_design_v16_32_dome_into_solid",
+      "name": "jsonc_sot_design_v16_33",
       "pass": true,
-      "detail": "horn_dome_flip identity [0,0,0,1] @ z=spline_depth; apex +Z into solid"
+      "detail": "CROSS_DEPTH 10.0; horn_dome_flip identity; SoT design_v16_33.nbcad.jsonc"
     }
   ],
   "schematic": "design/shots/v16.32-hub-dome-into-solid-schematic.png",
