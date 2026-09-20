@@ -5,6 +5,7 @@
 - Branch: `cad-bot/v16.23-current`.
 - Hub: flange Ø12.0×2.8, constant OD column, horn wall ~2.98, **strength dome H1.0 apex into solid (+Z)** (identity rot @ z=spline_depth; was QX180 into cavity); journal 7.90.
 - Clip: mid == split_z 18.25; 3 cross-bars with visual mass on split_z.
+- Dome invert: `horn_dome_flip` rotation identity (was QX180); tip +Z into blind wall, not into horn cavity.
 
 ## Pending (parent)
 1. Live CAD reload + viewport shots on Thunder (`machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`).
