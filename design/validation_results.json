@@ -1,5 +1,5 @@
 {
-  "status": "v16.26 numeric 22/22 PASS; live CAD pending blank-doc replay",
+  "status": "v16.26 numeric 22/22 PASS; live CAD MCP not connected on this box \u2014 schematic hub profile shot only (not live mesh)",
   "revision": "v16.26",
   "checks": [
     {
@@ -261,5 +261,14 @@
       "bearing_inner_stop_z": 34.14999999999999,
       "JOURNAL": 8.02
     }
-  }
+  },
+  "live_cad": {
+    "connected": false,
+    "blank_doc_replay": false,
+    "reason": "user-nobs-cad Not connected; Thunder machineId 4e34e74d\u2026 unreachable from this MCP process"
+  },
+  "shot_paths": [
+    "design/shots/v16.26-hub-od-profile-schematic.png"
+  ],
+  "commit": "ec94e71e4b66e9fbd0d4000643f8f742d8c311a6"
 }
