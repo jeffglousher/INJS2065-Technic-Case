@@ -1,12 +1,12 @@
-// INJS2065 v16.27: PETG 0.4 nozzle; one-direction into upper_cover; constant hub OD; clips centered in slot.
+// INJS2065 v16.28: PETG 0.4 nozzle / 0.2 layer; journal clr into BRG_ID; tight X clip press; nest Z clr.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
-// Journal D=8.02; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
+// Journal D=7.9; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
 // Axle cross 4.85 x 1.85; clips 7.2 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.27 clip centered in slot",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.28 FDM GD&T fits",
   "starting_state": "empty",
   "steps": [
     {
@@ -1333,14 +1333,14 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.55
+            "y": -6.68
           },
           "corner_hint": {
             "x": 12.5,
-            "y": 6.55
+            "y": 6.68
           },
           "width_mm": 18.5,
-          "height_mm": 13.1,
+          "height_mm": 13.36,
           "ctrl_held": true
         }
       }
@@ -1502,14 +1502,14 @@
           "mode": "two_point",
           "anchor": {
             "x": -9.6,
-            "y": -6.62
+            "y": -6.65
           },
           "corner_hint": {
             "x": -5.55,
-            "y": 6.62
+            "y": 6.65
           },
           "width_mm": 4.05,
-          "height_mm": 13.24,
+          "height_mm": 13.3,
           "ctrl_held": true
         }
       }
@@ -1545,7 +1545,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.56
+            "distance": 2.86
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -1600,7 +1600,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.97
+            "z": 16.82
           },
           "pivot": {
             "x": 0,
@@ -1670,14 +1670,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": 12.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -1839,14 +1839,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": -10.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -2008,14 +2008,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": 12.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2177,14 +2177,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": -9.0
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -4306,14 +4306,14 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.55
+            "y": -6.68
           },
           "corner_hint": {
             "x": 12.5,
-            "y": 6.55
+            "y": 6.68
           },
           "width_mm": 18.5,
-          "height_mm": 13.1,
+          "height_mm": 13.36,
           "ctrl_held": true
         }
       }
@@ -8106,14 +8106,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": 12.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8275,14 +8275,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": -10.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -8444,14 +8444,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": 12.35
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -8613,14 +8613,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.7,
+            "x": -3.5700000000000003,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.7,
+            "x": 3.5700000000000003,
             "y": -9.0
           },
-          "width_mm": 7.4,
+          "width_mm": 7.140000000000001,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -10571,14 +10571,14 @@
           "mode": "two_point",
           "anchor": {
             "x": -9.6,
-            "y": -6.62
+            "y": -6.65
           },
           "corner_hint": {
             "x": -5.55,
-            "y": 6.62
+            "y": 6.65
           },
           "width_mm": 4.05,
-          "height_mm": 13.24,
+          "height_mm": 13.3,
           "ctrl_held": true
         }
       }
@@ -10614,7 +10614,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.56
+            "distance": 2.86
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -10669,7 +10669,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.97
+            "z": 16.82
           },
           "pivot": {
             "x": 0,
@@ -11069,10 +11069,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 4.01,
+            "x": 3.95,
             "y": 0
           },
-          "diameter_text": "8.02",
+          "diameter_text": "7.9",
           "ctrl_held": false
         }
       }
@@ -13115,7 +13115,7 @@
                 },
                 "path": "/edges",
                 "where": {
-                  "/circle/radius": 4.01,
+                  "/circle/radius": 3.95,
                   "/circle/center/z": 42.0
                 },
                 "take": "one",
