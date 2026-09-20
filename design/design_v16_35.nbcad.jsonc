@@ -1,13 +1,13 @@
-// INJS2065 v16.34: PETG 0.4/0.2; uniform Technic depths on 8.0 module; shared CLIP↔POCKET refs.
+// INJS2065 v16.35: PETG 0.4/0.2; tighten journal/face-hole for adapter force constraint; Technic 8.0 module kept.
 // VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
-// Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
+// Bearing pocket D=12.3 h=3.6; face hole D=8.15 (retain lip); journal Ø7.94 into BRG_ID 8.00.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
 // Side bores: both ±X on +Y and both on −Y are open pin holes (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.34 uniform Technic 8.0 + shared CLIP-POCKET",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.35 tighter journal+face hole (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -4511,7 +4511,7 @@
               }
             }
           },
-          "diameter": 8.5,
+          "diameter": 8.15,
           "extent": {
             "type": "through_all"
           },
@@ -11094,10 +11094,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 3.95,
+            "x": 3.97,
             "y": 0
           },
-          "diameter_text": "7.9",
+          "diameter_text": "7.94",
           "ctrl_held": false
         }
       }
