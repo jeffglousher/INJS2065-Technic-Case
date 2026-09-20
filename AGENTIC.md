@@ -7,7 +7,8 @@
 - Do **not** create new `v16.N` folders — commit on git branches instead.
 
 ## Versioning
-- Keep one authoritative `VERSION` constant in the current Python generator (for example, `VERSION = "16.31"`).
+- Keep one authoritative `VERSION = "M.N"` (or `DESIGN_VERSION = "M.N"`) at the top of the current Python generator; for example, `VERSION = "16.31"`.
+- Keep a matching one-line `Version: M.N` block in this document for the active generator; update it with the generator, metadata, and JSONC when a new version is cut, and do not guess a concrete version before then.
 - The generator filename must match it: `design/gen_v{VERSION with dots→underscores}.py` (for example, `design/gen_v16_31.py`).
 - The same VERSION string must appear in the generator, `design/gen_meta.json` in the `version` field, and a header comment or metadata entry in `design/injs2065-technic-clamshell.nbcad.jsonc`.
 - Keep only the current `design/gen_v16_*.py` in the working tree. When cutting a new version, write the new generator, regenerate the JSONC and metadata, then delete prior `gen_v16_*.py` files. Git history retains old scripts; do not accumulate them on disk.
