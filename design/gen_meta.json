@@ -1,0 +1,370 @@
+{
+  "architecture": "clamshell_v16_23_tab_split_thick_hub_friction_clips",
+  "clamp_path": "open_c_over_central_land",
+  "printed_parts": [
+    "ClamshellA",
+    "ClamshellB",
+    "OutputHub",
+    "BuckleClipYP",
+    "BuckleClipYM"
+  ],
+  "purchased_proxies": [
+    "Servo",
+    "MR128"
+  ],
+  "frame": {
+    "shell_x": [
+      -12.0,
+      12.0
+    ],
+    "shell_y": [
+      -12.0,
+      12.0
+    ],
+    "shell_z0": 8.0,
+    "split_z": 18.25,
+    "face_z": 42.0,
+    "tab_x0": -9.2,
+    "tab_x1": 20.6,
+    "cav_x": [
+      -9.6,
+      12.5
+    ],
+    "cav_y": [
+      -6.55,
+      6.55
+    ],
+    "BODY_CLR": 0.05,
+    "ear_nest": {
+      "EAR_HALF_Y": 6.5,
+      "TAB_CLR": 0.12,
+      "NEST_Y": 6.62,
+      "TAB_Z_CLR": 0.03,
+      "TIP_WALL": 0.4,
+      "NEST_R": 0.0,
+      "ear_near": [
+        -9.2,
+        -5.8
+      ],
+      "ear_far": [
+        17.2,
+        20.6
+      ],
+      "x_span": [
+        -9.6,
+        -5.55
+      ],
+      "z_span": [
+        16.97,
+        19.53
+      ],
+      "body_cav_x0": -6.0
+    },
+    "uniform_xy": true,
+    "far_end_open": true,
+    "near_ear_trapped": true
+  },
+  "technic_side_x": [
+    -8.0,
+    8.0
+  ],
+  "technic_side_z_lower": null,
+  "technic_side_z_upper": 30.0,
+  "side_rows_in_body": "ClamshellB",
+  "side_corner_setback": 12.0,
+  "side_blind_x": null,
+  "side_blind_z": null,
+  "side_blind_depth": null,
+  "bearing_lift_mm": 6.0,
+  "technic_top": [
+    [
+      8.0,
+      8.0
+    ],
+    [
+      8.0,
+      -8.0
+    ],
+    [
+      -8.0,
+      8.0
+    ],
+    [
+      -8.0,
+      -8.0
+    ]
+  ],
+  "technic_top_depth": 8.2,
+  "technic_top_blind": true,
+  "align_nubs": {
+    "NUB_D": 2.2,
+    "NUB_FLAT": 0.0,
+    "NUB_ENGAGE": 0.7,
+    "NUB_BOSS_H": 0.3,
+    "NUB_STUB_H": 0.35,
+    "NUB_DOME_H": 0.35,
+    "SOCK_CLR": 0.18,
+    "SOCK_D": 2.3800000000000003,
+    "SOCK_DEPTH": 0.8999999999999999,
+    "nub_xy_A": [
+      [
+        8.4,
+        9.4
+      ],
+      [
+        -8.4,
+        -9.4
+      ]
+    ],
+    "sock_xy_A": [
+      [
+        8.4,
+        -9.4
+      ],
+      [
+        -8.4,
+        9.4
+      ]
+    ],
+    "alternating_4corner": true,
+    "profile": "stub_plus_dome_flat",
+    "aspect_engage_over_d": 0.3181818181818181,
+    "print_note": "Prefer nubs with Z=build direction (split face on bed) for shear strength"
+  },
+  "align_nubs_inboard": true,
+  "clip_pocket_clean": true,
+  "bearing": {
+    "BRG_POCKET": 12.3,
+    "JOURNAL": 8.02,
+    "brg_seat_z": 34.349999999999994,
+    "pocket_method": "cut_cyl",
+    "pocket_h": 7.75,
+    "bearing_insertion": "front",
+    "bearing_seat_z": 34.35,
+    "bearing_seat_inner_diameter": 10.9,
+    "bearing_riser_diameter": 10.4,
+    "bearing_riser_top_z": 34.14999999999999,
+    "deck_z0": 27.55
+  },
+  "hub": {
+    "output_face_z": 42.0,
+    "output_recess_mm": 0.0,
+    "SPLINE_SOCKET": 6.05,
+    "HUB_FLANGE_D": 11.2,
+    "JOURNAL": 8.02,
+    "AXLE_SPAN": 4.85,
+    "AXLE_ARM": 1.85,
+    "FACE_EXTRA": 8.95,
+    "face_z": 42.0,
+    "flange_z0": 26.3,
+    "flange_z1": 27.3,
+    "deck_z0": 27.55,
+    "tower_t": 14.45,
+    "JOURNAL_LEN": 14.7,
+    "HUB_FLANGE_T": 1.0,
+    "CROSS_DEPTH": 8.0,
+    "hub_height": 15.7,
+    "spline_depth": 3.8999999999999995
+  },
+  "buckle": {
+    "style": "open_c_over_central_land",
+    "clip_count": 2,
+    "names": [
+      "BuckleClipYP",
+      "BuckleClipYM"
+    ],
+    "slot_half_x": 3.58,
+    "chan_half_x": 3.58,
+    "pocket_floor": 9.0,
+    "rail_y": 3.0,
+    "rail_z": 3.0,
+    "lip_y": 3.0,
+    "lip_z": 3.0,
+    "wall_to_cavity": 2.45,
+    "slide_clearance_y_total": 0.05,
+    "slide_clearance_z_total": 0.1,
+    "slide_clearance_note": "Y insertion clearance 0.05; Z end clearance 0.10 total; width interference 0.04 total, with central load-bearing lands retained.",
+    "frame_y_outer": 12.0,
+    "frame_y_inner": 9.05,
+    "frame_z": [
+      14.05,
+      26.45
+    ],
+    "c_wall": 1.6,
+    "spine_t": 1.6,
+    "spine_inner_y": 10.4,
+    "open_c": true,
+    "closed_frame": false,
+    "c_outer_yz": [
+      9.05,
+      12.0,
+      14.05,
+      26.45
+    ],
+    "c_open_cut_yz": [
+      8.55,
+      10.4,
+      15.65,
+      24.849999999999998
+    ],
+    "detents": false,
+    "detent_style": "none_friction_only",
+    "detent_proud_mm": 0.0,
+    "detent_d_mm": 1.2,
+    "detent_seat_d_mm": 1.3,
+    "detent_seat_depth_mm": 0.0,
+    "detent_z": [
+      14.85,
+      25.65
+    ],
+    "detent_ride_interference_mm": -0.05,
+    "detent_note": "No detents; retention is broad surface friction in X.",
+    "barbs": false,
+    "knurl": false,
+    "hooks": false,
+    "clip_xw": 7.2,
+    "A_catch_z": 15.25,
+    "B_catch_z": 24.2,
+    "B_lip_z1": 27.2,
+    "chan_z": [
+      14.0,
+      26.5
+    ],
+    "A_pocket_z": [
+      14.0,
+      18.3
+    ],
+    "B_pocket_z": [
+      18.2,
+      26.5
+    ],
+    "clip_span_z": 12.399999999999999,
+    "spine_outer_y": 12.0,
+    "chan_floor": 9.0,
+    "slot_span_x": 7.16,
+    "pockets": [
+      [
+        -3.58,
+        9.0,
+        14.0,
+        3.58,
+        12.35,
+        18.3
+      ],
+      [
+        -3.58,
+        -12.35,
+        14.0,
+        3.58,
+        -9.0,
+        18.3
+      ],
+      [
+        -3.58,
+        9.0,
+        18.2,
+        3.58,
+        12.35,
+        26.5
+      ],
+      [
+        -3.58,
+        -12.35,
+        18.2,
+        3.58,
+        -9.0,
+        26.5
+      ]
+    ],
+    "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm."
+  },
+  "revision_notes": {
+    "material": "PETG",
+    "nozzle_mm": 0.4,
+    "tab_ceiling_to_lower_side_bore_web_mm": null,
+    "lower_hole_bottom_web_mm": null,
+    "top_to_side_hole_web_mm": 1.2749999999999986,
+    "lower_mount_row_shift_from_v16_10_mm": null,
+    "top_blind_depth_mm": 8.2,
+    "fit_status": "nominal first-pass correction; physical fit not yet tested",
+    "horn_wall_mm": 2.5749999999999997,
+    "short_socket_depth_mm": 3.8999999999999995,
+    "hub_taper_z": [
+      27.3,
+      29.0
+    ],
+    "hub_neck_diameter": 8.3,
+    "minimum_horn_socket_wall_mm": 1.125,
+    "side_sleeve_nominal_wall_mm": 1.075,
+    "clearance_profile_z_d": [
+      [
+        26.0,
+        11.7
+      ],
+      [
+        27.3,
+        11.7
+      ],
+      [
+        29.0,
+        8.8
+      ],
+      [
+        32.2,
+        8.8
+      ],
+      [
+        33.6,
+        10.9
+      ],
+      [
+        34.35,
+        10.9
+      ],
+      [
+        34.35,
+        12.3
+      ],
+      [
+        42.1,
+        12.3
+      ]
+    ],
+    "bearing_inner_start_z": 34.349999999999994,
+    "tab_capture_each_mm": 1.25,
+    "clip_channel_width_mm": 7.16,
+    "clip_width_interference_total_mm": 0.040000000000000036,
+    "spine_recess_floor_abs_y": 10.35,
+    "central_land_retained": true,
+    "no_detents": true
+  },
+  "steps": 804,
+  "step_kinds": {
+    "call:sketch_begin": 92,
+    "call:sketch_set_grid_snap": 98,
+    "call:sketch_add_rectangle_locked": 25,
+    "call:sketch_finish": 92,
+    "call:solid_extrude": 62,
+    "let": 175,
+    "call:solid_move_copy": 66,
+    "call:solid_combine": 62,
+    "call:sketch_add_circle_locked": 67,
+    "call:set_body_appearance": 7,
+    "call:construction_plane_offset": 26,
+    "call:solid_loft": 7,
+    "call:solid_hole": 10,
+    "call:assembly_create_component": 7,
+    "call:solid_scene": 4,
+    "call:solid_chamfer": 3,
+    "call:assembly_document": 1
+  },
+  "baseline_v12": 360,
+  "baseline_v12_1": 424,
+  "baseline_v12_2": 456,
+  "baseline_v12_3": 440,
+  "baseline_v12_7": 510,
+  "baseline_v11_2": 724,
+  "FACE_EXTRA": 8.95,
+  "AXLE_SPAN": 4.85,
+  "AXLE_ARM": 1.85
+}

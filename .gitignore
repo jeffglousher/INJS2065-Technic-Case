@@ -10,3 +10,8 @@ orca-window.png
 *.stl
 .DS_Store
 Thumbs.db
+
+# Never reintroduce version folder sprawl
+/v16.*/
+prepare_v16_*.py
+

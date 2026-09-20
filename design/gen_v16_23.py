@@ -1,20 +1,10 @@
-"""INJS2065 Technic CLAMSHELL-IS-MOUNT v16.7 — OPEN C retainer (no closed frame).
+"""INJS2065 v16.23 — PETG / 0.4 mm nozzle revision after physical failure.
 
-v16.7 (Jeff rejected hollow closed rectangle — wants a C-shaped clip):
-- Shape is an OPEN C / U-channel in YZ: continuous outer spine + top & bottom
-  horizontal legs. OPEN on the insert side toward the pocket/cavity (−|Y|).
-  NOT a closed rectangular frame. No barbs, knurl, detents, or hooks.
-- Uniform extrusion width CLIP_XW=4.2 mm (build along model X; YZ is the profile).
-- Outer face flush at |Y|=12. Sliding clearance ~0.20 mm TOTAL on clamp (Y) faces.
-- Shell pocket: same continuous rectangular channel as v16.6
-  (POCKET_FLOOR=9.55, outer |Y|=12, LIP_Y=2.45, wall-to-cavity≥3.0,
-  split_z=20, CHAN_Z≈14→26.5). Do not thin the cavity wall.
-- Wall thickness ~1.2–1.6 mm constant on spine and legs (simple C).
-- Exactly two retainers: BuckleClipYP (+Y) and BuckleClipYM (−Y). No combined body.
-- Grid snap: disable while sketching; re-enable before sketch_finish only.
-
-Keep locked: loft nubs Ø2.2/engage 0.70, ear trap, shell ±12, BODY_CLR,
-axle 5×2, bearing pocket, Injora dims, 4-corner alternating blind socks.
+Tab-midplane split, shared ear capture, reinforced horn hub with short socket,
+tighter horn and axle fits, larger bearing seat and journal, broad open-C
+friction clips around retained shell lands. No detents, barbs, or hooks.
+Nominal fit corrections require physical confirmation; they are not measured
+printer compensation. Units are mm. This file generates the native CAD replay.
 """
 from __future__ import annotations
 
@@ -28,18 +18,22 @@ TAB_SPAN, TAB_T, TAB_FROM_BASE = 29.8, 2.5, 17.0
 SPLINE_FROM_EDGE = 5.8
 BODY_CLR = 0.05  # friction PLA/PETG (was 0.10 slip)
 BRG_OD, BRG_ID, BRG_W = 12.0, 8.0, 3.5
-BRG_POCKET = 12.10
+BRG_POCKET = 12.30
 BRG_LEAD = 0.8
 SHOULDER_T = 1.2
-FACE_EXTRA = 5.5  # shortened vs v12.5 (was 8.0); still gap≥1.5
-JOURNAL = 7.88
+# Face Z50: three full pin corridors clear the servo and reinforced horn hub.
+FACE_EXTRA = 8.95
+HUB_FACE_Z = 42.00  # must match business-end face; regression gate below
+BEARING_LIFT = 6.00  # bearing supports the output near the front face
+PIN_BLIND_DEPTH = 8.20
+JOURNAL = 8.02
 TECHNIC, PITCH = 5.05, 8.0
-HUB_FLANGE_D = 10.6
-HUB_FLANGE_T = 2.0
-SPLINE_SOCKET = 6.20
-AXLE_SPAN = 5.00
-AXLE_ARM = 2.00
-CROSS_DEPTH = 5.5
+HUB_FLANGE_D = 11.2
+HUB_FLANGE_T = 1.0
+SPLINE_SOCKET = 6.05
+AXLE_SPAN = 4.85
+AXLE_ARM = 1.85
+CROSS_DEPTH = 8.0
 TOTAL_TO_SPLINE = 30.0
 # Align NUBS (true AM locating bumps — wider than tall, NOT pins)
 NUB_D = 2.20           # Ø 2.0–2.4; shear-strong, aspect << 1
@@ -52,62 +46,17 @@ SOCK_CLR = 0.18        # radial clearance ~0.15–0.20
 SOCK_D = NUB_D + SOCK_CLR  # 2.38
 SOCK_DEPTH = NUB_ENGAGE + 0.20  # 0.90
 
-# External straddling U-clip on shallow outer grooves (v14) — NO deep seat
-CLIP_W = 8.50              # groove / clip width in X (8–9 mm)
-GROOVE_DEPTH = 2.00        # max 2.2; floor at |Y|=SHELL_Y-DEPTH=10.0
-LEDGE_PROUD = 0.85         # rail from groove floor toward outer
-LEDGE_T = 1.75             # Z thickness of catch shoulder
-LEDGE_X_INSET = 0.35       # ledge narrower than groove → side clearance
-# U-clip arms (flex in clip; print flat so bend is in XY)
-TAB_W = 6.40               # arm / hook width in X (< CLIP_W)
-ARM_T = 0.55               # arm wall thickness in Y (bend direction)
-WEB_T = 1.00               # outer web thickness in Y (flush outer face)
-CATCH_UNDER = 0.55         # PETG ~0.4–0.8; real hold (was soft 0.22)
-CATCH_Z = 0.55             # undercut Z band
-LEAD_ANGLE_DEG = 35.0      # FDM snap lead-in 30–40°
-LEAD_IN_Y = CATCH_Z / math.tan(math.radians(LEAD_ANGLE_DEG))  # ~0.785
-Z_HOOK_CLEAR = 0.10
-FACE_OUTER_PROUD = 0.0     # FLUSH with SHELL_Y=±12 when seated
-FACE_CLEAR_Y = 0.12        # air between web inner and ledge outer when seated
-HOOK_DEPTH = 0.70          # Z height of hook body below/above ledge
-FILLET_R = 0.40            # outer vertical corners
-ROOT_FILLET_R = 0.0        # v14.1: no box stub roots (was 0.30 blob)
-FACE_TEX_PROUD = 0.0       # v14.1: clean flush outer (no thin rib slivers)
-FACE_TEX_N = 0
-FACE_TEX_W = 0.35
-FACE_TEX_EDGE = 0.60
-WEB_OVERLAP = 0.08         # hook solid overlaps into web for manifold union
-ROOT_BLEND_R = 0.35        # smooth quarter-cyl arm root (not a box stub)
-# Clamp: free span between A-hook top and B-hook bottom undersized vs ledge gap
-CLAMP_Z_INTERF = 0.20      # clip squeezes A↑B↓ across split
-# Derived
-GROOVE_FLOOR = 12.0 - GROOVE_DEPTH  # 10.0; wall to cav = 10.0-6.55 = 3.45
-CATCH_INTERF = CATCH_UNDER
-# Back-compat names used sparsely in comments / meta
-SEAT_RECESS = GROOVE_DEPTH  # NOT a deep seat — alias for groove depth only
-FACE_T = WEB_T
-ROOT_EMBED = 0.0
-TAB_BEAM_T = ARM_T
-TAB_LEN = 4.0              # Z half-arm target for L/t (~4.0/0.55≈7.3)
-WALL = 2.6
 GAP = BODY_CLR
 
 # Shaft-near flange EAR nest (A). Real ears = body width ±6.50, not ±6.15 bar.
 EAR_HALF_Y = BODY_Y / 2.0  # 6.50
 TAB_CLR = 0.12             # /side to ear
 NEST_Y = EAR_HALF_Y + TAB_CLR  # 6.62
-TAB_Z_CLR = 0.10
+TAB_Z_CLR = 0.03
 TIP_WALL = 0.40             # solid tip wall beyond ear tip
-NEST_R = 0.35               # gentle ear-corner fillet (not R0.8 bar cradle)
+NEST_R = 0.0
 EAR_BLEND = 0.25            # pocket slightly into body at x0
 SLOT_D = 3.80               # optional U-slot Ø on ears
-
-# Over/under finger scoops (axis // X) — light grip near grooves (≤GROOVE_DEPTH)
-OU_R = 2.80
-OU_DEPTH = 1.60            # stays outboard of groove floor → cav wall intact
-OU_HALF_X = 3.60
-OU_Z_A = 15.40             # below A ledge
-OU_Z_B = 25.20             # above B ledge
 
 x0 = -SPLINE_FROM_EDGE          # -5.8
 x1 = BODY_X - SPLINE_FROM_EDGE  # +17.2
@@ -117,7 +66,7 @@ tab_x0 = x0 - OVERHANG          # -9.2
 tab_x1 = x1 + OVERHANG          # +20.6
 tab_z0 = TAB_FROM_BASE          # 17.0
 tab_z1 = TAB_FROM_BASE + TAB_T  # 19.5
-split_z = tab_z1 + 0.50         # 20.0
+split_z = (tab_z0 + tab_z1) / 2.0
 
 # Short uniform brick — BOTH halves. Far body/tab exit +X at 12.
 SHELL_X0, SHELL_X1 = -12.0, 12.0
@@ -136,14 +85,15 @@ EAR_NEST_X1 = ear_near_x1 + EAR_BLEND        # -5.55 pocket into body blend
 flange_z0 = BODY_Z + 0.5                     # 26.3 (flange parked on servo)
 flange_z1 = flange_z0 + HUB_FLANGE_T         # 28.3
 deck_z0 = flange_z1 + 0.25                   # 28.55
-tower_t = BRG_LEAD + BRG_W + SHOULDER_T + FACE_EXTRA  # was 13.5 → 11.0
-face_z = deck_z0 + tower_t                   # was 42.05 → 39.55
-brg_seat_z = deck_z0 + BRG_LEAD
-JOURNAL_LEN = face_z - flange_z1             # was ~13.75 → ~11.25
+tower_t = BRG_LEAD + BRG_W + SHOULDER_T + FACE_EXTRA
+face_z = deck_z0 + tower_t                   # 50.00
+brg_seat_z = deck_z0 + BEARING_LIFT + BRG_LEAD
+JOURNAL_LEN = HUB_FACE_Z - flange_z1             # core length; reinforced below bearing
 
 CLIP_X = 0.0
-ca_tech_z = 14.0
-cb_tech_z = 26.0
+SIDE_EDGE_SETBACK = PITCH / 2 + PITCH
+cb_tech_z = face_z - SIDE_EDGE_SETBACK
+ca_tech_z = cb_tech_z - PITCH  # lower side row, now entirely in ClamshellB
 side_x = (-PITCH, PITCH)  # ±8
 top_xy = ((PITCH, PITCH), (PITCH, -PITCH), (-PITCH, PITCH), (-PITCH, -PITCH))
 # 4-corner alternating nubs on mating split (inboard of outer wall, clear of CLIP_W=8.5).
@@ -153,30 +103,31 @@ top_xy = ((PITCH, PITCH), (PITCH, -PITCH), (-PITCH, PITCH), (-PITCH, -PITCH))
 nub_xy_A = ((8.40, 9.40), (-8.40, -9.40))
 sock_xy_A = ((8.40, -9.40), (-8.40, 9.40))
 # Blind top Technic: through tower deck only; stop well above split_z=20.
-TOP_TECH_DEPTH = tower_t - 0.5  # 10.5 — face_z 39.55 → bottom 29.05 ≥ deck_z0+0.5
+TOP_TECH_DEPTH = 8.20  # 1.275 mm web to upper side-bore crown
 
-# v16.7 OPEN C retainer. Shell catch envelope same as v16.6 continuous channel.
+# v16.23: wide open-C friction retainer around retained shell lands.
 # Uniform CLIP_XW extrusion. Open C = outer rect − cut that opens cavity-side long face.
-# No closed frame, no snap/barbs/knurl/detents/hooks.
-CLIP_XW = 4.20
+# No detents, hooks, or barbs.
+CLIP_XW = 7.20
 SPINE_HALF = CLIP_XW / 2.0                    # 2.10
-SLOT_HALF = SPINE_HALF + 0.15                 # 2.25 — pocket X clearance ~0.30 total
+SLOT_HALF = SPINE_HALF - 0.02
 CHAN_HALF = SLOT_HALF                         # continuous channel; same X half
 HOOK_HALF = SPINE_HALF                        # back-compat alias (unused for hooks)
 SHOE_X = SPINE_HALF
-POCKET_FLOOR = 9.55                           # |Y| deep floor; wall to cav = 3.00
+POCKET_FLOOR = 9.00
 CAV_Y_HALF = abs(cav_y1)                      # 6.55
 WALL_TO_CAV = POCKET_FLOOR - CAV_Y_HALF
 SPINE_OUTER = 12.0                            # flush — do not go proud
 LIP_Y = SPINE_OUTER - POCKET_FLOOR            # 2.45
 LIP_Z = 3.00                                  # envelope ref (catch face depth)
-# --- Slide clearance on clamp faces (Y): total 0.15–0.25 mm ---
-SLIDE_CLR_Y = 0.20                            # TOTAL on pocket floor clamp face
-SLIDE_CLR_Z = 0.20                            # TOTAL on channel Z ends
+# --- Slide clearance on clamp faces (Y): locate/slip PETG 0.05–0.10 mm TOTAL ---
+# v16.7 was 0.20 total / 0.10 per Z end — too gappy inside; tighten to channel-as-needed.
+SLIDE_CLR_Y = 0.05
+SLIDE_CLR_Z = 0.10                            # TOTAL on channel Z ends (0.05 per end)
 # C outer envelope (YZ) — fills the continuous pocket channel depth
 FRAME_Y_OUTER = SPINE_OUTER                   # 12.0 flush
-FRAME_Y_INNER = round(POCKET_FLOOR + SLIDE_CLR_Y, 2)  # 9.75 — open mouth / clamp face
-C_WALL = 1.40                                 # constant thickness spine + legs (1.2–1.6)
+FRAME_Y_INNER = round(POCKET_FLOOR + SLIDE_CLR_Y, 2)  # 9.63 — open mouth / clamp face
+C_WALL = 1.60
 FRAME_WALL = C_WALL                           # alias used by asserts/meta
 # Continuous channel spanning A and B (envelope A_CATCH≈17, B_CATCH≈24.2)
 A_CATCH_Z = split_z - LIP_Z                   # 17.00 (envelope; rail cut through for slide)
@@ -184,8 +135,23 @@ B_CATCH_Z = 24.20
 B_LIP_Z1 = B_CATCH_Z + LIP_Z                  # 27.20
 CHAN_Z0 = 14.00                               # into A below catch
 CHAN_Z1 = 26.50                               # into B toward lip (≤ B_LIP_Z1)
-FRAME_Z0 = round(CHAN_Z0 + SLIDE_CLR_Z / 2.0, 2)  # 14.10
-FRAME_Z1 = round(CHAN_Z1 - SLIDE_CLR_Z / 2.0, 2)  # 26.40
+FRAME_Z0 = round(CHAN_Z0 + SLIDE_CLR_Z / 2.0, 2)  # 14.05
+FRAME_Z1 = round(CHAN_Z1 - SLIDE_CLR_Z / 2.0, 2)  # 26.45
+# --- Soft detent (retention only; kid-soft; NOT load-bearing) ---
+# Bump on each C-leg insert face (toward cavity), axis // X → round YZ lead.
+# Shallow matching seat in channel floor. No sharp hooks/barbs.
+DETENT_PROUD = 0.0
+DETENT_D = 1.20                               # bump cylinder Ø (gentle curve)
+DETENT_R = DETENT_D / 2.0                     # 0.60
+DETENT_SEAT_D = 1.30                          # seat slightly larger than bump
+DETENT_SEAT_R = DETENT_SEAT_D / 2.0
+DETENT_SEAT_DEPTH = 0.0
+DETENT_LEN = CLIP_XW - 0.40                   # leave tiny X end clearance in channel
+# Z centers on each leg (mid of C_WALL band)
+DETENT_Z_BOT = round(FRAME_Z0 + C_WALL / 2.0, 3)  # in A channel
+DETENT_Z_TOP = round(FRAME_Z1 - C_WALL / 2.0, 3)  # in B channel
+# Nominal interference while riding flat floor before seat:
+# DETENT_PROUD - SLIDE_CLR_Y ≈ 0.12 mm (soft PETG flex of legs)
 CLIP_Z0 = FRAME_Z0
 CLIP_Z1 = FRAME_Z1
 CLIP_SPAN_Z = CLIP_Z1 - CLIP_Z0
@@ -583,6 +549,74 @@ def cut_cyl(target: str, tag: str, d, x, y, h, z0, *, nosnap: bool = False) -> s
     return sid
 
 
+def cut_taper(target: str, tag: str, z0: float, d0: float, z1: float, d1: float) -> str:
+    """Coaxial ruled clearance taper; explicit loft tool and boolean cut."""
+    sections=[]
+    for i,(z,d) in enumerate(((z0,d0),(z1,d1))):
+        name=f"{tag}_{i}"
+        call(name+"_plane", "solid/reference", "construction_plane_offset", {
+            "name":name,"reference":{"type":"origin_plane","plane":"xy"},"distance":z})
+        steps.append({"let":{name+"_ref":{"type":"datum_plane","datum_id":{
+            "$select":{"from":{"$ref":name+"_plane","pointer":""},"path":"/planes",
+            "where":{"/name":name},"take":"one","pointer":"/datum_id"}}}}})
+        call(name+"_begin","sketch/draw","sketch_begin",{
+            "name":name,"plane":{"$ref":name+"_ref","pointer":""}})
+        circle(name+"_circle",d)
+        finish(name)
+        sections.append({"sketch_name":name,"profile_index":0})
+    call(tag+"_loft","solid/build","solid_loft",{"sections":sections,"ruled":True,
+         "operation":"new_body","target_body_ids":[],"continuity":"g0",
+         "centerline":None,"guide_rail":None})
+    let_last_feature(tag+"_feat",tag+"_loft")
+    let_body(tag+"_tmp",tag+"_loft",tag+"_feat")
+    combine_cut(tag+"_cut",target,tag+"_tmp")
+    return tag+"_cut"
+
+
+def cut_ycyl(target: str, tag: str, d: float, x: float, z: float, ylo: float, yhi: float) -> str:
+    """Cut a cylinder along Y; explicit boolean preserves internal pin-tip relief."""
+    sketch_begin(tag)
+    circle(f"{tag}_c", d, 0.0, 0.0, nosnap=True)
+    finish(tag)
+    extrude(f"{tag}_ex", tag, yhi-ylo)
+    let_last_feature(f"{tag}_feat", f"{tag}_ex")
+    let_body(f"{tag}_tmp", f"{tag}_ex", f"{tag}_feat")
+    move(f"{tag}_place", f"{tag}_tmp", x=x, y=yhi, z=z,
+         rotation=[math.sin(math.pi/4),0.0,0.0,math.cos(math.pi/4)])
+    sid=f"cut_{tag}"
+    combine_cut(sid,target,f"{tag}_tmp")
+    return sid
+
+
+def _xcyl_tool(tag: str, d: float, length: float, *, nosnap: bool = True) -> str:
+    """Z-extruded circle → Ry+90 → X-axis cylinder body var `{tag}_tmp`."""
+    sketch_begin(tag)
+    circle(f"{tag}_c", d, 0.0, 0.0, nosnap=nosnap)
+    finish(tag)
+    extrude(f"{tag}_ex", tag, length)
+    let_last_feature(f"{tag}_feat", f"{tag}_ex")
+    let_body(f"{tag}_tmp", f"{tag}_ex", f"{tag}_feat")
+    return f"{tag}_tmp"
+
+
+def add_xcyl(target: str, tag: str, d: float, cx: float, cy: float, cz: float, length: float) -> str:
+    """Join X-axis cylinder centered at (cx, cy, cz)."""
+    body = _xcyl_tool(tag, d, length)
+    move(f"{tag}_place", body, x=cx - length / 2.0, y=cy, z=cz, rotation=QY90)
+    sid = f"join_{tag}"
+    combine_join(sid, target, body)
+    return sid
+
+
+def cut_xcyl(target: str, tag: str, d: float, cx: float, cy: float, cz: float, length: float) -> str:
+    """Cut X-axis cylinder centered at (cx, cy, cz)."""
+    body = _xcyl_tool(tag, d, length)
+    move(f"{tag}_place", body, x=cx - length / 2.0, y=cy, z=cz, rotation=QY90)
+    sid = f"cut_{tag}"
+    combine_cut(sid, target, body)
+    return sid
+
+
 def cut_ou_scoop(target: str, tag: str, y_sign: float, cz: float) -> str:
     """Horizontal (axis // X) cylindrical finger scoop at ±Y outer wall."""
     length = 2.0 * OU_HALF_X
@@ -603,48 +637,10 @@ def cut_ou_scoop(target: str, tag: str, y_sign: float, cz: float) -> str:
 
 
 
-def add_ear_nest(target: str, tag: str, z0: float, z1: float) -> str:
-    """Shaft-near flange EAR pocket via Z-band cut + tip fillets.
-
-    Body cavity (friction 23×13) is separate. Ear pocket is cut only in the
-    ear Z band so floor (under) and ceiling (over) remain solid — positive
-    trap. Tip wall is brick solid for x < cav_x0. Shape matches ear footprint
-    (not a long R0.8 bar cradle).
-    """
-    x_lo, x_hi = cav_x0, EAR_NEST_X1
-    ear_z0 = tab_z0 - TAB_Z_CLR
-    ear_z1 = tab_z1 + TAB_Z_CLR
-    ear_h = ear_z1 - ear_z0
-    # Exact ear envelope + clr (Y/Z). Floor below ear_z0 and ceiling above ear_z1 stay.
-    last_l = cut_rect(
-        target, f"{tag}_pocket",
-        x_lo, -NEST_Y, x_hi, NEST_Y,
-        ear_h, ear_z0,
-    )
-    # Gentle tip-corner fillets (small R) — keep ear-shaped, not bar cradle
-    if NEST_R > 0.15:
-        r = NEST_R
-        tip_x = cav_x0 + r
-        # Local pads then scoop so tip corners are rounded inside pocket
-        last_l = add_rect(
-            target, f"{tag}_cyp",
-            cav_x0, NEST_Y - r, cav_x0 + r, NEST_Y,
-            r, ear_z0,
-        )
-        last_l = add_rect(
-            target, f"{tag}_cym",
-            cav_x0, -NEST_Y, cav_x0 + r, -NEST_Y + r,
-            r, ear_z0,
-        )
-        last_l = cut_cyl(
-            target, f"{tag}_fyp",
-            2.0 * r, tip_x, NEST_Y - r, r + 0.05, ear_z0 - 0.02,
-        )
-        last_l = cut_cyl(
-            target, f"{tag}_fym",
-            2.0 * r, tip_x, -(NEST_Y - r), r + 0.05, ear_z0 - 0.02,
-        )
-    return last_l
+def add_ear_nest(target, tag, shell_z0, shell_z1):
+    return cut_rect(target, f"{tag}_pocket", cav_x0, -NEST_Y,
+                    EAR_NEST_X1, NEST_Y,
+                    TAB_T + 2 * TAB_Z_CLR, tab_z0 - TAB_Z_CLR)
 
 
 def loft_sections(sid: str, sections: list[dict], continuity: str = "g1") -> None:
@@ -815,19 +811,7 @@ last = cut_rect(
 # Shaft-near EAR pocket (Z-band only) — tip/Y/Z trap; A owns tab Z
 last = add_ear_nest("clamshell_a", "ca_nest", SHELL_Z0, split_z)
 
-# Side Technic BEFORE seats so ±Y faces stay the outer brick walls
-face_axis_let("f_ca_yp", last, "clamshell_a", 1, 1)
-last = "ca_ty0"
-hole(last, "clamshell_a", "f_ca_yp", [side_x[0], SHELL_Y1, ca_tech_z], TECHNIC)
-face_axis_let("f_ca_ypb", last, "clamshell_a", 1, 1)
-last = "ca_ty1"
-hole(last, "clamshell_a", "f_ca_ypb", [side_x[1], SHELL_Y1, ca_tech_z], TECHNIC)
-face_axis_let("f_ca_ym", last, "clamshell_a", 1, -1)
-last = "ca_tm0"
-hole(last, "clamshell_a", "f_ca_ym", [side_x[0], SHELL_Y0, ca_tech_z], TECHNIC)
-face_axis_let("f_ca_ymb", last, "clamshell_a", 1, -1)
-last = "ca_tm1"
-hole(last, "clamshell_a", "f_ca_ymb", [side_x[1], SHELL_Y0, ca_tech_z], TECHNIC)
+# Both side rows are now above the split; ClamshellA has no side bores.
 
 # v16 pockets. Channel (shallow) lets the flush spine cross the split.
 # Deep pocket stops on the catch face so the rail (catch → split) stays thick.
@@ -851,7 +835,8 @@ def cut_yp_ym(shell, tag, y_floor, z0, z1, x_half=None):
 
 # A: continuous rectangular channel (v16.7 slide path, same as v16.6). Floor=POCKET_FLOOR.
 # Spans into the split so A+B form one clean channel for the open C clip.
-last = cut_yp_ym("clamshell_a", "ca_chan", POCKET_FLOOR, A_POCKET_Z0, A_POCKET_Z1)
+last = cut_yp_ym("clamshell_a", "ca_spine", SPINE_INNER - 0.05, A_POCKET_Z0, A_POCKET_Z1)
+last = cut_yp_ym("clamshell_a", "ca_leg", POCKET_FLOOR, CHAN_Z0, FRAME_Z0 + C_WALL + 0.05)
 
 # Align nubs + sockets LAST (after seat/OU/ledge). Alternating 4-corner.
 # Flat faces toward clip center (X=0).
@@ -872,10 +857,10 @@ appearance("ca_color", "clamshell_a", {"r": 40, "g": 125, "b": 210, "a": 255}, "
 # =============================================================================
 # 3) ClamshellB — SAME XY envelope, deck + open +X + OU scoops
 # =============================================================================
-upper_h = face_z - split_z  # was 22.05 → 19.55
+upper_h = face_z - split_z
 last = new_rect("clamshell_b", "cb", SHELL_X0, SHELL_Y0, SHELL_X1, SHELL_Y1, upper_h, split_z)
 
-drop_h = deck_z0 - split_z
+drop_h = BODY_Z + 0.1 - split_z
 # Body cavity; open +X. Near-ear Z lives in A (floor/ceil/tip). B lip added AFTER holes
 # so it cannot steal let_face_z(+Z) from the tower top (face_z).
 last = cut_rect(
@@ -886,26 +871,35 @@ last = cut_rect(
 
 let_face_z("cb_out", last, "clamshell_b", 1)
 last = "cb_jnl"
-hole(last, "clamshell_b", "cb_out", [0.0, 0.0, face_z], 8.20)
+hole(last, "clamshell_b", "cb_out", [0.0, 0.0, face_z], 8.50)
 # Explicit boolean counterbore — solid_hole on cb_in never produced Ø12.10 pocket wall
-last = cut_cyl(
-    "clamshell_b", "cb_brg_pocket",
-    BRG_POCKET, 0.0, 0.0, BRG_LEAD + BRG_W, deck_z0,
-)
+last=cut_cyl("clamshell_b","cb_horn_clearance",11.7,0,0,1.3,26.0)
+last=cut_taper("clamshell_b","cb_lower_clearance",27.3,11.7,29.0,8.8)
+last=cut_cyl("clamshell_b","cb_neck_clearance",8.8,0,0,3.2,29.0)
+last=cut_taper("clamshell_b","cb_upper_clearance",32.2,8.8,33.6,10.9)
+last=cut_cyl("clamshell_b","cb_collar_clearance",10.9,0,0,0.75,33.6)
+last=cut_cyl("clamshell_b","cb_brg_pocket",BRG_POCKET,0,0,7.75,34.35)
 
-# Side Technic upper row
-face_axis_let("f_cb_yp", last, "clamshell_b", 1, 1)
-last = "cb_ty0"
-hole(last, "clamshell_b", "f_cb_yp", [side_x[0], SHELL_Y1, cb_tech_z], TECHNIC)
-face_axis_let("f_cb_ypb", last, "clamshell_b", 1, 1)
-last = "cb_ty1"
-hole(last, "clamshell_b", "f_cb_ypb", [side_x[1], SHELL_Y1, cb_tech_z], TECHNIC)
-face_axis_let("f_cb_ym", last, "clamshell_b", 1, -1)
-last = "cb_tm0"
-hole(last, "clamshell_b", "f_cb_ym", [side_x[0], SHELL_Y0, cb_tech_z], TECHNIC)
-face_axis_let("f_cb_ymb", last, "clamshell_b", 1, -1)
-last = "cb_tm1"
-hole(last, "clamshell_b", "f_cb_ymb", [side_x[1], SHELL_Y0, cb_tech_z], TECHNIC)
+# One row on both side faces: two stepped through corridors.
+# Lower holes removed to preserve the compact shell around the servo.
+for row_i, row_z in ((1, cb_tech_z),):
+    for sign, y in ((1, SHELL_Y1), (-1, SHELL_Y0)):
+        for col_i, x in enumerate(side_x):
+            tag = f"cb_side_{row_i}_{sign}_{col_i}"
+            face_axis_let(tag+"_face", last, "clamshell_b", 1, sign)
+            hole(tag, "clamshell_b", tag+"_face", [x,y,row_z], TECHNIC,
+                 depth=None)
+            last = tag
+
+# Upper through-hole pin profiles: entry recess 0.8, gripping land 6.2,
+# then relief from 7.0 to 8.4 mm from either face. Lower holes removed:
+# standard-pin depth did not fit within the compact servo envelope.
+for col_i, x in enumerate(side_x):
+    for sign in (-1, 1):
+        for label, start, end in (("entry", -0.1, 0.8), ("tip", 7.0, 8.2)):
+            ys=sorted((sign*(12.0-start),sign*(12.0-end)))
+            last=cut_ycyl("clamshell_b", f"upper_pin_{col_i}_{sign}_{label}",
+                          6.2,x,cb_tech_z,ys[0],ys[1])
 
 # Top four corners — BLIND (depth through tower only; no underside openings)
 let_face_z("cb_top", last, "clamshell_b", 1)
@@ -917,8 +911,17 @@ for i, (xi, yi) in enumerate(top_xy):
     face = f"cb_tf{i}"
     let_face_z(face, sid, "clamshell_b", 1)
 
+# Match all four front Technic holes to the stepped side pin profile.
+# Entry diameter 6.2 x 0.8 deep, 6.2-long land, then tip relief to 8.2.
+for i, (xi, yi) in enumerate(top_xy):
+    last=cut_cyl("clamshell_b", f"top_pin_{i}_entry", 6.2, xi, yi,
+                 0.9, face_z-0.8, nosnap=True)
+    last=cut_cyl("clamshell_b", f"top_pin_{i}_tip", 6.2, xi, yi,
+                 1.2, face_z-8.2, nosnap=True)
+
 # B: continuous rectangular channel continuation (same floor, same X half).
-last = cut_yp_ym("clamshell_b", "cb_chan", POCKET_FLOOR, B_POCKET_Z0, B_POCKET_Z1)
+last = cut_yp_ym("clamshell_b", "cb_spine", SPINE_INNER - 0.05, B_POCKET_Z0, B_POCKET_Z1)
+last = cut_yp_ym("clamshell_b", "cb_leg", POCKET_FLOOR, FRAME_Z1 - C_WALL - 0.05, CHAN_Z1)
 
 # Align nubs (inverse of A) + sockets LAST. B nubs protrude -Z into A sockets.
 for i, (px, py) in enumerate(sock_xy_A):  # B nubs where A has sockets
@@ -933,13 +936,8 @@ for i, (px, py) in enumerate(nub_xy_A):  # B sockets where A has nubs
         px, py, split_z - 0.05, SOCK_DEPTH + 0.10,
     )
 
-# Bilateral ear lip LAST (after holes) — overhang only (x <= x0), not into body XY
-# (EAR_NEST_X1 past x0 overlaps servo body → IFC).
-last = add_rect(
-    "clamshell_b", "cb_ear_lip",
-    cav_x0, -NEST_Y, ear_near_x1, NEST_Y,
-    0.50, split_z,
-)
+# Split through tab mid-thickness: B captures the upper half directly.
+last = add_ear_nest("clamshell_b", "cb_nest", split_z, face_z)
 
 appearance("cb_color", "clamshell_b", {"r": 35, "g": 170, "b": 100, "a": 255}, "ClamshellB PETG green")
 
@@ -976,8 +974,34 @@ let_body("hj_tmp", "hj_ex", "hj_feat")
 move("hj_mv", "hj_tmp", z=HUB_FLANGE_T)
 combine_join("hub_j", "hub_body", "hj_tmp")
 
-_spline_depth = max((TOTAL_TO_SPLINE - flange_z0) + 0.6, HUB_FLANGE_T + 4.0)
-last = cut_cyl("hub_body", "hs", SPLINE_SOCKET, 0, 0, _spline_depth + 0.4, -0.2)
+# Broad horn base to Z27.3; taper to the local clearance neck at Z29.0.
+add_cyl("hub_body", "hub_thick", HUB_FLANGE_D, 0, 0, 1.0, 0.0)
+transition_sections = []
+for i, (local_z, diameter) in enumerate(((1.0, HUB_FLANGE_D), (2.7, 8.3))):
+    name = f"hub_transition_{i}"
+    call(name+"_plane", "solid/reference", "construction_plane_offset", {
+        "name": name, "reference": {"type": "origin_plane", "plane": "xy"}, "distance": local_z})
+    steps.append({"let": {name+"_ref": {"type": "datum_plane", "datum_id": {
+        "$select": {"from": {"$ref": name+"_plane", "pointer": ""}, "path": "/planes",
+                    "where": {"/name": name}, "take": "one", "pointer": "/datum_id"}}}}})
+    call(name+"_begin", "sketch/draw", "sketch_begin", {"name": name, "plane": {"$ref": name+"_ref", "pointer": ""}})
+    circle(name+"_circle", diameter)
+    finish(name)
+    transition_sections.append({"sketch_name": name, "profile_index": 0})
+call("hub_transition", "solid/build", "solid_loft", {"sections": transition_sections,
+    "ruled": True, "operation": "new_body", "target_body_ids": [], "continuity": "g0",
+    "centerline": None, "guide_rail": None})
+let_last_feature("hub_transition_feat", "hub_transition")
+let_body("hub_transition_body", "hub_transition", "hub_transition_feat")
+combine_join("hub_transition_join", "hub_body", "hub_transition_body")
+
+
+# Local 8.3 mm hub neck clears the enclosed side pin sleeves.
+# Bearing collar is above the side-hole crown; bearing location is unchanged.
+add_cyl("hub_body", "hub_neck", 8.30, 0, 0, 6.3, 1.0)
+add_cyl("hub_body", "hub_bearing_riser", 10.40, 0, 0, 0.55, 7.3)
+_spline_depth = (TOTAL_TO_SPLINE - flange_z0) + 0.20
+last = cut_cyl("hub_body", "hs", SPLINE_SOCKET, 0, 0, _spline_depth + 0.2, -0.2)
 
 hub_top_local = HUB_FLANGE_T + JOURNAL_LEN
 last = cut_rect(
@@ -994,9 +1018,9 @@ move("hub_mv", "hub_body", z=flange_z0)
 appearance("hub_color", "hub_body", {"r": 235, "g": 145, "b": 45, "a": 255}, "OutputHub PETG orange")
 
 # =============================================================================
-# 6) v16.7 OPEN C retainers ×2 — BuckleClipYP / BuckleClipYM ONLY
+# 6) v16.23 OPEN C retainers ×2 — BuckleClipYP / BuckleClipYM ONLY
 #    YZ open C (outer rect − cavity-side cut), uniform CLIP_XW along X.
-#    Outer face flush |Y|=12. No hooks/barbs/knurl/detents. NOT a closed frame.
+#    Broad friction engagement. Outer flush |Y|=12. NOT a closed frame.
 # =============================================================================
 
 def yspan(y_sign: float, mag_a: float, mag_b: float):
@@ -1004,13 +1028,13 @@ def yspan(y_sign: float, mag_a: float, mag_b: float):
     return (min(ya, yb), max(ya, yb))
 
 
-
-
 def build_clip(tag: str, y_sign: float, body_var: str) -> str:
     """Open C / U-channel: outer YZ rect minus cut that opens the cavity-side long face.
 
     Spine at |Y|≈12, top+bottom legs toward pocket floor, OPEN toward cavity (−|Y|).
-    Uniform CLIP_XW along X. No hooks/barbs/knurl/detents. Side view (along X) is a C.
+    Uniform CLIP_XW along X. Friction across the channel width; no detent.
+    Top and bottom legs straddle retained shell lands and carry clamp loads.
+    Side view (along X) is an open C — not a closed frame. No hooks/barbs/knurl.
     """
     # Outer solid fills the channel envelope
     y0, y1 = yspan(y_sign, FRAME_Y_INNER, FRAME_Y_OUTER)
@@ -1031,16 +1055,23 @@ def build_clip(tag: str, y_sign: float, body_var: str) -> str:
         CLIP_X0 - 0.05, oy0, CLIP_X1 + 0.05, oy1,
         hz, FRAME_Z0 + C_WALL,
     )
+    # Soft retention bumps on both legs (insert face toward cavity)
+    # Smooth friction fit; no detents.
     return last_l
 
 
 print(
-    "v16.7 OPEN C retainer",
+    "v16.23 reinforced hub + tab split + friction C",
     f"cY=[{FRAME_Y_INNER:.2f},{FRAME_Y_OUTER:.2f}] cZ=[{FRAME_Z0:.2f},{FRAME_Z1:.2f}]",
     f"cWall={C_WALL:.2f} spineInner={SPINE_INNER:.2f} clipXW={CLIP_XW}",
     f"slideClrY={SLIDE_CLR_Y:.2f} slideClrZ={SLIDE_CLR_Z:.2f}",
+    f"detentProud={DETENT_PROUD:.2f} detentD={DETENT_D:.2f} seatD={DETENT_SEAT_D:.2f} seatDepth={DETENT_SEAT_DEPTH:.2f}",
     f"chanZ=[{CHAN_Z0:.2f},{CHAN_Z1:.2f}] floor={POCKET_FLOOR} lipY={LIP_Y:.2f}",
 )
+
+# Shallow seats in channel floors (A=bot leg Z, B=top leg Z) — after helpers exist
+
+
 
 last = build_clip("cyp", 1.0, "clip_yp_body")
 appearance("cyp_color", "clip_yp_body", {"r": 220, "g": 60, "b": 90, "a": 255}, "BuckleClip PETG magenta")
@@ -1053,18 +1084,54 @@ component("comp_mr", "MR128", "mr128_body")
 component("comp_hub", "OutputHub", "hub_body")
 component("comp_cyp", "BuckleClipYP", "clip_yp_body")
 component("comp_cym", "BuckleClipYM", "clip_ym_body")
+
+def finish_chamfer(tag, body_var, keys, distance):
+    call(tag+"_scene", "solid/check", "solid_scene", {})
+    body = {"$select": {"from": {REF: tag+"_scene"}, "path": "/bodies",
+        "where": {"/id": {REF: body_var, "pointer": "/id"}}, "take": "one"}}
+    edges = [{"$select": {"from": body, "path": "/edges", "where": key if isinstance(key, dict) else {"/key": key},
+                           "take": "one", "pointer": "/id"}} for key in keys]
+    call(tag, "solid/refine", "solid_chamfer", {"body_id": {REF: body_var, "pointer": "/id"},
+         "edge_ids": edges, "distance": distance, "tangent_chain": False})
+
+# Proven live: taper each insertion nose across X to guide the friction fit.
+finish_chamfer("clip_yp_entry", "clip_yp_body", ["edge:1", "edge:3", "edge:9", "edge:17"], 0.25)
+finish_chamfer("clip_ym_entry", "clip_ym_body", ["edge:6", "edge:10", "edge:12", "edge:16"], 0.25)
+# Lead-ins on horn socket mouth and outer journal end.
+finish_chamfer("hub_entries", "hub_body", [
+    {"/circle/radius": JOURNAL / 2, "/circle/center/z": HUB_FACE_Z},
+    {"/circle/radius": SPLINE_SOCKET / 2, "/circle/center/z": flange_z0}
+], 0.20)
 call("final_scene", "solid/check", "solid_scene", {})
 call("final_asm", "assembly/joints", "assembly_document", {})
 
+TAB_FLOOR_WEB = ca_tech_z - TECHNIC / 2 - (tab_z1 + TAB_Z_CLR)
+LOWER_BORE_BOTTOM_WEB = ca_tech_z - TECHNIC / 2 - split_z
+TOP_TO_SIDE_WEB = face_z - TOP_TECH_DEPTH - (cb_tech_z + TECHNIC/2)
+assert TOP_TO_SIDE_WEB >= 1.2
+assert cb_tech_z - TECHNIC/2 - (tab_z1 + TAB_Z_CLR) >= 1.8
+assert cb_tech_z - TECHNIC/2 - split_z >= 1.8
+assert TOP_TECH_DEPTH >= 8.0
+assert abs((cb_tech_z - ca_tech_z) - PITCH) < 1e-9
+assert abs(face_z - cb_tech_z - 1.5*PITCH) < 1e-9
+assert abs(SHELL_Y1 - PITCH - PITCH/2) < 1e-9
+assert HUB_FACE_Z - CROSS_DEPTH - (TOTAL_TO_SPLINE + 0.20) >= 1.8
+assert brg_seat_z - (cb_tech_z + TECHNIC/2) >= 1.8
+assert deck_z0 + BEARING_LIFT - (ca_tech_z + TECHNIC/2) >= 1.8
+assert cb_tech_z - TECHNIC/2 - BODY_Z >= 1.6
+assert PIN_BLIND_DEPTH >= PITCH + 0.15
+assert abs(HUB_FACE_Z - face_z) <= 0.05, "Output mouth must be at business-end face"
+assert 0 < HUB_FACE_Z - (brg_seat_z + BRG_W) <= 4.5, "Excessive unsupported output journal"
+assert abs(CROSS_DEPTH - 8.0) < 1e-9
 _sock_r = SOCK_D / 2.0
 _loc_x = min(abs(px) for px, _py in list(nub_xy_A) + list(sock_xy_A))
 _gap_x = _loc_x - _sock_r - SLOT_HALF
-assert WALL_TO_CAV >= 3.0 - 1e-9, WALL_TO_CAV
+assert WALL_TO_CAV >= 2.4 - 1e-9, WALL_TO_CAV
 assert LIP_Y >= 2.4 and LIP_Z >= 2.4, (LIP_Y, LIP_Z)
 assert abs(CHAN_FLOOR - POCKET_FLOOR) < 1e-9, (CHAN_FLOOR, POCKET_FLOOR)
 assert CLIP_XW >= 4.0
-assert 0.15 - 1e-9 <= SLIDE_CLR_Y <= 0.25 + 1e-9, SLIDE_CLR_Y
-assert 0.15 - 1e-9 <= SLIDE_CLR_Z <= 0.25 + 1e-9, SLIDE_CLR_Z
+assert 0.05 - 1e-9 <= SLIDE_CLR_Y <= 0.10 + 1e-9, SLIDE_CLR_Y
+assert 0.05 - 1e-9 <= SLIDE_CLR_Z <= 0.12 + 1e-9, SLIDE_CLR_Z
 assert abs(FRAME_Y_OUTER - 12.0) < 1e-9
 assert abs(FRAME_Y_INNER - (POCKET_FLOOR + SLIDE_CLR_Y)) < 1e-9
 assert 1.20 - 1e-9 <= C_WALL <= 1.60 + 1e-9, C_WALL
@@ -1076,46 +1143,46 @@ assert CHAN_Z0 < A_CATCH_Z < split_z < B_CATCH_Z < CHAN_Z1 <= B_LIP_Z1 + 1e-9
 assert CLIP_SPAN_Z >= 10.0, CLIP_SPAN_Z
 assert _gap_x >= 2.0, _gap_x
 assert abs(HOOK_HALF * 2.0 - CLIP_XW) < 1e-9
-# Zero detents / barbs / knurl / hooks — open C slide clip only
-assert "open c" in build_clip.__doc__.lower() or "open c" in build_clip.__doc__.lower()
+# No detents, barbs, knurl or hooks; open C stays open
+assert DETENT_PROUD == 0.0
+assert DETENT_SEAT_DEPTH == 0.0
+assert DETENT_SEAT_D >= DETENT_D - 1e-9
+assert "open c" in build_clip.__doc__.lower()
+assert "no detent" in build_clip.__doc__.lower()
 assert "no hooks" in build_clip.__doc__.lower()
-assert "closed" not in build_clip.__doc__.lower() or "not a closed" in build_clip.__doc__.lower()
+assert "not a closed" in build_clip.__doc__.lower()
+_ride_interf = DETENT_PROUD - SLIDE_CLR_Y
+assert SLOT_HALF * 2 == CLIP_XW - 0.04
 print(
-    f"v16.7 dims wall={WALL_TO_CAV:.3f} lipY={LIP_Y:.2f} "
+    f"v16.23 dims wall={WALL_TO_CAV:.3f} lipY={LIP_Y:.2f} "
     f"cY=[{FRAME_Y_INNER:.2f},{FRAME_Y_OUTER:.2f}] cZ=[{FRAME_Z0:.2f},{FRAME_Z1:.2f}] "
     f"cWall={C_WALL:.2f} spineInner={SPINE_INNER:.2f} slideClrY={SLIDE_CLR_Y:.2f} slideClrZ={SLIDE_CLR_Z:.2f} "
+    f"detentProud={DETENT_PROUD:.2f} detentD={DETENT_D:.2f} seatDepth={DETENT_SEAT_DEPTH:.2f} rideInterf={_ride_interf:.2f} "
     f"spanZ={CLIP_SPAN_Z:.2f} clipX={CLIP_XW} slot={SLOT_HALF*2:.2f} gapX={_gap_x:.2f} "
     f"chanZ=[{CHAN_Z0:.2f},{CHAN_Z1:.2f}] A_CATCH={A_CATCH_Z:.2f} B_CATCH={B_CATCH_Z:.2f} "
-    f"floor={POCKET_FLOOR} openC=1 closedFrame=0 detents=0 barbs=0 knurl=0 hooks=0"
+    f"floor={POCKET_FLOOR} openC=1 closedFrame=0 softDetent=0 barbs=0 knurl=0 hooks=0"
 )
 
 
 doc = {
     "version": 1,
-    "name": "INJS2065 Technic clamshell-IS-mount v16.7 OPEN C retainer",
+    "name": "INJS2065 Technic clamshell-IS-mount v16.23 tab split + reinforced hub + friction C",
     "starting_state": "empty",
     "steps": steps,
     "exports": {"final_model": True, "final_scene": True, "final_solution": True},
 }
 
 header = (
-    "// INJS2065 Technic CLAMSHELL-IS-MOUNT v16.7 — OPEN C retainer (no closed frame). mm.\n"
-    f"// Envelope A=B: X=[{SHELL_X0}, {SHELL_X1}] Y=[{SHELL_Y0}, {SHELL_Y1}] "
-    f"Z_A=[{SHELL_Z0}, {split_z}] Z_B=[{split_z}, {face_z}].\n"
-    f"// Near EAR trapped; far open +X. BODY_CLR={BODY_CLR} BRG_POCKET={BRG_POCKET} axle {AXLE_SPAN}x{AXLE_ARM}.\n"
-    f"// Nubs A{list(nub_xy_A)} sock{list(sock_xy_A)} D={NUB_D} eng={NUB_ENGAGE} sockD={SOCK_D} d={SOCK_DEPTH}.\n"
-    f"// v16.7 retainer: OPEN C — outer Y=[{FRAME_Y_INNER},{FRAME_Y_OUTER}] "
-    f"Z=[{FRAME_Z0},{FRAME_Z1}] cWall={C_WALL} spineInner={SPINE_INNER} clipX={CLIP_XW}; "
-    f"open toward cavity; slideClrY={SLIDE_CLR_Y} slideClrZ={SLIDE_CLR_Z}; "
-    f"chanZ=[{CHAN_Z0},{CHAN_Z1}] floor={POCKET_FLOOR} lipY={LIP_Y:.2f}. "
-    f"NO closed frame / detents / barbs / knurl / hooks.\n"
-    "// PRINT: retainers ON THEIR SIDE — YZ C profile in printer XY, build dir = model X\n"
-    "//        (layer lines along the clamp). Clamshells Z-up, split plane horizontal.\n"
-    f"// Printed: ClamshellA, ClamshellB, OutputHub, BuckleClipYP, BuckleClipYM. NO combined body. No M2/M3.\n"
+    "// INJS2065 v16.23: PETG 0.4 nozzle; fit candidate, not print-qualified.\n"
+    f"// Split Z={split_z}; tabs captured equally; no thin tab roof.\n"
+    f"// Bearing pocket D={BRG_POCKET}; journal D={JOURNAL}; horn socket D={SPLINE_SOCKET}.\n"
+    f"// Axle cross {AXLE_SPAN} x {AXLE_ARM}; clips {CLIP_XW} wide over retained shell lands.\n"
+    "// Friction clips, no detents. Print clips on side, build along model X.\n"
 )
 
-out_dir = Path("/workspace/servo-case/v16.7")
+out_dir = Path(__file__).resolve().parent
 out = out_dir / "injs2065-technic-clamshell.nbcad.jsonc"
+out_dir.mkdir(parents=True, exist_ok=True)
 out.write_text(header + json.dumps(doc, indent=2) + "\n", encoding="utf-8")
 
 kinds: dict[str, int] = {}
@@ -1133,8 +1200,8 @@ for s in steps:
     kinds[k] = kinds.get(k, 0) + 1
 
 meta = {
-    "architecture": "clamshell_is_technic_mount_v16_7_open_c_retainer",
-    "clamp_path": "flush_pocket_open_c_channel",
+    "architecture": "clamshell_v16_23_tab_split_thick_hub_friction_clips",
+    "clamp_path": "open_c_over_central_land",
     "printed_parts": ["ClamshellA", "ClamshellB", "OutputHub", "BuckleClipYP", "BuckleClipYM"],
     "purchased_proxies": ["Servo", "MR128"],
     "frame": {
@@ -1166,8 +1233,14 @@ meta = {
         "near_ear_trapped": True,
     },
     "technic_side_x": list(side_x),
-    "technic_side_z_A": ca_tech_z,
-    "technic_side_z_B": cb_tech_z,
+    "technic_side_z_lower": None,
+    "technic_side_z_upper": cb_tech_z,
+    "side_rows_in_body": "ClamshellB",
+    "side_corner_setback": SIDE_EDGE_SETBACK,
+    "side_blind_x": None,
+    "side_blind_z": None,
+    "side_blind_depth": None,
+    "bearing_lift_mm": BEARING_LIFT,
     "technic_top": [list(p) for p in top_xy],
     "technic_top_depth": TOP_TECH_DEPTH,
     "technic_top_blind": True,
@@ -1195,10 +1268,14 @@ meta = {
         "JOURNAL": JOURNAL,
         "brg_seat_z": brg_seat_z,
         "pocket_method": "cut_cyl",
-        "pocket_h": BRG_LEAD + BRG_W,
+        "pocket_h": 7.75, "bearing_insertion": "front", "bearing_seat_z": 34.35, "bearing_seat_inner_diameter": 10.9,
+        "bearing_riser_diameter": 10.40,
+        "bearing_riser_top_z": brg_seat_z - 0.20,
         "deck_z0": deck_z0,
     },
     "hub": {
+        "output_face_z": HUB_FACE_Z,
+        "output_recess_mm": face_z - HUB_FACE_Z,
         "SPLINE_SOCKET": SPLINE_SOCKET,
         "HUB_FLANGE_D": HUB_FLANGE_D,
         "JOURNAL": JOURNAL,
@@ -1214,10 +1291,10 @@ meta = {
         "HUB_FLANGE_T": HUB_FLANGE_T,
         "CROSS_DEPTH": CROSS_DEPTH,
         "hub_height": HUB_FLANGE_T + JOURNAL_LEN,
-        "spline_depth": max((TOTAL_TO_SPLINE - flange_z0) + 0.6, HUB_FLANGE_T + 4.0),
+        "spline_depth": (TOTAL_TO_SPLINE - flange_z0) + 0.20,
     },
     "buckle": {
-        "style": "flush_pocket_open_c_channel",
+        "style": "open_c_over_central_land",
         "clip_count": 2,
         "names": ["BuckleClipYP", "BuckleClipYM"],
         "slot_half_x": SLOT_HALF,
@@ -1230,11 +1307,7 @@ meta = {
         "wall_to_cavity": WALL_TO_CAV,
         "slide_clearance_y_total": SLIDE_CLR_Y,
         "slide_clearance_z_total": SLIDE_CLR_Z,
-        "slide_clearance_note": (
-            f"{SLIDE_CLR_Y:.2f} mm TOTAL on clamp (pocket-floor) Y faces; "
-            f"{SLIDE_CLR_Z:.2f} mm TOTAL on channel Z ends; "
-            "outer |Y|=12 flush; removable by hand, locates the halves"
-        ),
+        "slide_clearance_note": "Y insertion clearance 0.05; Z end clearance 0.10 total; width interference 0.04 total, with central load-bearing lands retained.",
         "frame_y_outer": FRAME_Y_OUTER,
         "frame_y_inner": FRAME_Y_INNER,
         "frame_z": [FRAME_Z0, FRAME_Z1],
@@ -1251,6 +1324,14 @@ meta = {
             FRAME_Z1 - C_WALL,
         ],
         "detents": False,
+        "detent_style": "none_friction_only",
+        "detent_proud_mm": DETENT_PROUD,
+        "detent_d_mm": DETENT_D,
+        "detent_seat_d_mm": DETENT_SEAT_D,
+        "detent_seat_depth_mm": DETENT_SEAT_DEPTH,
+        "detent_z": [DETENT_Z_BOT, DETENT_Z_TOP],
+        "detent_ride_interference_mm": round(DETENT_PROUD - SLIDE_CLR_Y, 3),
+        "detent_note": "No detents; retention is broad surface friction in X.",
         "barbs": False,
         "knurl": False,
         "hooks": False,
@@ -1271,12 +1352,26 @@ meta = {
             [-SLOT_HALF, POCKET_FLOOR, B_POCKET_Z0, SLOT_HALF, 12.0 + POCKET_Y_OVER, B_POCKET_Z1],
             [-SLOT_HALF, -(12.0 + POCKET_Y_OVER), B_POCKET_Z0, SLOT_HALF, -POCKET_FLOOR, B_POCKET_Z1],
         ],
-        "print_orientation": (
-            "Retainers print on their side: the open-C YZ profile lies in the printer XY "
-            "plane; build direction is model X so layer lines run along the clamp. "
-            "Clamshells print Z-up, split horizontal. Continuous rectangular channel spans A and B; "
-            "cavity wall remains >=3.0 mm (POCKET_FLOOR=9.55). Open mouth toward cavity."
-        ),
+        "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm.",
+    },
+    "revision_notes": {
+        "material": "PETG", "nozzle_mm": 0.4,
+        "tab_ceiling_to_lower_side_bore_web_mm": None,
+        "lower_hole_bottom_web_mm": None,
+        "top_to_side_hole_web_mm": TOP_TO_SIDE_WEB,
+        "lower_mount_row_shift_from_v16_10_mm": None,
+        "top_blind_depth_mm": TOP_TECH_DEPTH,
+        "fit_status": "nominal first-pass correction; physical fit not yet tested",
+        "horn_wall_mm": (HUB_FLANGE_D - SPLINE_SOCKET) / 2,
+        "short_socket_depth_mm": (TOTAL_TO_SPLINE - flange_z0) + 0.20,
+        "hub_taper_z": [27.3, 29.0], "hub_neck_diameter": 8.3, "minimum_horn_socket_wall_mm": 1.125, "side_sleeve_nominal_wall_mm": 1.075, "clearance_profile_z_d": [[26.0,11.7],[27.3,11.7],[29.0,8.8],[32.2,8.8],[33.6,10.9],[34.35,10.9],[34.35,12.3],[42.1,12.3]],
+        "bearing_inner_start_z": brg_seat_z,
+        "tab_capture_each_mm": TAB_T / 2,
+        "clip_channel_width_mm": SLOT_HALF * 2,
+        "clip_width_interference_total_mm": CLIP_XW - SLOT_HALF * 2,
+        "spine_recess_floor_abs_y": SPINE_INNER - 0.05,
+        "central_land_retained": True,
+        "no_detents": True
     },
     "steps": len(steps),
     "step_kinds": kinds,
@@ -1296,3 +1391,14 @@ if len(steps) > 400:
     print(f"WARNING: steps {len(steps)} > 400")
 else:
     print(f"OK: steps {len(steps)} ≤ 400")
+
+
+
+
+
+
+
+
+
+
+

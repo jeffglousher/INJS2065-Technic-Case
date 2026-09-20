@@ -1,7 +1,17 @@
-# INJS2065 Technic Clamshell Case
+﻿# INJS2065 Technic Clamshell Case
 
-FDM / AM Technic clamshell for Injora **INJS2065**, designed in **noBS-CAD**.
+Private design pack for Injora **INJS2065** Technic clamshell (noBS-CAD).
 
-**Start here:** [SESSION_HANDOVER.md](./SESSION_HANDOVER.md)
+**Current revision: v16.23** — see `design/` (single tree; older folds live in git history only).
 
-Latest parked design: **v16.8** (clip print failed; body structure issues open).
+| Path | What |
+|------|------|
+| `design/` | Current gen script, `.nbcad` / `.nbcad.jsonc`, meta, validators, README |
+| `skills/` | Cad Bot workflow checklists used on this part |
+| `FIT_DECISION.md` | Face setback / pin clearance decision notes |
+| `SESSION_HANDOVER.md` | Handover for agents / next session |
+
+## Workflow
+- Edit under `design/` only.
+- Versions = **git commits / PRs**, not `v16.N` folders.
+- Prefer live noBS-CAD + MCP; Python generator is a replay factory for the full model, not a second source of truth forever.
