@@ -1,6 +1,6 @@
 {
-  "status": "v16.25 numeric 19/19 PASS; live CAD MCP disconnected \u2014 schematic section shots (not live mesh)",
-  "revision": "v16.25",
+  "status": "v16.26 numeric 22/22 PASS; live CAD pending blank-doc replay",
+  "revision": "v16.26",
   "checks": [
     {
       "name": "bearing_insertion_upper_from_split",
@@ -31,6 +31,10 @@
       "name": "no_front_12.3_through",
       "pass": true,
       "detail": [
+        [
+          37.949999999999996,
+          8.5
+        ],
         [
           42.1,
           8.5
@@ -71,9 +75,29 @@
       "detail": 2.0
     },
     {
-      "name": "hub_neck_thickened",
+      "name": "hub_od_constant_to_servo_step",
       "pass": true,
-      "detail": 8.5
+      "detail": {
+        "HUB_COLUMN_D": 11.2,
+        "HUB_FLANGE_D": 11.2,
+        "constant_od_z": [
+          26.3,
+          34.14999999999999
+        ]
+      }
+    },
+    {
+      "name": "no_mid_outer_lip",
+      "pass": true,
+      "detail": "riser removed; inner stop only"
+    },
+    {
+      "name": "bearing_inner_stop",
+      "pass": true,
+      "detail": {
+        "z": 34.14999999999999,
+        "gap": 0.2
+      }
     },
     {
       "name": "hub_height_15.7",
@@ -117,6 +141,11 @@
         11.2,
         12.3
       ]
+    },
+    {
+      "name": "no_new_snaps",
+      "pass": true,
+      "detail": "open_c friction only"
     }
   ],
   "assembly": "1 bearing into upper_cover from split; 2 OutputHub into stack; 3 servo into hub; 4 lower_clam; 5 open-C clips",
@@ -169,38 +198,68 @@
       26.0,
       34.349999999999994
     ],
-    "bearing_riser_diameter": 10.4,
-    "bearing_riser_top_z": 34.14999999999999,
+    "bearing_riser_diameter": null,
+    "bearing_riser_top_z": null,
+    "bearing_inner_stop_z": 34.14999999999999,
+    "bearing_inner_stop_note": "Small journal-shoulder abutment under bearing (not a proud outer lip)",
     "deck_z0": 28.55
   },
-  "hub_key": {
+  "hub": {
+    "output_face_z": 42.0,
+    "output_recess_mm": 0.0,
+    "SPLINE_SOCKET": 6.05,
     "HUB_FLANGE_D": 11.2,
-    "HUB_FLANGE_T": 2.0,
-    "HUB_NECK_D": 8.5,
     "JOURNAL": 8.02,
-    "CROSS_DEPTH": 8.0,
-    "hub_height": 15.7,
+    "AXLE_SPAN": 4.85,
+    "AXLE_ARM": 1.85,
+    "FACE_EXTRA": 7.95,
     "face_z": 42.0,
     "flange_z0": 26.3,
-    "flange_z1": 28.3
+    "flange_z1": 28.3,
+    "deck_z0": 28.55,
+    "tower_t": 13.45,
+    "JOURNAL_LEN": 13.7,
+    "HUB_FLANGE_T": 2.0,
+    "HUB_NECK_D": 11.2,
+    "HUB_COLUMN_D": 11.2,
+    "constant_od": true,
+    "constant_od_z": [
+      26.3,
+      34.14999999999999
+    ],
+    "bearing_inner_stop_z": 34.14999999999999,
+    "bearing_inner_stop_gap": 0.2,
+    "CROSS_DEPTH": 8.0,
+    "hub_height": 15.7,
+    "spline_depth": 3.8999999999999995,
+    "servo_ledge": "thick flange parks on servo; OD constant from flange through column to inner stop"
   },
-  "notes": [
-    "Continuous \u00d812.3 insert path Z26\u2192seat for upper-alone bearing+hub.",
-    "Outer lip \u00d88.5 retains OD; not a front \u00d812.3 tunnel.",
-    "Side Technic blind 8.2 mm \u2014 through-sleeve wall sacrificed for assembly path."
-  ],
-  "screenshots": [
-    "design/shots/v16.25-bearing-into-upper-from-split.png",
-    "design/shots/v16.25-hub-into-upper-bearing-stack.png",
-    "design/shots/v16.25-clearance-profile.png"
-  ],
-  "live_cad": {
-    "revision": "v16.25",
-    "live_cad": "mcp_disconnected",
-    "note": "user-nobs-cad Not connected during session; schematic section shots used; replay on Thunder after pull"
-  },
-  "blockers": [
-    "Live CAD MCP not connected \u2014 JSONC replay + true mesh IFC deferred to Thunder after push"
-  ],
-  "check_count": 19
+  "before_after": {
+    "v16.25": {
+      "HUB_FLANGE_D": 11.2,
+      "HUB_FLANGE_T": 2.0,
+      "HUB_NECK_D": 8.5,
+      "hub_taper_z": [
+        28.3,
+        30.0
+      ],
+      "bearing_riser_diameter": 10.4,
+      "bearing_riser_top_z": 34.15,
+      "JOURNAL": 8.02
+    },
+    "v16.26": {
+      "HUB_FLANGE_D": 11.2,
+      "HUB_FLANGE_T": 2.0,
+      "HUB_COLUMN_D": 11.2,
+      "HUB_NECK_D": 11.2,
+      "hub_taper_z": null,
+      "bearing_riser_diameter": null,
+      "constant_od_z": [
+        26.3,
+        34.14999999999999
+      ],
+      "bearing_inner_stop_z": 34.14999999999999,
+      "JOURNAL": 8.02
+    }
+  }
 }

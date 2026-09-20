@@ -1,12 +1,12 @@
-// INJS2065 v16.25: PETG 0.4 nozzle; one-direction into upper_cover; fit candidate.
+// INJS2065 v16.26: PETG 0.4 nozzle; one-direction into upper_cover; constant hub OD.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
-// Journal D=8.02; horn socket D=6.05; flange T=2.0 neck D=8.5.
+// Journal D=8.02; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
 // Axle cross 4.85 x 1.85; clips 7.2 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.25 one-direction upper assembly",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.26 constant hub OD",
   "starting_state": "empty",
   "steps": [
     {
@@ -11340,246 +11340,12 @@
       }
     },
     {
-      "id": "hub_transition_0_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "hub_transition_0",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 2.0
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_transition_0_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "hub_transition_0_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "hub_transition_0"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_transition_0_begin",
+      "id": "hub_constant_od_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "hub_transition_0",
-          "plane": {
-            "$ref": "hub_transition_0_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_transition_0_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 5.6,
-            "y": 0.0
-          },
-          "diameter_text": "11.2",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "hub_transition_0_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "hub_transition_1_plane",
-      "call": {
-        "group": "solid/reference",
-        "operation": "construction_plane_offset",
-        "arguments": {
-          "name": "hub_transition_1",
-          "reference": {
-            "type": "origin_plane",
-            "plane": "xy"
-          },
-          "distance": 3.7
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_transition_1_ref": {
-          "type": "datum_plane",
-          "datum_id": {
-            "$select": {
-              "from": {
-                "$ref": "hub_transition_1_plane",
-                "pointer": ""
-              },
-              "path": "/planes",
-              "where": {
-                "/name": "hub_transition_1"
-              },
-              "take": "one",
-              "pointer": "/datum_id"
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_transition_1_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "hub_transition_1",
-          "plane": {
-            "$ref": "hub_transition_1_ref",
-            "pointer": ""
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_transition_1_circle",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 4.25,
-            "y": 0.0
-          },
-          "diameter_text": "8.5",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "hub_transition_1_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "hub_transition",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_loft",
-        "arguments": {
-          "sections": [
-            {
-              "sketch_name": "hub_transition_0",
-              "profile_index": 0
-            },
-            {
-              "sketch_name": "hub_transition_1",
-              "profile_index": 0
-            }
-          ],
-          "ruled": true,
-          "operation": "new_body",
-          "target_body_ids": [],
-          "continuity": "g0",
-          "centerline": null,
-          "guide_rail": null
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_transition_feat": {
-          "$select": {
-            "from": {
-              "$ref": "hub_transition"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_transition_body": {
-          "$select": {
-            "from": {
-              "$ref": "hub_transition"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "hub_transition_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_transition_join",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "hub_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "hub_transition_body",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "hub_neck_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "hub_neck",
+          "name": "hub_constant_od",
           "plane": {
             "type": "origin_plane",
             "plane": "xy"
@@ -11588,7 +11354,7 @@
       }
     },
     {
-      "id": "hub_neck_c",
+      "id": "hub_constant_od_c",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_add_circle_locked",
@@ -11599,16 +11365,16 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 4.25,
+            "x": 5.6,
             "y": 0
           },
-          "diameter_text": "8.5",
+          "diameter_text": "11.2",
           "ctrl_held": false
         }
       }
     },
     {
-      "id": "hub_neck_finish",
+      "id": "hub_constant_od_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -11616,19 +11382,19 @@
       }
     },
     {
-      "id": "hub_neck_ex",
+      "id": "hub_constant_od_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "hub_neck",
+          "sketch_name": "hub_constant_od",
           "profile_indices": [
             0
           ],
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 5.299999999999991
+            "distance": 5.849999999999991
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11638,10 +11404,10 @@
     },
     {
       "let": {
-        "hub_neck_feat": {
+        "hub_constant_od_feat": {
           "$select": {
             "from": {
-              "$ref": "hub_neck_ex"
+              "$ref": "hub_constant_od_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -11652,15 +11418,15 @@
     },
     {
       "let": {
-        "hub_neck_tmp": {
+        "hub_constant_od_tmp": {
           "$select": {
             "from": {
-              "$ref": "hub_neck_ex"
+              "$ref": "hub_constant_od_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "hub_neck_feat"
+                "$ref": "hub_constant_od_feat"
               }
             },
             "take": "one"
@@ -11669,14 +11435,14 @@
       }
     },
     {
-      "id": "hub_neck_mv",
+      "id": "hub_constant_od_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "hub_neck_tmp",
+              "$ref": "hub_constant_od_tmp",
               "pointer": "/id"
             }
           ],
@@ -11701,7 +11467,7 @@
       }
     },
     {
-      "id": "join_hub_neck",
+      "id": "join_hub_constant_od",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -11712,155 +11478,7 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "hub_neck_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "hub_bearing_riser_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "hub_bearing_riser",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_bearing_riser_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0,
-            "y": 0
-          },
-          "edge_hint": {
-            "x": 5.2,
-            "y": 0
-          },
-          "diameter_text": "10.4",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "hub_bearing_riser_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "hub_bearing_riser_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "hub_bearing_riser",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 0.55
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_bearing_riser_feat": {
-          "$select": {
-            "from": {
-              "$ref": "hub_bearing_riser_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "hub_bearing_riser_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "hub_bearing_riser_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "hub_bearing_riser_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "hub_bearing_riser_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "hub_bearing_riser_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 7.299999999999991
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_hub_bearing_riser",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "hub_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "hub_bearing_riser_tmp",
+              "$ref": "hub_constant_od_tmp",
               "pointer": "/id"
             }
           ],

@@ -1,4 +1,4 @@
-/** v16.25: outside (face) path blocked for bearing OD; insert path + pocket clear from split side. */
+/** v16.26: outside (face) path blocked for bearing OD; insert path + pocket clear from split side. */
 function bearingEntry(scene){
 function clip(poly,k,v,sgn){const out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],da=sgn*(a[k]-v),db=sgn*(b[k]-v);if(da>=-1e-9)out.push(a);if((da>=0)!=(db>=0)){const t=da/(da-db);out.push(a.map((q,j)=>q+t*(b[j]-q)));}}return out;}
 function dist(poly,x,z){let d=Infinity,pos=false,neg=false;for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],dx=b[0]-a[0],dz=b[2]-a[2],cross=dx*(z-a[2])-dz*(x-a[0]);if(cross>1e-9)pos=true;if(cross< -1e-9)neg=true;const den=dx*dx+dz*dz,t=den?Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[2])*dz)/den)):0;d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz));}let area=0;for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length];area+=a[0]*b[2]-b[0]*a[2];}return Math.abs(area)>1e-9&&!(pos&&neg)?0:d;}

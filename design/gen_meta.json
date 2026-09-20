@@ -1,5 +1,5 @@
 {
-  "architecture": "clamshell_v16_25_one_direction_upper_od_insert",
+  "architecture": "clamshell_v16_26_constant_hub_od",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -159,8 +159,10 @@
       26.0,
       34.349999999999994
     ],
-    "bearing_riser_diameter": 10.4,
-    "bearing_riser_top_z": 34.14999999999999,
+    "bearing_riser_diameter": null,
+    "bearing_riser_top_z": null,
+    "bearing_inner_stop_z": 34.14999999999999,
+    "bearing_inner_stop_note": "Small journal-shoulder abutment under bearing (not a proud outer lip)",
     "deck_z0": 28.55
   },
   "hub": {
@@ -179,11 +181,19 @@
     "tower_t": 13.45,
     "JOURNAL_LEN": 13.7,
     "HUB_FLANGE_T": 2.0,
-    "HUB_NECK_D": 8.5,
+    "HUB_NECK_D": 11.2,
+    "HUB_COLUMN_D": 11.2,
+    "constant_od": true,
+    "constant_od_z": [
+      26.3,
+      34.14999999999999
+    ],
+    "bearing_inner_stop_z": 34.14999999999999,
+    "bearing_inner_stop_gap": 0.2,
     "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
     "spline_depth": 3.8999999999999995,
-    "servo_ledge": "flange top steps down to neck; flange parks on servo"
+    "servo_ledge": "thick flange parks on servo; OD constant from flange through column to inner stop"
   },
   "buckle": {
     "style": "open_c_over_central_land",
@@ -308,12 +318,11 @@
     "fit_status": "nominal first-pass correction; physical fit not yet tested",
     "horn_wall_mm": 2.5749999999999997,
     "short_socket_depth_mm": 3.8999999999999995,
-    "hub_taper_z": [
-      28.3,
-      30.0
-    ],
-    "hub_neck_diameter": 8.5,
-    "minimum_horn_socket_wall_mm": 1.225,
+    "hub_taper_z": null,
+    "hub_mid_lip_removed": true,
+    "hub_constant_od_diameter": 11.2,
+    "hub_neck_diameter": 11.2,
+    "minimum_horn_socket_wall_mm": 2.5749999999999997,
     "thick_flange_horn_wall_mm": 2.5749999999999997,
     "side_sleeve_nominal_wall_mm": null,
     "side_bore_mode": "blind_8.2_each_face",
@@ -355,20 +364,20 @@
     "central_land_retained": true,
     "no_detents": true
   },
-  "steps": 760,
+  "steps": 738,
   "step_kinds": {
-    "call:sketch_begin": 86,
+    "call:sketch_begin": 83,
     "call:sketch_set_grid_snap": 98,
     "call:sketch_add_rectangle_locked": 25,
-    "call:sketch_finish": 86,
-    "call:solid_extrude": 60,
-    "let": 163,
-    "call:solid_move_copy": 64,
-    "call:solid_combine": 58,
-    "call:sketch_add_circle_locked": 61,
+    "call:sketch_finish": 83,
+    "call:solid_extrude": 59,
+    "let": 157,
+    "call:solid_move_copy": 63,
+    "call:solid_combine": 56,
+    "call:sketch_add_circle_locked": 58,
     "call:set_body_appearance": 7,
-    "call:construction_plane_offset": 22,
-    "call:solid_loft": 5,
+    "call:construction_plane_offset": 20,
+    "call:solid_loft": 4,
     "call:solid_hole": 10,
     "call:assembly_create_component": 7,
     "call:solid_scene": 4,
