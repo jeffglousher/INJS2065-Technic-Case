@@ -1,80 +1,63 @@
-# INJS2065 v16.30 — clip Z center on split_z + wider open-C + cross-bars
+# INJS2065 v16.31 — OutputHub strengthen + clip visual mass on split_z
 
-Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25, shell_z0 8). Lower side holes stay removed. Technic top sockets keep the 6.2 mm entrance recess / 5.05 mm land / tip relief. Side Technic row is **blind 8.2 mm** from each outer Y. Buckle clips remain **friction-only open C** (no snaps/barbs — Jeff did **not** ask for snaps). Assembly remains **one-direction into upper_cover** (v16.25 rules). Hub keeps **v16.26 constant Ø11.2 OD**.
+Envelope remains **24 × 24 × 34 mm** face at Z42 (shell ±12 XY, split_z 18.25, shell_z0 8). Assembly remains **one-direction into upper_cover** (v16.25). Journal **Ø7.90** into BRG_ID 8.0. Friction open-C clips (no snaps).
 
-## Datum correction (Jeff)
+## Why this revision
 
-**Clip Z center datum = `split_z` (clamshell division / A/B mating plane), typically 18.25 — NOT the mid of the full pocket/channel Z span.**
+### A) Clip visual centering
+Numeric v16.30 already had `clip_z_center == split_z == 18.25`, but Jeff’s live front photo (Design History ~298, proportions matching **v16.29**) showed the clip mid at ~20.25 → **+2 mm into upper/green**. Root cause: **stale JSONC / stale live replay**, not the v16.30 math.
 
-| Version | Datum used | Clip mid | Δ vs split_z |
-|---------|------------|----------|--------------|
-| v16.29 | pocket mid (CHAN mid ≈ 20.25) | **20.25** | **+2.00** (wrong) |
-| v16.30 | **split_z** | **18.25** | **0.00** |
+v16.31:
+1. Confirms HEAD `gen_meta` clip mid == `split_z`.
+2. Regenerates JSONC from `gen_v16_31.py` (SoT) so disk matches.
+3. Places **3 cross-bars** with visual-mass centroid on `split_z` (middle rung straddles the green/blue line).
+4. Meta note for parent live replay: **equal clip height above/below split_z** in front view.
 
-Equal land engagement above/below the A/B mating plane: `CLIP_ENGAGE_A == CLIP_ENGAGE_B`.
+### B) OutputHub structural failure
+Printed hub shed thin rings / spaghetti. Changes:
+1. **Larger servo mate** — flange Ø11.2→**Ø12.0**, T 2.0→**2.8**.
+2. **More solid column** — constant OD Ø12.0 from flange through column to bearing inner stop; horn wall **2.58→2.98 mm**.
+3. **Small dome** at blind end of horn socket (H=1.0, not flat).
+4. Supports left to Jeff; structure first.
 
-## Half naming (locked)
+## Hub before / after
 
-| Jeff name | Body / component | Role |
-|-----------|------------------|------|
-| **upper_cover** | ClamshellB (green) | Business face, bearing pocket, Technic top/side, higher Z (split→face) |
-| **lower_clam** | ClamshellA (blue) | Servo nest, lower Z (shell_z0→split) |
+| Dim | v16.30 | v16.31 |
+|-----|--------|--------|
+| Flange D | 11.2 | **12.0** |
+| Flange T | 2.0 | **2.8** |
+| Column OD | 11.2 | **12.0** (constant to inner stop) |
+| Horn wall | 2.575 | **2.975** |
+| Horn dome H | 0 (flat) | **1.0** |
+| Cross depth | 8.0 | 8.0 |
+| Journal | 7.90 | 7.90 |
+| Spline depth | ~3.9 | ~3.9 |
 
-## Assembly sequence (mandatory — one-direction into upper)
+Schematic: `design/shots/v16.31-hub-section-schematic.png`
 
-1. Slot the **bearing** into the **upper cover** (alone — lower clam not present). Seat from the open/split side toward the business face, against the outer face lip.
-2. Slot the **business-end adapter** (OutputHub: servo horn socket + Technic cross) into that bearing/stack — same open side: thick servo-step flange → **constant Ø11.2 column** → journal through bearing → Technic cross toward face.
-3. Plug the **servo** in behind the adapter (spline into hub).
-4. Add the **lower clamshell** over the servo body / remaining nest.
-5. Attach the **side clips** (friction open-C last).
+## Clip Z (unchanged datum, regenerated + visual mass)
 
-**Not allowed:** closing both halves around a stack assembled “inside,” or installing the bearing from the outer face through a full-depth Ø12.3 tunnel.
+| | v16.29 (stale live) | v16.30/31 |
+|--|---------------------|-----------|
+| Datum | pocket mid ~20.25 | **split_z 18.25** |
+| Clip mid | 20.25 (+2 into green) | **18.25** |
+| Engage A/B | 3.8 / 7.8 | **5.8 / 5.8** |
+| Cross-bars | 0 | **3** (mass on split_z) |
 
-## VERIFY — clip on split_z + wider + cross-bars (v16.30)
+**Expected front view (parent live):** equal clip height above/below the green/blue split line. If Design History ≈298 or mid sits in green, reload this JSONC.
 
-| Fit | Before (v16.29) | After (v16.30) | Notes |
-|-----|-----------------|----------------|-------|
-| **Clip Z vs split_z** | clip `[14.45, 26.05]` mid **20.25**; Δ to split **+2.00** | clip `[12.45, 24.05]` mid **18.25**; Δ to split **0.00** | Mid-clip == split_z (±0.05). Equal A/B engagement **5.80 / 5.80**. |
-| **Channel Z** | `[14.00, 26.50]` | `[12.00, 26.50]` | Extended into A so lowered clip still fits (end gap below 0.45). |
-| **Clip X width** | `CLIP_XW` **7.40**; pocket **7.32**; interf **0.08** total | `CLIP_XW` **7.50**; pocket **7.42**; interf **0.08** total (0.04/side) | A little wider; tight FDM press kept in ~0.04–0.10 band. |
-| **Cross members** | spine only (0 rungs) | **2** horizontal rungs + spine | FDM side print (build +X); mouth stays open; no snaps. |
-| Journal / nest / hub OD / assembly / snaps | JOURNAL **7.90**; BODY_CLR **0.18**; TAB_Z_CLR **0.18**; hub Ø11.2; one-direction; open-C | **unchanged** | — |
+## Assembly (mandatory)
 
-### Clip Z centering (success gate)
-
-- Datum `split_z` = **18.25** (tab mid = (17.0+19.5)/2)
-- Clip Z = frame `[FRAME_Z0, FRAME_Z1]` = `[12.45, 24.05]` → mid **18.25**
-- `|clip_zc − split_z| = 0.00` ≤ 0.05 **PASS**
-- Engagement A/B = **5.80 / 5.80** (equal across mating plane)
-
-### Clip X press (kept tight)
-
-- Clip width `CLIP_XW = 7.50`; pocket width `2×SLOT_HALF = 7.42`
-- Total X interference = `7.50 − 7.42 = 0.08 mm` (0.04 mm each side)
-- Clip X center == pocket X center within 0.05 mm
-
-## Hub profile (unchanged OD from v16.26)
-
-- **Thick flange** Ø11.2 × 2.0 mm parks on the servo (servo-step ledge) at Z26.3–28.3.
-- **Constant OD column** Ø11.2 from flange through former neck/riser band up to **inner stop** Z34.15.
-- **Journal** Ø**7.90** continues through bearing; Technic cross 8 mm flush at Z42.
-- Hub overall height 15.7 mm unchanged.
-
-## Validation
-
-- Numeric: clip Z center == split_z; equal A/B engagement; wider clip; 2 cross-bars; X press 0.04/side; journal/nest/hub gates retained. See `validation_results.json`.
-- Live CAD / MCP IFC: **not connected** on this box — parent to open script on Thunder (`machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`) and send images.
-- Schematic: `design/shots/v16.30-clip-split-z-center-schematic.png`
+1. Bearing into **upper_cover** alone (from split → face).
+2. OutputHub into that stack (flange → constant OD column → journal through bearing → Technic cross).
+3. Servo into hub spline.
+4. Lower clam over servo.
+5. Open-C clips last.
 
 ## Generator
 
-Edit `gen_v16_30.py`, then run it to regenerate `injs2065-technic-clamshell.nbcad.jsonc` and `gen_meta.json`. Keep this README in sync.
+```bash
+python3 design/gen_v16_31.py
+```
 
-## Open questions for Jeff
-
-1. Blind side Technic depth 8.2 mm vs restoring through-holes (would open into hub cavity with Ø12.3 path) — confirm preference.
-2. Exact MR128 designation / seal style if not the proxy 12×8×3.5.
-3. Physical PETG: confirm journal 7.90 slides into bearing ID 8.0 without rattle under load.
-4. Physical PETG: confirm 0.08 mm total X clip press + split_z-centered engagement feels right.
-5. Cross-bar count/thickness (2 × 1.20 mm) — adjust if print/assembly prefers more/fewer.
-6. Nest BODY_CLR 0.18 / TAB_Z_CLR 0.18 — confirm servo ears seat without binding after print shrinkage.
+Writes `injs2065-technic-clamshell.nbcad.jsonc` + `gen_meta.json`. Live CAD MCP not on this box — parent replays on Thunder `machineId 4e34e74d-0868-455b-8851-4b5e7ceff85d`.

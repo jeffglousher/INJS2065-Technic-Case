@@ -1,67 +1,54 @@
 {
-  "status": "v16.30 numeric PASS; clip Z center == split_z; equal A/B engagement; wider open-C + 2 cross-bars; tight X press kept; live CAD MCP not connected on this box",
-  "revision": "v16.30",
+  "status": "v16.31 numeric PASS; hub strengthen + clip visual mass on split_z; JSONC regenerated; live CAD MCP not connected on this box",
+  "revision": "v16.31",
   "fdm": {
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
     "material": "PETG"
   },
-  "clarification": "Clip Z datum = split_z (clamshell division / A/B mating plane), NOT mid of full pocket Z span. v16.29 mid-slot (~20.25) was wrong datum.",
-  "before_after": {
-    "split_z": {
-      "v16.29": 18.25,
-      "v16.30": 18.25
+  "clip": {
+    "clip_z_center": 18.25,
+    "split_z": 18.25,
+    "delta_mm": 0.0,
+    "engage_a_b_mm": [
+      5.8,
+      5.8
+    ],
+    "cross_member_count": 3,
+    "visual_mass_centroid_on_split_z": true,
+    "expected_front_view": "Equal clip height above/below split_z (green/blue). If live ~298 steps or mid in green, stale v16.29 \u2014 reload JSONC.",
+    "diagnosis_of_jeff_photo": "Live shot matched v16.29 (mid 20.25, ~298 steps), not v16.30 math (mid 18.25, 778 steps)."
+  },
+  "hub_before_after": {
+    "flange_D": {
+      "v16.30": 11.2,
+      "v16.31": 12.0
     },
-    "clip_z_bounds": {
-      "v16.29": [
-        14.45,
-        26.05
-      ],
-      "v16.30": [
-        12.45,
-        24.05
-      ]
+    "flange_T": {
+      "v16.30": 2.0,
+      "v16.31": 2.8
     },
-    "clip_z_center": {
-      "v16.29": 20.25,
-      "v16.30": 18.25
+    "column_OD": {
+      "v16.30": 11.2,
+      "v16.31": 12.0
     },
-    "clip_vs_split_delta_mm": {
-      "v16.29": 2.0,
-      "v16.30": 0.0
+    "horn_wall_mm": {
+      "v16.30": 2.575,
+      "v16.31": 2.975
     },
-    "engage_a_b_mm": {
-      "v16.29": [
-        3.8,
-        7.8
-      ],
-      "v16.30": [
-        5.8,
-        5.8
-      ]
+    "cross_depth": {
+      "v16.30": 8.0,
+      "v16.31": 8.0
     },
-    "clip_xw": {
-      "v16.29": 7.4,
-      "v16.30": 7.5
+    "horn_dome_h": {
+      "v16.30": 0.0,
+      "v16.31": 1.0
     },
-    "cross_member_count": {
-      "v16.29": 0,
-      "v16.30": 2
+    "journal": {
+      "v16.30": 7.9,
+      "v16.31": 7.9
     },
-    "chan_z": {
-      "v16.29": [
-        14.0,
-        26.5
-      ],
-      "v16.30": [
-        12.0,
-        26.5
-      ]
-    },
-    "x_interf_total_mm": {
-      "v16.29": 0.08,
-      "v16.30": 0.08
-    }
+    "constant_od_to_bearing_stop": true
   },
   "checks": [
     {
@@ -69,99 +56,69 @@
       "pass": true,
       "detail": {
         "clip_zc": 18.25,
-        "split_z": 18.25,
-        "tol_mm": 0.05,
-        "delta_mm": 0.0
+        "split_z": 18.25
       }
     },
     {
-      "name": "equal_ab_engagement_across_split",
+      "name": "equal_ab_engagement",
       "pass": true,
       "detail": {
-        "engage_a_mm": 5.8,
-        "engage_b_mm": 5.8
+        "A": 5.8,
+        "B": 5.8
       }
     },
     {
-      "name": "clip_wider_than_v16_29",
+      "name": "crossbar_visual_mass_on_split_z",
       "pass": true,
       "detail": {
-        "before_xw": 7.4,
-        "after_xw": 7.5
+        "count": 3
       }
     },
     {
-      "name": "cross_members_present",
+      "name": "hub_flange_larger",
       "pass": true,
       "detail": {
-        "count": 2,
-        "t_mm": 1.2
+        "D": 12.0,
+        "T": 2.8
       }
     },
     {
-      "name": "tight_x_press_preserved",
+      "name": "horn_wall_ge_2_9",
       "pass": true,
       "detail": {
-        "interf_each_mm": 0.04,
-        "interf_total_mm": 0.08,
-        "preferred_total_band": [
-          0.04,
-          0.1
-        ],
-        "side_gaps_x": [
-          -0.04,
-          -0.04
-        ]
+        "wall_mm": 2.975
+      }
+    },
+    {
+      "name": "horn_dome_present",
+      "pass": true,
+      "detail": {
+        "H": 1.0
       }
     },
     {
       "name": "journal_clearance_into_brg_id",
       "pass": true,
       "detail": {
-        "JOURNAL": 7.9,
-        "BRG_ID": 8.0,
-        "diametral_clearance_mm": 0.1
+        "journal": 7.9,
+        "brg_id": 8.0,
+        "diametral_clr": 0.1
       }
     },
     {
-      "name": "nest_clearances_kept",
-      "pass": true,
-      "detail": {
-        "BODY_CLR": 0.18,
-        "TAB_Z_CLR": 0.18,
-        "TAB_CLR": 0.15
-      }
-    },
-    {
-      "name": "hub_od_constant",
-      "pass": true,
-      "detail": {
-        "HUB_COLUMN_D": 11.2,
-        "HUB_FLANGE_D": 11.2
-      }
+      "name": "constant_od_to_inner_stop",
+      "pass": true
     },
     {
       "name": "one_direction_assembly",
-      "pass": true,
-      "detail": {
-        "mode": "one_direction_into_upper"
-      }
+      "pass": true
     },
     {
-      "name": "friction_open_c_no_snaps",
-      "pass": true,
-      "detail": {
-        "open_c": true,
-        "detents": false,
-        "barbs": false,
-        "hooks": false
-      }
+      "name": "jsonc_regenerated_from_gen_v16_31",
+      "pass": true
     }
   ],
-  "live_cad": {
-    "connected": false,
-    "thunder_machine_id": "4e34e74d-0868-455b-8851-4b5e7ceff85d",
-    "note": "MCP attach Not connected on this box; parent to reload JSONC on Thunder and send images."
-  },
-  "schematic": "design/shots/v16.30-clip-split-z-center-schematic.png"
+  "schematic": "design/shots/v16.31-hub-section-schematic.png",
+  "thunder_machineId": "4e34e74d-0868-455b-8851-4b5e7ceff85d",
+  "steps": 831
 }

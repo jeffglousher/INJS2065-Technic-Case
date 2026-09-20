@@ -1,12 +1,12 @@
-// INJS2065 v16.30: PETG 0.4 nozzle / 0.2 layer; clip Z-centered on split_z; wider open-C + cross-bars; tight X press; journal 7.90.
+// INJS2065 v16.31: PETG 0.4/0.2; hub strengthen (flange D12.0 T2.8 + dome); clip mid==split_z + 3 cross-bars; journal 7.90.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.5 (retain OD).
-// Journal D=7.9; horn socket D=6.05; flange T=2.0 constant OD D=11.2.
+// Journal D=7.9; horn socket D=6.05; flange T=2.8 constant OD D=12.0; horn dome H=1.0.
 // Axle cross 4.85 x 1.85; clips 7.5 wide over retained shell lands.
 // Friction clips, no detents. Print clips on side, build along model X.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.30 clip split_z-center wider cross-bars",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.31 hub strengthen + clip visual mass",
   "starting_state": "empty",
   "steps": [
     {
@@ -4565,7 +4565,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.349999999999994
+            "distance": 8.350000000000001
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -4768,7 +4768,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 34.349999999999994
+            "z": 34.35
           },
           "pivot": {
             "x": 0,
@@ -10908,7 +10908,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 34.349999999999994
+            "z": 34.35
           },
           "pivot": {
             "x": 0,
@@ -10974,10 +10974,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 5.6,
+            "x": 6.0,
             "y": 0
           },
-          "diameter_text": "11.2",
+          "diameter_text": "12",
           "ctrl_held": false
         }
       }
@@ -11003,7 +11003,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 2.8
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11098,7 +11098,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 13.7
+            "distance": 12.899999999999999
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11153,7 +11153,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 2.0
+            "z": 2.8
           },
           "pivot": {
             "x": 0,
@@ -11217,10 +11217,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 5.6,
+            "x": 6.0,
             "y": 0
           },
-          "diameter_text": "11.2",
+          "diameter_text": "12",
           "ctrl_held": false
         }
       }
@@ -11246,7 +11246,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 2.8
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11365,10 +11365,10 @@
             "y": 0
           },
           "edge_hint": {
-            "x": 5.6,
+            "x": 6.0,
             "y": 0
           },
-          "diameter_text": "11.2",
+          "diameter_text": "12",
           "ctrl_held": false
         }
       }
@@ -11394,7 +11394,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 5.849999999999991
+            "distance": 5.049999999999998
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -11449,7 +11449,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 2.0
+            "z": 2.8
           },
           "pivot": {
             "x": 0,
@@ -11631,6 +11631,564 @@
             }
           ],
           "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s0_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s0",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s0_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 2.825,
+            "y": 0.0
+          },
+          "diameter_text": "5.65",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s0_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cpl_horn_dome_pl1",
+      "call": {
+        "group": "solid/reference",
+        "operation": "construction_plane_offset",
+        "arguments": {
+          "name": "horn_dome_pl1",
+          "reference": {
+            "type": "origin_plane",
+            "plane": "xy"
+          },
+          "distance": 0.2
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_pl1_plane": {
+          "datum_id": {
+            "$select": {
+              "from": {
+                "$ref": "cpl_horn_dome_pl1",
+                "pointer": ""
+              },
+              "path": "/planes",
+              "where": {
+                "/name": "horn_dome_pl1"
+              },
+              "take": "one",
+              "pointer": "/datum_id"
+            }
+          },
+          "type": "datum_plane"
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s1_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s1",
+          "plane": {
+            "$ref": "horn_dome_pl1_plane",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s1_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 2.558222038838693,
+            "y": 0.0
+          },
+          "diameter_text": "5.11644",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s1_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cpl_horn_dome_pl2",
+      "call": {
+        "group": "solid/reference",
+        "operation": "construction_plane_offset",
+        "arguments": {
+          "name": "horn_dome_pl2",
+          "reference": {
+            "type": "origin_plane",
+            "plane": "xy"
+          },
+          "distance": 0.4
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_pl2_plane": {
+          "datum_id": {
+            "$select": {
+              "from": {
+                "$ref": "cpl_horn_dome_pl2",
+                "pointer": ""
+              },
+              "path": "/planes",
+              "where": {
+                "/name": "horn_dome_pl2"
+              },
+              "take": "one",
+              "pointer": "/datum_id"
+            }
+          },
+          "type": "datum_plane"
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s2_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s2",
+          "plane": {
+            "$ref": "horn_dome_pl2_plane",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s2_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 2.242403844092317,
+            "y": 0.0
+          },
+          "diameter_text": "4.48481",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s2_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cpl_horn_dome_pl3",
+      "call": {
+        "group": "solid/reference",
+        "operation": "construction_plane_offset",
+        "arguments": {
+          "name": "horn_dome_pl3",
+          "reference": {
+            "type": "origin_plane",
+            "plane": "xy"
+          },
+          "distance": 0.6
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_pl3_plane": {
+          "datum_id": {
+            "$select": {
+              "from": {
+                "$ref": "cpl_horn_dome_pl3",
+                "pointer": ""
+              },
+              "path": "/planes",
+              "where": {
+                "/name": "horn_dome_pl3"
+              },
+              "take": "one",
+              "pointer": "/datum_id"
+            }
+          },
+          "type": "datum_plane"
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s3_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s3",
+          "plane": {
+            "$ref": "horn_dome_pl3_plane",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s3_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 1.8526332610638305,
+            "y": 0.0
+          },
+          "diameter_text": "3.70527",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s3_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cpl_horn_dome_pl4",
+      "call": {
+        "group": "solid/reference",
+        "operation": "construction_plane_offset",
+        "arguments": {
+          "name": "horn_dome_pl4",
+          "reference": {
+            "type": "origin_plane",
+            "plane": "xy"
+          },
+          "distance": 0.8
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_pl4_plane": {
+          "datum_id": {
+            "$select": {
+              "from": {
+                "$ref": "cpl_horn_dome_pl4",
+                "pointer": ""
+              },
+              "path": "/planes",
+              "where": {
+                "/name": "horn_dome_pl4"
+              },
+              "take": "one",
+              "pointer": "/datum_id"
+            }
+          },
+          "type": "datum_plane"
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s4_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s4",
+          "plane": {
+            "$ref": "horn_dome_pl4_plane",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s4_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 1.3251886658132888,
+            "y": 0.0
+          },
+          "diameter_text": "2.65038",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s4_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cpl_horn_dome_pl5",
+      "call": {
+        "group": "solid/reference",
+        "operation": "construction_plane_offset",
+        "arguments": {
+          "name": "horn_dome_pl5",
+          "reference": {
+            "type": "origin_plane",
+            "plane": "xy"
+          },
+          "distance": 1.0
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_pl5_plane": {
+          "datum_id": {
+            "$select": {
+              "from": {
+                "$ref": "cpl_horn_dome_pl5",
+                "pointer": ""
+              },
+              "path": "/planes",
+              "where": {
+                "/name": "horn_dome_pl5"
+              },
+              "take": "one",
+              "pointer": "/datum_id"
+            }
+          },
+          "type": "datum_plane"
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s5_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "horn_dome_s5",
+          "plane": {
+            "$ref": "horn_dome_pl5_plane",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s5_c",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_circle_locked",
+        "arguments": {
+          "mode": "center_diameter",
+          "anchor": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "edge_hint": {
+            "x": 0.38,
+            "y": 0.0
+          },
+          "diameter_text": "0.76",
+          "ctrl_held": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_s5_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "horn_dome_loft",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_loft",
+        "arguments": {
+          "sections": [
+            {
+              "sketch_name": "horn_dome_s0",
+              "profile_index": 0
+            },
+            {
+              "sketch_name": "horn_dome_s1",
+              "profile_index": 0
+            },
+            {
+              "sketch_name": "horn_dome_s2",
+              "profile_index": 0
+            },
+            {
+              "sketch_name": "horn_dome_s3",
+              "profile_index": 0
+            },
+            {
+              "sketch_name": "horn_dome_s4",
+              "profile_index": 0
+            },
+            {
+              "sketch_name": "horn_dome_s5",
+              "profile_index": 0
+            }
+          ],
+          "ruled": false,
+          "operation": "new_body",
+          "target_body_ids": [],
+          "continuity": "g1",
+          "centerline": null,
+          "guide_rail": null
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_feat": {
+          "$select": {
+            "from": {
+              "$ref": "horn_dome_loft"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "horn_dome_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "horn_dome_loft"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "horn_dome_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "horn_dome_flip",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "horn_dome_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 3.8999999999999995
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "horn_dome_join",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "hub_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "horn_dome_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
           "keep_tools": false
         }
       }
@@ -12476,7 +13034,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.05
+            "z": 15.25
           },
           "pivot": {
             "x": 0,
@@ -12645,7 +13203,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 19.25
+            "z": 17.65
           },
           "pivot": {
             "x": 0,
@@ -12675,6 +13233,175 @@
           "tool_body_ids": [
             {
               "$ref": "cyp_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cyp_xbar2",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": 9.200000000000001
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": 10.4
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cyp_xbar2_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cyp_xbar2",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar2_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar2_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_xbar2_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_xbar2_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cyp_xbar2_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_xbar2_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cyp_xbar2_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 20.05
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cyp_xbar2",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_xbar2_tmp",
               "pointer": "/id"
             }
           ],
@@ -13154,7 +13881,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 16.05
+            "z": 15.25
           },
           "pivot": {
             "x": 0,
@@ -13323,7 +14050,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 19.25
+            "z": 17.65
           },
           "pivot": {
             "x": 0,
@@ -13353,6 +14080,175 @@
           "tool_body_ids": [
             {
               "$ref": "cym_xbar1_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "join",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cym_xbar2",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xy"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_r_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_r",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_add_rectangle_locked",
+        "arguments": {
+          "mode": "two_point",
+          "anchor": {
+            "x": -3.75,
+            "y": -10.4
+          },
+          "corner_hint": {
+            "x": 3.75,
+            "y": -9.200000000000001
+          },
+          "width_mm": 7.5,
+          "height_mm": 1.1999999999999993,
+          "ctrl_held": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_r_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cym_xbar2_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cym_xbar2",
+          "profile_indices": [
+            0
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.2
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar2_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar2_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cym_xbar2_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "cym_xbar2_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cym_xbar2_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "cym_xbar2_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cym_xbar2_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 20.05
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "join_cym_xbar2",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_ym_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cym_xbar2_tmp",
               "pointer": "/id"
             }
           ],
