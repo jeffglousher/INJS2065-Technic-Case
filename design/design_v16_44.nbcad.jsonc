@@ -1,11 +1,11 @@
-// INJS2065 v16.43: drop leftover x=0 side pin recesses (upper_pin_2_*); widen mate-centered open-C clip to CLIP_X=[-7.5,7.5].
-// Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm, was 7.5). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// Teeth: xbar0+xbar2 only. No side Technic / recesses at x=0,z=30. Thunder-safe -Y via solid_mirror of +Y (no cut_cym_open).
+// INJS2065 v16.44: remove inner xbar lips (cyp_xbar0/2); keep outer-edge lip of open-C; add AM hex bosses on clamp faces + land pockets.
+// Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
+// Hex: circumscribed R=1.4 (FF 2.8) proud 1.2 mm (=former xbar Y engage); pocket R=1.55 FF 3.1 depth 1.35; flat-top rot 30°. No middle xbar. Thunder-safe -Y solid_mirror.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.43 wide split_z clip no x0 recesses (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.44 hex clamp faces no inner lips (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -16180,6 +16180,1026 @@
       }
     },
     {
+      "id": "land_hex_yp_a_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "land_hex_yp_a",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xz"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex0",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "land_hex_yp_a_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "land_hex_yp_a",
+          "profile_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.35
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_feat": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_yp_a_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_yp_a_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "land_hex_yp_a_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_a_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "land_hex_yp_a_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 10.35,
+            "z": 0
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_land_hex_yp_a",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_a",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "land_hex_yp_a_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "land_hex_yp_b",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xz"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex0",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "land_hex_yp_b_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "land_hex_yp_b",
+          "profile_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.35
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_feat": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_yp_b_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_yp_b_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "land_hex_yp_b_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_yp_b_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "land_hex_yp_b_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 10.35,
+            "z": 0
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_land_hex_yp_b",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "land_hex_yp_b_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "land_hex_ym_a",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xz"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex0",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "land_hex_ym_a_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "land_hex_ym_a",
+          "profile_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.35
+          },
+          "taper_angle_deg": 0,
+          "flip": true,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_feat": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_ym_a_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_ym_a_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "land_hex_ym_a_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_a_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "land_hex_ym_a_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": -10.35,
+            "z": 0
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_land_hex_ym_a",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_a",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "land_hex_ym_a_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "land_hex_ym_b",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xz"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex0",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.55",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "land_hex_ym_b_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "land_hex_ym_b",
+          "profile_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.35
+          },
+          "taper_angle_deg": 0,
+          "flip": true,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_feat": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_ym_b_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_tmp": {
+          "$select": {
+            "from": {
+              "$ref": "land_hex_ym_b_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "land_hex_ym_b_feat"
+              }
+            },
+            "take": "one"
+          }
+        }
+      }
+    },
+    {
+      "id": "land_hex_ym_b_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "land_hex_ym_b_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": -10.35,
+            "z": 0
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_land_hex_ym_b",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clamshell_b",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "land_hex_ym_b_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
       "id": "cyp_out_begin",
       "call": {
         "group": "sketch/draw",
@@ -16497,21 +17517,21 @@
       }
     },
     {
-      "id": "cyp_xbar0_begin",
+      "id": "cyp_hex_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "cyp_xbar0",
+          "name": "cyp_hex",
           "plane": {
             "type": "origin_plane",
-            "plane": "xy"
+            "plane": "xz"
           }
         }
       }
     },
     {
-      "id": "cyp_xbar0_r_nosnap",
+      "id": "cyp_hex_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16521,28 +17541,109 @@
       }
     },
     {
-      "id": "cyp_xbar0_r",
+      "id": "cyp_hex_hex0",
       "call": {
         "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
+        "operation": "sketch_polygon",
         "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -7.5,
-            "y": 9.200000000000001
+          "center": {
+            "x": -4.5,
+            "y": 16.5
           },
-          "corner_hint": {
-            "x": 7.5,
-            "y": 10.4
-          },
-          "width_mm": 15.0,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "cyp_xbar0_r_snap",
+      "id": "cyp_hex_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hex_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 16.5
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hex_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hex_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hex_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.5,
+            "y": 20.0
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 30.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hex_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16552,7 +17653,7 @@
       }
     },
     {
-      "id": "cyp_xbar0_finish",
+      "id": "cyp_hex_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -16560,14 +17661,19 @@
       }
     },
     {
-      "id": "cyp_xbar0_ex",
+      "id": "cyp_hex_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "cyp_xbar0",
+          "sketch_name": "cyp_hex",
           "profile_indices": [
-            0
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
           ],
           "operation": "new_body",
           "extent": {
@@ -16582,10 +17688,10 @@
     },
     {
       "let": {
-        "cyp_xbar0_feat": {
+        "cyp_hex_feat": {
           "$select": {
             "from": {
-              "$ref": "cyp_xbar0_ex"
+              "$ref": "cyp_hex_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -16596,15 +17702,15 @@
     },
     {
       "let": {
-        "cyp_xbar0_tmp": {
+        "cyp_hex_tmp": {
           "$select": {
             "from": {
-              "$ref": "cyp_xbar0_ex"
+              "$ref": "cyp_hex_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "cyp_xbar0_feat"
+                "$ref": "cyp_hex_feat"
               }
             },
             "take": "one"
@@ -16613,21 +17719,21 @@
       }
     },
     {
-      "id": "cyp_xbar0_mv",
+      "id": "cyp_hex_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "cyp_xbar0_tmp",
+              "$ref": "cyp_hex_tmp",
               "pointer": "/id"
             }
           ],
           "translation": {
             "x": 0,
-            "y": 0,
-            "z": 15.25
+            "y": 10.4,
+            "z": 0
           },
           "pivot": {
             "x": 0,
@@ -16645,7 +17751,7 @@
       }
     },
     {
-      "id": "join_cyp_xbar0",
+      "id": "join_cyp_hex",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -16656,176 +17762,7 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "cyp_xbar0_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cyp_xbar2",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -7.5,
-            "y": 9.200000000000001
-          },
-          "corner_hint": {
-            "x": 7.5,
-            "y": 10.4
-          },
-          "width_mm": 15.0,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cyp_xbar2_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cyp_xbar2",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_xbar2_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cyp_xbar2_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_xbar2_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cyp_xbar2_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cyp_xbar2_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar2_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cyp_xbar2_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 20.05
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_cyp_xbar2",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_yp_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cyp_xbar2_tmp",
+              "$ref": "cyp_hex_tmp",
               "pointer": "/id"
             }
           ],

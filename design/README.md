@@ -1,3 +1,10 @@
+## v16.44
+
+- Remove inner engagement lips/teeth (`cyp_xbar0`, `cyp_xbar2` + joins). Keep outer-edge lip of open-C (`cyp_out` after `cyp_open`).
+- Add AM hex/honeycomb bosses on clip↔land clamp faces: circumscribed R=1.4 (flat-to-flat 2.8), proud **1.2 mm** (= former xbar Y engage), flat-top rot 30°, 2×3 grid at Z={16.5,20.0} × X={±4.5,0}.
+- Matching land hex pockets: R=1.55 (FF 3.1), depth 1.35, cut into ClamshellA/B ±Y spine faces.
+- Keep mate-centered envelope: `CLIP_Z=[12.45,24.05]` / `split_z=18.25`, `CLIP_X=[-7.5,7.5]`; Thunder-safe −Y `solid_mirror`; no green-envelope long clip; no x=0 side recesses.
+
 ## v16.43
 
 - Drop leftover side-pin lead-in/tip recesses at x=0,z=30 (`upper_pin_2_*` entry+tip on both ±Y). Through-holes already gone in v16.41; recesses were still cutting.
@@ -36,4 +43,4 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 
 ## Replay
 - **Canonical:** `design/design_v16_43.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.43`).
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.44`).
