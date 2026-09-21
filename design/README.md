@@ -1,3 +1,9 @@
+## v16.40
+
+- Thunder 0.2.0 failed at `cut_cym_open` (step 1024/1067). Replaced duplicated −Y clip construction with `solid_mirror` of finished +Y clip across origin XZ.
+- Clip placement unchanged: outer ±Y lands, Z centered on `split_z` 18.25.
+- Headless replay target: full completion.
+
 # INJS2065 v16.39 — tight Technic floor + external clips
 
 Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** Technic edge; restore `shell_y ±12` so clip pockets sit on outer ±Y again (not buried).

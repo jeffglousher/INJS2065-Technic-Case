@@ -1,23 +1,11 @@
-// INJS2065 v16.39: tight Technic floor shell_x=[-12,28] shell_y=[±12]; restore external clips; green holes face+sides.
-// VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
-// Bearing pocket D=12.3 h=3.6; face hole D=8.15 (retain lip); journal Ø7.94 into BRG_ID 8.00.
-// Split Z=18.25; tabs captured equally; no thin tab roof.
-// Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
-// Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
-// Side bores: green ClamshellB only — x={-8,0,8,16,24} on ±Y at z=30 (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
-// Shared ear-nest refs: TIP_WALL=0.4, TAB_CLR=0.15, ROOT_PAD=0.25, NEST_Y=6.65,
-//   EAR_NEAR=[-9.2, -5.8], EAR_FAR=[17.2, 20.6],
-//   NEST_NEAR_X=[-9.6, -5.55], NEST_FAR_X=[16.95, 21.0],
-//   SHELL_X=[-12.0, 28.0], SHELL_Y=[±12], CAV_X=[-6.0, 17.4].
-// Shared Technic face refs: PITCH=8.0, PIN_D=5.05, DEPTH=8.0,
-//   TECHNIC_TOP=[[8.0, 8.0], [8.0, -8.0], [-8.0, 8.0], [-8.0, -8.0], [16.0, 8.0], [16.0, -8.0], [24.0, 8.0], [24.0, -8.0]] (8 holes; no bearing-adjacent (0,±8)).
-// far_end_open=false; near_ear_trapped=true; both tabs pocketed; one-direction assembly; no snaps.
-// shell_y restored ±12 so clip pockets/lands sit on outer ±Y (frame_y_outer/spine at 12); BuckleClip geometry unchanged.
-// OutputHub mates unchanged (7.94/8.15/12.3/CROSS 8). Side depth 8.0 into ~5.3 mm cheek → through into cavity (v16.37 open-bore class).
-// v16.36 carry: hub_entries r=3.97; no brittle clip entry chamfers.
+// INJS2065 v16.40: v16.39 tight Technic floor + Thunder-safe -Y clip via solid_mirror (xz) of finished +Y clip.
+// Root cause: Thunder 0.2.0 stopped at step 1024 cut_cym_open (solid_combine cut); headless newer engine completed 1067.
+// Clip placement unchanged: lands on outer Y=±12, Z center on split_z=18.25, equal A/B engagement 5.8 mm.
+// SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
+// Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.39 tight Technic floor + external clips (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.40 mirror -Y clip (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1196,10 +1184,12 @@
           "mode": "two_point",
           "anchor": {
             "x": -12.0,
-            "y": -12.0},
+            "y": -12.0
+          },
           "corner_hint": {
             "x": 28.0,
-            "y": 12.0},
+            "y": 12.0
+          },
           "width_mm": 40.0,
           "height_mm": 24.0,
           "ctrl_held": true
@@ -1342,10 +1332,12 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.68},
+            "y": -6.68
+          },
           "corner_hint": {
             "x": 17.4,
-            "y": 6.68},
+            "y": 6.68
+          },
           "width_mm": 23.4,
           "height_mm": 13.36,
           "ctrl_held": true
@@ -4334,10 +4326,12 @@
           "mode": "two_point",
           "anchor": {
             "x": -12.0,
-            "y": -12.0},
+            "y": -12.0
+          },
           "corner_hint": {
             "x": 28.0,
-            "y": 12.0},
+            "y": 12.0
+          },
           "width_mm": 40.0,
           "height_mm": 24.0,
           "ctrl_held": true
@@ -4480,10 +4474,12 @@
           "mode": "two_point",
           "anchor": {
             "x": -6.0,
-            "y": -6.68},
+            "y": -6.68
+          },
           "corner_hint": {
             "x": 17.4,
-            "y": 6.68},
+            "y": 6.68
+          },
           "width_mm": 23.4,
           "height_mm": 13.36,
           "ctrl_held": true
@@ -5027,7 +5023,6 @@
                 -8.0,
                 12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_0_face",
@@ -5098,7 +5093,6 @@
                 8.0,
                 12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_1_face",
@@ -5169,7 +5163,6 @@
                 -8.0,
                 -12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_0_face",
@@ -5240,7 +5233,6 @@
                 8.0,
                 -12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_1_face",
@@ -5311,7 +5303,6 @@
                 0.0,
                 12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_2_face",
@@ -5382,7 +5373,6 @@
                 16.0,
                 12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_3_face",
@@ -5453,7 +5443,6 @@
                 24.0,
                 12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_4_face",
@@ -5524,7 +5513,6 @@
                 0.0,
                 -12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_2_face",
@@ -5595,7 +5583,6 @@
                 16.0,
                 -12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_3_face",
@@ -5666,7 +5653,6 @@
                 24.0,
                 -12.0,
                 30.0
-              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_4_face",
@@ -7169,7 +7155,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -7332,7 +7323,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -7495,7 +7491,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -7658,7 +7659,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -7821,7 +7827,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -7984,7 +7995,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8147,7 +8163,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8310,7 +8331,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8473,7 +8499,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8636,7 +8667,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8799,7 +8835,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -8962,7 +9003,12 @@
             "y": 0,
             "z": 0
           },
-          "rotation": [ 0.7071067811865475, 0.0, 0.0, 0.7071067811865476 ],
+          "rotation": [
+            0.7071067811865475,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ],
           "copy": false
         }
       }
@@ -17793,95 +17839,30 @@
       }
     },
     {
-      "id": "cym_out_begin",
+      "id": "cym_mirror",
       "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
+        "group": "solid/repeat",
+        "operation": "solid_mirror",
         "arguments": {
-          "name": "cym_out",
+          "body_ids": [
+            {
+              "$ref": "clip_yp_body",
+              "pointer": "/id"
+            }
+          ],
           "plane": {
             "type": "origin_plane",
-            "plane": "xy"
+            "plane": "xz"
           }
         }
       }
     },
     {
-      "id": "cym_out_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cym_out_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.75,
-            "y": -12.0
-          },
-          "corner_hint": {
-            "x": 3.75,
-            "y": -9.05
-          },
-          "width_mm": 7.5,
-          "height_mm": 2.9499999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cym_out_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cym_out_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cym_out_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cym_out",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 11.600000000000001
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
       "let": {
-        "cym_out_feat": {
+        "cym_mirror_feat": {
           "$select": {
             "from": {
-              "$ref": "cym_out_ex"
+              "$ref": "cym_mirror"
             },
             "path": "/document/features",
             "take": "last",
@@ -17895,724 +17876,16 @@
         "clip_ym_body": {
           "$select": {
             "from": {
-              "$ref": "cym_out_ex"
+              "$ref": "cym_mirror"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "cym_out_feat"
+                "$ref": "cym_mirror_feat"
               }
             },
             "take": "one"
           }
-        }
-      }
-    },
-    {
-      "id": "cym_out_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "clip_ym_body",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 12.45
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cym_open_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cym_open",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_open_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cym_open_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.8,
-            "y": -10.4
-          },
-          "corner_hint": {
-            "x": 3.8,
-            "y": -8.55
-          },
-          "width_mm": 7.6,
-          "height_mm": 1.8499999999999996,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cym_open_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cym_open_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cym_open_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cym_open",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 8.400000000000002
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_open_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cym_open_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_open_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cym_open_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cym_open_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_open_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cym_open_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 14.049999999999999
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_cym_open",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_ym_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cym_open_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cym_xbar0",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.75,
-            "y": -10.4
-          },
-          "corner_hint": {
-            "x": 3.75,
-            "y": -9.200000000000001
-          },
-          "width_mm": 7.5,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cym_xbar0_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cym_xbar0",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar0_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar0_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar0_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar0_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cym_xbar0_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar0_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cym_xbar0_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 15.25
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_cym_xbar0",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_ym_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cym_xbar0_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cym_xbar1",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.75,
-            "y": -10.4
-          },
-          "corner_hint": {
-            "x": 3.75,
-            "y": -9.200000000000001
-          },
-          "width_mm": 7.5,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cym_xbar1_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cym_xbar1",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar1_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar1_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar1_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar1_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cym_xbar1_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar1_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cym_xbar1_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 17.65
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_cym_xbar1",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_ym_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cym_xbar1_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cym_xbar2",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.75,
-            "y": -10.4
-          },
-          "corner_hint": {
-            "x": 3.75,
-            "y": -9.200000000000001
-          },
-          "width_mm": 7.5,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cym_xbar2_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cym_xbar2",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar2_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar2_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cym_xbar2_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cym_xbar2_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cym_xbar2_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cym_xbar2_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cym_xbar2_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 20.05
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_cym_xbar2",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_ym_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cym_xbar2_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
         }
       }
     },

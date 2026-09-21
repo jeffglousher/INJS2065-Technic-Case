@@ -1,5 +1,5 @@
 {
-  "version": "16.39",
+  "version": "16.40",
   "architecture": "clamshell_v16_39_tight_technic_floor_external_clips",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
@@ -1026,5 +1026,31 @@
       ]
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
+  },
+  "VERSION": "16.40",
+  "revision": "v16.40",
+  "notes": "v16.40: mirror BuckleClipYM from BuckleClipYP (xz) \u2014 fixes Thunder stop at cut_cym_open; placement unchanged.",
+  "clip_placement": {
+    "split_z": 18.25,
+    "clip_z": [
+      12.45,
+      24.05
+    ],
+    "clip_z_center": 18.25,
+    "engage_a_b_mm": [
+      5.8,
+      5.8
+    ],
+    "yp_y": [
+      9.05,
+      12.0
+    ],
+    "ym_y": [
+      -12.0,
+      -9.05
+    ],
+    "shell_y": 12.0,
+    "external_on_outer_face": true,
+    "ym_build": "solid_mirror xz of finished +Y clip"
   }
 }
