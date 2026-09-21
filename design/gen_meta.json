@@ -1,6 +1,6 @@
 {
-  "version": "16.44",
-  "architecture": "clamshell_v16_44_hex_clamp_no_inner_lips",
+  "version": "16.45",
+  "architecture": "clamshell_v16_45_honeycomb_wall_lattice",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -233,7 +233,7 @@
     "bearing_seat_z": 34.35,
     "bearing_seat_inner_diameter": 12.3,
     "outer_retain_lip_id": 8.15,
-    "outer_retain_note": "Upper alone: OD seats from split against face lip; journal clearance poke-out; NOT front Ø12.3 tunnel. v16.35: FACE_HOLE/retain lip 8.15 vs journal 7.94 (≈0.21 diametral) — constrains radial force at face without interference.",
+    "outer_retain_note": "Upper alone: OD seats from split against face lip; journal clearance poke-out; NOT front \u00d812.3 tunnel. v16.35: FACE_HOLE/retain lip 8.15 vs journal 7.94 (\u22480.21 diametral) \u2014 constrains radial force at face without interference.",
     "insert_path_diameter": 12.3,
     "insert_path_z": [
       26.0,
@@ -274,14 +274,14 @@
     "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
     "spline_depth": 3.8999999999999995,
-    "servo_ledge": "v16.39: tight Technic floor SHELL_X[-12,28] SHELL_Y[±12]; clips external again; face Technic keep (no 0,±8); green side through-class; journal Ø7.94 + face Ø8.15; CROSS_DEPTH 8.0; BuckleClip geom untouched",
+    "servo_ledge": "v16.39: tight Technic floor SHELL_X[-12,28] SHELL_Y[\u00b112]; clips external again; face Technic keep (no 0,\u00b18); green side through-class; journal \u00d87.94 + face \u00d88.15; CROSS_DEPTH 8.0; BuckleClip geom untouched",
     "horn_dome_h": 1.0,
     "horn_dome_r": 2.8249999999999997,
     "horn_wall_mm": 2.975,
     "horn_dome_orientation": "identity_rot_base_at_spline_depth_apex_plusZ_into_solid",
-    "horn_dome_note": "v16.32: loft sphere-cap base on blind floor (z=spline_depth≈3.9); rotation identity [0,0,0,1] (was QX180). Apex extends +Z into column — thicker arched floor into solid, not a bump into the horn socket.",
+    "horn_dome_note": "v16.32: loft sphere-cap base on blind floor (z=spline_depth\u22483.9); rotation identity [0,0,0,1] (was QX180). Apex extends +Z into column \u2014 thicker arched floor into solid, not a bump into the horn socket.",
     "cross_slot_z0_local": 7.7,
-    "cross_slot_note": "v16.34: CROSS_DEPTH back to 8.0 module (was non-uniform 10.0 in v16.33); slot bottom local z=7.7; dome apex into solid unchanged. VERIFY: Technic pitch 8.0 / beam~7.8 / pin ID~4.8–5.05 FDM — depths standardize on 8.0 module."
+    "cross_slot_note": "v16.34: CROSS_DEPTH back to 8.0 module (was non-uniform 10.0 in v16.33); slot bottom local z=7.7; dome apex into solid unchanged. VERIFY: Technic pitch 8.0 / beam~7.8 / pin ID~4.8\u20135.05 FDM \u2014 depths standardize on 8.0 module."
   },
   "buckle": {
     "style": "open_c_over_central_land",
@@ -300,7 +300,7 @@
     "wall_to_cavity": 2.3200000000000003,
     "slide_clearance_y_total": 0.05,
     "slide_clearance_z_total": 0.9,
-    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z ± POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary. Datum = shared CLIP envelope / split_z. v16.43/44: CLIP_X widened to ±7.5 (15 mm).",
+    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary. Datum = shared CLIP envelope / split_z. v16.43/44: CLIP_X widened to \u00b17.5 (15 mm).",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
@@ -387,15 +387,15 @@
       0.45,
       0.45
     ],
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; no inner xbar teeth; hex texture on clamp face; outer C lip kept.",
-    "clip_z_center_note": "v16.44: keep mid-clip == split_z 18.25; CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; remove cyp_xbar0/2; add hex bosses+land pockets.",
+    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; no inner xbar teeth; honeycomb WALL lattice on clamp face (open cells, shared walls); outer C lip kept.",
+    "clip_z_center_note": "v16.45: honeycomb wall lattice replaces v16.44 solid hex bosses; CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; keep mid-clip == split_z 18.25.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
     "cross_member_count": 0,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
-    "cross_member_note": "v16.44: inner xbar lips removed; AM hex bosses replace lip mass on clamp face (not snap barbs).",
+    "cross_member_note": "v16.45: inner xbar lips still removed; honeycomb wall lattice (not solid bosses) on clamp face.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
     "slot_span_x": 7.42,
@@ -448,42 +448,76 @@
     },
     "hex_interlock": true,
     "hex_pattern": {
-      "boss_flat_to_flat_mm": 2.8,
-      "boss_apothem_mm": 1.4,
-      "boss_depth_mm": 1.2,
-      "pocket_flat_to_flat_mm": 3.1,
-      "pocket_apothem_mm": 1.55,
-      "pocket_depth_mm": 1.35,
-      "rotation_deg": 30,
-      "mode": "circumscribed",
-      "centers_xz": [
-        [
-          -4.5,
-          16.5
-        ],
-        [
-          0.0,
-          16.5
-        ],
-        [
-          4.5,
-          16.5
-        ],
-        [
-          -4.5,
-          20.0
-        ],
-        [
-          0.0,
-          20.0
-        ],
-        [
-          4.5,
-          20.0
-        ]
+      "style": "honeycomb_wall_lattice",
+      "reject": "v16.44_solid_hex_bosses_pockets",
+      "nozzle_mm": 0.4,
+      "wall_mm": 1.2,
+      "wall_perimeters": 3,
+      "wall_mm_allowed": [
+        0.8,
+        1.6
       ],
-      "role": "AM strength/stability on clamp faces; slide-fit; not load-bearing snap barbs",
-      "print_note": "Clips YZ on bed build +X; hex extruded in Y (layer-friendly flats along Z)"
+      "cell_flat_to_flat_mm": 2.8,
+      "cell_apothem_mm": 1.4,
+      "land_opening_flat_to_flat_mm": 3.0,
+      "land_opening_apothem_mm": 1.5,
+      "land_opening_clr_mm": 0.2,
+      "land_depth_mm": 1.35,
+      "lattice_depth_mm": 1.2,
+      "pad_y_yp": [
+        9.2,
+        10.4
+      ],
+      "rotation_deg": 0,
+      "orientation": "pointy_top_vertical_flats_parallel_Z",
+      "mode": "circumscribed",
+      "center_spacing_mm": 4.0,
+      "row_pitch_mm": 3.464,
+      "cell_counts_note": "staggered 3 cols x 3 rows = 8 open cells",
+      "centers_x_even_rows": [
+        -4.0,
+        0.0,
+        4.0
+      ],
+      "centers_x_odd_rows": [
+        -2.0,
+        2.0
+      ],
+      "centers_z": [
+        14.786,
+        18.25,
+        21.714
+      ],
+      "face_span_xz_mm": [
+        15.0,
+        11.6
+      ],
+      "face_envelope": {
+        "CLIP_X": [
+          -7.5,
+          7.5
+        ],
+        "CLIP_Z": [
+          12.45,
+          24.05
+        ]
+      },
+      "print_orient_note": "Clip YZ on bed, build along +X; vertical hex flats // Z for strength"
+    },
+    "honeycomb_verify": {
+      "nozzle_mm": 0.4,
+      "wall_mm": 1.2,
+      "wall_perimeters": 3,
+      "cell_FF_mm": 2.8,
+      "rotation_deg": 0,
+      "depth_mm": 1.2,
+      "face_span_mm": [
+        15.0,
+        11.6
+      ],
+      "cell_counts_X_x_Z": "3x3 staggered (8 cells)",
+      "land_CLR_mm": 0.2,
+      "print_orient": "YZ bed, build +X; vertical hex flats // Z"
     }
   },
   "revision_notes": {
@@ -520,8 +554,8 @@
     "assembly_mode": "one_direction_into_upper",
     "jsonc_sot": "design_v16_39.nbcad.jsonc (JSONC-first; no gen_v*.py)",
     "horn_dome_flip": {
-      "was": "QX180 [1,0,0,0] @ z=spline_depth → apex into cavity (−Z)",
-      "now": "identity [0,0,0,1] @ z=spline_depth → base on floor, apex into solid (+Z)",
+      "was": "QX180 [1,0,0,0] @ z=spline_depth \u2192 apex into cavity (\u2212Z)",
+      "now": "identity [0,0,0,1] @ z=spline_depth \u2192 base on floor, apex into solid (+Z)",
       "why": "strength: thicker arched floor into column, not bump into horn socket"
     },
     "hub_after_v16_32": {
@@ -572,7 +606,7 @@
       "cross_slot_z0_local": 7.7
     },
     "fit_tighten_v16_35": {
-      "reason": "Business adapter fit very loose — tighten to constrain forces (PETG 0.4/0.2 FDM)",
+      "reason": "Business adapter fit very loose \u2014 tighten to constrain forces (PETG 0.4/0.2 FDM)",
       "before": {
         "JOURNAL": 7.9,
         "BRG_ID": 8.0,
@@ -598,8 +632,8 @@
         "BRG_OD 12.0",
         "CROSS_DEPTH 8.0",
         "pin depths 8.0",
-        "lead-in rings Ø6.2×0.9",
-        "tip rings Ø6.2×1.2",
+        "lead-in rings \u00d86.2\u00d70.9",
+        "tip rings \u00d86.2\u00d71.2",
         "dome into solid"
       ]
     },
@@ -620,7 +654,7 @@
     "replay_fix_v16_36": {
       "problem": "Blank-doc replay stopped ~826/831 on chamfer $select (clip_yp_entry @825 / clip_ym @827; hub_entries @829 latent).",
       "clip_entry_chamfers": "Removed clip_yp_entry + clip_ym_entry (and their solid_scene probes). Cosmetic 0.25mm; brittle /key edge:N selectors.",
-      "hub_entries": "Kept 0.2mm cosmetic chamfer; fixed /circle/radius 3.95→3.97 for journal Ø7.94/2 at face z=42; spline 3.025 @ z=26.3 unchanged.",
+      "hub_entries": "Kept 0.2mm cosmetic chamfer; fixed /circle/radius 3.95\u21923.97 for journal \u00d87.94/2 at face z=42; spline 3.025 @ z=26.3 unchanged.",
       "kept_dims": [
         "JOURNAL 7.94",
         "FACE_HOLE_D 8.15",
@@ -731,14 +765,14 @@
         "BRG_POCKET 12.3",
         "CROSS_DEPTH 8.0",
         "Technic pin depths 8.0",
-        "CLIP↔POCKET shared refs",
+        "CLIP\u2194POCKET shared refs",
         "split_z 18.25",
-        "Y ±12",
+        "Y \u00b112",
         "one-direction assembly",
         "no snaps",
         "hub entry chamfer r=3.97"
       ],
-      "schematic_ascii": "\nXY top (Z up out of page) — shell grow +X, far tab wall:\n\n  SHELL_X0=-12                         SHELL_X1=24\n       |======= shell Y±12 ============|\n       |  NEST_NEAR        BODY/CAV      NEST_FAR | tip wall 3.0\n       | [-9.6,-5.55]   [-6.0,17.4]   [16.95,21.0]|\n       |  ear_near[-9.2,-5.8]          ear_far[17.2,20.6]\n       |                               ^ closing wall past tip+TIP_WALL\n\nFace Technic @ Z=42 (PITCH=8):\n  y=+8:  (-8)  (0)  (+8)  (+16)\n  y=-8:  (-8)  (0)  (+8)  (+16)\n  (hub / FACE_HOLE at origin — no pin at 0,0)\n"
+      "schematic_ascii": "\nXY top (Z up out of page) \u2014 shell grow +X, far tab wall:\n\n  SHELL_X0=-12                         SHELL_X1=24\n       |======= shell Y\u00b112 ============|\n       |  NEST_NEAR        BODY/CAV      NEST_FAR | tip wall 3.0\n       | [-9.6,-5.55]   [-6.0,17.4]   [16.95,21.0]|\n       |  ear_near[-9.2,-5.8]          ear_far[17.2,20.6]\n       |                               ^ closing wall past tip+TIP_WALL\n\nFace Technic @ Z=42 (PITCH=8):\n  y=+8:  (-8)  (0)  (+8)  (+16)\n  y=-8:  (-8)  (0)  (+8)  (+16)\n  (hub / FACE_HOLE at origin \u2014 no pin at 0,0)\n"
     },
     "hub_after_v16_37": {
       "HUB_FLANGE_D": 12.0,
@@ -849,7 +883,7 @@
         "BRG_POCKET 12.3",
         "CROSS_DEPTH 8.0"
       ],
-      "schematic_ascii": "\nSHELL_X0=-16 ---- body/cav ---- NEST_FAR[16.95,21] | tip wall 11mm | SHELL_X1=32\nSHELL_Y=±16 (was ±12); side-face origin ±16\n\nFace @ Z42:  y=±8 × x={-8,+8,+16,+24}   (removed x=0 near hub)\nSide @ Z30 green: x={-8,0,8,16,24} on ±Y\nCLIP / BuckleClip / pocket: unchanged\n"
+      "schematic_ascii": "\nSHELL_X0=-16 ---- body/cav ---- NEST_FAR[16.95,21] | tip wall 11mm | SHELL_X1=32\nSHELL_Y=\u00b116 (was \u00b112); side-face origin \u00b116\n\nFace @ Z42:  y=\u00b18 \u00d7 x={-8,+8,+16,+24}   (removed x=0 near hub)\nSide @ Z30 green: x={-8,0,8,16,24} on \u00b1Y\nCLIP / BuckleClip / pocket: unchanged\n"
     },
     "hub_after_v16_38": {
       "HUB_FLANGE_D": 12.0,
@@ -873,7 +907,7 @@
       "technic_side_count_per_y": 5
     },
     "tight_technic_floor_v16_39": {
-      "reason": "Jeff feedback on v16.38: oversized 8–16 mm margins buried clips; cut to half-pitch 4 mm Technic edge; restore shell_y ±12 so clips straddle outer ±Y",
+      "reason": "Jeff feedback on v16.38: oversized 8\u201316 mm margins buried clips; cut to half-pitch 4 mm Technic edge; restore shell_y \u00b112 so clips straddle outer \u00b1Y",
       "shell_x_before": [
         -16.0,
         32.0
@@ -890,8 +924,8 @@
         -12.0,
         12.0
       ],
-      "why_x": "40 mm = 5×8; 4 mm past hole at −8 → edge −12; 4 mm past outermost face/side hole at +24 → edge +28. Near ear tip −9.2 → wall 2.8 mm (≥2.4). Far nest tip 21.0 → outer wall 7.0 mm (≥3).",
-      "why_y": "Min Y for current clip-on-outside architecture is ±12 (frame_y_outer / spine at 12). ±16 buried pockets inside cheeks.",
+      "why_x": "40 mm = 5\u00d78; 4 mm past hole at \u22128 \u2192 edge \u221212; 4 mm past outermost face/side hole at +24 \u2192 edge +28. Near ear tip \u22129.2 \u2192 wall 2.8 mm (\u22652.4). Far nest tip 21.0 \u2192 outer wall 7.0 mm (\u22653).",
+      "why_y": "Min Y for current clip-on-outside architecture is \u00b112 (frame_y_outer / spine at 12). \u00b116 buried pockets inside cheeks.",
       "margin_past_x_minus8_mm": 4.0,
       "margin_past_x_plus24_mm": 4.0,
       "outer_wall_past_far_nest_mm": 7.0,
@@ -948,8 +982,8 @@
         24.0
       ],
       "side_body": "ClamshellB only",
-      "side_blind_vs_through": "all 10 side pins depth 8.0 into cheek wall ~5.32 mm (12−6.68) → through into cavity (v16.37 open-bore class). Face 8 pins remain blind depth 8.0.",
-      "ends_technic": "deferred: −X wall ~6 mm into nest/cav risk; +X clear (~10.6 mm) but no prior end-face template this cut — face+±Y complete.",
+      "side_blind_vs_through": "all 10 side pins depth 8.0 into cheek wall ~5.32 mm (12\u22126.68) \u2192 through into cavity (v16.37 open-bore class). Face 8 pins remain blind depth 8.0.",
+      "ends_technic": "deferred: \u2212X wall ~6 mm into nest/cav risk; +X clear (~10.6 mm) but no prior end-face template this cut \u2014 face+\u00b1Y complete.",
       "clip_external_again": true,
       "clip_geom_untouched": true,
       "hub_mates_untouched": [
@@ -958,7 +992,7 @@
         "BRG_POCKET 12.3",
         "CROSS_DEPTH 8.0"
       ],
-      "schematic_ascii": "\nSHELL_X0=-12 ---- body/cav ---- NEST_FAR[16.95,21] | tip wall 7mm | SHELL_X1=28\nSHELL_Y=±12 (restored); side-face origin ±12; clips straddle outer ±Y\n\nFace @ Z42:  y=±8 × x={-8,+8,+16,+24}   (no x=0 near hub)\nSide @ Z30 green: x={-8,0,8,16,24} on ±Y — through-class into cavity\nCLIP pockets/lands at frame_y_outer=12 — external again; BuckleClip geom unchanged\n"
+      "schematic_ascii": "\nSHELL_X0=-12 ---- body/cav ---- NEST_FAR[16.95,21] | tip wall 7mm | SHELL_X1=28\nSHELL_Y=\u00b112 (restored); side-face origin \u00b112; clips straddle outer \u00b1Y\n\nFace @ Z42:  y=\u00b18 \u00d7 x={-8,+8,+16,+24}   (no x=0 near hub)\nSide @ Z30 green: x={-8,0,8,16,24} on \u00b1Y \u2014 through-class into cavity\nCLIP pockets/lands at frame_y_outer=12 \u2014 external again; BuckleClip geom unchanged\n"
     },
     "hub_after_v16_39": {
       "HUB_FLANGE_D": 12.0,
@@ -1022,7 +1056,7 @@
       "removed_side_technic_x0": true,
       "mirror_ym": "solid_mirror xz of finished +Y (Thunder-safe)",
       "no_cut_cym_open": true,
-      "shell": "[-12,28]x[±12]",
+      "shell": "[-12,28]x[\u00b112]",
       "clip_z_center_matches_split_z": true
     },
     "clip_v16_43": {
@@ -1091,13 +1125,14 @@
       "hex_interlock": true,
       "mirror_ym": "solid_mirror xz of finished +Y (Thunder-safe)",
       "no_cut_cym_open": true,
-      "shell": "[-12,28]x[±12]",
+      "shell": "[-12,28]x[\u00b112]",
       "clip_z_center_matches_split_z": true
-    }
+    },
+    "16.45": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112."
   },
   "steps": 1067,
   "step_kinds": {
-    "note": "recount on demand; v16.39 shell tighten ±12 Y / [-12,28] X; side origin/rings retarget; same hole count as 16.38"
+    "note": "recount on demand; v16.39 shell tighten \u00b112 Y / [-12,28] X; side origin/rings retarget; same hole count as 16.38"
   },
   "baseline_v12": 360,
   "baseline_v12_1": 424,
@@ -1109,8 +1144,8 @@
   "AXLE_SPAN": 4.85,
   "AXLE_ARM": 1.85,
   "technic_module_mm": 8.0,
-  "technic_depth_policy": "VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize all Technic hole/slot depths on 8.0 module (side_blind_depth, technic_top_depth, hub CROSS_DEPTH). Lead-in rings Ø6.2×0.9 and tip rings Ø6.2×1.2 are intentional local features inside the 8.0 bore — not separate Technic depths.",
-  "side_bore_fix": "v16.41: side face $select uses /plane/normal/1 ±1 AND /plane/origin/1 ±12; green-only pins at x={-8,8,16,24} z=30 (x=0 removed — shaft tunnel); depth 8.0 → through.",
+  "technic_depth_policy": "VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8\u20135.05 FDM; standardize all Technic hole/slot depths on 8.0 module (side_blind_depth, technic_top_depth, hub CROSS_DEPTH). Lead-in rings \u00d86.2\u00d70.9 and tip rings \u00d86.2\u00d71.2 are intentional local features inside the 8.0 bore \u2014 not separate Technic depths.",
+  "side_bore_fix": "v16.41: side face $select uses /plane/normal/1 \u00b11 AND /plane/origin/1 \u00b112; green-only pins at x={-8,8,16,24} z=30 (x=0 removed \u2014 shaft tunnel); depth 8.0 \u2192 through.",
   "technic_local_ring_features": {
     "module_depth_mm": 8.0,
     "lead_in_ring": {
@@ -1172,11 +1207,11 @@
         -8.0
       ]
     ],
-    "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,±8); no pin at hub (0,0); shell edge 4 mm past ± outermost hole columns"
+    "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.41",
+  "VERSION": "16.45",
   "revision": "v16.41",
-  "notes": "v16.44: remove inner xbar lips; keep outer-edge open-C lip; AM hex bosses (FF 2.8, depth 1.2) on clamp faces + land pockets (FF 3.1, depth 1.35); CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; solid_mirror -Y; tight shell[-12,28]×±12.",
+  "notes": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [

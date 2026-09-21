@@ -1,11 +1,14 @@
-// INJS2065 v16.44: remove inner xbar lips (cyp_xbar0/2); keep outer-edge lip of open-C; add AM hex bosses on clamp faces + land pockets.
+// INJS2065 v16.45: honeycomb WALL lattice on clamp face (reject v16.44 solid hex bosses/pockets).
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// Hex: circumscribed R=1.4 (FF 2.8) proud 1.2 mm (=former xbar Y engage); pocket R=1.55 FF 3.1 depth 1.35; flat-top rot 30°. Multi-profile extrude → 6 bodies: take all + move/cut/join all six.
+// Honeycomb: pad 1.2 mm on clamp face → Y[9.2,10.4]; cut open hex cells (pointy-top rot 0°, vertical flats // Z).
+// Wall 1.2 mm (=3 FDM perimeters @0.4 nozzle; allow 0.8–1.6). Cell FF 2.8 (R_ap 1.4); land openings FF 3.0 (+0.2 CLR) depth 1.35.
+// Grid: staggered 3×3 pointy-top (8 cells), S=FF+wall=4.0, row_pitch≈3.464; X∈{-4,0,4}/{-2,2}, Z∈{14.786,18.25,21.714}.
+// Keep outer-edge open-C lip; no inner xbars. −Y clip = solid_mirror of +Y. Print: YZ on bed, build +X.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.44 hex clamp faces no inner lips (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.45 honeycomb wall lattice (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -16179,13 +16182,13 @@
         }
       }
     },
-    {
-      "id": "land_hex_yp_a_begin",
+        {
+      "id": "land_hcell_yp_a_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "land_hex_yp_a",
+          "name": "land_hcell_yp_a",
           "plane": {
             "type": "origin_plane",
             "plane": "xz"
@@ -16194,7 +16197,7 @@
       }
     },
     {
-      "id": "land_hex_yp_a_nosnap",
+      "id": "land_hcell_yp_a_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16204,109 +16207,143 @@
       }
     },
     {
-      "id": "land_hex_yp_a_hex0",
+      "id": "land_hcell_yp_a_hex0",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": -4.5,
-            "y": 16.5
+            "x": -4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_a_hex1",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_a_hex2",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_a_hex3",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_a_hex4",
+      "id": "land_hcell_yp_a_hex1",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
             "x": 0.0,
-            "y": 20.0
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_a_hex5",
+      "id": "land_hcell_yp_a_hex2",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": 4.5,
-            "y": 20.0
+            "x": 4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_a_snap",
+      "id": "land_hcell_yp_a_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_hex6",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_hex7",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16316,7 +16353,7 @@
       }
     },
     {
-      "id": "land_hex_yp_a_finish",
+      "id": "land_hcell_yp_a_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -16324,19 +16361,21 @@
       }
     },
     {
-      "id": "land_hex_yp_a_ex",
+      "id": "land_hcell_yp_a_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "land_hex_yp_a",
+          "sketch_name": "land_hcell_yp_a",
           "profile_indices": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "operation": "new_body",
           "extent": {
@@ -16351,10 +16390,10 @@
     },
     {
       "let": {
-        "land_hex_yp_a_feat": {
+        "land_hcell_yp_a_feat": {
           "$select": {
             "from": {
-              "$ref": "land_hex_yp_a_ex"
+              "$ref": "land_hcell_yp_a_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -16365,15 +16404,15 @@
     },
     {
       "let": {
-        "land_hex_yp_a_all": {
+        "land_hcell_yp_a_all": {
           "$select": {
             "from": {
-              "$ref": "land_hex_yp_a_ex"
+              "$ref": "land_hcell_yp_a_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "land_hex_yp_a_feat"
+                "$ref": "land_hcell_yp_a_feat"
               }
             },
             "take": "all",
@@ -16384,81 +16423,105 @@
     },
     {
       "let": {
-        "land_hex_yp_a_b0": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b0": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/0"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_a_b1": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b1": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/1"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_a_b2": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b2": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/2"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_a_b3": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b3": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/3"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_a_b4": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b4": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/4"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_a_b5": {
-          "$ref": "land_hex_yp_a_all",
+        "land_hcell_yp_a_b5": {
+          "$ref": "land_hcell_yp_a_all",
           "pointer": "/5"
         }
       }
     },
     {
-      "id": "land_hex_yp_a_mv",
+      "let": {
+        "land_hcell_yp_a_b6": {
+          "$ref": "land_hcell_yp_a_all",
+          "pointer": "/6"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hcell_yp_a_b7": {
+          "$ref": "land_hcell_yp_a_all",
+          "pointer": "/7"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_a_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_yp_a_b0",
+              "$ref": "land_hcell_yp_a_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b1",
+              "$ref": "land_hcell_yp_a_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b2",
+              "$ref": "land_hcell_yp_a_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b3",
+              "$ref": "land_hcell_yp_a_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b4",
+              "$ref": "land_hcell_yp_a_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b5",
+              "$ref": "land_hcell_yp_a_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_a_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_a_b7",
               "pointer": "/id"
             }
           ],
@@ -16483,7 +16546,7 @@
       }
     },
     {
-      "id": "cut_land_hex_yp_a",
+      "id": "cut_land_hcell_yp_a",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -16494,27 +16557,35 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_yp_a_b0",
+              "$ref": "land_hcell_yp_a_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b1",
+              "$ref": "land_hcell_yp_a_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b2",
+              "$ref": "land_hcell_yp_a_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b3",
+              "$ref": "land_hcell_yp_a_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b4",
+              "$ref": "land_hcell_yp_a_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_a_b5",
+              "$ref": "land_hcell_yp_a_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_a_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_a_b7",
               "pointer": "/id"
             }
           ],
@@ -16524,12 +16595,12 @@
       }
     },
     {
-      "id": "land_hex_yp_b_begin",
+      "id": "land_hcell_yp_b_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "land_hex_yp_b",
+          "name": "land_hcell_yp_b",
           "plane": {
             "type": "origin_plane",
             "plane": "xz"
@@ -16538,7 +16609,7 @@
       }
     },
     {
-      "id": "land_hex_yp_b_nosnap",
+      "id": "land_hcell_yp_b_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16548,109 +16619,143 @@
       }
     },
     {
-      "id": "land_hex_yp_b_hex0",
+      "id": "land_hcell_yp_b_hex0",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": -4.5,
-            "y": 16.5
+            "x": -4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_b_hex1",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_b_hex2",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_b_hex3",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_yp_b_hex4",
+      "id": "land_hcell_yp_b_hex1",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
             "x": 0.0,
-            "y": 20.0
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_b_hex5",
+      "id": "land_hcell_yp_b_hex2",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": 4.5,
-            "y": 20.0
+            "x": 4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_yp_b_snap",
+      "id": "land_hcell_yp_b_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_hex6",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_hex7",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16660,7 +16765,7 @@
       }
     },
     {
-      "id": "land_hex_yp_b_finish",
+      "id": "land_hcell_yp_b_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -16668,19 +16773,21 @@
       }
     },
     {
-      "id": "land_hex_yp_b_ex",
+      "id": "land_hcell_yp_b_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "land_hex_yp_b",
+          "sketch_name": "land_hcell_yp_b",
           "profile_indices": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "operation": "new_body",
           "extent": {
@@ -16695,10 +16802,10 @@
     },
     {
       "let": {
-        "land_hex_yp_b_feat": {
+        "land_hcell_yp_b_feat": {
           "$select": {
             "from": {
-              "$ref": "land_hex_yp_b_ex"
+              "$ref": "land_hcell_yp_b_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -16709,15 +16816,15 @@
     },
     {
       "let": {
-        "land_hex_yp_b_all": {
+        "land_hcell_yp_b_all": {
           "$select": {
             "from": {
-              "$ref": "land_hex_yp_b_ex"
+              "$ref": "land_hcell_yp_b_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "land_hex_yp_b_feat"
+                "$ref": "land_hcell_yp_b_feat"
               }
             },
             "take": "all",
@@ -16728,81 +16835,105 @@
     },
     {
       "let": {
-        "land_hex_yp_b_b0": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b0": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/0"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_b_b1": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b1": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/1"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_b_b2": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b2": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/2"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_b_b3": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b3": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/3"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_b_b4": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b4": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/4"
         }
       }
     },
     {
       "let": {
-        "land_hex_yp_b_b5": {
-          "$ref": "land_hex_yp_b_all",
+        "land_hcell_yp_b_b5": {
+          "$ref": "land_hcell_yp_b_all",
           "pointer": "/5"
         }
       }
     },
     {
-      "id": "land_hex_yp_b_mv",
+      "let": {
+        "land_hcell_yp_b_b6": {
+          "$ref": "land_hcell_yp_b_all",
+          "pointer": "/6"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hcell_yp_b_b7": {
+          "$ref": "land_hcell_yp_b_all",
+          "pointer": "/7"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_yp_b_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_yp_b_b0",
+              "$ref": "land_hcell_yp_b_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b1",
+              "$ref": "land_hcell_yp_b_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b2",
+              "$ref": "land_hcell_yp_b_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b3",
+              "$ref": "land_hcell_yp_b_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b4",
+              "$ref": "land_hcell_yp_b_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b5",
+              "$ref": "land_hcell_yp_b_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_b_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_b_b7",
               "pointer": "/id"
             }
           ],
@@ -16827,7 +16958,7 @@
       }
     },
     {
-      "id": "cut_land_hex_yp_b",
+      "id": "cut_land_hcell_yp_b",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -16838,27 +16969,35 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_yp_b_b0",
+              "$ref": "land_hcell_yp_b_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b1",
+              "$ref": "land_hcell_yp_b_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b2",
+              "$ref": "land_hcell_yp_b_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b3",
+              "$ref": "land_hcell_yp_b_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b4",
+              "$ref": "land_hcell_yp_b_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_yp_b_b5",
+              "$ref": "land_hcell_yp_b_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_b_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_yp_b_b7",
               "pointer": "/id"
             }
           ],
@@ -16868,12 +17007,12 @@
       }
     },
     {
-      "id": "land_hex_ym_a_begin",
+      "id": "land_hcell_ym_a_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "land_hex_ym_a",
+          "name": "land_hcell_ym_a",
           "plane": {
             "type": "origin_plane",
             "plane": "xz"
@@ -16882,7 +17021,7 @@
       }
     },
     {
-      "id": "land_hex_ym_a_nosnap",
+      "id": "land_hcell_ym_a_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -16892,109 +17031,143 @@
       }
     },
     {
-      "id": "land_hex_ym_a_hex0",
+      "id": "land_hcell_ym_a_hex0",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": -4.5,
-            "y": 16.5
+            "x": -4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_a_hex1",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_a_hex2",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_a_hex3",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_a_hex4",
+      "id": "land_hcell_ym_a_hex1",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
             "x": 0.0,
-            "y": 20.0
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_a_hex5",
+      "id": "land_hcell_ym_a_hex2",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": 4.5,
-            "y": 20.0
+            "x": 4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_a_snap",
+      "id": "land_hcell_ym_a_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_hex6",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_hex7",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -17004,7 +17177,7 @@
       }
     },
     {
-      "id": "land_hex_ym_a_finish",
+      "id": "land_hcell_ym_a_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -17012,19 +17185,21 @@
       }
     },
     {
-      "id": "land_hex_ym_a_ex",
+      "id": "land_hcell_ym_a_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "land_hex_ym_a",
+          "sketch_name": "land_hcell_ym_a",
           "profile_indices": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "operation": "new_body",
           "extent": {
@@ -17032,17 +17207,17 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": true,
+          "flip": false,
           "target_body_ids": []
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_feat": {
+        "land_hcell_ym_a_feat": {
           "$select": {
             "from": {
-              "$ref": "land_hex_ym_a_ex"
+              "$ref": "land_hcell_ym_a_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -17053,15 +17228,15 @@
     },
     {
       "let": {
-        "land_hex_ym_a_all": {
+        "land_hcell_ym_a_all": {
           "$select": {
             "from": {
-              "$ref": "land_hex_ym_a_ex"
+              "$ref": "land_hcell_ym_a_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "land_hex_ym_a_feat"
+                "$ref": "land_hcell_ym_a_feat"
               }
             },
             "take": "all",
@@ -17072,81 +17247,105 @@
     },
     {
       "let": {
-        "land_hex_ym_a_b0": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b0": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/0"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_b1": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b1": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/1"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_b2": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b2": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/2"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_b3": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b3": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/3"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_b4": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b4": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/4"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_a_b5": {
-          "$ref": "land_hex_ym_a_all",
+        "land_hcell_ym_a_b5": {
+          "$ref": "land_hcell_ym_a_all",
           "pointer": "/5"
         }
       }
     },
     {
-      "id": "land_hex_ym_a_mv",
+      "let": {
+        "land_hcell_ym_a_b6": {
+          "$ref": "land_hcell_ym_a_all",
+          "pointer": "/6"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hcell_ym_a_b7": {
+          "$ref": "land_hcell_ym_a_all",
+          "pointer": "/7"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_a_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_ym_a_b0",
+              "$ref": "land_hcell_ym_a_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b1",
+              "$ref": "land_hcell_ym_a_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b2",
+              "$ref": "land_hcell_ym_a_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b3",
+              "$ref": "land_hcell_ym_a_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b4",
+              "$ref": "land_hcell_ym_a_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b5",
+              "$ref": "land_hcell_ym_a_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_a_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_a_b7",
               "pointer": "/id"
             }
           ],
@@ -17171,7 +17370,7 @@
       }
     },
     {
-      "id": "cut_land_hex_ym_a",
+      "id": "cut_land_hcell_ym_a",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -17182,27 +17381,35 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_ym_a_b0",
+              "$ref": "land_hcell_ym_a_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b1",
+              "$ref": "land_hcell_ym_a_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b2",
+              "$ref": "land_hcell_ym_a_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b3",
+              "$ref": "land_hcell_ym_a_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b4",
+              "$ref": "land_hcell_ym_a_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_a_b5",
+              "$ref": "land_hcell_ym_a_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_a_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_a_b7",
               "pointer": "/id"
             }
           ],
@@ -17212,12 +17419,12 @@
       }
     },
     {
-      "id": "land_hex_ym_b_begin",
+      "id": "land_hcell_ym_b_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "land_hex_ym_b",
+          "name": "land_hcell_ym_b",
           "plane": {
             "type": "origin_plane",
             "plane": "xz"
@@ -17226,7 +17433,7 @@
       }
     },
     {
-      "id": "land_hex_ym_b_nosnap",
+      "id": "land_hcell_ym_b_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -17236,109 +17443,143 @@
       }
     },
     {
-      "id": "land_hex_ym_b_hex0",
+      "id": "land_hcell_ym_b_hex0",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": -4.5,
-            "y": 16.5
+            "x": -4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_b_hex1",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_b_hex2",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_b_hex3",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "land_hex_ym_b_hex4",
+      "id": "land_hcell_ym_b_hex1",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
             "x": 0.0,
-            "y": 20.0
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_b_hex5",
+      "id": "land_hcell_ym_b_hex2",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_polygon",
         "arguments": {
           "center": {
-            "x": 4.5,
-            "y": 20.0
+            "x": 4.0,
+            "y": 14.786
           },
           "edge_count": 6,
-          "radius_text": "1.55",
-          "rotation_deg": 30.0,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
           "mode": "circumscribed"
         }
       }
     },
     {
-      "id": "land_hex_ym_b_snap",
+      "id": "land_hcell_ym_b_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_hex6",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_hex7",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.5",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -17348,7 +17589,7 @@
       }
     },
     {
-      "id": "land_hex_ym_b_finish",
+      "id": "land_hcell_ym_b_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -17356,19 +17597,21 @@
       }
     },
     {
-      "id": "land_hex_ym_b_ex",
+      "id": "land_hcell_ym_b_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "land_hex_ym_b",
+          "sketch_name": "land_hcell_ym_b",
           "profile_indices": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "operation": "new_body",
           "extent": {
@@ -17376,17 +17619,17 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": true,
+          "flip": false,
           "target_body_ids": []
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_feat": {
+        "land_hcell_ym_b_feat": {
           "$select": {
             "from": {
-              "$ref": "land_hex_ym_b_ex"
+              "$ref": "land_hcell_ym_b_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -17397,15 +17640,15 @@
     },
     {
       "let": {
-        "land_hex_ym_b_all": {
+        "land_hcell_ym_b_all": {
           "$select": {
             "from": {
-              "$ref": "land_hex_ym_b_ex"
+              "$ref": "land_hcell_ym_b_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "land_hex_ym_b_feat"
+                "$ref": "land_hcell_ym_b_feat"
               }
             },
             "take": "all",
@@ -17416,81 +17659,105 @@
     },
     {
       "let": {
-        "land_hex_ym_b_b0": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b0": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/0"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_b1": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b1": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/1"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_b2": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b2": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/2"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_b3": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b3": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/3"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_b4": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b4": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/4"
         }
       }
     },
     {
       "let": {
-        "land_hex_ym_b_b5": {
-          "$ref": "land_hex_ym_b_all",
+        "land_hcell_ym_b_b5": {
+          "$ref": "land_hcell_ym_b_all",
           "pointer": "/5"
         }
       }
     },
     {
-      "id": "land_hex_ym_b_mv",
+      "let": {
+        "land_hcell_ym_b_b6": {
+          "$ref": "land_hcell_ym_b_all",
+          "pointer": "/6"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hcell_ym_b_b7": {
+          "$ref": "land_hcell_ym_b_all",
+          "pointer": "/7"
+        }
+      }
+    },
+    {
+      "id": "land_hcell_ym_b_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_ym_b_b0",
+              "$ref": "land_hcell_ym_b_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b1",
+              "$ref": "land_hcell_ym_b_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b2",
+              "$ref": "land_hcell_ym_b_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b3",
+              "$ref": "land_hcell_ym_b_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b4",
+              "$ref": "land_hcell_ym_b_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b5",
+              "$ref": "land_hcell_ym_b_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_b_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_b_b7",
               "pointer": "/id"
             }
           ],
@@ -17515,7 +17782,7 @@
       }
     },
     {
-      "id": "cut_land_hex_ym_b",
+      "id": "cut_land_hcell_ym_b",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -17526,27 +17793,35 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_ym_b_b0",
+              "$ref": "land_hcell_ym_b_b0",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b1",
+              "$ref": "land_hcell_ym_b_b1",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b2",
+              "$ref": "land_hcell_ym_b_b2",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b3",
+              "$ref": "land_hcell_ym_b_b3",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b4",
+              "$ref": "land_hcell_ym_b_b4",
               "pointer": "/id"
             },
             {
-              "$ref": "land_hex_ym_b_b5",
+              "$ref": "land_hcell_ym_b_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_b_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hcell_ym_b_b7",
               "pointer": "/id"
             }
           ],
@@ -17872,13 +18147,13 @@
         }
       }
     },
-    {
-      "id": "cyp_hex_begin",
+        {
+      "id": "cyp_hpad_begin",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_begin",
         "arguments": {
-          "name": "cyp_hex",
+          "name": "cyp_hpad",
           "plane": {
             "type": "origin_plane",
             "plane": "xz"
@@ -17887,7 +18162,7 @@
       }
     },
     {
-      "id": "cyp_hex_nosnap",
+      "id": "cyp_hpad_nosnap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -17897,109 +18172,28 @@
       }
     },
     {
-      "id": "cyp_hex_hex0",
+      "id": "cyp_hpad_r",
       "call": {
         "group": "sketch/draw",
-        "operation": "sketch_polygon",
+        "operation": "sketch_add_rectangle_locked",
         "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 16.5
+          "mode": "two_point",
+          "anchor": {
+            "x": -7.5,
+            "y": 12.45
           },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
+          "corner_hint": {
+            "x": 7.5,
+            "y": 24.05
+          },
+          "width_mm": 15.0,
+          "height_mm": 11.6,
+          "ctrl_held": true
         }
       }
     },
     {
-      "id": "cyp_hex_hex1",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_hex2",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 16.5
-          },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_hex3",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": -4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_hex4",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 0.0,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_hex5",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_polygon",
-        "arguments": {
-          "center": {
-            "x": 4.5,
-            "y": 20.0
-          },
-          "edge_count": 6,
-          "radius_text": "1.4",
-          "rotation_deg": 30.0,
-          "mode": "circumscribed"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_snap",
+      "id": "cyp_hpad_snap",
       "call": {
         "group": "sketch/selection",
         "operation": "sketch_set_grid_snap",
@@ -18009,7 +18203,7 @@
       }
     },
     {
-      "id": "cyp_hex_finish",
+      "id": "cyp_hpad_finish",
       "call": {
         "group": "sketch/draw",
         "operation": "sketch_finish",
@@ -18017,19 +18211,14 @@
       }
     },
     {
-      "id": "cyp_hex_ex",
+      "id": "cyp_hpad_ex",
       "call": {
         "group": "solid/build",
         "operation": "solid_extrude",
         "arguments": {
-          "sketch_name": "cyp_hex",
+          "sketch_name": "cyp_hpad",
           "profile_indices": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
+            0
           ],
           "operation": "new_body",
           "extent": {
@@ -18044,10 +18233,10 @@
     },
     {
       "let": {
-        "cyp_hex_feat": {
+        "cyp_hpad_feat": {
           "$select": {
             "from": {
-              "$ref": "cyp_hex_ex"
+              "$ref": "cyp_hpad_ex"
             },
             "path": "/document/features",
             "take": "last",
@@ -18058,106 +18247,37 @@
     },
     {
       "let": {
-        "cyp_hex_all": {
+        "cyp_hpad_body": {
           "$select": {
             "from": {
-              "$ref": "cyp_hex_ex"
+              "$ref": "cyp_hpad_ex"
             },
             "path": "/scene/bodies",
             "where": {
               "/feature_id": {
-                "$ref": "cyp_hex_feat"
+                "$ref": "cyp_hpad_feat"
               }
             },
-            "take": "all",
-            "order_by": "/id"
+            "take": "one"
           }
         }
       }
     },
     {
-      "let": {
-        "cyp_hex_b0": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/0"
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_hex_b1": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/1"
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_hex_b2": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/2"
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_hex_b3": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/3"
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_hex_b4": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/4"
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_hex_b5": {
-          "$ref": "cyp_hex_all",
-          "pointer": "/5"
-        }
-      }
-    },
-    {
-      "id": "cyp_hex_mv",
+      "id": "cyp_hpad_mv",
       "call": {
         "group": "solid/body",
         "operation": "solid_move_copy",
         "arguments": {
           "body_ids": [
             {
-              "$ref": "cyp_hex_b0",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b1",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b2",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b3",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b4",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b5",
+              "$ref": "cyp_hpad_body",
               "pointer": "/id"
             }
           ],
           "translation": {
             "x": 0,
-            "y": 10.4,
+            "y": 9.2,
             "z": 0
           },
           "pivot": {
@@ -18176,7 +18296,7 @@
       }
     },
     {
-      "id": "join_cyp_hex",
+      "id": "join_cyp_hpad",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -18187,31 +18307,423 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "cyp_hex_b0",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b1",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b2",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b3",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b4",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_b5",
+              "$ref": "cyp_hpad_body",
               "pointer": "/id"
             }
           ],
           "operation": "join",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_begin",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_begin",
+        "arguments": {
+          "name": "cyp_hcell",
+          "plane": {
+            "type": "origin_plane",
+            "plane": "xz"
+          }
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_nosnap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex0",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 14.786
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex1",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 14.786
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex2",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 14.786
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex3",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex4",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 2.0,
+            "y": 18.25
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex5",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": -4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex6",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 0.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_hex7",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_polygon",
+        "arguments": {
+          "center": {
+            "x": 4.0,
+            "y": 21.714
+          },
+          "edge_count": 6,
+          "radius_text": "1.4",
+          "rotation_deg": 0.0,
+          "mode": "circumscribed"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_snap",
+      "call": {
+        "group": "sketch/selection",
+        "operation": "sketch_set_grid_snap",
+        "arguments": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_finish",
+      "call": {
+        "group": "sketch/draw",
+        "operation": "sketch_finish",
+        "arguments": {}
+      }
+    },
+    {
+      "id": "cyp_hcell_ex",
+      "call": {
+        "group": "solid/build",
+        "operation": "solid_extrude",
+        "arguments": {
+          "sketch_name": "cyp_hcell",
+          "profile_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "operation": "new_body",
+          "extent": {
+            "type": "distance",
+            "distance": 1.3
+          },
+          "taper_angle_deg": 0,
+          "flip": false,
+          "target_body_ids": []
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_feat": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_hcell_ex"
+            },
+            "path": "/document/features",
+            "take": "last",
+            "pointer": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_all": {
+          "$select": {
+            "from": {
+              "$ref": "cyp_hcell_ex"
+            },
+            "path": "/scene/bodies",
+            "where": {
+              "/feature_id": {
+                "$ref": "cyp_hcell_feat"
+              }
+            },
+            "take": "all",
+            "order_by": "/id"
+          }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b0": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b1": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b2": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b3": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b4": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b5": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/5"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b6": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/6"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hcell_b7": {
+          "$ref": "cyp_hcell_all",
+          "pointer": "/7"
+        }
+      }
+    },
+    {
+      "id": "cyp_hcell_mv",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_move_copy",
+        "arguments": {
+          "body_ids": [
+            {
+              "$ref": "cyp_hcell_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b7",
+              "pointer": "/id"
+            }
+          ],
+          "translation": {
+            "x": 0,
+            "y": 9.15,
+            "z": 0
+          },
+          "pivot": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_hcell",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_hcell_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b5",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b6",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hcell_b7",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
           "keep_tools": false
         }
       }

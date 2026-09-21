@@ -1,3 +1,11 @@
+## v16.45
+
+- **Jeff correction:** reject v16.44 solid hex bosses/pockets. Honeycomb **wall lattice** (shared walls, open cells) on locking-tab clamp face.
+- Wall **1.2 mm** (3 FDM perimeters @ 0.4 mm nozzle; document allow 0.8–1.6). Depth 1.2 mm (= former lip height) pad on clip inner face Y[9.2,10.4], then cut open hex cells.
+- Hex **pointy-top / vertical flats // Z** (`rotation_deg: 0`); cell FF 2.8; staggered 8-cell field on CLIP face 15×11.6.
+- Land: matching shallow open hex cuts FF 3.0 (+0.2 CLR) depth 1.35 so patterns nest.
+- Keep outer-edge open-C lip; no inner xbars; Thunder-safe −Y `solid_mirror`; mate-centered CLIP envelope unchanged.
+
 ## v16.44
 
 - Remove inner engagement lips/teeth (`cyp_xbar0`, `cyp_xbar2` + joins). Keep outer-edge lip of open-C (`cyp_out` after `cyp_open`).
@@ -42,5 +50,5 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_43.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.44`).
+- **Canonical:** `design/design_v16_45.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.45`).
