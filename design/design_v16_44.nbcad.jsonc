@@ -1,6 +1,6 @@
 // INJS2065 v16.44: remove inner xbar lips (cyp_xbar0/2); keep outer-edge lip of open-C; add AM hex bosses on clamp faces + land pockets.
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// Hex: circumscribed R=1.4 (FF 2.8) proud 1.2 mm (=former xbar Y engage); pocket R=1.55 FF 3.1 depth 1.35; flat-top rot 30°. No middle xbar. Thunder-safe -Y solid_mirror.
+// Hex: circumscribed R=1.4 (FF 2.8) proud 1.2 mm (=former xbar Y engage); pocket R=1.55 FF 3.1 depth 1.35; flat-top rot 30°. Multi-profile extrude → 6 bodies: take all + move/cut/join all six.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
@@ -16365,7 +16365,7 @@
     },
     {
       "let": {
-        "land_hex_yp_a_tmp": {
+        "land_hex_yp_a_all": {
           "$select": {
             "from": {
               "$ref": "land_hex_yp_a_ex"
@@ -16376,8 +16376,57 @@
                 "$ref": "land_hex_yp_a_feat"
               }
             },
-            "take": "one"
+            "take": "all",
+            "order_by": "/id"
           }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b0": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b1": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b2": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b3": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b4": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_a_b5": {
+          "$ref": "land_hex_yp_a_all",
+          "pointer": "/5"
         }
       }
     },
@@ -16389,7 +16438,27 @@
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_yp_a_tmp",
+              "$ref": "land_hex_yp_a_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b5",
               "pointer": "/id"
             }
           ],
@@ -16425,7 +16494,27 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_yp_a_tmp",
+              "$ref": "land_hex_yp_a_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_a_b5",
               "pointer": "/id"
             }
           ],
@@ -16620,7 +16709,7 @@
     },
     {
       "let": {
-        "land_hex_yp_b_tmp": {
+        "land_hex_yp_b_all": {
           "$select": {
             "from": {
               "$ref": "land_hex_yp_b_ex"
@@ -16631,8 +16720,57 @@
                 "$ref": "land_hex_yp_b_feat"
               }
             },
-            "take": "one"
+            "take": "all",
+            "order_by": "/id"
           }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b0": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b1": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b2": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b3": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b4": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_yp_b_b5": {
+          "$ref": "land_hex_yp_b_all",
+          "pointer": "/5"
         }
       }
     },
@@ -16644,7 +16782,27 @@
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_yp_b_tmp",
+              "$ref": "land_hex_yp_b_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b5",
               "pointer": "/id"
             }
           ],
@@ -16680,7 +16838,27 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_yp_b_tmp",
+              "$ref": "land_hex_yp_b_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_yp_b_b5",
               "pointer": "/id"
             }
           ],
@@ -16875,7 +17053,7 @@
     },
     {
       "let": {
-        "land_hex_ym_a_tmp": {
+        "land_hex_ym_a_all": {
           "$select": {
             "from": {
               "$ref": "land_hex_ym_a_ex"
@@ -16886,8 +17064,57 @@
                 "$ref": "land_hex_ym_a_feat"
               }
             },
-            "take": "one"
+            "take": "all",
+            "order_by": "/id"
           }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b0": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b1": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b2": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b3": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b4": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_a_b5": {
+          "$ref": "land_hex_ym_a_all",
+          "pointer": "/5"
         }
       }
     },
@@ -16899,7 +17126,27 @@
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_ym_a_tmp",
+              "$ref": "land_hex_ym_a_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b5",
               "pointer": "/id"
             }
           ],
@@ -16935,7 +17182,27 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_ym_a_tmp",
+              "$ref": "land_hex_ym_a_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_a_b5",
               "pointer": "/id"
             }
           ],
@@ -17130,7 +17397,7 @@
     },
     {
       "let": {
-        "land_hex_ym_b_tmp": {
+        "land_hex_ym_b_all": {
           "$select": {
             "from": {
               "$ref": "land_hex_ym_b_ex"
@@ -17141,8 +17408,57 @@
                 "$ref": "land_hex_ym_b_feat"
               }
             },
-            "take": "one"
+            "take": "all",
+            "order_by": "/id"
           }
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b0": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b1": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b2": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b3": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b4": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "land_hex_ym_b_b5": {
+          "$ref": "land_hex_ym_b_all",
+          "pointer": "/5"
         }
       }
     },
@@ -17154,7 +17470,27 @@
         "arguments": {
           "body_ids": [
             {
-              "$ref": "land_hex_ym_b_tmp",
+              "$ref": "land_hex_ym_b_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b5",
               "pointer": "/id"
             }
           ],
@@ -17190,7 +17526,27 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "land_hex_ym_b_tmp",
+              "$ref": "land_hex_ym_b_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "land_hex_ym_b_b5",
               "pointer": "/id"
             }
           ],
@@ -17702,7 +18058,7 @@
     },
     {
       "let": {
-        "cyp_hex_tmp": {
+        "cyp_hex_all": {
           "$select": {
             "from": {
               "$ref": "cyp_hex_ex"
@@ -17713,8 +18069,57 @@
                 "$ref": "cyp_hex_feat"
               }
             },
-            "take": "one"
+            "take": "all",
+            "order_by": "/id"
           }
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b0": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/0"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b1": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/1"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b2": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/2"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b3": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/3"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b4": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/4"
+        }
+      }
+    },
+    {
+      "let": {
+        "cyp_hex_b5": {
+          "$ref": "cyp_hex_all",
+          "pointer": "/5"
         }
       }
     },
@@ -17726,7 +18131,27 @@
         "arguments": {
           "body_ids": [
             {
-              "$ref": "cyp_hex_tmp",
+              "$ref": "cyp_hex_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b5",
               "pointer": "/id"
             }
           ],
@@ -17762,7 +18187,27 @@
           },
           "tool_body_ids": [
             {
-              "$ref": "cyp_hex_tmp",
+              "$ref": "cyp_hex_b0",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b1",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b2",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b3",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b4",
+              "pointer": "/id"
+            },
+            {
+              "$ref": "cyp_hex_b5",
               "pointer": "/id"
             }
           ],
