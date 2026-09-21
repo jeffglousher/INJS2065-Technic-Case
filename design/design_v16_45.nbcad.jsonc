@@ -1,6 +1,7 @@
 // INJS2065 v16.45: honeycomb WALL lattice on clamp face (reject v16.44 solid hex bosses/pockets).
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
 // Honeycomb: pad 1.2 mm on clamp face → Y[9.2,10.4]; cut open hex cells (pointy-top rot 0°, vertical flats // Z).
+// Land −Y openings: solid_extrude flip=true (match v16.44); +Y flip=false.
 // Wall 1.2 mm (=3 FDM perimeters @0.4 nozzle; allow 0.8–1.6). Cell FF 2.8 (R_ap 1.4); land openings FF 3.0 (+0.2 CLR) depth 1.35.
 // Grid: staggered 3×3 pointy-top (8 cells), S=FF+wall=4.0, row_pitch≈3.464; X∈{-4,0,4}/{-2,2}, Z∈{14.786,18.25,21.714}.
 // Keep outer-edge open-C lip; no inner xbars. −Y clip = solid_mirror of +Y. Print: YZ on bed, build +X.
@@ -17207,7 +17208,7 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": false,
+          "flip": true,
           "target_body_ids": []
         }
       }
@@ -17619,7 +17620,7 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": false,
+          "flip": true,
           "target_body_ids": []
         }
       }
