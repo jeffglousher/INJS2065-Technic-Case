@@ -1,16 +1,15 @@
-// INJS2065 v16.45: honeycomb WALL lattice on clamp face (reject v16.44 solid hex bosses/pockets).
+// INJS2065 v16.46: land honeycomb CUTTERS into the land (fix v16.45 outside-boss placement).
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// Honeycomb: pad 1.2 mm on clamp face → Y[9.2,10.4]; cut open hex cells (pointy-top rot 0°, vertical flats // Z).
-// Land −Y openings: solid_extrude flip=true (match v16.44); +Y flip=false.
-// Wall 1.2 mm (=3 FDM perimeters @0.4 nozzle; allow 0.8–1.6). Cell FF 2.8 (R_ap 1.4); land openings FF 3.0 (+0.2 CLR) depth 1.35.
+// Honeycomb WALL lattice: clip pad 1.2 mm on clamp face → Y[9.2,10.4]; cut open hex cells (pointy-top rot 0°, vertical flats // Z).
+// Land openings depth 1.35 into land from spine_inner_y±10.4: +Y tools Y[9.05,10.4] (Ty=9.05 flip=false); −Y tools Y[-10.4,-9.05] (Ty=-10.4 flip=false).
+// Wall 1.2 mm (=3 FDM perimeters @0.4 nozzle). Cell FF 2.8 (R_ap 1.4); land openings FF 3.0 (+0.2 CLR).
 // Grid: staggered 3×3 pointy-top (8 cells), S=FF+wall=4.0, row_pitch≈3.464; X∈{-4,0,4}/{-2,2}, Z∈{14.786,18.25,21.714}.
 // Keep outer-edge open-C lip; no inner xbars. −Y clip = solid_mirror of +Y. Print: YZ on bed, build +X.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
-// REVIEW EXPLODE ONLY: +Y/−Y clip solid_move_copy ±14 mm before assembly components (not SoT).
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.45 honeycomb wall lattice REVIEW EXPLODE (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.46 honeycomb wall lattice (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -16529,7 +16528,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 10.35,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -16941,7 +16940,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 10.35,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -17209,7 +17208,7 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": true,
+          "flip": false,
           "target_body_ids": []
         }
       }
@@ -17353,7 +17352,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.35,
+            "y": -10.4,
             "z": 0
           },
           "pivot": {
@@ -17621,7 +17620,7 @@
             "distance": 1.35
           },
           "taper_angle_deg": 0,
-          "flip": true,
+          "flip": false,
           "target_body_ids": []
         }
       }
@@ -17765,7 +17764,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.35,
+            "y": -10.4,
             "z": 0
           },
           "pivot": {
@@ -18824,70 +18823,6 @@
           "color_name": "BuckleClip PETG magenta",
           "filament_type": "PETG",
           "material_name": "Generic PETG"
-        }
-      }
-    },
-    {
-      "id": "review_explode_yp",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "clip_yp_body",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 14,
-            "z": 0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "review_explode_ym",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "clip_ym_body",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": -14,
-            "z": 0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
         }
       }
     },

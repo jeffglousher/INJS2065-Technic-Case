@@ -1,6 +1,6 @@
 {
-  "version": "16.45",
-  "architecture": "clamshell_v16_45_honeycomb_wall_lattice",
+  "version": "16.46",
+  "architecture": "clamshell_v16_46_honeycomb_wall_lattice",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -1209,9 +1209,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.45",
+  "VERSION": "16.46",
   "revision": "v16.41",
-  "notes": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112.",
+  "notes": "v16.46: land hex cutters INTO land from spine_inner_y\u00b110.4 (+Y Y[9.05,10.4], \u2212Y Y[-10.4,-9.05]) \u2014 fixes v16.45 outside placement that looked like solid bosses; clip pad+open cells unchanged wall lattice.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
