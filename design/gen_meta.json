@@ -1,6 +1,6 @@
 {
-  "version": "16.41",
-  "architecture": "clamshell_v16_41_green_centered_clip_no_middle_tooth",
+  "version": "16.42",
+  "architecture": "clamshell_v16_42_split_z_centered_clip_no_middle_tooth",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -300,7 +300,7 @@
     "wall_to_cavity": 2.3200000000000003,
     "slide_clearance_y_total": 0.05,
     "slide_clearance_z_total": 0.9,
-    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on green ClamshellB envelope mid\u224829.0; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary.",
+    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary. Datum = shared CLIP envelope / split_z.",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
@@ -365,33 +365,33 @@
       42.0
     ],
     "A_pocket_z": [
-      16.0,
+      12.0,
       18.3
     ],
     "B_pocket_z": [
       18.2,
-      42.0
+      24.5
     ],
-    "clip_span_z": 25.1,
+    "clip_span_z": 11.600000000000001,
     "clip_z_bounds": [
-      16.45,
-      41.55
+      12.45,
+      24.05
     ],
     "slot_z_bounds": [
       16.0,
       42.0
     ],
-    "clip_z_center": 29.0,
-    "slot_z_center": 29.0,
+    "clip_z_center": 18.25,
+    "slot_z_center": 18.25,
     "clip_z_gaps": [
       0.45,
       0.45
     ],
-    "expected_front_view": "Long magenta clip spanning most of green B (center\u224829). Two end teeth only (no middle). Equal half-spans about clip center. If mid still on split_z 18.25, stale \u2264v16.40 replay.",
-    "clip_z_center_note": "v16.41: mid-clip == green ClamshellB envelope center (~29), not split_z. Supersedes v16.31\u2013v16.40 split_z-only datum for this lengthening.",
-    "clip_z_datum": "clamshell_b_envelope",
-    "clip_engage_a_mm": 1.8,
-    "clip_engage_b_mm": 23.3,
+    "expected_front_view": "Short magenta clip straddling clamshell join (center=split_z 18.25). Two end teeth only (no middle). Equal \u00b15.8 A/B. If mid on green ~29, stale v16.41 replay.",
+    "clip_z_center_note": "v16.42: mid-clip == split_z mate (18.25); equal A/B engagement 5.8 mm; clamshell-join span only CLIP_Z=[12.45,24.05]. Reverts v16.41 green-envelope centering (~29). Keeps v16.41 two-tooth (no xbar1) + no x=0 side Technic.",
+    "clip_z_datum": "split_z",
+    "clip_engage_a_mm": 5.8,
+    "clip_engage_b_mm": 5.8,
     "cross_member_count": 2,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
@@ -435,17 +435,16 @@
     ],
     "print_orientation": "Clips on side: YZ profile on bed, build along X. Orient shells to support tab nests and bearing seat; check nubs and bridges in slicer. Minimum deep-slot wall 2.45 mm.",
     "shared_clip_envelope": {
-      "CLIP_Z0": 16.45,
-      "CLIP_Z1": 41.55,
+      "CLIP_Z0": 12.45,
+      "CLIP_Z1": 24.05,
       "CLIP_X0": -3.75,
       "CLIP_X1": 3.75,
       "POCKET_Z_CLR": 0.45,
-      "POCKET_X_PRESS": 0.04,
-      "POCKET_Z0": 16.0,
-      "POCKET_Z1": 42.0,
-      "POCKET_X0": -3.71,
-      "POCKET_X1": 3.71,
-      "note": "POCKET = CLIP \u00b1 named CLR only; mating pocket cites CLIP envelope \u2014 no independent chan_z magic."
+      "POCKET_X_PRESS": 0.05,
+      "POCKET_Z0": 12.0,
+      "POCKET_Z1": 24.5,
+      "POCKET_X0": -3.8,
+      "POCKET_X1": 3.8
     }
   },
   "revision_notes": {
@@ -453,10 +452,10 @@
     "material": "PETG",
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
-    "clip_z_center_matches_split_z": false,
-    "clip_visual_mass_on_split_z": false,
+    "clip_z_center_matches_split_z": true,
+    "clip_visual_mass_on_split_z": true,
     "clip_cross_member_count": 2,
-    "expected_front_view": "Long magenta clip spanning most of green B (center\u224829). Two end teeth only (no middle). Equal half-spans about clip center. If mid still on split_z 18.25, stale \u2264v16.40 replay.",
+    "expected_front_view": "Short magenta clip straddling clamshell join (center=split_z 18.25). Two end teeth only (no middle). Equal \u00b15.8 A/B. If mid on green ~29, stale v16.41 replay.",
     "hub_before_v16_30": {
       "HUB_FLANGE_D": 11.2,
       "HUB_FLANGE_T": 2.0,
@@ -951,40 +950,41 @@
         41.55
       ],
       "clip_z_center": 29.0,
-      "green_envelope_approx": [
-        17.55,
-        42.0
+      "clip_z_datum": "clamshell_b_envelope",
+      "removed_middle_tooth": "cyp_xbar1",
+      "removed_side_technic_x0": true,
+      "superseded_by": "v16.42",
+      "note": "v16.41 green-envelope lengthening; Z reverted in v16.42; tooth/hole removals retained."
+    },
+    "clip_v16_42": {
+      "CLIP_Z": [
+        12.45,
+        24.05
+      ],
+      "clip_z_center": 18.25,
+      "clip_z_datum": "split_z",
+      "engage_a_b_mm": [
+        5.8,
+        5.8
+      ],
+      "A_pocket_z": [
+        12.0,
+        18.3
+      ],
+      "B_pocket_z": [
+        18.2,
+        24.5
       ],
       "removed_middle_tooth": "cyp_xbar1",
-      "teeth_z": [
-        19.25,
-        37.55
+      "teeth": [
+        "cyp_xbar0",
+        "cyp_xbar2"
       ],
-      "removed_side_holes": [
-        {
-          "id": "cb_side_1_1_2",
-          "point": [
-            0.0,
-            12.0,
-            30.0
-          ]
-        },
-        {
-          "id": "cb_side_1_-1_2",
-          "point": [
-            0.0,
-            -12.0,
-            30.0
-          ]
-        }
-      ],
-      "kept_side_x": [
-        -8.0,
-        8.0,
-        16.0,
-        24.0
-      ],
-      "mirror_ym": "solid_mirror xz of finished +Y (Thunder-safe)"
+      "removed_side_technic_x0": true,
+      "mirror_ym": "solid_mirror xz of finished +Y (Thunder-safe)",
+      "no_cut_cym_open": true,
+      "shell": "[-12,28]x[\u00b112]",
+      "clip_z_center_matches_split_z": true
     }
   },
   "steps": 1067,
@@ -1068,7 +1068,7 @@
   },
   "VERSION": "16.41",
   "revision": "v16.41",
-  "notes": "v16.41: lengthen clip onto green ClamshellB [16.45,41.55] center 29.0; drop middle xbar1; drop side Technic x=0 (shaft); extend B pocket/lands; keep solid_mirror -Y.",
+  "notes": "v16.42: recenter clip on clamshell join/mate split_z=18.25; CLIP_Z=[12.45,24.05] equal \u00b15.8 A/B; keep v16.41 drop middle xbar1 + drop side Technic x=0; keep solid_mirror -Y; tight shell[-12,28]\u00d7\u00b112.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
@@ -1090,6 +1090,7 @@
     ],
     "shell_y": 12.0,
     "external_on_outer_face": true,
-    "ym_build": "solid_mirror xz of finished +Y clip"
+    "ym_build": "solid_mirror xz of finished +Y clip",
+    "clip_z_datum": "split_z"
   }
 }

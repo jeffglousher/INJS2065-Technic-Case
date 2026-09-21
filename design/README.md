@@ -1,4 +1,4 @@
-## v16.41
+## v16.42
 
 - Lengthen BuckleClip onto green ClamshellB envelope: CLIP_Z [16.45, 41.55] center 29.0 (was [12.45, 24.05] on split_z).
 - Remove middle tooth (`cyp_xbar1`); keep end teeth `cyp_xbar0` @19.25 and `cyp_xbar2` @37.55.
@@ -30,5 +30,5 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design/design_v16_41.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.41`).
+- **Canonical:** `design/design/design_v16_42.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.42`).
