@@ -10,6 +10,7 @@
 
 ## Versioning
 Version: 16.41
+- Working git branch: `cad-bot/v16.41-current` (tracks tip VERSION; formerly `cad-bot/v16.23-current`).
 - Keep one authoritative `VERSION` / `DESIGN_VERSION` string: matching one-line `Version: M.N` in this document + embedded in the JSONC header/metadata + `design/gen_meta.json` `version` field. Do not retype divergent strings.
 - Filenames from VERSION — preferred `design/design_v{M_N}.nbcad.jsonc` (e.g. `design_v16_41.nbcad.jsonc`). That versioned file is the SoT and the replay entry. Do not keep a parallel unversioned recipe name (`injs2065-technic-clamshell.nbcad.jsonc`) as SoT.
 - **Prune on cut** — when cutting a new version, write new `design_vM_N.nbcad.jsonc`, update meta / this Version line, delete prior `design_v*.nbcad.jsonc` and any leftover `gen_v*.py`. Git keeps history. **No gen_v*.py stack.**

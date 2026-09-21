@@ -8,5 +8,5 @@
 
 ## Process
 - **SoT:** `design/design_v16_41.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.
-- Branch: `cad-bot/v16.23-current`
+- Branch: `cad-bot/v16.41-current`
 - Fits: journal **Ø7.94**, face hole **Ø8.15**, BRG pocket **12.3**, CROSS_DEPTH **8.0**

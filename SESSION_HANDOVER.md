@@ -24,6 +24,6 @@ Side @ Z30 green: x={-8,0,8,16,24} on ±Y — through-class
 ```
 
 ## Parent next
-1. `git pull` on Thunder `C:\Users\jeffg\dev\INJS2065-Technic-Case` branch `cad-bot/v16.23-current` (machineId `4e34e74d-0868-455b-8851-4b5e7ceff85d`).
+1. `git pull` on Thunder `C:\Users\jeffg\dev\INJS2065-Technic-Case` branch `cad-bot/v16.41-current` (machineId `4e34e74d-0868-455b-8851-4b5e7ceff85d`).
 2. Blank-doc script replay `design/design_v16_39.nbcad.jsonc` (`cad_interface` action `script`, mode `fast`).
 3. Live-check: shell ≈[-12,28]×[±12]; clips external on ±Y; face 8 pins without (0,±8); green sides 5×2 through; no blue Technic; BuckleClip geom unchanged; journal 7.94 / face 8.15 / BRG 12.3.
