@@ -1,6 +1,6 @@
 {
-  "version": "16.42",
-  "architecture": "clamshell_v16_42_split_z_centered_clip_no_middle_tooth",
+  "version": "16.43",
+  "architecture": "clamshell_v16_43_wide_split_z_clip_no_x0_recesses",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -300,7 +300,7 @@
     "wall_to_cavity": 2.3200000000000003,
     "slide_clearance_y_total": 0.05,
     "slide_clearance_z_total": 0.9,
-    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary. Datum = shared CLIP envelope / split_z.",
+    "slide_clearance_note": "Y insertion clearance 0.05; clip Z-centered on split_z; POCKET_Z = CLIP_Z \u00b1 POCKET_Z_CLR; X equal press POCKET_X_PRESS; Y-clamp friction primary. Datum = shared CLIP envelope / split_z. v16.43: CLIP_X widened to \u00b17.5 (15 mm).",
     "frame_y_outer": 12.0,
     "frame_y_inner": 9.05,
     "frame_z": [
@@ -339,15 +339,15 @@
     "barbs": false,
     "knurl": false,
     "hooks": false,
-    "clip_xw": 7.5,
+    "clip_xw": 15.0,
     "clip_x_center": 0.0,
     "clip_x_bounds": [
-      -3.75,
-      3.75
+      -7.5,
+      7.5
     ],
     "pocket_x_bounds": [
-      -3.71,
-      3.71
+      -7.46,
+      7.46
     ],
     "slot_x_clearance_each_mm": -0.04,
     "slot_x_interference_each_mm": 0.04,
@@ -388,7 +388,7 @@
       0.45
     ],
     "expected_front_view": "Short magenta clip straddling clamshell join (center=split_z 18.25). Two end teeth only (no middle). Equal \u00b15.8 A/B. If mid on green ~29, stale v16.41 replay.",
-    "clip_z_center_note": "v16.42: mid-clip == split_z mate (18.25); equal A/B engagement 5.8 mm; clamshell-join span only CLIP_Z=[12.45,24.05]. Reverts v16.41 green-envelope centering (~29). Keeps v16.41 two-tooth (no xbar1) + no x=0 side Technic.",
+    "clip_z_center_note": "v16.43: keep mid-clip == split_z mate (18.25); equal A/B \u00b15.8; CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5] (was \u00b13.75). Dropped upper_pin_2_* recesses at x=0,z=30. Keep 2-tooth + no x=0 side holes.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
@@ -437,14 +437,14 @@
     "shared_clip_envelope": {
       "CLIP_Z0": 12.45,
       "CLIP_Z1": 24.05,
-      "CLIP_X0": -3.75,
-      "CLIP_X1": 3.75,
+      "CLIP_X0": -7.5,
+      "CLIP_X1": 7.5,
       "POCKET_Z_CLR": 0.45,
       "POCKET_X_PRESS": 0.05,
       "POCKET_Z0": 12.0,
       "POCKET_Z1": 24.5,
-      "POCKET_X0": -3.8,
-      "POCKET_X1": 3.8
+      "POCKET_X0": -7.55,
+      "POCKET_X1": 7.55
     }
   },
   "revision_notes": {
@@ -455,7 +455,7 @@
     "clip_z_center_matches_split_z": true,
     "clip_visual_mass_on_split_z": true,
     "clip_cross_member_count": 2,
-    "expected_front_view": "Short magenta clip straddling clamshell join (center=split_z 18.25). Two end teeth only (no middle). Equal \u00b15.8 A/B. If mid on green ~29, stale v16.41 replay.",
+    "expected_front_view": "Wider magenta clip (15 mm X) straddling clamshell join (center=split_z 18.25). Two end teeth only. No recess dimple at x=0,z=30 on \u00b1Y cheeks.",
     "hub_before_v16_30": {
       "HUB_FLANGE_D": 11.2,
       "HUB_FLANGE_T": 2.0,
@@ -985,6 +985,46 @@
       "no_cut_cym_open": true,
       "shell": "[-12,28]x[\u00b112]",
       "clip_z_center_matches_split_z": true
+    },
+    "clip_v16_43": {
+      "CLIP_Z": [
+        12.45,
+        24.05
+      ],
+      "CLIP_X": [
+        -7.5,
+        7.5
+      ],
+      "POCKET_X": [
+        -7.55,
+        7.55
+      ],
+      "land_pocket_x": [
+        -7.46,
+        7.46
+      ],
+      "clip_z_center": 18.25,
+      "clip_z_datum": "split_z",
+      "clip_xw_mm": 15.0,
+      "dropped_upper_pin_2_recesses": true,
+      "upper_pin_2_ids_deleted": [
+        "upper_pin_2_1_entry",
+        "upper_pin_2_1_tip",
+        "upper_pin_2_-1_entry",
+        "upper_pin_2_-1_tip"
+      ],
+      "side_technic_x": [
+        -8,
+        8,
+        16,
+        24
+      ],
+      "teeth": [
+        "cyp_xbar0",
+        "cyp_xbar2"
+      ],
+      "hex_interlock": false,
+      "note": "One larger open-C preferred over multiple; slide-fit first per AM clamshell retainer doctrine."
     }
   },
   "steps": 1067,
@@ -1068,7 +1108,7 @@
   },
   "VERSION": "16.41",
   "revision": "v16.41",
-  "notes": "v16.42: recenter clip on clamshell join/mate split_z=18.25; CLIP_Z=[12.45,24.05] equal \u00b15.8 A/B; keep v16.41 drop middle xbar1 + drop side Technic x=0; keep solid_mirror -Y; tight shell[-12,28]\u00d7\u00b112.",
+  "notes": "v16.43: drop leftover x=0 side pin recesses (upper_pin_2_* entry+tip \u00b1Y); widen mate-centered open-C clip CLIP_X=[-7.5,7.5] (15mm); POCKET_X=[-7.55,7.55]; land spine/leg \u00b17.46; keep CLIP_Z=[12.45,24.05] split_z; 2-tooth no xbar1; solid_mirror -Y; tight shell[-12,28]\u00d7\u00b112. No hex face yet.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
@@ -1091,6 +1131,11 @@
     "shell_y": 12.0,
     "external_on_outer_face": true,
     "ym_build": "solid_mirror xz of finished +Y clip",
-    "clip_z_datum": "split_z"
+    "clip_z_datum": "split_z",
+    "clip_x": [
+      -7.5,
+      7.5
+    ],
+    "clip_xw_mm": 15.0
   }
 }

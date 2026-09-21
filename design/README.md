@@ -1,9 +1,14 @@
+## v16.43
+
+- Drop leftover side-pin lead-in/tip recesses at x=0,z=30 (`upper_pin_2_*` entry+tip on both ±Y). Through-holes already gone in v16.41; recesses were still cutting.
+- Widen mate-centered open-C clip: `CLIP_X=[-7.5, 7.5]` (15 mm, was 7.5). Keep `CLIP_Z=[12.45, 24.05]` / `split_z=18.25` equal ±5.8 A/B — do not lengthen onto green.
+- Update `POCKET_X=[-7.55, 7.55]`, land spine/leg pockets ±7.46, `cyp_out` / `cyp_open` / `cyp_xbar0`+`cyp_xbar2`. Keep 2-tooth (no xbar1); Thunder-safe −Y `solid_mirror`.
+- No hex interlocking face this cut — slide-fit first.
+
 ## v16.42
 
-- Lengthen BuckleClip onto green ClamshellB envelope: CLIP_Z [16.45, 41.55] center 29.0 (was [12.45, 24.05] on split_z).
-- Remove middle tooth (`cyp_xbar1`); keep end teeth `cyp_xbar0` @19.25 and `cyp_xbar2` @37.55.
-- Extend B spine/leg pockets to seat longer clip; raise A pocket bottom to 16.0.
-- Remove side Technic holes at x=0 (`cb_side_1_1_2`, `cb_side_1_-1_2`) — shaft visibility.
+- Recenter BuckleClip on clamshell join/mate `split_z=18.25`: `CLIP_Z=[12.45, 24.05]` equal ±5.8 A/B (revert v16.41 green-envelope centering ~29).
+- Keep v16.41 two-tooth (`cyp_xbar0`+`cyp_xbar2`, no middle xbar1) + no side Technic through-holes at x=0.
 - Keep `solid_mirror` xz for −Y clip (no `cut_cym_open`).
 - Headless replay target: full completion.
 
@@ -30,5 +35,5 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design/design_v16_42.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.42`).
+- **Canonical:** `design/design_v16_43.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.43`).

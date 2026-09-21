@@ -1,11 +1,11 @@
-// INJS2065 v16.42: recenter open-C clip on clamshell join/mate (split_z=18.25); keep v16.41 2-tooth + no x=0 side holes.
-// Clip mid == split_z mate plane (NOT green ClamshellB envelope mid ~29). CLIP_Z=[12.45,24.05] equal ±5.8 mm A/B engagement — clamshell-join span only.
-// Teeth: xbar0+xbar2 only (cyp_xbar1 removed). No side Technic at x=0 (shaft). Thunder-safe -Y via solid_mirror of +Y (no cut_cym_open).
+// INJS2065 v16.43: drop leftover x=0 side pin recesses (upper_pin_2_*); widen mate-centered open-C clip to CLIP_X=[-7.5,7.5].
+// Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm, was 7.5). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
+// Teeth: xbar0+xbar2 only. No side Technic / recesses at x=0,z=30. Thunder-safe -Y via solid_mirror of +Y (no cut_cym_open).
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.42 split_z-centered clip (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.43 wide split_z clip no x0 recesses (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1838,14 +1838,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": 12.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -2007,14 +2007,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": -10.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -2176,14 +2176,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": 12.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -2345,14 +2345,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": -9.0
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -6870,678 +6870,6 @@
           "tool_body_ids": [
             {
               "$ref": "upper_pin_1_1_tip_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "upper_pin_2_1_entry",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_c_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 3.1,
-            "y": 0.0
-          },
-          "diameter_text": "6.2",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_c_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "upper_pin_2_1_entry",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 0.9000000000000004
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_1_entry_feat": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_1_entry_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_1_entry_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_1_entry_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "upper_pin_2_1_entry_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_entry_place",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "upper_pin_2_1_entry_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0.0,
-            "y": 12.1,
-            "z": 30.0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0.7071067811865475,
-            0.0,
-            0.0,
-            0.7071067811865476
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_upper_pin_2_1_entry",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "upper_pin_2_1_entry_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "upper_pin_2_1_tip",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_c_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 3.1,
-            "y": 0.0
-          },
-          "diameter_text": "6.2",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_c_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "upper_pin_2_1_tip",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_1_tip_feat": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_1_tip_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_1_tip_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_1_tip_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "upper_pin_2_1_tip_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_1_tip_place",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "upper_pin_2_1_tip_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0.0,
-            "y": 5.0,
-            "z": 30.0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0.7071067811865475,
-            0.0,
-            0.0,
-            0.7071067811865476
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_upper_pin_2_1_tip",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "upper_pin_2_1_tip_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "upper_pin_2_-1_entry",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_c_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 3.1,
-            "y": 0.0
-          },
-          "diameter_text": "6.2",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_c_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "upper_pin_2_-1_entry",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 0.9000000000000004
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_-1_entry_feat": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_-1_entry_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_-1_entry_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_-1_entry_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "upper_pin_2_-1_entry_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_entry_place",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "upper_pin_2_-1_entry_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0.0,
-            "y": -11.2,
-            "z": 30.0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0.7071067811865475,
-            0.0,
-            0.0,
-            0.7071067811865476
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_upper_pin_2_-1_entry",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "upper_pin_2_-1_entry_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "upper_pin_2_-1_tip",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_c_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_c",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_circle_locked",
-        "arguments": {
-          "mode": "center_diameter",
-          "anchor": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "edge_hint": {
-            "x": 3.1,
-            "y": 0.0
-          },
-          "diameter_text": "6.2",
-          "ctrl_held": false
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_c_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "upper_pin_2_-1_tip",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_-1_tip_feat": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_-1_tip_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "upper_pin_2_-1_tip_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "upper_pin_2_-1_tip_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "upper_pin_2_-1_tip_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "upper_pin_2_-1_tip_place",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "upper_pin_2_-1_tip_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0.0,
-            "y": -3.8,
-            "z": 30.0
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0.7071067811865475,
-            0.0,
-            0.0,
-            0.7071067811865476
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "cut_upper_pin_2_-1_tip",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "upper_pin_2_-1_tip_tmp",
               "pointer": "/id"
             }
           ],
@@ -12202,14 +11530,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": 10.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": 12.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -12371,14 +11699,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": -10.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 2.0,
           "ctrl_held": true
         }
@@ -12540,14 +11868,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": 9.0
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": 12.35
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -12709,14 +12037,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.71,
+            "x": -7.46,
             "y": -12.35
           },
           "corner_hint": {
-            "x": 3.71,
+            "x": 7.46,
             "y": -9.0
           },
-          "width_mm": 7.42,
+          "width_mm": 14.92,
           "height_mm": 3.3499999999999996,
           "ctrl_held": true
         }
@@ -16883,14 +16211,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.75,
+            "x": -7.5,
             "y": 9.05
           },
           "corner_hint": {
-            "x": 3.75,
+            "x": 7.5,
             "y": 12.0
           },
-          "width_mm": 7.5,
+          "width_mm": 15.0,
           "height_mm": 2.9499999999999993,
           "ctrl_held": true
         }
@@ -17031,14 +16359,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.8,
+            "x": -7.55,
             "y": 8.55
           },
           "corner_hint": {
-            "x": 3.8,
+            "x": 7.55,
             "y": 10.4
           },
-          "width_mm": 7.6,
+          "width_mm": 15.1,
           "height_mm": 1.8499999999999996,
           "ctrl_held": true
         }
@@ -17200,14 +16528,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.75,
+            "x": -7.5,
             "y": 9.200000000000001
           },
           "corner_hint": {
-            "x": 3.75,
+            "x": 7.5,
             "y": 10.4
           },
-          "width_mm": 7.5,
+          "width_mm": 15.0,
           "height_mm": 1.1999999999999993,
           "ctrl_held": true
         }
@@ -17369,14 +16697,14 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -3.75,
+            "x": -7.5,
             "y": 9.200000000000001
           },
           "corner_hint": {
-            "x": 3.75,
+            "x": 7.5,
             "y": 10.4
           },
-          "width_mm": 7.5,
+          "width_mm": 15.0,
           "height_mm": 1.1999999999999993,
           "ctrl_held": true
         }
