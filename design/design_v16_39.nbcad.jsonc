@@ -1,22 +1,23 @@
-// INJS2065 v16.38: Technic envelope grow shell_x=[-16,32] shell_y=[-16,16]; remove face (0,±8); add (24,±8); denser green side pins.
+// INJS2065 v16.39: tight Technic floor shell_x=[-12,28] shell_y=[±12]; restore external clips; green holes face+sides.
 // VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8–5.05 FDM; standardize depths on 8.0 module.
 // Bearing pocket D=12.3 h=3.6; face hole D=8.15 (retain lip); journal Ø7.94 into BRG_ID 8.00.
 // Split Z=18.25; tabs captured equally; no thin tab roof.
 // Axle cross 4.85 x 1.85 depth 8.0 (CROSS_DEPTH module); clips 7.5 wide over retained shell lands.
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR (Z pad, X press). Side faces: technic_side_yp/ym by normal+origin.
-// Side bores: green ClamshellB only — x={-8,0,8,16,24} on ±Y at z=30 (dia 5.05 depth 8.0); face reselect uses outer origin Y=±16.
+// Side bores: green ClamshellB only — x={-8,0,8,16,24} on ±Y at z=30 (dia 5.05 depth 8.0); face reselect uses outer origin Y=±12.
 // Shared ear-nest refs: TIP_WALL=0.4, TAB_CLR=0.15, ROOT_PAD=0.25, NEST_Y=6.65,
 //   EAR_NEAR=[-9.2, -5.8], EAR_FAR=[17.2, 20.6],
 //   NEST_NEAR_X=[-9.6, -5.55], NEST_FAR_X=[16.95, 21.0],
-//   SHELL_X=[-16.0, 32.0], SHELL_Y=[±16], CAV_X=[-6.0, 17.4].
+//   SHELL_X=[-12.0, 28.0], SHELL_Y=[±12], CAV_X=[-6.0, 17.4].
 // Shared Technic face refs: PITCH=8.0, PIN_D=5.05, DEPTH=8.0,
-//   TECHNIC_TOP=[[8.0, 8.0], [8.0, -8.0], [-8.0, 8.0], [-8.0, -8.0], [16.0, 8.0], [16.0, -8.0], [24.0, 8.0], [24.0, -8.0]] (8 holes; removed bearing-adjacent (0,±8)).
+//   TECHNIC_TOP=[[8.0, 8.0], [8.0, -8.0], [-8.0, 8.0], [-8.0, -8.0], [16.0, 8.0], [16.0, -8.0], [24.0, 8.0], [24.0, -8.0]] (8 holes; no bearing-adjacent (0,±8)).
 // far_end_open=false; near_ear_trapped=true; both tabs pocketed; one-direction assembly; no snaps.
-// CLIP/BuckleClip/pocket untouched; OutputHub mates unchanged (7.94/8.15/12.3/CROSS 8).
+// shell_y restored ±12 so clip pockets/lands sit on outer ±Y (frame_y_outer/spine at 12); BuckleClip geometry unchanged.
+// OutputHub mates unchanged (7.94/8.15/12.3/CROSS 8). Side depth 8.0 into ~5.3 mm cheek → through into cavity (v16.37 open-bore class).
 // v16.36 carry: hub_entries r=3.97; no brittle clip entry chamfers.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.38 Technic envelope + face/side pin revise (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.39 tight Technic floor + external clips (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1194,13 +1195,13 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -16.0,
-            "y": -16.0},
+            "x": -12.0,
+            "y": -12.0},
           "corner_hint": {
-            "x": 32.0,
-            "y": 16.0},
-          "width_mm": 48.0,
-          "height_mm": 32.0,
+            "x": 28.0,
+            "y": 12.0},
+          "width_mm": 40.0,
+          "height_mm": 24.0,
           "ctrl_held": true
         }
       }
@@ -4332,13 +4333,13 @@
         "arguments": {
           "mode": "two_point",
           "anchor": {
-            "x": -16.0,
-            "y": -16.0},
+            "x": -12.0,
+            "y": -12.0},
           "corner_hint": {
-            "x": 32.0,
-            "y": 16.0},
-          "width_mm": 48.0,
-          "height_mm": 32.0,
+            "x": 28.0,
+            "y": 12.0},
+          "width_mm": 40.0,
+          "height_mm": 24.0,
           "ctrl_held": true
         }
       }
@@ -4999,7 +5000,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": 1,
-              "/plane/origin/1": 16
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -5024,8 +5025,9 @@
             "$project": {
               "point": [
                 -8.0,
-                16.0,
+                12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_0_face",
@@ -5069,7 +5071,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": 1,
-              "/plane/origin/1": 16
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -5094,8 +5096,9 @@
             "$project": {
               "point": [
                 8.0,
-                16.0,
+                12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_1_face",
@@ -5139,7 +5142,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": -1,
-              "/plane/origin/1": -16
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5164,8 +5167,9 @@
             "$project": {
               "point": [
                 -8.0,
-                -16.0,
+                -12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_0_face",
@@ -5209,7 +5213,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": -1,
-              "/plane/origin/1": -16
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5234,8 +5238,9 @@
             "$project": {
               "point": [
                 8.0,
-                -16.0,
+                -12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_1_face",
@@ -5279,7 +5284,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": 1,
-              "/plane/origin/1": 16
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -5304,8 +5309,9 @@
             "$project": {
               "point": [
                 0.0,
-                16.0,
+                12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_2_face",
@@ -5349,7 +5355,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": 1,
-              "/plane/origin/1": 16
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -5374,8 +5380,9 @@
             "$project": {
               "point": [
                 16.0,
-                16.0,
+                12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_3_face",
@@ -5419,7 +5426,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": 1,
-              "/plane/origin/1": 16
+              "/plane/origin/1": 12
             },
             "take": "first"
           }
@@ -5444,8 +5451,9 @@
             "$project": {
               "point": [
                 24.0,
-                16.0,
+                12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_1_4_face",
@@ -5489,7 +5497,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": -1,
-              "/plane/origin/1": -16
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5514,8 +5522,9 @@
             "$project": {
               "point": [
                 0.0,
-                -16.0,
+                -12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_2_face",
@@ -5559,7 +5568,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": -1,
-              "/plane/origin/1": -16
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5584,8 +5593,9 @@
             "$project": {
               "point": [
                 16.0,
-                -16.0,
+                -12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_3_face",
@@ -5629,7 +5639,7 @@
             "path": "/faces",
             "where": {
               "/plane/normal/1": -1,
-              "/plane/origin/1": -16
+              "/plane/origin/1": -12
             },
             "take": "first"
           }
@@ -5654,8 +5664,9 @@
             "$project": {
               "point": [
                 24.0,
-                -16.0,
+                -12.0,
                 30.0
+              
               ],
               "basis": {
                 "$ref": "cb_side_1_-1_4_face",
@@ -5806,7 +5817,7 @@
           ],
           "translation": {
             "x": -8.0,
-            "y": -15.2,
+            "y": -11.2,
             "z": 30.0
           },
           "pivot": {
@@ -5974,7 +5985,7 @@
           ],
           "translation": {
             "x": -8.0,
-            "y": -7.800000000000001,
+            "y": -3.8,
             "z": 30.0
           },
           "pivot": {
@@ -6142,7 +6153,7 @@
           ],
           "translation": {
             "x": -8.0,
-            "y": 16.1,
+            "y": 12.1,
             "z": 30.0
           },
           "pivot": {
@@ -6310,7 +6321,7 @@
           ],
           "translation": {
             "x": -8.0,
-            "y": 9.0,
+            "y": 5.0,
             "z": 30.0
           },
           "pivot": {
@@ -6478,7 +6489,7 @@
           ],
           "translation": {
             "x": 8.0,
-            "y": -15.2,
+            "y": -11.2,
             "z": 30.0
           },
           "pivot": {
@@ -6646,7 +6657,7 @@
           ],
           "translation": {
             "x": 8.0,
-            "y": -7.800000000000001,
+            "y": -3.8,
             "z": 30.0
           },
           "pivot": {
@@ -6814,7 +6825,7 @@
           ],
           "translation": {
             "x": 8.0,
-            "y": 16.1,
+            "y": 12.1,
             "z": 30.0
           },
           "pivot": {
@@ -6982,7 +6993,7 @@
           ],
           "translation": {
             "x": 8.0,
-            "y": 9.0,
+            "y": 5.0,
             "z": 30.0
           },
           "pivot": {
@@ -7150,7 +7161,7 @@
           ],
           "translation": {
             "x": 0.0,
-            "y": 16.1,
+            "y": 12.1,
             "z": 30.0
           },
           "pivot": {
@@ -7313,7 +7324,7 @@
           ],
           "translation": {
             "x": 0.0,
-            "y": 9.0,
+            "y": 5.0,
             "z": 30.0
           },
           "pivot": {
@@ -7476,7 +7487,7 @@
           ],
           "translation": {
             "x": 0.0,
-            "y": -15.2,
+            "y": -11.2,
             "z": 30.0
           },
           "pivot": {
@@ -7639,7 +7650,7 @@
           ],
           "translation": {
             "x": 0.0,
-            "y": -7.800000000000001,
+            "y": -3.8,
             "z": 30.0
           },
           "pivot": {
@@ -7802,7 +7813,7 @@
           ],
           "translation": {
             "x": 16.0,
-            "y": 16.1,
+            "y": 12.1,
             "z": 30.0
           },
           "pivot": {
@@ -7965,7 +7976,7 @@
           ],
           "translation": {
             "x": 16.0,
-            "y": 9.0,
+            "y": 5.0,
             "z": 30.0
           },
           "pivot": {
@@ -8128,7 +8139,7 @@
           ],
           "translation": {
             "x": 16.0,
-            "y": -15.2,
+            "y": -11.2,
             "z": 30.0
           },
           "pivot": {
@@ -8291,7 +8302,7 @@
           ],
           "translation": {
             "x": 16.0,
-            "y": -7.800000000000001,
+            "y": -3.8,
             "z": 30.0
           },
           "pivot": {
@@ -8454,7 +8465,7 @@
           ],
           "translation": {
             "x": 24.0,
-            "y": 16.1,
+            "y": 12.1,
             "z": 30.0
           },
           "pivot": {
@@ -8617,7 +8628,7 @@
           ],
           "translation": {
             "x": 24.0,
-            "y": 9.0,
+            "y": 5.0,
             "z": 30.0
           },
           "pivot": {
@@ -8780,7 +8791,7 @@
           ],
           "translation": {
             "x": 24.0,
-            "y": -15.2,
+            "y": -11.2,
             "z": 30.0
           },
           "pivot": {
@@ -8943,7 +8954,7 @@
           ],
           "translation": {
             "x": 24.0,
-            "y": -7.800000000000001,
+            "y": -3.8,
             "z": 30.0
           },
           "pivot": {

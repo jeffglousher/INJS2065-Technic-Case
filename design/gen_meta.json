@@ -1,6 +1,6 @@
 {
-  "version": "16.38",
-  "architecture": "clamshell_v16_38_technic_envelope_face_side_revise",
+  "version": "16.39",
+  "architecture": "clamshell_v16_39_tight_technic_floor_external_clips",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -15,12 +15,12 @@
   ],
   "frame": {
     "shell_x": [
-      -16.0,
-      32.0
+      -12.0,
+      28.0
     ],
     "shell_y": [
-      -16.0,
-      16.0
+      -12.0,
+      12.0
     ],
     "shell_z0": 8.0,
     "split_z": 18.25,
@@ -74,7 +74,7 @@
       ],
       "body_cav_x0": -6.0,
       "body_cav_x1": 17.4,
-      "outer_wall_past_far_tip_mm": 11.0,
+      "outer_wall_past_far_tip_mm": 7.0,
       "note": "Shared named refs; both ears pocketed with TAB_CLR/TIP_WALL/ROOT_PAD; far_end_open=false"
     },
     "uniform_xy": false,
@@ -88,7 +88,7 @@
       -12.0,
       24.0
     ],
-    "outer_wall_past_far_tip_mm": 3.0,
+    "outer_wall_past_far_tip_mm": 7.0,
     "shell_x_before_v16_38": [
       -12.0,
       24.0
@@ -104,6 +104,22 @@
     "shell_y_after_v16_38": [
       -16.0,
       16.0
+    ],
+    "shell_x_before_v16_39": [
+      -16.0,
+      32.0
+    ],
+    "shell_x_after_v16_39": [
+      -12.0,
+      28.0
+    ],
+    "shell_y_before_v16_39": [
+      -16.0,
+      16.0
+    ],
+    "shell_y_after_v16_39": [
+      -12.0,
+      12.0
     ]
   },
   "technic_side_x": [
@@ -116,7 +132,7 @@
   "technic_side_z_lower": null,
   "technic_side_z_upper": 30.0,
   "side_rows_in_body": "ClamshellB",
-  "side_corner_setback": 16.0,
+  "side_corner_setback": 12.0,
   "side_blind_x": [
     -8.0,
     0.0,
@@ -260,7 +276,7 @@
     "CROSS_DEPTH": 8.0,
     "hub_height": 15.7,
     "spline_depth": 3.8999999999999995,
-    "servo_ledge": "v16.38: Technic envelope SHELL_X[-16,32] SHELL_Y[\u00b116]; face Technic drop (0,\u00b18) add (24,\u00b18); green side pins denser; journal \u00d87.94 + face \u00d88.15; CROSS_DEPTH 8.0; CLIP untouched",
+    "servo_ledge": "v16.39: tight Technic floor SHELL_X[-12,28] SHELL_Y[\u00b112]; clips external again; face Technic keep (no 0,\u00b18); green side through-class; journal \u00d87.94 + face \u00d88.15; CROSS_DEPTH 8.0; BuckleClip geom untouched",
     "horn_dome_h": 1.0,
     "horn_dome_r": 2.8249999999999997,
     "horn_wall_mm": 2.975,
@@ -435,7 +451,7 @@
     }
   },
   "revision_notes": {
-    "revision": "v16.38",
+    "revision": "v16.39",
     "material": "PETG",
     "nozzle_mm": 0.4,
     "layer_mm": 0.2,
@@ -466,7 +482,7 @@
     },
     "hub_strengthen_note": "Larger/thicker servo flange; constant OD column; thicker horn walls; strength dome apex into solid (+Z); Technic CROSS_DEPTH 10.0 into mid column; journal 7.90.",
     "assembly_mode": "one_direction_into_upper",
-    "jsonc_sot": "design_v16_38.nbcad.jsonc (JSONC-first; no gen_v*.py)",
+    "jsonc_sot": "design_v16_39.nbcad.jsonc (JSONC-first; no gen_v*.py)",
     "horn_dome_flip": {
       "was": "QX180 [1,0,0,0] @ z=spline_depth \u2192 apex into cavity (\u2212Z)",
       "now": "identity [0,0,0,1] @ z=spline_depth \u2192 base on floor, apex into solid (+Z)",
@@ -819,11 +835,122 @@
       "far_end_open": false,
       "technic_top_count": 8,
       "technic_side_count_per_y": 5
+    },
+    "tight_technic_floor_v16_39": {
+      "reason": "Jeff feedback on v16.38: oversized 8\u201316 mm margins buried clips; cut to half-pitch 4 mm Technic edge; restore shell_y \u00b112 so clips straddle outer \u00b1Y",
+      "shell_x_before": [
+        -16.0,
+        32.0
+      ],
+      "shell_x_after": [
+        -12.0,
+        28.0
+      ],
+      "shell_y_before": [
+        -16.0,
+        16.0
+      ],
+      "shell_y_after": [
+        -12.0,
+        12.0
+      ],
+      "why_x": "40 mm = 5\u00d78; 4 mm past hole at \u22128 \u2192 edge \u221212; 4 mm past outermost face/side hole at +24 \u2192 edge +28. Near ear tip \u22129.2 \u2192 wall 2.8 mm (\u22652.4). Far nest tip 21.0 \u2192 outer wall 7.0 mm (\u22653).",
+      "why_y": "Min Y for current clip-on-outside architecture is \u00b112 (frame_y_outer / spine at 12). \u00b116 buried pockets inside cheeks.",
+      "margin_past_x_minus8_mm": 4.0,
+      "margin_past_x_plus24_mm": 4.0,
+      "outer_wall_past_far_nest_mm": 7.0,
+      "near_ear_wall_past_tip_mm": 2.8,
+      "face_kept": [
+        [
+          8,
+          8
+        ],
+        [
+          8,
+          -8
+        ],
+        [
+          -8,
+          8
+        ],
+        [
+          -8,
+          -8
+        ],
+        [
+          16,
+          8
+        ],
+        [
+          16,
+          -8
+        ],
+        [
+          24,
+          8
+        ],
+        [
+          24,
+          -8
+        ]
+      ],
+      "face_still_omitted": [
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          -8
+        ]
+      ],
+      "side_x": [
+        -8.0,
+        0.0,
+        8.0,
+        16.0,
+        24.0
+      ],
+      "side_body": "ClamshellB only",
+      "side_blind_vs_through": "all 10 side pins depth 8.0 into cheek wall ~5.32 mm (12\u22126.68) \u2192 through into cavity (v16.37 open-bore class). Face 8 pins remain blind depth 8.0.",
+      "ends_technic": "deferred: \u2212X wall ~6 mm into nest/cav risk; +X clear (~10.6 mm) but no prior end-face template this cut \u2014 face+\u00b1Y complete.",
+      "clip_external_again": true,
+      "clip_geom_untouched": true,
+      "hub_mates_untouched": [
+        "JOURNAL 7.94",
+        "FACE_HOLE_D 8.15",
+        "BRG_POCKET 12.3",
+        "CROSS_DEPTH 8.0"
+      ],
+      "schematic_ascii": "\nSHELL_X0=-12 ---- body/cav ---- NEST_FAR[16.95,21] | tip wall 7mm | SHELL_X1=28\nSHELL_Y=\u00b112 (restored); side-face origin \u00b112; clips straddle outer \u00b1Y\n\nFace @ Z42:  y=\u00b18 \u00d7 x={-8,+8,+16,+24}   (no x=0 near hub)\nSide @ Z30 green: x={-8,0,8,16,24} on \u00b1Y \u2014 through-class into cavity\nCLIP pockets/lands at frame_y_outer=12 \u2014 external again; BuckleClip geom unchanged\n"
+    },
+    "hub_after_v16_39": {
+      "HUB_FLANGE_D": 12.0,
+      "HUB_FLANGE_T": 2.8,
+      "HUB_COLUMN_D": 12.0,
+      "CROSS_DEPTH": 8.0,
+      "JOURNAL": 7.94,
+      "FACE_HOLE_D": 8.15,
+      "hub_entry_chamfer_radius": 3.97,
+      "clip_entry_chamfers": false,
+      "SHELL_X": [
+        -12.0,
+        28.0
+      ],
+      "SHELL_Y": [
+        -12.0,
+        12.0
+      ],
+      "far_end_open": false,
+      "technic_top_count": 8,
+      "technic_side_count_per_y": 5,
+      "side_through": true,
+      "clip_external": true
     }
   },
   "steps": 1067,
   "step_kinds": {
-    "note": "recount on demand; v16.38 shell grow + face retarget + 6 side holes with rings"
+    "note": "recount on demand; v16.39 shell tighten \u00b112 Y / [-12,28] X; side origin/rings retarget; same hole count as 16.38"
   },
   "baseline_v12": 360,
   "baseline_v12_1": 424,
@@ -836,7 +963,7 @@
   "AXLE_ARM": 1.85,
   "technic_module_mm": 8.0,
   "technic_depth_policy": "VERIFY: pitch 8.0, beam~7.8, pin hole ID~4.8\u20135.05 FDM; standardize all Technic hole/slot depths on 8.0 module (side_blind_depth, technic_top_depth, hub CROSS_DEPTH). Lead-in rings \u00d86.2\u00d70.9 and tip rings \u00d86.2\u00d71.2 are intentional local features inside the 8.0 bore \u2014 not separate Technic depths.",
-  "side_bore_fix": "v16.38: side face $select uses /plane/normal/1 \u00b11 AND /plane/origin/1 \u00b116; green-only pins at x={-8,0,8,16,24} z=30.",
+  "side_bore_fix": "v16.39: side face $select uses /plane/normal/1 \u00b11 AND /plane/origin/1 \u00b112; green-only pins at x={-8,0,8,16,24} z=30; depth 8.0 into ~5.32 mm cheek \u2192 through (open bore).",
   "technic_local_ring_features": {
     "module_depth_mm": 8.0,
     "lead_in_ring": {
@@ -898,6 +1025,6 @@
         -8.0
       ]
     ],
-    "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; removed bearing-adjacent (0,\u00b18); no pin at hub (0,0)"
+    "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   }
 }
