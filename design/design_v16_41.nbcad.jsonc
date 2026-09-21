@@ -1,11 +1,11 @@
-// INJS2065 v16.40: v16.39 tight Technic floor + Thunder-safe -Y clip via solid_mirror (xz) of finished +Y clip.
-// Root cause: Thunder 0.2.0 stopped at step 1024 cut_cym_open (solid_combine cut); headless newer engine completed 1067.
-// Clip placement unchanged: lands on outer Y=±12, Z center on split_z=18.25, equal A/B engagement 5.8 mm.
-// SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
+// INJS2065 v16.41: lengthen clip onto green ClamshellB envelope; drop middle tooth (xbar1); drop side Technic x=0 (shaft).
+// Clip Z recentered on green bbox ~[17.55,42] → CLIP [16.45,41.55] center 29.0 (equal ±12.55); open-C + solid_mirror -Y kept.
+// Teeth: xbar0+xbar2 only (no middle). Pockets/lands extended on B; A pocket raised to new CLIP bottom.
+// SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green Technic x={-8,8,16,24} @ z=30 (no x=0 shaft bore).
 // Shared refs: CLIP_Z0/Z1 / CLIP_X0/X1; POCKET = CLIP ± CLR. Side faces: technic_side_yp/ym.
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.40 mirror -Y clip (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.41 green-centered clip (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -1882,7 +1882,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 6.300000000000001
+            "distance": 2.3
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -1937,7 +1937,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 12.0
+            "z": 16.0
           },
           "pivot": {
             "x": 0,
@@ -2051,7 +2051,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 6.300000000000001
+            "distance": 2.3
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -2106,7 +2106,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 12.0
+            "z": 16.0
           },
           "pivot": {
             "x": 0,
@@ -2275,7 +2275,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 12.0
+            "z": 16.0
           },
           "pivot": {
             "x": 0,
@@ -2444,7 +2444,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 12.0
+            "z": 16.0
           },
           "pivot": {
             "x": 0,
@@ -5256,82 +5256,12 @@
     },
     {
       "let": {
-        "cb_side_1_1_2_face": {
-          "$select": {
-            "from": {
-              "$select": {
-                "from": {
-                  "$ref": "cb_side_1_-1_1"
-                },
-                "path": "/scene/bodies",
-                "where": {
-                  "/id": {
-                    "$ref": "clamshell_b",
-                    "pointer": "/id"
-                  }
-                },
-                "take": "one"
-              }
-            },
-            "path": "/faces",
-            "where": {
-              "/plane/normal/1": 1,
-              "/plane/origin/1": 12
-            },
-            "take": "first"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_side_1_1_2",
-      "call": {
-        "group": "solid/refine",
-        "operation": "solid_hole",
-        "arguments": {
-          "body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "face_id": {
-            "$ref": "cb_side_1_1_2_face",
-            "pointer": "/id"
-          },
-          "position": {
-            "$project": {
-              "point": [
-                0.0,
-                12.0,
-                30.0
-              ],
-              "basis": {
-                "$ref": "cb_side_1_1_2_face",
-                "pointer": "/plane"
-              }
-            }
-          },
-          "diameter": 5.05,
-          "extent": {
-            "type": "distance",
-            "depth": 8.0
-          },
-          "style": "simple",
-          "counterbore_diameter": 0,
-          "counterbore_depth": 0,
-          "countersink_diameter": 0,
-          "countersink_angle_deg": 90,
-          "flip": false
-        }
-      }
-    },
-    {
-      "let": {
         "cb_side_1_1_3_face": {
           "$select": {
             "from": {
               "$select": {
                 "from": {
-                  "$ref": "cb_side_1_1_2"
+                  "$ref": "cb_side_1_-1_1"
                 },
                 "path": "/scene/bodies",
                 "where": {
@@ -5466,82 +5396,12 @@
     },
     {
       "let": {
-        "cb_side_1_-1_2_face": {
-          "$select": {
-            "from": {
-              "$select": {
-                "from": {
-                  "$ref": "cb_side_1_1_4"
-                },
-                "path": "/scene/bodies",
-                "where": {
-                  "/id": {
-                    "$ref": "clamshell_b",
-                    "pointer": "/id"
-                  }
-                },
-                "take": "one"
-              }
-            },
-            "path": "/faces",
-            "where": {
-              "/plane/normal/1": -1,
-              "/plane/origin/1": -12
-            },
-            "take": "first"
-          }
-        }
-      }
-    },
-    {
-      "id": "cb_side_1_-1_2",
-      "call": {
-        "group": "solid/refine",
-        "operation": "solid_hole",
-        "arguments": {
-          "body_id": {
-            "$ref": "clamshell_b",
-            "pointer": "/id"
-          },
-          "face_id": {
-            "$ref": "cb_side_1_-1_2_face",
-            "pointer": "/id"
-          },
-          "position": {
-            "$project": {
-              "point": [
-                0.0,
-                -12.0,
-                30.0
-              ],
-              "basis": {
-                "$ref": "cb_side_1_-1_2_face",
-                "pointer": "/plane"
-              }
-            }
-          },
-          "diameter": 5.05,
-          "extent": {
-            "type": "distance",
-            "depth": 8.0
-          },
-          "style": "simple",
-          "counterbore_diameter": 0,
-          "counterbore_depth": 0,
-          "countersink_diameter": 0,
-          "countersink_angle_deg": 90,
-          "flip": false
-        }
-      }
-    },
-    {
-      "let": {
         "cb_side_1_-1_3_face": {
           "$select": {
             "from": {
               "$select": {
                 "from": {
-                  "$ref": "cb_side_1_-1_2"
+                  "$ref": "cb_side_1_1_4"
                 },
                 "path": "/scene/bodies",
                 "where": {
@@ -12386,7 +12246,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 6.3
+            "distance": 23.8
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12555,7 +12415,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 6.3
+            "distance": 23.8
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -12779,7 +12639,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 22.4
+            "z": 39.9
           },
           "pivot": {
             "x": 0,
@@ -12948,7 +12808,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 22.4
+            "z": 39.9
           },
           "pivot": {
             "x": 0,
@@ -17067,7 +16927,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 11.600000000000001
+            "distance": 25.1
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17122,7 +16982,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 12.45
+            "z": 16.45
           },
           "pivot": {
             "x": 0,
@@ -17215,7 +17075,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 8.400000000000002
+            "distance": 21.9
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17270,7 +17130,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 14.049999999999999
+            "z": 18.05
           },
           "pivot": {
             "x": 0,
@@ -17439,7 +17299,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 15.25
+            "z": 19.25
           },
           "pivot": {
             "x": 0,
@@ -17469,175 +17329,6 @@
           "tool_body_ids": [
             {
               "$ref": "cyp_xbar0_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_begin",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_begin",
-        "arguments": {
-          "name": "cyp_xbar1",
-          "plane": {
-            "type": "origin_plane",
-            "plane": "xy"
-          }
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_r_nosnap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": false
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_r",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_add_rectangle_locked",
-        "arguments": {
-          "mode": "two_point",
-          "anchor": {
-            "x": -3.75,
-            "y": 9.200000000000001
-          },
-          "corner_hint": {
-            "x": 3.75,
-            "y": 10.4
-          },
-          "width_mm": 7.5,
-          "height_mm": 1.1999999999999993,
-          "ctrl_held": true
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_r_snap",
-      "call": {
-        "group": "sketch/selection",
-        "operation": "sketch_set_grid_snap",
-        "arguments": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_finish",
-      "call": {
-        "group": "sketch/draw",
-        "operation": "sketch_finish",
-        "arguments": {}
-      }
-    },
-    {
-      "id": "cyp_xbar1_ex",
-      "call": {
-        "group": "solid/build",
-        "operation": "solid_extrude",
-        "arguments": {
-          "sketch_name": "cyp_xbar1",
-          "profile_indices": [
-            0
-          ],
-          "operation": "new_body",
-          "extent": {
-            "type": "distance",
-            "distance": 1.2
-          },
-          "taper_angle_deg": 0,
-          "flip": false,
-          "target_body_ids": []
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_xbar1_feat": {
-          "$select": {
-            "from": {
-              "$ref": "cyp_xbar1_ex"
-            },
-            "path": "/document/features",
-            "take": "last",
-            "pointer": "/id"
-          }
-        }
-      }
-    },
-    {
-      "let": {
-        "cyp_xbar1_tmp": {
-          "$select": {
-            "from": {
-              "$ref": "cyp_xbar1_ex"
-            },
-            "path": "/scene/bodies",
-            "where": {
-              "/feature_id": {
-                "$ref": "cyp_xbar1_feat"
-              }
-            },
-            "take": "one"
-          }
-        }
-      }
-    },
-    {
-      "id": "cyp_xbar1_mv",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_move_copy",
-        "arguments": {
-          "body_ids": [
-            {
-              "$ref": "cyp_xbar1_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "translation": {
-            "x": 0,
-            "y": 0,
-            "z": 17.65
-          },
-          "pivot": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "copy": false
-        }
-      }
-    },
-    {
-      "id": "join_cyp_xbar1",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_yp_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cyp_xbar1_tmp",
               "pointer": "/id"
             }
           ],
@@ -17777,7 +17468,7 @@
           "translation": {
             "x": 0,
             "y": 0,
-            "z": 20.05
+            "z": 37.55
           },
           "pivot": {
             "x": 0,

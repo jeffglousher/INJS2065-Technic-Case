@@ -1,3 +1,12 @@
+## v16.41
+
+- Lengthen BuckleClip onto green ClamshellB envelope: CLIP_Z [16.45, 41.55] center 29.0 (was [12.45, 24.05] on split_z).
+- Remove middle tooth (`cyp_xbar1`); keep end teeth `cyp_xbar0` @19.25 and `cyp_xbar2` @37.55.
+- Extend B spine/leg pockets to seat longer clip; raise A pocket bottom to 16.0.
+- Remove side Technic holes at x=0 (`cb_side_1_1_2`, `cb_side_1_-1_2`) — shaft visibility.
+- Keep `solid_mirror` xz for −Y clip (no `cut_cym_open`).
+- Headless replay target: full completion.
+
 ## v16.40
 
 - Thunder 0.2.0 failed at `cut_cym_open` (step 1024/1067). Replaced duplicated −Y clip construction with `solid_mirror` of finished +Y clip across origin XZ.
@@ -21,5 +30,5 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_39.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.39`).
+- **Canonical:** `design/design/design_v16_41.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.41`).
