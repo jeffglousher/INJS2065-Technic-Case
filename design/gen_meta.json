@@ -1,6 +1,6 @@
 {
-  "version": "16.46",
-  "architecture": "clamshell_v16_46_honeycomb_wall_lattice",
+  "version": "16.47",
+  "architecture": "clamshell_v16_47_open_c_hex_wall_rings",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -387,15 +387,15 @@
       0.45,
       0.45
     ],
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; no inner xbar teeth; honeycomb WALL lattice on clamp face (open cells, shared walls); outer C lip kept.",
-    "clip_z_center_note": "v16.45: honeycomb wall lattice replaces v16.44 solid hex bosses; CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; keep mid-clip == split_z 18.25.",
+    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); connected 1.2 mm hex-wall rings with open centers on the locking face; no full-face pad; outer C lip kept.",
+    "clip_z_center_note": "v16.47: hex-wall rings replace the v16.46 full-face pad. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
     "cross_member_count": 0,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
-    "cross_member_note": "v16.45: inner xbar lips still removed; honeycomb wall lattice (not solid bosses) on clamp face.",
+    "cross_member_note": "v16.47: inner xbars still absent. Hex walls are rings joined to the open C, not crossbars and not a backing pad.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
     "slot_span_x": 7.42,
@@ -448,8 +448,8 @@
     },
     "hex_interlock": true,
     "hex_pattern": {
-      "style": "honeycomb_wall_lattice",
-      "reject": "v16.44_solid_hex_bosses_pockets",
+      "style": "open_c_hex_wall_rings",
+      "reject": "v16.46_full_face_pad_and_v16.44_solid_hex_bosses",
       "nozzle_mm": 0.4,
       "wall_mm": 1.2,
       "wall_perimeters": 3,
@@ -457,36 +457,46 @@
         0.8,
         1.6
       ],
-      "cell_flat_to_flat_mm": 2.8,
-      "cell_apothem_mm": 1.4,
-      "land_opening_flat_to_flat_mm": 3.0,
-      "land_opening_apothem_mm": 1.5,
+      "cell_flat_to_flat_mm": 2.2,
+      "cell_apothem_mm": 1.1,
+      "outer_apothem_mm": 2.3,
+      "land_groove_inner_apothem_mm": 0.9,
+      "land_groove_outer_apothem_mm": 2.5,
       "land_opening_clr_mm": 0.2,
-      "land_depth_mm": 1.35,
-      "lattice_depth_mm": 1.2,
-      "pad_y_yp": [
-        9.2,
-        10.4
+      "land_groove_y_yp": [
+        9.05,
+        10.5
       ],
+      "land_groove_y_ym": [
+        -10.5,
+        -9.05
+      ],
+      "ring_y_yp": [
+        9.2,
+        10.8
+      ],
+      "anchor_into_spine_mm": 0.4,
+      "proud_of_spine_face_mm": 1.2,
+      "pad_y_yp": null,
       "rotation_deg": 0,
       "orientation": "pointy_top_vertical_flats_parallel_Z",
       "mode": "circumscribed",
-      "center_spacing_mm": 4.0,
-      "row_pitch_mm": 3.464,
-      "cell_counts_note": "staggered 3 cols x 3 rows = 8 open cells",
+      "center_spacing_mm": 3.4,
+      "row_pitch_mm": 2.9445,
+      "cell_counts_note": "staggered 8 open rings; bottom row clamshell A, top row B, middle row split on 18.25",
       "centers_x_even_rows": [
-        -4.0,
+        -3.4,
         0.0,
-        4.0
+        3.4
       ],
       "centers_x_odd_rows": [
-        -2.0,
-        2.0
+        -1.7,
+        1.7
       ],
       "centers_z": [
-        14.786,
+        15.3055,
         18.25,
-        21.714
+        21.1945
       ],
       "face_span_xz_mm": [
         15.0,
@@ -508,14 +518,17 @@
       "nozzle_mm": 0.4,
       "wall_mm": 1.2,
       "wall_perimeters": 3,
-      "cell_FF_mm": 2.8,
+      "cell_FF_mm": 2.2,
       "rotation_deg": 0,
-      "depth_mm": 1.2,
+      "ring_y_yp": [
+        9.2,
+        10.8
+      ],
       "face_span_mm": [
         15.0,
         11.6
       ],
-      "cell_counts_X_x_Z": "3x3 staggered (8 cells)",
+      "cell_counts_X_x_Z": "3x3 staggered (8 open rings, no backing pad)",
       "land_CLR_mm": 0.2,
       "print_orient": "YZ bed, build +X; vertical hex flats // Z"
     }
@@ -1209,9 +1222,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.46",
-  "revision": "v16.41",
-  "notes": "v16.46: land hex cutters INTO land from spine_inner_y\u00b110.4 (+Y Y[9.05,10.4], \u2212Y Y[-10.4,-9.05]) \u2014 fixes v16.45 outside placement that looked like solid bosses; clip pad+open cells unchanged wall lattice.",
+  "VERSION": "16.47",
+  "revision": "v16.47",
+  "notes": "v16.47: remove the full-face clip pad. Open C (cyp_out minus cyp_open) plus eight hex-wall rings, each a single-profile outer hex minus a through inner hex, fused together and joined into the spine. Land gets matching grooves (+0.2 mm) split across clamshell A/B at z=18.25. Side Technic holes unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
