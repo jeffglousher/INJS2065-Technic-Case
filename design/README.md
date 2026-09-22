@@ -1,11 +1,14 @@
+## v16.48
+
+- **Jeff 2026-09-22:** v16.47 was the wrong class — hex rings stuck on the recessed spine face (tips ~9.2 on shelf 10.4) while lips tipped at 9.05 → two layers.
+- **One coplanar clamp face** at Y=9.05: lips and hex walls grow the same depth to the spine (1.35 mm) from that face. Hex solid Y[9.05, 10.8] (+0.4 mm spine anchor).
+- Through-spine open centers (`cut_cyp_ringN_spine`) — no recessed floor in the cells between the lips. Open C kept; no full-face pad; no inner xbars.
+- Land grooves updated: +Y[9.05, 10.55], −Y[-10.55, -9.05], +0.2 mm wall clearance, A/B split at z=18.25. Side Technic unchanged.
+- Audit: `node design/validate_clip_hex_walls.cjs`
+
 ## v16.47
 
-- **Reject v16.46** full-face `cyp_hpad` (15 × 11.6 × 1.2 mm). It closed the center of the open C.
-- Keep `cyp_out` + `cyp_open`: spine Y[10.4, 12.0] plus legs. No inner xbars, no detents, no backing plate.
-- Eight hex-wall rings on the locking face. Pointy-top, rotation 0, vertical flats // Z. Open-cell apothem 1.1 (FF 2.2), outer apothem 2.3, wall 1.2 mm. Centers X even {-3.4, 0, 3.4} / odd {-1.7, 1.7}, Z {15.3055, 18.25, 21.1945}.
-- Each ring is one single-profile outer hex with a through inner-hex cut (cut the ring, not the spine), then the rings are fused and joined to the clip. Ring Y[9.2, 10.8]: 1.2 mm proud of the spine face plus 0.4 mm anchor into the spine.
-- Clamshell receptacles are grooves (outer apothem 2.5 minus inner 0.9, +0.2 mm each side), Y +[9.05, 10.5] and −[-10.5, -9.05]. Bottom row cuts A only, top row B only, middle row both halves at split_z=18.25. Land centers stay. Side Technic holes unchanged.
-- Audit: `node design/validate_clip_hex_walls.cjs`
+- **Reject v16.46** full-face `cyp_hpad`. Open-C + eight hex-wall rings Y[9.2, 10.8] on spine face. Superseded by v16.48 coplanar clamp face.
 
 ## v16.45
 
@@ -59,6 +62,6 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_47.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.47`).
+- **Canonical:** `design/design_v16_48.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.48`).
 - Audit: `node design/validate_clip_hex_walls.cjs`

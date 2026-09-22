@@ -1,17 +1,16 @@
-// INJS2065 v16.47: open-C retainer with connected hex-wall rings (v16.46 full-face pad removed).
+// INJS2065 v16.48: coplanar clamp face — lips and hex walls grow the same depth from one face.
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// cyp_out + cyp_open still define the open C: spine Y[10.4,12.0] plus legs at Z[12.45,14.05] and Z[22.45,24.05]. No full-face pad, no backing plate, no inner xbars.
-// Hex rings grow from the spine inner face and from the legs. Pointy-top rotation_deg 0 (vertical flats // Z), circumscribed radius = apothem.
-// Open cell FF 2.2 (R_ap 1.1). Wall 1.2 mm: outer R_ap 2.3. Shared wall = S-2*R_ap = 3.4-2.2 = 1.2. Centers cut through the ring only.
-// Ring solid Y[9.2,10.8] = 1.2 mm proud of spine face 10.4 plus 0.4 mm volumetric anchor into the spine. Neighbors overlap so the web is one solid, then joined to the clip.
-// Grid 8 cells, staggered: X even {-3.4,0,3.4} / odd {-1.7,1.7}; Z {15.3055,18.25,21.1945}. Each ring is a single-profile extrude (outers overlap, so they are not one multi-profile sketch).
-// Land receptacles are grooves, not solid hex pockets: outer R_ap 2.5 minus inner R_ap 0.9 (+0.2 mm each side of the wall). Centers of the land stay. Not a honeycomb sheet.
-// Groove +Y Y[9.05,10.5] (floor 0.15 past the wall tip; mouth past land face 10.35). −Y Y[-10.5,-9.05]. Bottom row cuts A only, top row B only, middle row (on split_z) both.
-// Keep outer-edge open-C lip. −Y clip = solid_mirror of +Y. Print: YZ on bed, build +X. Side Technic holes unchanged.
+// Open C kept: cyp_out minus cyp_open. Spine Y[10.4,12.0]. Legs Z[12.45,14.05] and Z[22.45,24.05], Y[9.05,10.4]. No full-face pad, no inner xbars, no detents.
+// Clamp face Y=9.05 (lip tip plane). Hex-wall rings tip at the same Y and reach spine+0.4 mm anchor: solid Y[9.05,10.8]. Depth from clamp face to spine face = lip depth = 1.35 mm.
+// After ring holes, inner hexes also cut clean through the spine (Y past 12.0) so cell centers have no recessed floor between the lips.
+// Pointy-top rotation_deg 0 (vertical flats // Z), circumscribed radius = apothem. Open cell FF 2.2 (R_ap 1.1). Wall 1.2 mm: outer R_ap 2.3. Pitch 3.4.
+// Grid 8 cells: X even {-3.4,0,3.4} / odd {-1.7,1.7}; Z {15.3055,18.25,21.1945}. Single-profile extrudes per ring.
+// Land receptacles are grooves (+0.2 mm): outer R_ap 2.5 minus inner R_ap 0.9. +Y Y[9.05,10.55], −Y Y[-10.55,-9.05]. Bottom row A, top row B, middle row both at split_z.
+// −Y clip = solid_mirror of +Y. Print: YZ on bed, build +X. Side Technic holes unchanged.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.47 open-C hex-wall clips (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.48 coplanar open-C hex clamp (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -16257,7 +16256,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -16401,7 +16400,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -16587,7 +16586,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -16731,7 +16730,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -16917,7 +16916,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17061,7 +17060,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17247,7 +17246,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17391,7 +17390,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17577,7 +17576,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17721,7 +17720,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -17907,7 +17906,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18051,7 +18050,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18237,7 +18236,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18381,7 +18380,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18567,7 +18566,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18711,7 +18710,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -18897,7 +18896,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19041,7 +19040,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19227,7 +19226,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19371,7 +19370,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19557,7 +19556,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19611,7 +19610,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -19701,7 +19700,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19755,7 +19754,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -19887,7 +19886,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19941,7 +19940,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -20031,7 +20030,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20085,7 +20084,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -20217,7 +20216,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20271,7 +20270,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -20361,7 +20360,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20415,7 +20414,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -20547,7 +20546,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20601,7 +20600,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -20691,7 +20690,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20745,7 +20744,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -20877,7 +20876,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -20931,7 +20930,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -21021,7 +21020,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21075,7 +21074,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -21207,7 +21206,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21261,7 +21260,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -21351,7 +21350,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21405,7 +21404,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -21537,7 +21536,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21591,7 +21590,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -21681,7 +21680,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21735,7 +21734,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -21867,7 +21866,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -21921,7 +21920,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -22011,7 +22010,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -22065,7 +22064,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -22197,7 +22196,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -22251,7 +22250,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -22341,7 +22340,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -22395,7 +22394,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -22527,7 +22526,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.45
+            "distance": 1.5
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -22581,7 +22580,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.5,
+            "y": -10.55,
             "z": 0
           },
           "pivot": {
@@ -22671,7 +22670,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.85
+            "distance": 2.0
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -22725,7 +22724,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": -10.7,
+            "y": -10.85,
             "z": 0
           },
           "pivot": {
@@ -23174,7 +23173,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23228,7 +23227,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -23318,7 +23317,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23372,7 +23371,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -23407,7 +23406,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -23483,7 +23482,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23537,7 +23536,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -23627,7 +23626,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23681,7 +23680,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -23716,7 +23715,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -23792,7 +23791,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23846,7 +23845,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -23936,7 +23935,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -23990,7 +23989,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -24025,7 +24024,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -24101,7 +24100,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24155,7 +24154,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -24245,7 +24244,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24299,7 +24298,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -24334,7 +24333,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -24410,7 +24409,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24464,7 +24463,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -24554,7 +24553,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24608,7 +24607,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -24643,7 +24642,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -24719,7 +24718,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24773,7 +24772,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -24863,7 +24862,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -24917,7 +24916,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -24952,7 +24951,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -25028,7 +25027,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -25082,7 +25081,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -25172,7 +25171,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -25226,7 +25225,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -25261,7 +25260,7 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
+          "keep_tools": true
         }
       }
     },
@@ -25337,7 +25336,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 1.6
+            "distance": 1.75
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -25391,7 +25390,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.2,
+            "y": 9.05,
             "z": 0
           },
           "pivot": {
@@ -25481,7 +25480,7 @@
           "operation": "new_body",
           "extent": {
             "type": "distance",
-            "distance": 2.0
+            "distance": 3.4
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -25535,7 +25534,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.0,
+            "y": 8.85,
             "z": 0
           },
           "pivot": {
@@ -25561,6 +25560,174 @@
         "arguments": {
           "target_body_id": {
             "$ref": "cyp_ring7_out_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring7_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": true
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring0_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring0_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring1_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring1_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring2_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring2_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring3_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring3_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring4_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring4_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring5_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring5_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring6_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_ring6_in_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_ring7_spine",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
             "pointer": "/id"
           },
           "tool_body_ids": [

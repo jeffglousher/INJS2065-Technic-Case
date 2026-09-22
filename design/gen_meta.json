@@ -1,6 +1,6 @@
 {
-  "version": "16.47",
-  "architecture": "clamshell_v16_47_open_c_hex_wall_rings",
+  "version": "16.48",
+  "architecture": "clamshell_v16_48_coplanar_open_c_hex_clamp",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -387,15 +387,15 @@
       0.45,
       0.45
     ],
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); connected 1.2 mm hex-wall rings with open centers on the locking face; no full-face pad; outer C lip kept.",
-    "clip_z_center_note": "v16.47: hex-wall rings replace the v16.46 full-face pad. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
+    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); one coplanar clamp face \u2014 lips and 1.2 mm hex walls tip together; open centers through spine; no full-face pad; outer C lip kept.",
+    "clip_z_center_note": "v16.48: coplanar clamp face at Y=9.05; hex tips match lips; through-spine open centers. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
     "cross_member_count": 0,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
-    "cross_member_note": "v16.47: inner xbars still absent. Hex walls are rings joined to the open C, not crossbars and not a backing pad.",
+    "cross_member_note": "v16.48: inner xbars still absent. Hex walls grow from the lip tip plane with the lips; not stuck onto a recessed spine shelf; not a full-face pad.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
     "slot_span_x": 7.42,
@@ -448,8 +448,8 @@
     },
     "hex_interlock": true,
     "hex_pattern": {
-      "style": "open_c_hex_wall_rings",
-      "reject": "v16.46_full_face_pad_and_v16.44_solid_hex_bosses",
+      "style": "coplanar_open_c_hex_wall_rings",
+      "reject": "v16.47_rings_on_recessed_spine_shelf_and_v16.46_full_face_pad",
       "nozzle_mm": 0.4,
       "wall_mm": 1.2,
       "wall_perimeters": 3,
@@ -465,18 +465,18 @@
       "land_opening_clr_mm": 0.2,
       "land_groove_y_yp": [
         9.05,
-        10.5
+        10.55
       ],
       "land_groove_y_ym": [
-        -10.5,
+        -10.55,
         -9.05
       ],
       "ring_y_yp": [
-        9.2,
+        9.05,
         10.8
       ],
       "anchor_into_spine_mm": 0.4,
-      "proud_of_spine_face_mm": 1.2,
+      "proud_of_spine_face_mm": 1.35,
       "pad_y_yp": null,
       "rotation_deg": 0,
       "orientation": "pointy_top_vertical_flats_parallel_Z",
@@ -512,7 +512,10 @@
           24.05
         ]
       },
-      "print_orient_note": "Clip YZ on bed, build along +X; vertical hex flats // Z for strength"
+      "print_orient_note": "Clip YZ on bed, build along +X; vertical hex flats // Z for strength",
+      "clamp_face_y": 9.05,
+      "lip_hex_depth_to_spine_mm": 1.35,
+      "through_spine_open_centers": true
     },
     "honeycomb_verify": {
       "nozzle_mm": 0.4,
@@ -521,7 +524,7 @@
       "cell_FF_mm": 2.2,
       "rotation_deg": 0,
       "ring_y_yp": [
-        9.2,
+        9.05,
         10.8
       ],
       "face_span_mm": [
@@ -530,7 +533,12 @@
       ],
       "cell_counts_X_x_Z": "3x3 staggered (8 open rings, no backing pad)",
       "land_CLR_mm": 0.2,
-      "print_orient": "YZ bed, build +X; vertical hex flats // Z"
+      "print_orient": "YZ bed, build +X; vertical hex flats // Z",
+      "clamp_face_y": 9.05,
+      "land_groove_y_yp": [
+        9.05,
+        10.55
+      ]
     }
   },
   "revision_notes": {
@@ -541,7 +549,7 @@
     "clip_z_center_matches_split_z": true,
     "clip_visual_mass_on_split_z": true,
     "clip_cross_member_count": 0,
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; no inner xbar teeth; hex texture on clamp face; outer C lip kept.",
+    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); one coplanar clamp face \u2014 lips and 1.2 mm hex walls tip together; open centers through spine; no full-face pad; outer C lip kept.",
     "hub_before_v16_30": {
       "HUB_FLANGE_D": 11.2,
       "HUB_FLANGE_T": 2.0,
@@ -1141,7 +1149,8 @@
       "shell": "[-12,28]x[\u00b112]",
       "clip_z_center_matches_split_z": true
     },
-    "16.45": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112."
+    "16.45": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112.",
+    "16.48": "v16.48: coplanar clamp face \u2014 hex tips at lip Y=9.05; depth to spine 1.35 mm matches lips; through-spine open centers; land grooves Y\u00b1[9.05,10.55]; no full-face pad; side Technic unchanged."
   },
   "steps": 1067,
   "step_kinds": {
@@ -1222,9 +1231,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.47",
-  "revision": "v16.47",
-  "notes": "v16.47: remove the full-face clip pad. Open C (cyp_out minus cyp_open) plus eight hex-wall rings, each a single-profile outer hex minus a through inner hex, fused together and joined into the spine. Land gets matching grooves (+0.2 mm) split across clamshell A/B at z=18.25. Side Technic holes unchanged.",
+  "VERSION": "16.48",
+  "revision": "v16.48",
+  "notes": "v16.48: coplanar clamp face \u2014 hex-wall tips at lip tip Y=9.05 (not rings on recessed spine shelf). Hex solid Y[9.05,10.8]; depth to spine face matches lip depth 1.35 mm; through-spine open centers. Land grooves +Y[9.05,10.55] / \u2212Y[-10.55,-9.05]. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
