@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 /**
- * v16.48 clip coplanar clamp-face audit.
+ * v16.49 clip single-sketch hex-pattern audit.
  * Parses the JSONC tip and checks the boolean construction, not comments.
  * Circumscribed sketch radius is the hex apothem. rotation 0 is pointy-top
  * (vertex along sketch +Y = world +Z, vertical flats parallel to Z).
+ *
+ * Topology: one outer-pattern sketch + one join extrude, then one inner-pattern
+ * sketch + one cut. Face counts are what noBS CAD 0.2.0 profile discovery
+ * emits for these overlapping outers (27 clip / 15 land) and disjoint inners.
  *
  * Run: node design/validate_clip_hex_walls.cjs
  */
@@ -13,7 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const TIP = path.join(__dirname, "design_v16_48.nbcad.jsonc");
+const TIP = path.join(__dirname, "design_v16_49.nbcad.jsonc");
 const SPLIT_Z = 18.25;
 const CLIP_X0 = -7.5;
 const CLIP_X1 = 7.5;
@@ -90,72 +94,73 @@ function polygonOf(step) {
   };
 }
 
-function pairRing(byId, prefix) {
-  const outHex = byId.get(`${prefix}_out_hex`);
-  const inHex = byId.get(`${prefix}_in_hex`);
-  const outEx = byId.get(`${prefix}_out_ex`);
-  const inEx = byId.get(`${prefix}_in_ex`);
-  const outMv = byId.get(`${prefix}_out_mv`);
-  const inMv = byId.get(`${prefix}_in_mv`);
-  const hole = byId.get(`cut_${prefix}_hole`);
-  if (!outHex || !inHex || !outEx || !inEx || !outMv || !inMv || !hole) {
-    fail(`missing ring steps for ${prefix}`);
-    return null;
+const CLIP_OUT_FACES = 27;
+const LAND_OUT_FACES = 15;
+
+function expectIndices(step, n, label) {
+  const idx = step.call.arguments.profile_indices || [];
+  const want = Array.from({ length: n }, (_, i) => i);
+  if (idx.length !== want.length || idx.some((v, i) => v !== want[i])) {
+    fail(`${label} profile_indices are not 0..${n - 1}`);
   }
-  const outer = polygonOf(outHex);
-  const inner = polygonOf(inHex);
-  const yOut = yInterval({ extrude: outEx, move: outMv });
-  const yIn = yInterval({ extrude: inEx, move: inMv });
-  const profiles = outEx.call.arguments.profile_indices;
-  const inProfiles = inEx.call.arguments.profile_indices;
-  if (profiles.length !== 1 || profiles[0] !== 0 || inProfiles.length !== 1 || inProfiles[0] !== 0) {
-    fail(`${prefix} extrude is not a single profile 0 (multi-profile on overlapping hexes is unstable)`);
-  }
-  if (outEx.call.arguments.operation !== "new_body" || inEx.call.arguments.operation !== "new_body") {
-    fail(`${prefix} extrude is not new_body`);
-  }
-  if (outer.edges !== 6 || inner.edges !== 6 || outer.mode !== "circumscribed" || inner.mode !== "circumscribed") {
-    fail(`${prefix} is not a circumscribed hex`);
-  }
-  if (outer.rot !== 0 || inner.rot !== 0) {
-    fail(`${prefix} rotation is not 0 (pointy-top, vertical flats // Z)`);
-  }
-  if (outer.x !== inner.x || outer.z !== inner.z) {
-    fail(`${prefix} inner and outer centers differ`);
-  }
-  const holeArgs = hole.call.arguments;
-  if (holeArgs.operation !== "cut") {
-    fail(`${prefix} hole op is not a cut`);
-  }
-  if (holeArgs.target_body_id.$ref !== `${prefix}_out_body`) {
-    fail(`${prefix} hole does not target its outer body`);
-  }
-  if (holeArgs.tool_body_ids.length !== 1 || holeArgs.tool_body_ids[0].$ref !== `${prefix}_in_body`) {
-    fail(`${prefix} hole tool is not its own inner body`);
-  }
-  if (!(yIn[0] < yOut[0] - 1e-9 && yIn[1] > yOut[1] + 1e-9)) {
-    fail(`${prefix} inner cutter Y[${yIn}] does not pass through outer Y[${yOut}] (blind cell)`);
-  }
-  if (!(inner.r < outer.r - 0.2)) {
-    fail(`${prefix} inner apothem ${inner.r} is not a real opening inside outer ${outer.r}`);
-  }
-  return { prefix, outer, inner, yOut, yIn, holeKeep: holeArgs.keep_tools };
 }
 
-function auditMultiProfile(doc) {
-  let multi = 0;
+function polygonsOfSketch(doc, sketchName) {
+  const begin = doc.steps.findIndex((s) => s.id === `${sketchName}_begin`);
+  const finish = doc.steps.findIndex((s) => s.id === `${sketchName}_finish`);
+  if (begin < 0 || finish < begin) {
+    fail(`sketch ${sketchName} is missing begin/finish`);
+    return [];
+  }
+  const beginName = doc.steps[begin].call.arguments.name;
+  if (beginName !== sketchName) fail(`${sketchName} begin name is ${beginName}`);
+  const plane = doc.steps[begin].call.arguments.plane;
+  if (!plane || plane.plane !== "xz") fail(`${sketchName} is not an XZ sketch`);
+  const polys = [];
+  for (const step of doc.steps.slice(begin + 1, finish)) {
+    if (step.call && step.call.operation === "sketch_polygon") {
+      polys.push({ id: step.id, ...polygonOf(step) });
+    }
+  }
+  return polys;
+}
+
+function assertHex(poly, label) {
+  if (poly.edges !== 6 || poly.mode !== "circumscribed") fail(`${label} is not a circumscribed hex`);
+  if (poly.rot !== 0) fail(`${label} rotation is not 0 (pointy-top, vertical flats // Z)`);
+}
+
+function auditPatternExtrudes(doc) {
+  const allowed = new Map([
+    ["cyp_hex_out_ex", { op: "join", n: CLIP_OUT_FACES }],
+    ["cyp_hex_in_ex", { op: "new_body", n: 8 }],
+    ["land_yp_a_out_ex", { op: "join", n: LAND_OUT_FACES }],
+    ["land_yp_b_out_ex", { op: "join", n: LAND_OUT_FACES }],
+    ["land_ym_a_out_ex", { op: "join", n: LAND_OUT_FACES }],
+    ["land_ym_b_out_ex", { op: "join", n: LAND_OUT_FACES }],
+    ["land_yp_a_in_ex", { op: "new_body", n: 5 }],
+    ["land_yp_b_in_ex", { op: "new_body", n: 5 }],
+    ["land_ym_a_in_ex", { op: "new_body", n: 5 }],
+    ["land_ym_b_in_ex", { op: "new_body", n: 5 }],
+  ]);
   for (const step of doc.steps) {
     const call = step.call;
     if (!call || call.operation !== "solid_extrude") continue;
     const idx = call.arguments.profile_indices || [];
-    if (idx.length > 1) {
-      multi += 1;
-      fail(
-        `${step.id} extrudes ${idx.length} profiles; v16.44 replay showed that returns N bodies and overlapping hexes do not keep stable indices`
-      );
+    const spec = allowed.get(step.id);
+    if (idx.length > 1 && !spec) {
+      fail(`${step.id} extrudes ${idx.length} profiles outside the hex-pattern sketches`);
+    }
+    if (spec) {
+      if (call.arguments.operation !== spec.op) {
+        fail(`${step.id} operation is ${call.arguments.operation}, want ${spec.op}`);
+      }
+      expectIndices(step, spec.n, step.id);
+      if (spec.op === "join" && (call.arguments.target_body_ids || []).length !== 0) {
+        fail(`${step.id} join targets a body; pattern join must fuse profiles into one new body`);
+      }
     }
   }
-  return multi;
 }
 
 function raster(cells, outerR, innerR) {
@@ -271,7 +276,7 @@ function floodEmpty(grid) {
 
 function main() {
   const { text, doc } = load();
-  if (!doc.name.includes("v16.48")) fail(`document name is not v16.48: ${doc.name}`);
+  if (!doc.name.includes("v16.49")) fail(`document name is not v16.49: ${doc.name}`);
   if (text.includes('"id": "cyp_hpad') || text.includes('"name": "cyp_hpad')) {
     fail("cyp_hpad full-face pad is still a feature");
   }
@@ -312,65 +317,74 @@ function main() {
     fail(`cyp_open cut is not Z[14.05,22.45] (move ${openMoveZ} len ${openLen})`);
   }
 
-  auditMultiProfile(doc);
-
-  const clipRings = [];
-  for (let i = 0; i < 8; i++) {
-    const ring = pairRing(byId, `cyp_ring${i}`);
-    if (ring) clipRings.push(ring);
+  auditPatternExtrudes(doc);
+  if (text.includes("cyp_ring") || /land_[a-z]+_[ab]_r\d+_/.test(text)) {
+    fail("per-cell hex sketch ids are still present");
   }
-  if (clipRings.length !== 8) fail(`expected 8 clip rings, found ${clipRings.length}`);
 
-  // Fuse chain: rings 1..7 join onto ring 0, then ring 0 joins the clip.
-  for (let i = 1; i < 8; i++) {
-    const join = byId.get(`join_cyp_ring${i}_web`);
-    if (!join) {
-      fail(`missing join_cyp_ring${i}_web`);
-      continue;
+  const outPolys = polygonsOfSketch(doc, "cyp_hex_out");
+  const inPolys = polygonsOfSketch(doc, "cyp_hex_in");
+  if (outPolys.length !== 8) fail(`cyp_hex_out has ${outPolys.length} hexes, want 8`);
+  if (inPolys.length !== 8) fail(`cyp_hex_in has ${inPolys.length} hexes, want 8`);
+  const outEx = byId.get("cyp_hex_out_ex");
+  const inEx = byId.get("cyp_hex_in_ex");
+  const outMv = byId.get("cyp_hex_out_mv");
+  const inMv = byId.get("cyp_hex_in_mv");
+  if (!outEx || !inEx || !outMv || !inMv) fail("clip pattern extrude/move is missing");
+  let clipRings = [];
+  if (outEx && inEx && outMv && inMv && outPolys.length === 8 && inPolys.length === 8) {
+    const yOut = yInterval({ extrude: outEx, move: outMv });
+    const yIn = yInterval({ extrude: inEx, move: inMv });
+    if (outEx.call.arguments.sketch_name !== "cyp_hex_out" || inEx.call.arguments.sketch_name !== "cyp_hex_in") {
+      fail("clip extrude does not use the pattern sketches");
     }
-    const args = join.call.arguments;
-    if (args.operation !== "join" || args.keep_tools !== false) fail(`join_cyp_ring${i}_web is not a consuming join`);
-    if (args.target_body_id.$ref !== "cyp_ring0_out_body") fail(`join_cyp_ring${i}_web does not target ring 0`);
-    if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== `cyp_ring${i}_out_body`) {
-      fail(`join_cyp_ring${i}_web tool is not ring ${i}`);
-    }
-  }
-  const stepOrder = doc.steps.map((s) => s.id).filter(Boolean);
-  const orderOf = (id) => stepOrder.indexOf(id);
-  for (let i = 0; i < 8; i++) {
-    const holeAt = orderOf(`cut_cyp_ring${i}_hole`);
-    const spineAt = orderOf(`cut_cyp_ring${i}_spine`);
-    const joinAt = i === 0 ? orderOf("join_cyp_hlattice") : orderOf(`join_cyp_ring${i}_web`);
-    if (holeAt < 0 || joinAt < 0 || holeAt > joinAt) {
-      fail(`ring ${i} hole cut is not before its join`);
-    }
-    if (spineAt < 0) fail(`missing cut_cyp_ring${i}_spine through-spine open-center cut`);
+    const hole = byId.get("cut_cyp_hex_hole");
+    const spine = byId.get("cut_cyp_hex_spine");
+    if (!hole || !spine) fail("clip pattern is missing the hole cut or the through-spine cut");
     else {
-      if (!(holeAt < spineAt && spineAt < joinAt)) {
-        fail(`ring ${i} spine through-cut is not between hole and join`);
+      const holeArgs = hole.call.arguments;
+      const spineArgs = spine.call.arguments;
+      if (holeArgs.operation !== "cut" || holeArgs.keep_tools !== true) {
+        fail("cut_cyp_hex_hole must be a cut that keeps the inner tools for the spine");
       }
-      const spine = byId.get(`cut_cyp_ring${i}_spine`).call.arguments;
-      if (spine.operation !== "cut" || spine.keep_tools !== false) {
-        fail(`cut_cyp_ring${i}_spine is not a consuming cut`);
+      if (holeArgs.target_body_id.$ref !== "cyp_hex_out_body") fail("hole cut does not target the outer lattice");
+      const inTools = Array.from({ length: 8 }, (_, i) => `cyp_hex_in_b${i}`);
+      const holeTools = holeArgs.tool_body_ids.map((t) => t.$ref);
+      const spineTools = spineArgs.tool_body_ids.map((t) => t.$ref);
+      if (holeTools.join(",") !== inTools.join(",")) fail(`hole tools are ${holeTools}, want ${inTools}`);
+      if (spineArgs.operation !== "cut" || spineArgs.keep_tools !== false) {
+        fail("cut_cyp_hex_spine is not a consuming cut");
       }
-      if (spine.target_body_id.$ref !== "clip_yp_body") {
-        fail(`cut_cyp_ring${i}_spine does not target the open-C body`);
-      }
-      if (spine.tool_body_ids.length !== 1 || spine.tool_body_ids[0].$ref !== `cyp_ring${i}_in_body`) {
-        fail(`cut_cyp_ring${i}_spine tool is not ring ${i} inner`);
+      if (spineArgs.target_body_id.$ref !== "clip_yp_body") fail("spine cut does not target the open-C body");
+      if (spineTools.join(",") !== inTools.join(",")) fail(`spine tools are ${spineTools}, want ${inTools}`);
+    }
+    const stepOrder = doc.steps.map((s) => s.id).filter(Boolean);
+    const orderOf = (id) => stepOrder.indexOf(id);
+    const holeAt = orderOf("cut_cyp_hex_hole");
+    const spineAt = orderOf("cut_cyp_hex_spine");
+    const joinAt = orderOf("join_cyp_hlattice");
+    if (!(holeAt >= 0 && spineAt > holeAt && joinAt > spineAt)) {
+      fail("clip order must be hole cut, then through-spine cut, then lattice join");
+    }
+    const lattice = byId.get("join_cyp_hlattice");
+    if (lattice) {
+      const args = lattice.call.arguments;
+      if (args.operation !== "join" || args.keep_tools !== false) fail("join_cyp_hlattice is not a consuming join");
+      if (args.target_body_id.$ref !== "clip_yp_body") fail("lattice is not joined onto the open-C body");
+      if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== "cyp_hex_out_body") {
+        fail("lattice join tool is not the single outer pattern body");
       }
     }
-    if (clipRings[i] && clipRings[i].holeKeep !== true) {
-      fail(`cut_cyp_ring${i}_hole must keep_tools so the inner can also open the spine`);
-    }
-  }
-  const lattice = byId.get("join_cyp_hlattice");
-  if (lattice) {
-    const args = lattice.call.arguments;
-    if (args.operation !== "join") fail("join_cyp_hlattice is not a join");
-    if (args.target_body_id.$ref !== "clip_yp_body") fail("lattice is not joined onto the open-C body");
-    if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== "cyp_ring0_out_body") {
-      fail("lattice join tool is not the fused ring web");
+    for (let i = 0; i < 8; i++) {
+      const outer = outPolys[i];
+      const inner = inPolys[i];
+      assertHex(outer, outer.id);
+      assertHex(inner, inner.id);
+      if (outer.x !== inner.x || outer.z !== inner.z) fail(`${outer.id} center does not match its inner hex`);
+      if (Math.abs(outer.r - 2.3) > 1e-9 || Math.abs(inner.r - 1.1) > 1e-9) {
+        fail(`${outer.id} radii ${inner.r}/${outer.r} are not 1.1/2.3`);
+      }
+      clipRings.push({ prefix: outer.id, outer, inner, yOut, yIn });
     }
   }
 
@@ -379,7 +393,6 @@ function main() {
     const wall = r0.outer.r - r0.inner.r;
     if (Math.abs(wall - 1.2) > TOL) fail(`perimeter wall ${wall} mm is not 1.2`);
 
-    // Coplanar clamp face: hex tip == lip tip.
     if (Math.abs(r0.yOut[0] - CLAMP_Y) > 1e-9) {
       fail(`hex tip Y=${r0.yOut[0]} is not coplanar with clamp/lip face Y=${CLAMP_Y}`);
     }
@@ -398,7 +411,6 @@ function main() {
     if (Math.abs(r0.yOut[1] - (SPINE_Y0 + HEX_ANCHOR)) > TOL) {
       fail(`ring back Y=${r0.yOut[1]} is not spine+anchor ${SPINE_Y0 + HEX_ANCHOR}`);
     }
-    // Reject the v16.47 class: rings that tip proud of a recessed shelf while lips tip elsewhere.
     if (Math.abs(r0.yOut[0] - 9.2) < 1e-9) {
       fail("hex tip is still at Y=9.2 (v16.47 recessed-shelf ring placement)");
     }
@@ -483,106 +495,142 @@ function main() {
       }
     }
     const holeY = clipRings[0].yIn;
-    // Through-spine cuts are required; other ring/hpad cuts on the clip are not.
     for (const step of doc.steps) {
       if (!step.id || !step.call || step.call.operation !== "solid_combine") continue;
       const args = step.call.arguments;
       if (args.operation === "cut" && args.target_body_id.$ref === "clip_yp_body") {
         const tools = args.tool_body_ids.map((t) => t.$ref).join(",");
-        if (step.id.startsWith("cut_cyp_ring") && step.id.endsWith("_spine")) continue;
-        if (tools.includes("hcell") || tools.includes("hpad")) {
+        if (step.id === "cut_cyp_hex_spine") continue;
+        if (tools.includes("hcell") || tools.includes("hpad") || tools.includes("hex") || tools.includes("ring")) {
           fail(`${step.id} cuts the clip with ${tools}`);
-        }
-        if (tools.includes("ring") && !step.id.endsWith("_spine")) {
-          fail(`${step.id} cuts the clip with ${tools} (only *_spine through-cuts are allowed)`);
         }
       }
     }
     if (holeY[1] <= SPINE_Y1 - 0.2) {
       fail("inner cutter does not reach through the spine; cell may stay floored");
     }
+    if (!(holeY[0] < r0.yOut[0] - 1e-9 && holeY[1] > r0.yOut[1] + 1e-9)) {
+      fail(`inner cutter Y[${holeY}] does not pass through lattice Y[${r0.yOut}]`);
+    }
   }
 
-  // Land grooves. Bottom row A only, top row B only, middle both. ±Y.
   const expectedHalf = [
     ["yp", "a", [0, 1, 2, 3, 4], "clamshell_a", 9.05, 10.55],
     ["yp", "b", [3, 4, 5, 6, 7], "clamshell_b", 9.05, 10.55],
     ["ym", "a", [0, 1, 2, 3, 4], "clamshell_a", -10.55, -9.05],
     ["ym", "b", [3, 4, 5, 6, 7], "clamshell_b", -10.55, -9.05],
   ];
+  const clipByIndex = new Map();
+  clipRings.forEach((ring, i) => clipByIndex.set(i, ring));
   for (const [side, half, idxs, shell, y0, y1] of expectedHalf) {
-    for (const i of idxs) {
-      const prefix = `land_${side}_${half}_r${i}`;
-      const ring = pairRing(byId, prefix);
-      if (!ring) continue;
-      if (Math.abs(ring.outer.r - 2.5) > 1e-9 || Math.abs(ring.inner.r - 0.9) > 1e-9) {
-        fail(`${prefix} groove radii ${ring.inner.r}/${ring.outer.r} are not 0.9/2.5`);
+    const outName = `land_${side}_${half}_out`;
+    const inName = `land_${side}_${half}_in`;
+    const outHexes = polygonsOfSketch(doc, outName);
+    const inHexes = polygonsOfSketch(doc, inName);
+    if (outHexes.length !== idxs.length || inHexes.length !== idxs.length) {
+      fail(`${outName} has ${outHexes.length}/${inHexes.length} hexes, want ${idxs.length}`);
+      continue;
+    }
+    const outExL = byId.get(`${outName}_ex`);
+    const inExL = byId.get(`${inName}_ex`);
+    const outMvL = byId.get(`${outName}_mv`);
+    const inMvL = byId.get(`${inName}_mv`);
+    if (!outExL || !inExL || !outMvL || !inMvL) {
+      fail(`${outName} extrude/move missing`);
+      continue;
+    }
+    const yOut = yInterval({ extrude: outExL, move: outMvL });
+    const yIn = yInterval({ extrude: inExL, move: inMvL });
+    if (Math.abs(yOut[0] - y0) > 1e-9 || Math.abs(yOut[1] - y1) > 1e-9) {
+      fail(`${outName} Y[${yOut}] is not [${y0},${y1}]`);
+    }
+    if (!(yIn[0] < yOut[0] - 1e-9 && yIn[1] > yOut[1] + 1e-9)) {
+      fail(`${outName} inner cutter Y[${yIn}] does not pass through groove Y[${yOut}]`);
+    }
+    const mouth = side === "yp" ? yOut[0] : yOut[1];
+    const mouthExpected = side === "yp" ? CLAMP_Y : -CLAMP_Y;
+    if (Math.abs(mouth - mouthExpected) > 1e-9) {
+      fail(`${outName} groove mouth Y=${mouth} is not clamp face ${mouthExpected}`);
+    }
+    const seen = [];
+    for (let k = 0; k < idxs.length; k++) {
+      const outer = outHexes[k];
+      const inner = inHexes[k];
+      const cell = Number(String(outer.id).match(/(\d+)$/)[1]);
+      const cellIn = Number(String(inner.id).match(/(\d+)$/)[1]);
+      seen.push(cell);
+      assertHex(outer, outer.id);
+      assertHex(inner, inner.id);
+      if (cell !== cellIn || outer.x !== inner.x || outer.z !== inner.z) {
+        fail(`${outer.id} does not match its inner hex`);
       }
-      if (Math.abs(ring.yOut[0] - y0) > 1e-9 || Math.abs(ring.yOut[1] - y1) > 1e-9) {
-        fail(`${prefix} Y[${ring.yOut}] is not [${y0},${y1}]`);
+      if (Math.abs(outer.r - 2.5) > 1e-9 || Math.abs(inner.r - 0.9) > 1e-9) {
+        fail(`${outer.id} groove radii ${inner.r}/${outer.r} are not 0.9/2.5`);
       }
-      // Groove mouth coplanar with clamp face (±).
-      const mouth = side === "yp" ? ring.yOut[0] : ring.yOut[1];
-      const mouthExpected = side === "yp" ? CLAMP_Y : -CLAMP_Y;
-      if (Math.abs(mouth - mouthExpected) > 1e-9) {
-        fail(`${prefix} groove mouth Y=${mouth} is not clamp face ${mouthExpected}`);
+      const clip = clipByIndex.get(cell);
+      if (clip && (outer.x !== clip.outer.x || outer.z !== clip.outer.z)) {
+        fail(`${outer.id} center does not match clip cell ${cell}`);
       }
-      const clip = clipRings[i];
-      if (clip && (ring.outer.x !== clip.outer.x || ring.outer.z !== clip.outer.z)) {
-        fail(`${prefix} center does not match clip ring ${i}`);
-      }
-      const clrOut = ring.outer.r - (clip ? clip.outer.r : 2.3);
-      const clrIn = (clip ? clip.inner.r : 1.1) - ring.inner.r;
+      const clrOut = outer.r - (clip ? clip.outer.r : 2.3);
+      const clrIn = (clip ? clip.inner.r : 1.1) - inner.r;
       if (Math.abs(clrOut - 0.2) > 1e-9 || Math.abs(clrIn - 0.2) > 1e-9) {
-        fail(`${prefix} clearance is not 0.2 mm (out ${clrOut}, in ${clrIn})`);
+        fail(`${outer.id} clearance is not 0.2 mm (out ${clrOut}, in ${clrIn})`);
       }
-      if (!inHex(0.4, 0, ring.inner.r)) fail(`${prefix} center island would be cut away`);
-      if (!inHex(1.7, 0, ring.outer.r) || inHex(1.7, 0, ring.inner.r)) {
-        fail(`${prefix} does not clear the clip wall at local x=1.7`);
+      if (!inHex(0.4, 0, inner.r)) fail(`${outer.id} center island would be cut away`);
+      if (!inHex(1.7, 0, outer.r) || inHex(1.7, 0, inner.r)) {
+        fail(`${outer.id} does not clear the clip wall at local x=1.7`);
       }
-      if (!inHex(2.4, 0, ring.outer.r)) fail(`${prefix} missing outer clearance band`);
-      if (inHex(2.7, 0, ring.outer.r)) fail(`${prefix} groove reaches too far out`);
-      const cut = byId.get(`cut_land_${side}_${half}_r${i}`);
-      if (!cut) fail(`missing clamshell cut for ${prefix}`);
-      else {
-        const args = cut.call.arguments;
-        if (args.operation !== "cut" || args.target_body_id.$ref !== shell) {
-          fail(`${cut.id} does not cut ${shell}`);
-        }
-        if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== `${prefix}_out_body`) {
-          fail(`${cut.id} tool is not the grooved ring`);
-        }
-      }
-      const rc = ring.outer.r * (2 / Math.sqrt(3));
-      const crosses = ring.outer.z - rc < SPLIT_Z - 0.02 && ring.outer.z + rc > SPLIT_Z + 0.02;
-      const onlyA = ring.outer.z + rc < SPLIT_Z - 0.02;
-      const onlyB = ring.outer.z - rc > SPLIT_Z + 0.02;
-      if (onlyA && half !== "a") fail(`${prefix} is entirely below the split but cut into ${half}`);
-      if (onlyB && half !== "b") fail(`${prefix} is entirely above the split but cut into ${half}`);
+      if (!inHex(2.4, 0, outer.r)) fail(`${outer.id} missing outer clearance band`);
+      if (inHex(2.7, 0, outer.r)) fail(`${outer.id} groove reaches too far out`);
+      const rc = outer.r * (2 / Math.sqrt(3));
+      const crosses = outer.z - rc < SPLIT_Z - 0.02 && outer.z + rc > SPLIT_Z + 0.02;
+      const onlyA = outer.z + rc < SPLIT_Z - 0.02;
+      const onlyB = outer.z - rc > SPLIT_Z + 0.02;
+      if (onlyA && half !== "a") fail(`${outer.id} is entirely below the split but cut into ${half}`);
+      if (onlyB && half !== "b") fail(`${outer.id} is entirely above the split but cut into ${half}`);
       if (!onlyA && !onlyB && !crosses) {
-        fail(`${prefix} Z extent is ambiguous against split_z (${ring.outer.z} ± ${rc})`);
+        fail(`${outer.id} Z extent is ambiguous against split_z (${outer.z} ± ${rc})`);
       }
     }
-    for (let i = 0; i < 8; i++) {
-      if (!idxs.includes(i) && byId.has(`land_${side}_${half}_r${i}_out_hex`)) {
-        fail(`land_${side}_${half} includes cell ${i} which does not belong on that half`);
+    seen.sort((a, b) => a - b);
+    if (seen.join(",") !== idxs.join(",")) fail(`${outName} cells ${seen} are not ${idxs}`);
+    const hole = byId.get(`cut_land_${side}_${half}_hole`);
+    const cut = byId.get(`cut_land_${side}_${half}`);
+    if (!hole || hole.call.arguments.operation !== "cut" || hole.call.arguments.keep_tools !== false) {
+      fail(`cut_land_${side}_${half}_hole is not a consuming ring cut`);
+    } else if (hole.call.arguments.target_body_id.$ref !== `${outName}_body`) {
+      fail(`cut_land_${side}_${half}_hole does not target the outer pattern`);
+    } else if (hole.call.arguments.tool_body_ids.length !== idxs.length) {
+      fail(`cut_land_${side}_${half}_hole does not use every inner body`);
+    }
+    if (!cut) fail(`missing clamshell cut for ${outName}`);
+    else {
+      const args = cut.call.arguments;
+      if (args.operation !== "cut" || args.target_body_id.$ref !== shell) {
+        fail(`${cut.id} does not cut ${shell}`);
+      }
+      if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== `${outName}_body`) {
+        fail(`${cut.id} tool is not the grooved pattern`);
       }
     }
   }
 
   for (const side of ["yp", "ym"]) {
+    const idsOf = (half) =>
+      polygonsOfSketch(doc, `land_${side}_${half}_out`).map((p) => Number(String(p.id).match(/(\d+)$/)[1]));
+    const a = new Set(idsOf("a"));
+    const b = new Set(idsOf("b"));
     for (const i of [3, 4]) {
-      if (!byId.has(`land_${side}_a_r${i}_out_hex`) || !byId.has(`land_${side}_b_r${i}_out_hex`)) {
-        fail(`middle cell ${i} ${side} is not split across clamshell A and B`);
-      }
+      if (!a.has(i) || !b.has(i)) fail(`middle cell ${i} ${side} is not split across clamshell A and B`);
     }
     for (const i of [0, 1, 2]) {
-      if (byId.has(`land_${side}_b_r${i}_out_hex`)) fail(`bottom cell ${i} was cut into clamshell B`);
+      if (b.has(i)) fail(`bottom cell ${i} was cut into clamshell B`);
     }
     for (const i of [5, 6, 7]) {
-      if (byId.has(`land_${side}_a_r${i}_out_hex`)) fail(`top cell ${i} was cut into clamshell A`);
+      if (a.has(i)) fail(`top cell ${i} was cut into clamshell A`);
     }
   }
+
 
   if (failures.length) {
     console.error(`FAIL ${failures.length}`);
@@ -592,14 +640,14 @@ function main() {
   const ring = clipRings[0];
   const rc = ring.outer.r * (2 / Math.sqrt(3));
   const lipDepth = SPINE_Y0 - CLAMP_Y;
-  console.log("PASS v16.48 coplanar clamp-face audit");
+  console.log("PASS v16.49 single-sketch hex-pattern audit");
   console.log(
-    `rings=8 wall=${(ring.outer.r - ring.inner.r).toFixed(2)}mm FF=${(2 * ring.inner.r).toFixed(2)} ` +
+    `cells=8 wall=${(ring.outer.r - ring.inner.r).toFixed(2)}mm FF=${(2 * ring.inner.r).toFixed(2)} ` +
       `clamp_Y=${CLAMP_Y} hex_Y=[${ring.yOut[0]},${ring.yOut[1]}] lip_depth=${lipDepth.toFixed(2)} ` +
       `anchor=${(ring.yOut[1] - SPINE_Y0).toFixed(2)} vertex_r=${rc.toFixed(3)}`
   );
   console.log(
-    "open C kept; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole region unchanged"
+    "path: one out-pattern join + one in-pattern new_body cut (clip; land same per A/B half); open C kept; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole region unchanged"
   );
 }
 

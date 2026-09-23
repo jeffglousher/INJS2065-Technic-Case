@@ -1,3 +1,12 @@
+## v16.49
+
+- **Jeff 2026-09-22:** hex pattern and extrusion are one sketch, not one sketch + extrude per cell.
+- **Path used:** one XZ out-pattern sketch (`cyp_hex_out`) extruded `join` across every discovered face (27), then one in-pattern sketch (`cyp_hex_in`) extruded `new_body` and cut once. Nested outer+inner hexes in a single sketch do not form ring profiles: overlapping outers split into sibling faces (noBS CAD 0.2.0), and the inner flats lie on the neighbor outer flats.
+- Land grooves use the same doctrine per A/B half (15-face join + one inner cut), not per cell. Middle cells 3 and 4 stay in both halves. −Y clip stays `solid_mirror`.
+- Geometry unchanged from v16.48: clamp face Y=9.05, hex solid Y[9.05, 10.8], wall 1.2, FF 2.2, pitch 3.4, through-spine open centers, land mouth ±9.05 with +0.2 mm. Side Technic unchanged.
+- Review explode (not SoT): `design/design_v16_49_review_explode.nbcad.jsonc` moves clips ±14 mm in Y.
+- Audit: `node design/validate_clip_hex_walls.cjs`
+
 ## v16.48
 
 - **Jeff 2026-09-22:** v16.47 was the wrong class — hex rings stuck on the recessed spine face (tips ~9.2 on shelf 10.4) while lips tipped at 9.05 → two layers.
@@ -62,6 +71,6 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_48.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.48`).
+- **Canonical:** `design/design_v16_49.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.49`).
 - Audit: `node design/validate_clip_hex_walls.cjs`
