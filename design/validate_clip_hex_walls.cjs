@@ -31,9 +31,21 @@ const OPEN_Z1 = 22.45;
 const CLAMP_Y = LEG_Y0;
 const HEX_ANCHOR = 0.4;
 const TOL = 0.02;
-// Side-hole block through the feature immediately before the land grooves.
-// Captured from v16.46; this cut must not touch it.
-const SIDE_SHA256 = "3c7e4da4550058276a0c118658d0f8e3e6906e26823cb43fe4ecb64388d6ded8";
+// Eight Technic side holes plus the face selects that feed them, in document order.
+// Baseline is canonical JSON (sorted keys) of those steps from v16.48 (af2ffdc).
+// Raw step text and this hash both match v16.49. Do not hash onward to the first
+// "id": "land_" — that span includes the hex/land construction.
+const SIDE_IDS = [
+  "cb_side_1_1_0",
+  "cb_side_1_1_1",
+  "cb_side_1_-1_0",
+  "cb_side_1_-1_1",
+  "cb_side_1_1_3",
+  "cb_side_1_1_4",
+  "cb_side_1_-1_3",
+  "cb_side_1_-1_4",
+];
+const SIDE_SHA256 = "407e95783a0fa9c1d3468c1684bdb170f06a1d2b3c5342d3136fb108d99d79ee";
 
 const failures = [];
 function fail(msg) {
@@ -46,6 +58,29 @@ function parseJsonc(text) {
     .filter((line) => !line.trim().startsWith("//"))
     .join("\n");
   return JSON.parse(body);
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return "[" + value.map(canonicalJson).join(",") + "]";
+  if (value && typeof value === "object") {
+    return (
+      "{" +
+      Object.keys(value)
+        .sort()
+        .map((key) => JSON.stringify(key) + ":" + canonicalJson(value[key]))
+        .join(",") +
+      "}"
+    );
+  }
+  return JSON.stringify(value);
+}
+
+function sideHoleOps(doc) {
+  return doc.steps.filter((step) => {
+    if (step.id && /^cb_side/.test(step.id)) return true;
+    if (step.let && Object.keys(step.let).some((key) => /^cb_side/.test(key))) return true;
+    return false;
+  });
 }
 
 function inHex(dx, dz, apothem) {
@@ -285,12 +320,14 @@ function main() {
   }
   if (text.includes("cyp_xbar")) fail("inner crossbar ids returned");
 
-  const sideA = text.indexOf('"id": "cb_side_1_1_0"');
-  const sideB = text.indexOf('"id": "land_');
-  const sideBlob = text.slice(sideA, sideB);
-  const sideHash = crypto.createHash("sha256").update(sideBlob).digest("hex");
+  const sideOps = sideHoleOps(doc);
+  const sideIds = sideOps.filter((step) => step.id).map((step) => step.id);
+  if (sideIds.join(",") !== SIDE_IDS.join(",")) {
+    fail(`Technic side-hole ids are [${sideIds.join(", ")}], want the v16.48 eight`);
+  }
+  const sideHash = crypto.createHash("sha256").update(canonicalJson(sideOps)).digest("hex");
   if (sideHash !== SIDE_SHA256) {
-    fail("Technic side-hole region hash changed; that decision was out of scope");
+    fail(`Technic side-hole ops differ from the v16.48 baseline (hash ${sideHash})`);
   }
 
   const byId = indexSteps(doc);
@@ -647,7 +684,7 @@ function main() {
       `anchor=${(ring.yOut[1] - SPINE_Y0).toFixed(2)} vertex_r=${rc.toFixed(3)}`
   );
   console.log(
-    "path: one out-pattern join + one in-pattern new_body cut (clip; land same per A/B half); open C kept; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole region unchanged"
+    "path: one out-pattern join + one in-pattern new_body cut (clip; land same per A/B half); open C kept; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole ops match v16.48"
   );
 }
 
