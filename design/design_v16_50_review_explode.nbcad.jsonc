@@ -1,25 +1,20 @@
-// INJS2065 v16.49: one XZ hex-pattern sketch + one extrude per lattice (clip and each land half).
+// INJS2065 v16.50 REVIEW EXPLODE — NOT source of truth. Same merged tip as design_v16_50.nbcad.jsonc.
+// REVIEW EXPLODE ONLY: +Y/-Y clip solid_move_copy ±14 mm before assembly components.
 // Clip mid == split_z mate plane. CLIP_Z=[12.45,24.05] equal ±5.8 A/B; CLIP_X=[-7.5,7.5] (15 mm). Land pockets ±7.46; POCKET_X=[-7.55,7.55].
-// Open C kept: cyp_out minus cyp_open. Spine Y[10.4,12.0]. Legs Z[12.45,14.05] and Z[22.45,24.05], Y[9.05,10.4]. No full-face pad, no inner xbars, no detents.
-// Clamp face Y=9.05 (lip tip plane). Hex solid Y[9.05,10.8]. Depth from clamp face to spine face = lip depth = 1.35 mm. Anchor 0.4 mm.
-// Construction path (verified against noBS CAD 0.2.0 profile discovery, tolerance 1e-5):
-// Nested outer+inner hexes in ONE sketch do not form ring profiles. Overlapping outers are split at crossings into sibling faces
-// (clip: 27 faces, all nesting depth 0). Adding the inners yields 79 depth-0 faces, including ~0.02 mm² slivers where an inner flat
-// lies on the neighbor outer flat — none is an odd-depth hole. So the kernel cannot extrude per-cell rings from one nested sketch.
-// Path used: one out-pattern sketch (8 outer hexes) extruded with operation "join" and every face index, which fuses the shared-edge
-// tiles into one lattice blank; then one in-pattern sketch (8 inner hexes, disjoint → 8 profiles) extruded new_body and cut once.
-// The same inner bodies, kept, cut through the spine (Y past 12.0). −Y clip stays solid_mirror.
-// Land receptacles use the same doctrine per A/B half (5 cells): one outer sketch + join (15 faces) and one inner sketch + one cut.
-// Not per cell. Middle cells 3 and 4 are in both halves so each clamshell is cut only where that cell belongs.
-// Pointy-top rotation_deg 0 (vertical flats // Z), circumscribed radius = apothem. Open cell FF 2.2 (R_ap 1.1). Wall 1.2 mm: outer R_ap 2.3. Pitch 3.4.
-// Grid 8 cells: X even {-3.4,0,3.4} / odd {-1.7,1.7}; Z {15.3055,18.25,21.1945}.
-// Land grooves (+0.2 mm): outer R_ap 2.5 minus inner R_ap 0.9. +Y Y[9.05,10.55], −Y Y[-10.55,-9.05].
+// Open C blank: cyp_out Y[9.05,12.0] x Z[12.45,24.05]. Spine face Y=10.4, spine outer Y=12.0. Legs Z[12.45,14.05] and Z[22.45,24.05] are that same blank. No full-face pad, no inner xbars, no detents.
+// Clamp face is the blank front Y=9.05. Lips and hex walls are one solid on that plane.
+// v16.49 reject (verified on the tip, not only the screenshots): cyp_open removes the mouth Y[8.55,10.4] x Z[14.05,22.45], so the C has no material in front of the spine there. Then cyp_hex_out is a separate solid extruded 1.75 mm and moved to Y=9.05 (Y[9.05,10.8]), holed, and join_cyp_hlattice unions it onto the C. It does not protrude past the clamp plane. It is a freestanding plate in the mouth: overlap with the spine is only the buried tongue Y[10.4,10.8] (0.4 mm), and the middle row (Z about [15.59,20.91]) never meets either leg.
+// v16.50 merge: the outer-hex union is a keep-tool. It is cut out of the mouth tool (0.05 mm Y overcut so the caps are not coplanar), and only the remainder cuts the blank. Inner hexes then cut the same blank through the walls, the lip overlap, and the spine. No join. No second body. No plate back face at Y=10.8.
+// Wall-only depth equals the lip: Y[9.05,10.4] = 1.35 mm, flush with the spine face. On the wall footprint the blank continues as spine through Y=12, including the old anchor plane Y=10.8, so that plane is inside one solid instead of the end of a joined tongue.
+// Nested outer+inner hexes in ONE sketch still do not form ring profiles (noBS CAD 0.2.0, checked on v16.49: overlapping outers are 27 depth-0 sibling faces; inners add slivers on neighbor flats, not odd-depth holes). Not re-probed live this cut. Out pattern and in pattern stay two sketches. The out sketch is only the keep-tool.
+// Land grooves unchanged (+0.2 mm): outer R_ap 2.5 minus inner R_ap 0.9. +Y Y[9.05,10.55], -Y Y[-10.55,-9.05]. One sketch per pattern per A/B half. Middle cells 3 and 4 in both halves. -Y clip stays solid_mirror.
+// Pointy-top rotation_deg 0 (vertical flats // Z), circumscribed radius = apothem. Open cell FF 2.2 (R_ap 1.1). Wall 1.2 mm: outer R_ap 2.3. Pitch 3.4. Eight cells.
+// Grid: X even {-3.4,0,3.4} / odd {-1.7,1.7}; Z {15.3055,18.25,21.1945}.
 // Print: YZ on bed, build +X. Side Technic holes unchanged.
 // SHELL_X=[-12.0, 28.0], SHELL_Y=[±12]; green-only Technic; no face holes at x=0 (bearing).
-// REVIEW EXPLODE ONLY: +Y/−Y clip solid_move_copy ±14 mm before assembly components (not SoT).
 {
   "version": 1,
-  "name": "INJS2065 Technic clamshell-IS-mount v16.49 single-sketch hex pattern REVIEW EXPLODE (PETG FDM)",
+  "name": "INJS2065 Technic clamshell-IS-mount v16.50 merged clamp-tip hex REVIEW EXPLODE (PETG FDM)",
   "starting_state": "empty",
   "steps": [
     {
@@ -18718,27 +18713,6 @@
       }
     },
     {
-      "id": "cut_cyp_open",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_yp_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cyp_open_tmp",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
       "id": "cyp_hex_out_begin",
       "call": {
         "group": "sketch/draw",
@@ -18955,7 +18929,7 @@
           "operation": "join",
           "extent": {
             "type": "distance",
-            "distance": 1.75
+            "distance": 1.95
           },
           "taper_angle_deg": 0,
           "flip": false,
@@ -19009,7 +18983,7 @@
           ],
           "translation": {
             "x": 0,
-            "y": 9.05,
+            "y": 8.5,
             "z": 0
           },
           "pivot": {
@@ -19024,6 +18998,48 @@
             1
           ],
           "copy": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_hex_keep",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "cyp_open_tmp",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_hex_out_body",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
+        }
+      }
+    },
+    {
+      "id": "cut_cyp_open",
+      "call": {
+        "group": "solid/body",
+        "operation": "solid_combine",
+        "arguments": {
+          "target_body_id": {
+            "$ref": "clip_yp_body",
+            "pointer": "/id"
+          },
+          "tool_body_ids": [
+            {
+              "$ref": "cyp_open_tmp",
+              "pointer": "/id"
+            }
+          ],
+          "operation": "cut",
+          "keep_tools": false
         }
       }
     },
@@ -19391,56 +19407,7 @@
       }
     },
     {
-      "id": "cut_cyp_hex_hole",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "cyp_hex_out_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cyp_hex_in_b0",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b1",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b2",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b3",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b4",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b5",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b6",
-              "pointer": "/id"
-            },
-            {
-              "$ref": "cyp_hex_in_b7",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "cut",
-          "keep_tools": true
-        }
-      }
-    },
-    {
-      "id": "cut_cyp_hex_spine",
+      "id": "cut_cyp_hex_tip",
       "call": {
         "group": "solid/body",
         "operation": "solid_combine",
@@ -19484,27 +19451,6 @@
             }
           ],
           "operation": "cut",
-          "keep_tools": false
-        }
-      }
-    },
-    {
-      "id": "join_cyp_hlattice",
-      "call": {
-        "group": "solid/body",
-        "operation": "solid_combine",
-        "arguments": {
-          "target_body_id": {
-            "$ref": "clip_yp_body",
-            "pointer": "/id"
-          },
-          "tool_body_ids": [
-            {
-              "$ref": "cyp_hex_out_body",
-              "pointer": "/id"
-            }
-          ],
-          "operation": "join",
           "keep_tools": false
         }
       }

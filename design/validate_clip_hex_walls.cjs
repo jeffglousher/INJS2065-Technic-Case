@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 /**
- * v16.49 clip single-sketch hex-pattern audit.
+ * v16.50 merged clamp-tip hex audit.
  * Parses the JSONC tip and checks the boolean construction, not comments.
  * Circumscribed sketch radius is the hex apothem. rotation 0 is pointy-top
  * (vertex along sketch +Y = world +Z, vertical flats parallel to Z).
  *
- * Topology: one outer-pattern sketch + one join extrude, then one inner-pattern
- * sketch + one cut. Face counts are what noBS CAD 0.2.0 profile discovery
- * emits for these overlapping outers (27 clip / 15 land) and disjoint inners.
+ * Clip path: the open-C blank is the tip. The outer-hex sketch is a keep-tool
+ * cut out of the mouth tool; only the remainder cuts the blank, so the walls
+ * are leftovers of that one solid. Inner hexes then cut the same body through
+ * the walls, the lip overlap, and the spine. There is no lattice join.
+ * Nested outer+inner hexes in one sketch still do not form rings on this
+ * kernel (v16.49: 27 depth-0 sibling faces). Face counts below are that
+ * discovery (27 clip / 15 land outers, disjoint inners).
  *
  * Run: node design/validate_clip_hex_walls.cjs
  */
@@ -17,7 +21,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const TIP = path.join(__dirname, "design_v16_49.nbcad.jsonc");
+const TIP = path.join(__dirname, "design_v16_50.nbcad.jsonc");
 const SPLIT_Z = 18.25;
 const CLIP_X0 = -7.5;
 const CLIP_X1 = 7.5;
@@ -33,7 +37,7 @@ const HEX_ANCHOR = 0.4;
 const TOL = 0.02;
 // Eight Technic side holes plus the face selects that feed them, in document order.
 // Baseline is canonical JSON (sorted keys) of those steps from v16.48 (af2ffdc).
-// Raw step text and this hash both match v16.49. Do not hash onward to the first
+// Raw step text and this hash both match v16.48 and v16.50. Do not hash onward to the first
 // "id": "land_" — that span includes the hex/land construction.
 const SIDE_IDS = [
   "cb_side_1_1_0",
@@ -311,7 +315,7 @@ function floodEmpty(grid) {
 
 function main() {
   const { text, doc } = load();
-  if (!doc.name.includes("v16.49")) fail(`document name is not v16.49: ${doc.name}`);
+  if (!doc.name.includes("v16.50")) fail(`document name is not v16.50: ${doc.name}`);
   if (text.includes('"id": "cyp_hpad') || text.includes('"name": "cyp_hpad')) {
     fail("cyp_hpad full-face pad is still a feature");
   }
@@ -331,8 +335,19 @@ function main() {
   }
 
   const byId = indexSteps(doc);
-  for (const id of ["cyp_out_begin", "cyp_open_begin", "cut_cyp_open", "cym_mirror", "join_cyp_hlattice"]) {
+  for (const id of [
+    "cyp_out_begin",
+    "cyp_open_begin",
+    "cut_cyp_open",
+    "cyp_hex_out_ex",
+    "cut_cyp_hex_keep",
+    "cut_cyp_hex_tip",
+    "cym_mirror",
+  ]) {
     if (!byId.has(id)) fail(`missing required step ${id}`);
+  }
+  for (const id of ["join_cyp_hlattice", "cut_cyp_hex_hole", "cut_cyp_hex_spine"]) {
+    if (byId.has(id)) fail(`${id} is the v16.49 separate lattice plate`);
   }
 
   const outRect = byId.get("cyp_out_r").call.arguments;
@@ -375,41 +390,64 @@ function main() {
     if (outEx.call.arguments.sketch_name !== "cyp_hex_out" || inEx.call.arguments.sketch_name !== "cyp_hex_in") {
       fail("clip extrude does not use the pattern sketches");
     }
-    const hole = byId.get("cut_cyp_hex_hole");
-    const spine = byId.get("cut_cyp_hex_spine");
-    if (!hole || !spine) fail("clip pattern is missing the hole cut or the through-spine cut");
+    const mouthY0 = openRect.anchor.y;
+    const mouthY1 = openRect.corner_hint.y;
+    const blankY0 = outRect.anchor.y;
+    const blankY1 = outRect.corner_hint.y;
+    if (Math.abs(blankY0 - CLAMP_Y) > 1e-9) fail(`clip blank front Y=${blankY0} is not the clamp face`);
+    if (Math.abs(blankY1 - SPINE_Y1) > 1e-9) fail(`clip blank does not run through the spine to Y=${SPINE_Y1}`);
+    if (Math.abs(mouthY1 - SPINE_Y0) > 1e-9) {
+      fail(`mouth tool ends at Y=${mouthY1}, not the spine face ${SPINE_Y0}`);
+    }
+    if (!(yOut[0] < mouthY0 - 1e-6 && yOut[1] > mouthY1 + 1e-6)) {
+      fail(`outer-hex keep-tool Y[${yOut}] does not overcut the mouth tool Y[${mouthY0},${mouthY1}]`);
+    }
+    if (Math.abs(yOut[0] - CLAMP_Y) < 1e-9 && Math.abs(yOut[1] - (SPINE_Y0 + HEX_ANCHOR)) < 1e-6) {
+      fail("outer hex is still the v16.49 plate Y[9.05,10.8] placed on the clamp plane");
+    }
+    const keep = byId.get("cut_cyp_hex_keep");
+    const openCut = byId.get("cut_cyp_open");
+    const tipCut = byId.get("cut_cyp_hex_tip");
+    const inTools = Array.from({ length: 8 }, (_, i) => `cyp_hex_in_b${i}`);
+    if (!keep || !openCut || !tipCut) fail("merged tip is missing keep, mouth, or hole cut");
     else {
-      const holeArgs = hole.call.arguments;
-      const spineArgs = spine.call.arguments;
-      if (holeArgs.operation !== "cut" || holeArgs.keep_tools !== true) {
-        fail("cut_cyp_hex_hole must be a cut that keeps the inner tools for the spine");
+      const keepArgs = keep.call.arguments;
+      const openArgs = openCut.call.arguments;
+      const tipArgs = tipCut.call.arguments;
+      if (keepArgs.operation !== "cut" || keepArgs.keep_tools !== false) {
+        fail("cut_cyp_hex_keep must consume the outer-hex tool");
       }
-      if (holeArgs.target_body_id.$ref !== "cyp_hex_out_body") fail("hole cut does not target the outer lattice");
-      const inTools = Array.from({ length: 8 }, (_, i) => `cyp_hex_in_b${i}`);
-      const holeTools = holeArgs.tool_body_ids.map((t) => t.$ref);
-      const spineTools = spineArgs.tool_body_ids.map((t) => t.$ref);
-      if (holeTools.join(",") !== inTools.join(",")) fail(`hole tools are ${holeTools}, want ${inTools}`);
-      if (spineArgs.operation !== "cut" || spineArgs.keep_tools !== false) {
-        fail("cut_cyp_hex_spine is not a consuming cut");
+      if (keepArgs.target_body_id.$ref !== "cyp_open_tmp") fail("keep cut does not target the mouth tool");
+      if (keepArgs.tool_body_ids.length !== 1 || keepArgs.tool_body_ids[0].$ref !== "cyp_hex_out_body") {
+        fail("keep cut tool is not the single outer-hex body");
       }
-      if (spineArgs.target_body_id.$ref !== "clip_yp_body") fail("spine cut does not target the open-C body");
-      if (spineTools.join(",") !== inTools.join(",")) fail(`spine tools are ${spineTools}, want ${inTools}`);
+      if (openArgs.operation !== "cut" || openArgs.keep_tools !== false) fail("cut_cyp_open is not a consuming cut");
+      if (openArgs.target_body_id.$ref !== "clip_yp_body") fail("mouth cut does not target the clip blank");
+      if (openArgs.tool_body_ids.length !== 1 || openArgs.tool_body_ids[0].$ref !== "cyp_open_tmp") {
+        fail("mouth cut tool is not the protected mouth body");
+      }
+      if (tipArgs.operation !== "cut" || tipArgs.keep_tools !== false) fail("cut_cyp_hex_tip is not a consuming cut");
+      if (tipArgs.target_body_id.$ref !== "clip_yp_body") fail("tip hole cut does not target the clip");
+      const tipTools = tipArgs.tool_body_ids.map((t) => t.$ref);
+      if (tipTools.join(",") !== inTools.join(",")) fail(`tip hole tools are ${tipTools}, want ${inTools}`);
     }
     const stepOrder = doc.steps.map((s) => s.id).filter(Boolean);
     const orderOf = (id) => stepOrder.indexOf(id);
-    const holeAt = orderOf("cut_cyp_hex_hole");
-    const spineAt = orderOf("cut_cyp_hex_spine");
-    const joinAt = orderOf("join_cyp_hlattice");
-    if (!(holeAt >= 0 && spineAt > holeAt && joinAt > spineAt)) {
-      fail("clip order must be hole cut, then through-spine cut, then lattice join");
+    const keepAt = orderOf("cut_cyp_hex_keep");
+    const openAt = orderOf("cut_cyp_open");
+    const tipAt = orderOf("cut_cyp_hex_tip");
+    if (!(keepAt >= 0 && openAt > keepAt && tipAt > openAt)) {
+      fail("clip order must protect walls in the mouth tool, then open the mouth, then cut cell holes through the blank");
     }
-    const lattice = byId.get("join_cyp_hlattice");
-    if (lattice) {
-      const args = lattice.call.arguments;
-      if (args.operation !== "join" || args.keep_tools !== false) fail("join_cyp_hlattice is not a consuming join");
-      if (args.target_body_id.$ref !== "clip_yp_body") fail("lattice is not joined onto the open-C body");
-      if (args.tool_body_ids.length !== 1 || args.tool_body_ids[0].$ref !== "cyp_hex_out_body") {
-        fail("lattice join tool is not the single outer pattern body");
+    for (const step of doc.steps) {
+      if (!step.call || step.call.operation !== "solid_combine") continue;
+      const args = step.call.arguments;
+      if (args.operation === "join" && args.target_body_id && args.target_body_id.$ref === "clip_yp_body") {
+        fail(`${step.id || "combine"} joins a body onto the clip; the tip must stay one blank`);
+      }
+      const tools = (args.tool_body_ids || []).map((t) => t.$ref);
+      if (tools.includes("cyp_hex_out_body") && args.operation === "join") {
+        fail(`${step.id || "combine"} joins the outer-hex body; that is the v16.49 plate`);
       }
     }
     for (let i = 0; i < 8; i++) {
@@ -430,26 +468,13 @@ function main() {
     const wall = r0.outer.r - r0.inner.r;
     if (Math.abs(wall - 1.2) > TOL) fail(`perimeter wall ${wall} mm is not 1.2`);
 
-    if (Math.abs(r0.yOut[0] - CLAMP_Y) > 1e-9) {
-      fail(`hex tip Y=${r0.yOut[0]} is not coplanar with clamp/lip face Y=${CLAMP_Y}`);
-    }
     const lipDepth = SPINE_Y0 - CLAMP_Y;
-    const hexDepthToSpine = SPINE_Y0 - r0.yOut[0];
-    if (Math.abs(hexDepthToSpine - lipDepth) > 1e-9) {
-      fail(`hex depth-to-spine ${hexDepthToSpine} != lip depth ${lipDepth}`);
-    }
     if (Math.abs(lipDepth - 1.35) > TOL) {
-      fail(`lip/hex depth from clamp face to spine is ${lipDepth}, expected 1.35`);
+      fail(`lip/wall depth from clamp face to spine is ${lipDepth}, expected 1.35`);
     }
-    const yOverlap = Math.min(r0.yOut[1], SPINE_Y1) - Math.max(r0.yOut[0], SPINE_Y0);
-    if (yOverlap < HEX_ANCHOR - TOL) {
-      fail(`ring anchor into spine is only ${yOverlap} mm (need ~${HEX_ANCHOR})`);
-    }
-    if (Math.abs(r0.yOut[1] - (SPINE_Y0 + HEX_ANCHOR)) > TOL) {
-      fail(`ring back Y=${r0.yOut[1]} is not spine+anchor ${SPINE_Y0 + HEX_ANCHOR}`);
-    }
-    if (Math.abs(r0.yOut[0] - 9.2) < 1e-9) {
-      fail("hex tip is still at Y=9.2 (v16.47 recessed-shelf ring placement)");
+    if (outRect.anchor.y !== CLAMP_Y) fail("lips and hex do not share the blank clamp face");
+    if (!(outRect.corner_hint.y > SPINE_Y0 + HEX_ANCHOR)) {
+      fail("clip blank ends at or before Y=10.8; the wall would be a separate tongue instead of the spine");
     }
 
     for (const ring of clipRings) {
@@ -537,7 +562,7 @@ function main() {
       const args = step.call.arguments;
       if (args.operation === "cut" && args.target_body_id.$ref === "clip_yp_body") {
         const tools = args.tool_body_ids.map((t) => t.$ref).join(",");
-        if (step.id === "cut_cyp_hex_spine") continue;
+        if (step.id === "cut_cyp_open" || step.id === "cut_cyp_hex_tip") continue;
         if (tools.includes("hcell") || tools.includes("hpad") || tools.includes("hex") || tools.includes("ring")) {
           fail(`${step.id} cuts the clip with ${tools}`);
         }
@@ -546,8 +571,8 @@ function main() {
     if (holeY[1] <= SPINE_Y1 - 0.2) {
       fail("inner cutter does not reach through the spine; cell may stay floored");
     }
-    if (!(holeY[0] < r0.yOut[0] - 1e-9 && holeY[1] > r0.yOut[1] + 1e-9)) {
-      fail(`inner cutter Y[${holeY}] does not pass through lattice Y[${r0.yOut}]`);
+    if (!(holeY[0] < CLAMP_Y - 1e-9 && holeY[1] > SPINE_Y1 + 1e-9)) {
+      fail(`inner cutter Y[${holeY}] does not pass through the blank Y[${CLAMP_Y},${SPINE_Y1}]`);
     }
   }
 
@@ -677,14 +702,14 @@ function main() {
   const ring = clipRings[0];
   const rc = ring.outer.r * (2 / Math.sqrt(3));
   const lipDepth = SPINE_Y0 - CLAMP_Y;
-  console.log("PASS v16.49 single-sketch hex-pattern audit");
+  console.log("PASS v16.50 merged clamp-tip hex audit");
   console.log(
     `cells=8 wall=${(ring.outer.r - ring.inner.r).toFixed(2)}mm FF=${(2 * ring.inner.r).toFixed(2)} ` +
-      `clamp_Y=${CLAMP_Y} hex_Y=[${ring.yOut[0]},${ring.yOut[1]}] lip_depth=${lipDepth.toFixed(2)} ` +
-      `anchor=${(ring.yOut[1] - SPINE_Y0).toFixed(2)} vertex_r=${rc.toFixed(3)}`
+      `clamp_Y=${CLAMP_Y} wall_only_Y=[${CLAMP_Y},${SPINE_Y0}] lip_depth=${lipDepth.toFixed(2)} ` +
+      `spine_through_Y=${SPINE_Y1} vertex_r=${rc.toFixed(3)}`
   );
   console.log(
-    "path: one out-pattern join + one in-pattern new_body cut (clip; land same per A/B half); open C kept; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole ops match v16.48"
+    "path: mouth tool minus outer-hex keep, then that remainder cuts the blank; inner hexes cut the same blank; no lattice join; coplanar lips+hex; through-spine open centers; A/B grooves +0.2 mm; side-hole ops match v16.48"
   );
 }
 

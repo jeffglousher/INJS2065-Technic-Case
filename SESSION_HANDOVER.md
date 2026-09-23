@@ -1,37 +1,36 @@
-# Session handover — v16.49
+# Session handover — v16.50
 
 ## Construction (this cut)
-- **Jeff 2026-09-22:** one sketch for the hex pattern, one extrude — not one sketch + extrude per cell.
-- **Path:** `cyp_hex_out` (8 outer hexes) `join` of every face index (27 depth-0 faces fuse on shared edges into one lattice blank). `cyp_hex_in` (8 disjoint inners) `new_body`, then one hole cut and one through-spine cut. Nested outer+inner in one sketch was rejected: noBS CAD 0.2.0 splits overlapping hexes into sibling faces, and the inner flats coincide with the neighbor outer flats, so they are not holes.
-- **Land:** same doctrine per A/B half (`land_{yp,ym}_{a,b}`: 15-face join + 5-inner cut). Not per cell. Middle cells 3 and 4 remain in both halves. No further land exception.
-- **−Y:** `solid_mirror` of the finished +Y clip. Side Technic untouched. Numbers unchanged from v16.48.
-- Review explode only: `design/design_v16_49_review_explode.nbcad.jsonc` (±14 Y). Not SoT.
+- **Jeff 2026-09-22 reject:** v16.49 is a clip plus a hex plate. The mouth is empty Y[9.05, 10.4]; the lattice Y[9.05, 10.8] is joined on. Not proud of the clamp plane. Proud of the spine, as a separate plate (0.4 mm tongue; middle row misses both legs).
+- **Path:** one blank (`cyp_out`). Outer hexes are a keep-tool (27 faces, `join` into one tool body) cut out of the mouth tool, with 0.05 mm Y overcut. `cut_cyp_open` then removes only the mouth outside those walls. `cut_cyp_hex_tip` cuts the eight inner hexes through that same blank (walls, lip overlap, spine). No lattice join.
+- **Nested sketch:** still not rings on noBS CAD 0.2.0 (v16.49 discovery). Out and in stay two sketches. The out sketch is only the keep-tool.
+- **Land:** unchanged. Same doctrine per A/B half. Middle cells 3 and 4 in both halves.
+- **−Y:** `solid_mirror` of the finished +Y clip. Side Technic untouched.
+- Review explode only: `design/design_v16_50_review_explode.nbcad.jsonc` (±14 Y). Not SoT.
 
-## Geometry (unchanged from v16.48)
+## Geometry
 - **Clip Z:** mate-centered `split_z=18.25`; `CLIP_Z=[12.45, 24.05]` equal ±5.8 A/B; `CLIP_X=[-7.5, 7.5]`.
-- **Open C kept:** `cyp_out` minus `cyp_open`. Spine Y[10.4, 12.0]. Legs Z[12.45, 14.05] and Z[22.45, 24.05], Y[9.05, 10.4]. No inner xbars. No detents. No full-face pad.
-- **Coplanar clamp face (Jeff 2026-09-22):** lips and hex walls both tip at **Y=9.05**. Hex solid Y[9.05, 10.8] = lip depth to spine (1.35 mm) + 0.4 mm anchor. Rejects v16.47 rings-on-recessed-spine-shelf (tips at 9.2 on face 10.4).
-- **Through-spine open centers:** `cut_cyp_hex_spine` uses the eight inner bodies on `clip_yp_body` so cell centers have no recessed spine floor between the lips.
+- **Open C:** spine face Y=10.4, spine outer Y=12. Legs Z[12.45, 14.05] and Z[22.45, 24.05] are the same blank as the walls. No inner xbars. No detents. No full-face pad.
+- **One clamp face:** blank front **Y=9.05**. Wall-only depth = lip depth = **1.35 mm** (to the spine face). The wall footprint continues as the spine through Y=12, including the old anchor plane Y=10.8, so that plane is not the back of a joined plate.
+- **Through-spine open centers:** `cut_cyp_hex_tip` on `clip_yp_body`.
 - **Hex:** 8 pointy-top cells, rotation 0, circumscribed apothem. Open FF 2.2 (R 1.1), wall 1.2 (outer R 2.3), pitch 3.4. Centers X {-3.4, 0, 3.4} / {-1.7, 1.7}, Z {15.3055, 18.25, 21.1945}.
-- **Land grooves:** outer R 2.5 minus inner R 0.9 (+0.2 mm). +Y Y[9.05, 10.55], −Y Y[-10.55, -9.05]. Bottom row → A, top row → B, middle row → both. Land centers remain. Not a honeycomb sheet in the thick wall.
-- **Side Technic:** unchanged from v16.47/v16.46.
-- **−Y clip:** `solid_mirror` of the finished +Y clip.
+- **Land grooves:** outer R 2.5 minus inner R 0.9 (+0.2 mm). +Y Y[9.05, 10.55], −Y Y[-10.55, -9.05]. Bottom row → A, top row → B, middle row → both.
 - **Print:** YZ on the bed, build +X.
 
 ## Parent next
-1. Blank-doc script replay `design/design_v16_49.nbcad.jsonc` on Thunder (`cad_interface` action `script`, mode `fast`).
-2. Live-check leftover solid: one clamp face (lips + hex tips coplanar); open C silhouette; eight open centers through the spine; no recessed middle shelf between the lips; A/B grooves nestable; no full-face pad.
-3. `node design/validate_clip_hex_walls.cjs` already passes offline. It does not replace a Thunder replay.
+1. Blank-doc script replay `design/design_v16_50.nbcad.jsonc` on Thunder (`cad_interface` action `script`, mode `fast`). This run did not replay live CAD.
+2. Live-check one body: clamp face is lips + hex walls, no separate plate in the mouth, eight open centers through the spine, A/B grooves nest, no full-face pad.
+3. `node design/validate_clip_hex_walls.cjs` passes offline. It does not replace a Thunder replay.
 
 ## VERIFY (nominal)
 | Item | Value | Notes |
 |------|-------|-------|
-| Clamp face Y | **9.05** | lip tip = hex tip |
-| Lip / hex depth to spine | **1.35 mm** | same from clamp face |
-| Ring Y | [9.05, 10.8] | +0.4 mm spine anchor |
-| Through-spine centers | yes | `cut_cyp_hex_spine` |
+| Clamp face Y | **9.05** | blank front; lips and hex walls |
+| Wall-only / lip depth | **1.35 mm** | Y[9.05, 10.4], flush with spine face |
+| Wall footprint | through Y=12 | same solid as the spine; no plate back at 10.8 |
+| Through-spine centers | yes | `cut_cyp_hex_tip` |
 | Nozzle / wall | 0.4 mm → **1.2 mm** | perimeter and shared walls |
-| Open cell FF / R_ap | 2.2 / 1.1 mm | through ring + spine |
+| Open cell FF / R_ap | 2.2 / 1.1 mm | through wall + spine |
 | Outer R_ap | 2.3 mm | perimeter wall 1.2 |
 | Groove R_ap | 0.9 / 2.5 | +0.2 mm each side |
 | Groove Y | +[9.05, 10.55], −[-10.55, -9.05] | mouth on clamp face |

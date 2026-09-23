@@ -1,11 +1,16 @@
+## v16.50
+
+- **Jeff 2026-09-22 reject of v16.49:** the clip was an open C plus a separate hex-pattern extrusion. `cyp_open` emptied the mouth in front of the spine, then a lattice Y[9.05, 10.8] was joined on. That lattice is a plate in the mouth (0.4 mm spine tongue; middle row never meets a leg). It does not stick past the clamp plane.
+- **Merge:** outer hexes are a keep-tool cut out of the mouth tool (0.05 mm Y overcut). Only the remainder cuts the blank, so the walls are leftovers of the open-C tip. Inner hexes cut that same body through the walls and the spine. No lattice join. Lips and hex share the blank face Y=9.05.
+- Wall-only depth equals the lip, Y[9.05, 10.4] = 1.35 mm. The wall footprint continues as the spine to Y=12, so the old plate back face at Y=10.8 is inside one solid.
+- Nested outer+inner hexes in one sketch still do not form rings (noBS CAD 0.2.0, v16.49 discovery: 27 depth-0 faces). Out and in stay two sketches; the out sketch is only the keep-tool.
+- Land grooves unchanged (+0.2 mm), same per-half doctrine. Middle cells 3 and 4 in both halves. −Y clip stays `solid_mirror`. Side Technic unchanged.
+- Review explode (not SoT): `design/design_v16_50_review_explode.nbcad.jsonc` moves clips ±14 mm in Y.
+- Audit: `node design/validate_clip_hex_walls.cjs`
+
 ## v16.49
 
-- **Jeff 2026-09-22:** hex pattern and extrusion are one sketch, not one sketch + extrude per cell.
-- **Path used:** one XZ out-pattern sketch (`cyp_hex_out`) extruded `join` across every discovered face (27), then one in-pattern sketch (`cyp_hex_in`) extruded `new_body` and cut once. Nested outer+inner hexes in a single sketch do not form ring profiles: overlapping outers split into sibling faces (noBS CAD 0.2.0), and the inner flats lie on the neighbor outer flats.
-- Land grooves use the same doctrine per A/B half (15-face join + one inner cut), not per cell. Middle cells 3 and 4 stay in both halves. −Y clip stays `solid_mirror`.
-- Geometry unchanged from v16.48: clamp face Y=9.05, hex solid Y[9.05, 10.8], wall 1.2, FF 2.2, pitch 3.4, through-spine open centers, land mouth ±9.05 with +0.2 mm. Side Technic unchanged.
-- Review explode (not SoT): `design/design_v16_49_review_explode.nbcad.jsonc` moves clips ±14 mm in Y.
-- Audit: `node design/validate_clip_hex_walls.cjs`
+- Superseded by v16.50. One out-pattern join plus one in-pattern cut produced the separate lattice plate Jeff rejected. Nested rings in one sketch still fail profile discovery on this kernel.
 
 ## v16.48
 
@@ -71,6 +76,6 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_49.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.49`).
+- **Canonical:** `design/design_v16_50.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.50`).
 - Audit: `node design/validate_clip_hex_walls.cjs`

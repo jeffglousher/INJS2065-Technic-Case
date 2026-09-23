@@ -1,6 +1,6 @@
 {
-  "version": "16.49",
-  "architecture": "clamshell_v16_49_single_sketch_hex_pattern",
+  "version": "16.50",
+  "architecture": "clamshell_v16_50_merged_clamp_tip_hex",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -387,15 +387,15 @@
       0.45,
       0.45
     ],
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); one coplanar clamp face — lips and 1.2 mm hex walls tip together; open centers through spine; no full-face pad; outer C lip kept. Hex lattice is one out-pattern sketch + one join, then one in-pattern cut.",
-    "clip_z_center_note": "v16.49: coplanar clamp face at Y=9.05 unchanged from v16.48; hex tips match lips; through-spine open centers. Construction is one sketch per pattern, not one sketch per cell. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
+    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); one coplanar clamp face — lips and 1.2 mm hex walls are leftovers of the same tip; open centers through spine; no full-face pad; no joined hex plate.",
+    "clip_z_center_note": "v16.50: clamp face is the blank front Y=9.05. Wall-only depth equals the lip (Y[9.05,10.4]). The wall footprint continues as the spine, so there is no separate plate ending at Y=10.8. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
     "cross_member_count": 0,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
-    "cross_member_note": "v16.49: inner xbars still absent. Hex walls grow from the lip tip plane with the lips; not stuck onto a recessed spine shelf; not a full-face pad. Lattice is one out-pattern join plus one in-pattern cut.",
+    "cross_member_note": "v16.50: inner xbars still absent. Hex walls are leftovers of the clip blank after the mouth is cut around the outer hexes and the cell holes are cut through. Not a joined lattice. Not a full-face pad.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
     "slot_span_x": 7.42,
@@ -448,9 +448,9 @@
     },
     "hex_interlock": true,
     "hex_pattern": {
-      "style": "single_sketch_hex_pattern",
-      "construction": "clip: cyp_hex_out join of all 27 depth-0 faces, then cyp_hex_in new_body of 8 disjoint inners cut once (hole + through-spine). Nested outer+inner in one sketch does not yield ring profiles (0.2.0 sibling faces). Land: same doctrine per A/B half (15-face join + 5-inner cut), not per cell.",
-      "reject": "v16.47_rings_on_recessed_spine_shelf_and_v16.46_full_face_pad",
+      "style": "merged_clamp_tip_leftover_walls",
+      "construction": "clip: mouth tool minus cyp_hex_out keep-tool (27 depth-0 faces joined into one tool, 0.05 mm Y overcut), then that remainder cuts the blank. cyp_hex_in (8 disjoint inners) cuts the same blank through walls and spine. No lattice join. Nested outer+inner in one sketch still does not yield ring profiles (0.2.0 sibling faces, v16.49). Land: unchanged per A/B half (15-face join + 5-inner cut).",
+      "reject": "v16.49_joined_hex_plate_in_the_mouth_and_v16.46_full_face_pad",
       "nozzle_mm": 0.4,
       "wall_mm": 1.2,
       "wall_perimeters": 3,
@@ -474,10 +474,15 @@
       ],
       "ring_y_yp": [
         9.05,
-        10.8
+        12.0
       ],
-      "anchor_into_spine_mm": 0.4,
+      "wall_only_y": [
+        9.05,
+        10.4
+      ],
+      "anchor_into_spine_mm": 0.0,
       "proud_of_spine_face_mm": 1.35,
+      "plate_back_y_removed": 10.8,
       "pad_y_yp": null,
       "rotation_deg": 0,
       "orientation": "pointy_top_vertical_flats_parallel_Z",
@@ -516,7 +521,8 @@
       "print_orient_note": "Clip YZ on bed, build along +X; vertical hex flats // Z for strength",
       "clamp_face_y": 9.05,
       "lip_hex_depth_to_spine_mm": 1.35,
-      "through_spine_open_centers": true
+      "through_spine_open_centers": true,
+      "merge_note": "v16.50: wall-only Y[9.05,10.4] equals the lip. Footprint is the spine through Y=12, so Y=10.8 is inside one solid, not the back of a joined plate."
     },
     "honeycomb_verify": {
       "nozzle_mm": 0.4,
@@ -526,7 +532,11 @@
       "rotation_deg": 0,
       "ring_y_yp": [
         9.05,
-        10.8
+        12.0
+      ],
+      "wall_only_y": [
+        9.05,
+        10.4
       ],
       "face_span_mm": [
         15.0,
@@ -1152,9 +1162,10 @@
     },
     "16.45": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112.",
     "16.48": "v16.48: coplanar clamp face — hex tips at lip Y=9.05; depth to spine 1.35 mm matches lips; through-spine open centers; land grooves Y±[9.05,10.55]; no full-face pad; side Technic unchanged.",
-    "16.49": "v16.49: same coplanar geometry as v16.48, rebuilt as one out-pattern sketch + one join extrude and one in-pattern sketch + one cut (clip; land the same per A/B half). Nested rings in one sketch rejected — overlapping hexes are sibling faces, not holes. Side Technic unchanged."
+    "16.49": "v16.49: same coplanar geometry as v16.48, rebuilt as one out-pattern sketch + one join extrude and one in-pattern sketch + one cut (clip; land the same per A/B half). Nested rings in one sketch rejected — overlapping hexes are sibling faces, not holes. Side Technic unchanged.",
+    "16.50": "v16.50: reject the joined hex plate. Mouth tool minus the outer-hex keep-tool, then that remainder cuts the open-C blank; inner hexes cut the same blank. Wall-only Y[9.05,10.4] equals the lip. Footprint continues as the spine (no plate back at 10.8). Land grooves and side Technic unchanged."
   },
-  "steps": 1122,
+  "steps": 1121,
   "step_kinds": {
     "note": "recount on demand; v16.39 shell tighten \u00b112 Y / [-12,28] X; side origin/rings retarget; same hole count as 16.38"
   },
@@ -1233,9 +1244,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.49",
-  "revision": "v16.49",
-  "notes": "v16.49: single-sketch hex pattern. Clip lattice is cyp_hex_out (join of every face) plus cyp_hex_in (new_body, one cut). Land grooves use the same doctrine per A/B half. Nested outer+inner in one sketch does not form rings on overlapping hexes. Geometry stays v16.48: hex Y[9.05,10.8], lip depth 1.35 mm, through-spine open centers, land +Y[9.05,10.55] / −Y[-10.55,-9.05]. Side Technic unchanged.",
+  "VERSION": "16.50",
+  "revision": "v16.50",
+  "notes": "v16.50: merged clamp tip. Hex walls are leftovers of the open-C blank (mouth tool minus outer-hex keep-tool, then inner hexes cut the same body). No lattice join. Wall-only Y[9.05,10.4] = lip depth 1.35 mm; footprint continues as the spine through Y=12. Land +Y[9.05,10.55] / −Y[-10.55,-9.05]. Nested outer+inner in one sketch still does not form rings. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
