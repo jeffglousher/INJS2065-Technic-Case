@@ -1,3 +1,9 @@
+## v16.52
+
+- Thin hex walls cover the whole clip face (27 cells). Inner pockets are blind and stop at the spine. Rotation 30° so flats run along Z. Land grooves share those centers, +0.2 mm. No lattice join. Side Technic unchanged.
+- Review explode (not SoT): `design/design_v16_52_review_explode.nbcad.jsonc` moves clips ±14 mm in Y.
+- Audit: `node design/validate_clip_hex_walls.cjs`
+
 ## v16.51
 
 - **Jeff 2026-09-25:** v16.50 live shots are an open C with no hex on the clamp face. The XZ keep-tool and hole cutters were extruded along -Y into the air, so they never met the blank.
@@ -86,6 +92,6 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_51.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.51`).
+- **Canonical:** `design/design_v16_52.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.52`).
 - Audit: `node design/validate_clip_hex_walls.cjs`

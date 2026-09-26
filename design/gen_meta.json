@@ -1,6 +1,6 @@
 {
-  "version": "16.51",
-  "architecture": "clamshell_v16_51_clamp_face_hex",
+  "version": "16.52",
+  "architecture": "clamshell_v16_52_full_face_walls",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -1245,9 +1245,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.51",
-  "revision": "v16.51",
-  "notes": "v16.51: clamp-face hex. Same v16.50 merge, XZ extrudes flipped toward +Y so the keep-tool is Y[8.5,10.45] and the inner cutters are Y[8.85,12.25]. Hex walls are leftovers of the open-C blank. No lattice join. Wall-only Y[9.05,10.4] = lip depth 1.35 mm; footprint continues as the spine through Y=12. Land +Y[9.05,10.55] / −Y[-10.55,-9.05]. Side Technic unchanged.",
+  "VERSION": "16.52",
+  "revision": "v16.52",
+  "notes": "v16.52: 27 hex cells cover the clip face. Walls 1.2 mm, rotation 30 deg (flats along Z). Blind pockets stop at the spine, Y about 10.45, and do not cut through. Land grooves share those centers with +0.2 mm. No lattice join. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
