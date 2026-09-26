@@ -23,7 +23,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const TIP = path.join(__dirname, "design_v16_52.nbcad.jsonc");
+const TIP = path.join(__dirname, "design_v16_55.nbcad.jsonc");
 const SPLIT_Z = 18.25;
 const CLIP_X0 = -7.5;
 const CLIP_X1 = 7.5;
@@ -323,19 +323,19 @@ function auditV1652(doc) {
   const byId = indexSteps(doc);
   const outPolys = doc.steps.filter((s) => s.id && /^cyp_ho_\d+_poly$/.test(s.id)).map(polygonOf);
   const inPolys = polygonsOfSketch(doc, "cyp_hex_in");
-  if (outPolys.length !== 27 || inPolys.length !== 27) {
-    fail("clip hex field is " + outPolys.length + "/" + inPolys.length + ", want 27 walls and 27 blind pockets");
+  if (outPolys.length !== 14 || inPolys.length !== 14) {
+    fail("clip hex field is " + outPolys.length + "/" + inPolys.length + ", want 14 walls and 14 blind pockets");
     return;
   }
-  for (let i = 0; i < 27; i++) {
+  for (let i = 0; i < 14; i++) {
     const o = outPolys[i];
     const inn = inPolys[i];
     if (o.rot !== 30 || inn.rot !== 30) fail("hex " + i + " rotation is not 30 deg (flats parallel to Z)");
-    if (Math.abs(o.r - 2.3) > 1e-9 || Math.abs(inn.r - 1.1) > 1e-9) fail("hex " + i + " radii drifted");
+    if (Math.abs(o.r - 2.55) > 1e-9 || Math.abs(inn.r - 1.75) > 1e-9) fail("hex " + i + " radii drifted");
     if (o.x !== inn.x || o.z !== inn.z) fail("hex " + i + " outer/inner centers differ");
-    if (Math.abs((o.r - inn.r) - 1.2) > 1e-9) fail("wall is not 1.2 mm");
+    if (Math.abs((o.r - inn.r) - 0.8) > 1e-9) fail("wall is not 0.8 mm");
   }
-  const samples = [[0, 18.25], [7.2, 18.25], [-7.2, 18.25], [0, 12.7], [0, 23.8], [6.9, 12.7], [-6.9, 23.8]];
+  const samples = [[-8.6, 14.526], [8.6, 14.526], [-6.45, 18.25], [6.45, 18.25], [-8.6, 21.974], [8.6, 21.974], [0, 18.25]];
   for (const [x, z] of samples) {
     if (!outPolys.some((c) => inHex(x - c.x, z - c.z, c.r))) fail("face sample (" + x + "," + z + ") is outside the hex field");
   }
@@ -351,17 +351,23 @@ function auditV1652(doc) {
   const openMv = byId.get("cyp_open_mv");
   const z0 = openMv.call.arguments.translation.z;
   const z1 = z0 + openEx.call.arguments.extent.distance;
-  if (z0 > 12.45 || z1 < 24.05) fail("mouth tool Z[" + z0 + "," + z1 + "] does not cover the clip face");
+  if (z0 > 12.45 || z1 < 24.05) fail("mouth tool Z[" + z0 + "," + z1 + "] does not cover the clip");
   if (openEx.call.arguments.sketch_name) {
     const openRect = byId.get("cyp_open_r").call.arguments;
-    if (openRect.corner_hint.y > 10.41) fail("mouth tool cuts past the spine face");
+    if (openRect.anchor.y > 9.05 || openRect.corner_hint.y < 12) {
+      fail("mouth tool Y does not cut the rectangular lip through the spine");
+    }
   }
+  const keepEx = byId.get("cyp_hex_out_c0_ex");
+  const keepMv = byId.get("cyp_hex_out_mv");
+  const yKeep = yInterval({ extrude: keepEx, move: keepMv });
+  if (!(yKeep[0] < 9.05 && yKeep[1] > 12)) fail("hex keep Y[" + yKeep + "] does not run through the spine");
   const keep = byId.get("cut_cyp_hex_keep");
   const openCut = byId.get("cut_cyp_open");
   const tipCut = byId.get("cut_cyp_hex_tip");
   if (keep.call.arguments.tool_body_ids[0].$ref !== "cyp_ho_0_body") fail("keep tool is not the joined hex wall");
   if (openCut.call.arguments.target_body_id.$ref !== "clip_yp_body") fail("mouth cut missed the clip");
-  if (tipCut.call.arguments.tool_body_ids.length !== 27) fail("tip hole count is not 27");
+  if (tipCut.call.arguments.tool_body_ids.length !== 14) fail("tip hole count is not 14");
   const order = doc.steps.map((s) => s.id);
   if (!(order.indexOf("cut_cyp_hex_keep") < order.indexOf("cut_cyp_open") && order.indexOf("cut_cyp_open") < order.indexOf("cut_cyp_hex_tip"))) {
     fail("clip cuts are out of order");
@@ -377,7 +383,7 @@ function auditV1652(doc) {
 
 function main() {
   const { text, doc } = load();
-  if (!doc.name.includes("v16.52")) fail(`document name is not v16.52: ${doc.name}`);
+  if (!doc.name.includes("v16.55")) fail(`document name is not v16.55: ${doc.name}`);
   if (text.includes('"id": "cyp_hpad') || text.includes('"name": "cyp_hpad')) {
     fail("cyp_hpad full-face pad is still a feature");
   }
@@ -401,7 +407,7 @@ function main() {
     for (const msg of failures) console.error("FAIL " + msg);
     process.exit(1);
   }
-  console.log("PASS v16.52 full-face blind hex audit");
+  console.log("PASS v16.55 wider hex audit");
   return;
 
   const byId = indexSteps(doc);
@@ -778,7 +784,7 @@ function main() {
   const ring = clipRings[0];
   const rc = ring.outer.r * (2 / Math.sqrt(3));
   const lipDepth = SPINE_Y0 - CLAMP_Y;
-  console.log("PASS v16.52 full-face blind hex audit");
+  console.log("PASS v16.55 wider hex audit");
   console.log(
     `cells=8 wall=${(ring.outer.r - ring.inner.r).toFixed(2)}mm FF=${(2 * ring.inner.r).toFixed(2)} ` +
       `clamp_Y=${CLAMP_Y} wall_only_Y=[${CLAMP_Y},${SPINE_Y0}] lip_depth=${lipDepth.toFixed(2)} ` +

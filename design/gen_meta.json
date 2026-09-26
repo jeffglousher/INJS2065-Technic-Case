@@ -1,6 +1,6 @@
 {
-  "version": "16.52",
-  "architecture": "clamshell_v16_52_full_face_walls",
+  "version": "16.55",
+  "architecture": "clamshell_v16_55_wider_hex",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -1245,9 +1245,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.52",
-  "revision": "v16.52",
-  "notes": "v16.52: 27 hex cells cover the clip face. Walls 1.2 mm, rotation 30 deg (flats along Z). Blind pockets stop at the spine, Y about 10.45, and do not cut through. Land grooves share those centers with +0.2 mm. No lattice join. Side Technic unchanged.",
+  "VERSION": "16.55",
+  "revision": "v16.55",
+  "notes": "v16.55: hex field widened by one column each side (14 cells). Clamshell A/B grooves use those cells clipped to pocket X[-7.55, 7.55] and split at Z=18.25. Wall 0.8 mm. Blind pockets. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
