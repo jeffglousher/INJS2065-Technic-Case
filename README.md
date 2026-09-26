@@ -1,13 +1,13 @@
 # INJS2065 Technic Case
 
-**Current revision: v16.51** — hex walls are leftovers of the open-C tip on the Y=9.05 clamp face. v16.50 extruded the XZ tools the wrong way, into the air in front of that face, so the mouth cut left an empty C. Envelope X[-7.5,7.5], Z[12.45,24.05] on split_z=18.25. Matching A/B land grooves. No full-face pad. No lattice join. Shell [-12,28]×[±12]. Side Technic holes unchanged. See `design/`.
+**Current revision: v16.52** — thin hex walls cover the whole clip face and stop at the spine. No through-cut. Envelope X[-7.5,7.5], Z[12.45,24.05] on split_z=18.25. Matching A/B land grooves. No lattice join. Shell [-12,28]×[±12]. Side Technic holes unchanged. See `design/`.
 
 ## Parts
 - ClamshellA (blue lower), ClamshellB (green upper), OutputHub, BuckleClipYP/YM
 - Purchased proxies: Servo body, MR128 bearing
 
 ## Process
-- **SoT:** `design/design_v16_51.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.
+- **SoT:** `design/design_v16_52.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.
 - Audit: `node design/validate_clip_hex_walls.cjs`
-- Branch: `cursor/v16-50-merged-clamp-tip-8ae1` (parent tip `cursor/v16-49-single-sketch-hex-3694`)
+- Branch: repo default `cad-bot/v16.8-session-handover`
 - Fits: journal **Ø7.94**, face hole **Ø8.15**, BRG pocket **12.3**, CROSS_DEPTH **8.0**
