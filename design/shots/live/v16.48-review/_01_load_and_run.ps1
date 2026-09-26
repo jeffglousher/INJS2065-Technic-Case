@@ -18,7 +18,7 @@ $log = Join-Path $outDir '_load_run.log'
 function Write-Log([string]$m) {
   $line = "$(Get-Date -Format o) $m"
   Add-Content -Path $log -Value $line
-  Write-Output $line
+  Write-Host $line
 }
 Add-Type @"
 using System;

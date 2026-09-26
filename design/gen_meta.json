@@ -1,6 +1,6 @@
 {
-  "version": "16.50",
-  "architecture": "clamshell_v16_50_merged_clamp_tip_hex",
+  "version": "16.51",
+  "architecture": "clamshell_v16_51_clamp_face_hex",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -1163,7 +1163,8 @@
     "16.45": "v16.45: reject solid hex bosses; honeycomb WALL lattice on clip clamp face (pad 1.2 mm Y[9.2,10.4] + cut open pointy-top cells); wall 1.2 mm (3 perimeters @0.4 nozzle); cell FF 2.8 / land openings FF 3.0 (+0.2 CLR) depth 1.35; rot 0\u00b0 vertical flats // Z; staggered 8-cell field; keep open-C outer lip; no inner xbars; solid_mirror \u2212Y; CLIP_Z=[12.45,24.05] split_z; CLIP_X=[-7.5,7.5]; shell[-12,28]\u00d7\u00b112.",
     "16.48": "v16.48: coplanar clamp face — hex tips at lip Y=9.05; depth to spine 1.35 mm matches lips; through-spine open centers; land grooves Y±[9.05,10.55]; no full-face pad; side Technic unchanged.",
     "16.49": "v16.49: same coplanar geometry as v16.48, rebuilt as one out-pattern sketch + one join extrude and one in-pattern sketch + one cut (clip; land the same per A/B half). Nested rings in one sketch rejected — overlapping hexes are sibling faces, not holes. Side Technic unchanged.",
-    "16.50": "v16.50: reject the joined hex plate. Mouth tool minus the outer-hex keep-tool, then that remainder cuts the open-C blank; inner hexes cut the same blank. Wall-only Y[9.05,10.4] equals the lip. Footprint continues as the spine (no plate back at 10.8). Land grooves and side Technic unchanged."
+    "16.50": "v16.50: reject the joined hex plate. Mouth tool minus the outer-hex keep-tool, then that remainder cuts the open-C blank; inner hexes cut the same blank. Wall-only Y[9.05,10.4] equals the lip. Footprint continues as the spine (no plate back at 10.8). Land grooves and side Technic unchanged.",
+    "16.51": "v16.51: same merge as v16.50, with XZ extrudes flipped so they grow toward +Y. Outer keep Y[8.5,10.45] overcuts the mouth; inner cutters Y[8.85,12.25] pass through the blank. Land grooves land on Y[9.05,10.55] and Y[-10.55,-9.05]. v16.50 left flip false, so those solids sat in the air and the clamp face had no hex."
   },
   "steps": 1121,
   "step_kinds": {
@@ -1244,9 +1245,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.50",
-  "revision": "v16.50",
-  "notes": "v16.50: merged clamp tip. Hex walls are leftovers of the open-C blank (mouth tool minus outer-hex keep-tool, then inner hexes cut the same body). No lattice join. Wall-only Y[9.05,10.4] = lip depth 1.35 mm; footprint continues as the spine through Y=12. Land +Y[9.05,10.55] / −Y[-10.55,-9.05]. Nested outer+inner in one sketch still does not form rings. Side Technic unchanged.",
+  "VERSION": "16.51",
+  "revision": "v16.51",
+  "notes": "v16.51: clamp-face hex. Same v16.50 merge, XZ extrudes flipped toward +Y so the keep-tool is Y[8.5,10.45] and the inner cutters are Y[8.85,12.25]. Hex walls are leftovers of the open-C blank. No lattice join. Wall-only Y[9.05,10.4] = lip depth 1.35 mm; footprint continues as the spine through Y=12. Land +Y[9.05,10.55] / −Y[-10.55,-9.05]. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [

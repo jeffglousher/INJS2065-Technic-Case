@@ -1,12 +1,13 @@
-# Session handover — v16.50
+# Session handover — v16.51
 
 ## Construction (this cut)
 - **Jeff 2026-09-22 reject:** v16.49 is a clip plus a hex plate. The mouth is empty Y[9.05, 10.4]; the lattice Y[9.05, 10.8] is joined on. Not proud of the clamp plane. Proud of the spine, as a separate plate (0.4 mm tongue; middle row misses both legs).
 - **Path:** one blank (`cyp_out`). Outer hexes are a keep-tool (27 faces, `join` into one tool body) cut out of the mouth tool, with 0.05 mm Y overcut. `cut_cyp_open` then removes only the mouth outside those walls. `cut_cyp_hex_tip` cuts the eight inner hexes through that same blank (walls, lip overlap, spine). No lattice join.
+- **Jeff 2026-09-25:** v16.50 shots have no hex on the clamp face. XZ normal is world -Y. Those extrudes now set flip true so the keep-tool is Y[8.5,10.45] and the inner cutters are Y[8.85,12.25]. Land extrudes use the same flip so the grooves sit on the specified intervals.
 - **Nested sketch:** still not rings on noBS CAD 0.2.0 (v16.49 discovery). Out and in stay two sketches. The out sketch is only the keep-tool.
 - **Land:** unchanged. Same doctrine per A/B half. Middle cells 3 and 4 in both halves.
 - **−Y:** `solid_mirror` of the finished +Y clip. Side Technic untouched.
-- Review explode only: `design/design_v16_50_review_explode.nbcad.jsonc` (±14 Y). Not SoT.
+- Review explode only: `design/design_v16_51_review_explode.nbcad.jsonc` (±14 Y). Not SoT.
 
 ## Geometry
 - **Clip Z:** mate-centered `split_z=18.25`; `CLIP_Z=[12.45, 24.05]` equal ±5.8 A/B; `CLIP_X=[-7.5, 7.5]`.
@@ -18,7 +19,7 @@
 - **Print:** YZ on the bed, build +X.
 
 ## Parent next
-1. Blank-doc script replay `design/design_v16_50.nbcad.jsonc` on Thunder (`cad_interface` action `script`, mode `fast`). This run did not replay live CAD.
+1. Blank-doc script replay `design/design_v16_51.nbcad.jsonc` on Thunder (`cad_interface` action `script`, mode `fast`).
 2. Live-check one body: clamp face is lips + hex walls, no separate plate in the mouth, eight open centers through the spine, A/B grooves nest, no full-face pad.
 3. `node design/validate_clip_hex_walls.cjs` passes offline. It does not replace a Thunder replay.
 

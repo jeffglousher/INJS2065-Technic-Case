@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * v16.50 merged clamp-tip hex audit.
+ * v16.51 clamp-face hex audit.
+ * XZ origin extrudes grow along world -Y. flip true is required so the tools
+ * occupy the documented +Y intervals instead of the air in front of the face.
  * Parses the JSONC tip and checks the boolean construction, not comments.
  * Circumscribed sketch radius is the hex apothem. rotation 0 is pointy-top
  * (vertex along sketch +Y = world +Z, vertical flats parallel to Z).
@@ -21,7 +23,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const TIP = path.join(__dirname, "design_v16_50.nbcad.jsonc");
+const TIP = path.join(__dirname, "design_v16_51.nbcad.jsonc");
 const SPLIT_Z = 18.25;
 const CLIP_X0 = -7.5;
 const CLIP_X1 = 7.5;
@@ -102,9 +104,12 @@ function hexAt(cells, x, z, apothem) {
 }
 
 function yInterval(part) {
-  const ext = part.extrude.call.arguments.extent.distance;
+  const args = part.extrude.call.arguments;
+  const ext = args.extent.distance;
   const y0 = part.move.call.arguments.translation.y;
-  return [y0, y0 + ext];
+  // XZ origin normal is world -Y. flip true grows toward +Y.
+  if (args.flip === true) return [y0, y0 + ext];
+  return [y0 - ext, y0];
 }
 
 function load() {
@@ -315,7 +320,7 @@ function floodEmpty(grid) {
 
 function main() {
   const { text, doc } = load();
-  if (!doc.name.includes("v16.50")) fail(`document name is not v16.50: ${doc.name}`);
+  if (!doc.name.includes("v16.51")) fail(`document name is not v16.51: ${doc.name}`);
   if (text.includes('"id": "cyp_hpad') || text.includes('"name": "cyp_hpad')) {
     fail("cyp_hpad full-face pad is still a feature");
   }
@@ -385,6 +390,9 @@ function main() {
   if (!outEx || !inEx || !outMv || !inMv) fail("clip pattern extrude/move is missing");
   let clipRings = [];
   if (outEx && inEx && outMv && inMv && outPolys.length === 8 && inPolys.length === 8) {
+    if (outEx.call.arguments.flip !== true || inEx.call.arguments.flip !== true) {
+      fail("clip hex extrudes must set flip true; XZ normal is -Y and flip false parks the tools in front of the clamp face");
+    }
     const yOut = yInterval({ extrude: outEx, move: outMv });
     const yIn = yInterval({ extrude: inEx, move: inMv });
     if (outEx.call.arguments.sketch_name !== "cyp_hex_out" || inEx.call.arguments.sketch_name !== "cyp_hex_in") {
@@ -601,6 +609,9 @@ function main() {
       fail(`${outName} extrude/move missing`);
       continue;
     }
+    if (outExL.call.arguments.flip !== true || inExL.call.arguments.flip !== true) {
+      fail(`${outName} extrudes must set flip true so the groove stays on the clamp-face interval`);
+    }
     const yOut = yInterval({ extrude: outExL, move: outMvL });
     const yIn = yInterval({ extrude: inExL, move: inMvL });
     if (Math.abs(yOut[0] - y0) > 1e-9 || Math.abs(yOut[1] - y1) > 1e-9) {
@@ -702,7 +713,7 @@ function main() {
   const ring = clipRings[0];
   const rc = ring.outer.r * (2 / Math.sqrt(3));
   const lipDepth = SPINE_Y0 - CLAMP_Y;
-  console.log("PASS v16.50 merged clamp-tip hex audit");
+  console.log("PASS v16.51 clamp-face hex audit");
   console.log(
     `cells=8 wall=${(ring.outer.r - ring.inner.r).toFixed(2)}mm FF=${(2 * ring.inner.r).toFixed(2)} ` +
       `clamp_Y=${CLAMP_Y} wall_only_Y=[${CLAMP_Y},${SPINE_Y0}] lip_depth=${lipDepth.toFixed(2)} ` +

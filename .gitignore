@@ -15,3 +15,9 @@ Thumbs.db
 /v16.*/
 prepare_v16_*.py
 
+# Local CAD session dumps and live review captures. The source of truth is design/*.nbcad.jsonc.
+design/_*
+design/mcp_*.js
+design/run_jsonc_mcp.js
+design/shots/live/**
+

@@ -2,23 +2,23 @@
 
 ## Source of truth
 - **SoT = JSONC scripts** — edit `design/*.nbcad.jsonc` directly with normal edit tools. Prefer small chunked JSONC (or chaptered includes when product supports).
-- Canonical tip file: `design/design_v16_50.nbcad.jsonc` (filename from VERSION). Replay that path on a **blank** document (`cad_interface` action `script`, `mode: fast`).
+- Canonical tip file: `design/design_v16_51.nbcad.jsonc` (filename from VERSION). Replay that path on a **blank** document (`cad_interface` action `script`, `mode: fast`).
 - MCP one-step only for tiny live tweaks, then sync JSONC ASAP.
 - Open the latest `.nbcad` export (after live save) for live inspection / tiny MCP tweaks.
 - Do **not** create new `v16.N` folders — commit on git branches instead.
 - Do **not** use Python generators (`gen_v*.py`) as design SoT. No `gen_v*.py` stack.
 
 ## Versioning
-Version: 16.50
-- Working git branch: `cursor/v16-50-merged-clamp-tip-8ae1` (not merged). Previous tip branch: `cursor/v16-49-single-sketch-hex-3694`.
-- Construction (v16.50): the open-C blank is the tip. Outer hexes are a keep-tool cut out of the mouth tool; only the remainder cuts the blank, so honeycomb walls are leftovers of that one solid and share the Y=9.05 clamp face with the lips. Inner hexes then cut the same body through the walls and the spine. No lattice join. Nested outer+inner hexes in one sketch still do not form ring profiles (noBS CAD 0.2.0: sibling faces at depth 0). Land grooves unchanged, same doctrine per A/B half. Middle cells 3 and 4 stay in both halves. −Y clip remains `solid_mirror`. Wall-only depth equals the lip (Y[9.05, 10.4]); the wall footprint continues as the spine, so the old Y=10.8 plate back face is gone.
+Version: 16.51
+- Working git branch: `cursor/v16-51-clamp-face-hex` (not merged). Previous tip branch: `cursor/v16-50-merged-clamp-tip-8ae1`.
+- Construction (v16.51): same v16.50 merge (open-C blank, outer hexes a keep-tool cut out of the mouth tool, inner hexes cut that same body). XZ extrudes grow toward +Y (`flip: true`) so the keep-tool is Y[8.5, 10.45], the inner cutters are Y[8.85, 12.25], and the land grooves sit on Y[9.05, 10.55] and Y[-10.55, -9.05]. v16.50 left `flip: false`, which parked those solids in the air in front of the blank, so the clamp face had no hex. Nested outer+inner hexes in one sketch still do not form ring profiles (noBS CAD 0.2.0: sibling faces at depth 0). Middle cells 3 and 4 stay in both halves. −Y clip remains `solid_mirror`. Wall-only depth equals the lip (Y[9.05, 10.4]); the wall footprint continues as the spine.
 - Keep one authoritative `VERSION` / `DESIGN_VERSION` string: matching one-line `Version: M.N` in this document + embedded in the JSONC header/metadata + `design/gen_meta.json` `version` field. Do not retype divergent strings.
-- Filenames from VERSION — preferred `design/design_v{M_N}.nbcad.jsonc` (e.g. `design_v16_50.nbcad.jsonc`). That versioned file is the SoT and the replay entry. Do not keep a parallel unversioned recipe name (`injs2065-technic-clamshell.nbcad.jsonc`) as SoT.
+- Filenames from VERSION — preferred `design/design_v{M_N}.nbcad.jsonc` (e.g. `design_v16_51.nbcad.jsonc`). That versioned file is the SoT and the replay entry. Do not keep a parallel unversioned recipe name (`injs2065-technic-clamshell.nbcad.jsonc`) as SoT.
 - **Prune on cut** — when cutting a new version, write new `design_vM_N.nbcad.jsonc`, update meta / this Version line, delete prior `design_v*.nbcad.jsonc` and any leftover `gen_v*.py`. Git keeps history. **No gen_v*.py stack.**
 - Optional versioned 3MF/`.nbcad` exports may include VERSION in their names when Jeff asks for an export.
 
 ## MCP vs JSONC
-- Non-trivial: edit versioned JSONC → blank-doc script replay of `design/design_v16_50.nbcad.jsonc` (or current `design_v{M_N}`).
+- Non-trivial: edit versioned JSONC → blank-doc script replay of `design/design_v16_51.nbcad.jsonc` (or current `design_v{M_N}`).
 - Tiny live tweak: MCP one-step, then sync JSONC ASAP (hand-patch until bi-di export ships in the CAD build you run).
 - `cad_script` today = forward MCP call dump only — not a JSONC exporter.
 - WIP product branch (source): `jackControls/noBS-CAD` `feat/jsonc-roundtrip-and-script-collections` (includes + `export_script`). **Not** in the installed 0.2.0 release yet — rebuild/restart CAD+MCP from that branch to use it.

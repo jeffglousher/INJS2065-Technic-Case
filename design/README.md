@@ -1,4 +1,14 @@
+## v16.51
+
+- **Jeff 2026-09-25:** v16.50 live shots are an open C with no hex on the clamp face. The XZ keep-tool and hole cutters were extruded along -Y into the air, so they never met the blank.
+- flip true on the clip hex extrudes and the land-groove extrudes. Same translations now occupy outer keep Y[8.5,10.45], inner holes Y[8.85,12.25], land +Y[9.05,10.55] and -Y[-10.55,-9.05].
+- Walls stay leftovers of the one blank. No lattice join. Wall-only depth Y[9.05,10.4]. Side Technic unchanged.
+- Review explode (not SoT): `design/design_v16_51_review_explode.nbcad.jsonc` moves clips ±14 mm in Y.
+- Audit: `node design/validate_clip_hex_walls.cjs`
+
 ## v16.50
+
+- Superseded by v16.51. The keep-tool boolean was the right shape, but flip false parked it in front of the clamp face.
 
 - **Jeff 2026-09-22 reject of v16.49:** the clip was an open C plus a separate hex-pattern extrusion. `cyp_open` emptied the mouth in front of the spine, then a lattice Y[9.05, 10.8] was joined on. That lattice is a plate in the mouth (0.4 mm spine tongue; middle row never meets a leg). It does not stick past the clamp plane.
 - **Merge:** outer hexes are a keep-tool cut out of the mouth tool (0.05 mm Y overcut). Only the remainder cuts the blank, so the walls are leftovers of the open-C tip. Inner hexes cut that same body through the walls and the spine. No lattice join. Lips and hex share the blank face Y=9.05.
@@ -76,6 +86,6 @@ Jeff feedback on v16.38: cut oversized 8–16 mm margins to half-pitch **4 mm** 
 | Ends ±X Technic | — | deferred | −X nest/cav risk; +X clear but no prior template |
 
 ## Replay
-- **Canonical:** `design/design_v16_50.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
-- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.50`).
+- **Canonical:** `design/design_v16_51.nbcad.jsonc` — edit with normal tools; blank-doc replay this path.
+- Companion: `gen_meta.json` (`version` must match AGENTIC `Version: 16.51`).
 - Audit: `node design/validate_clip_hex_walls.cjs`
