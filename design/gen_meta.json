@@ -1,6 +1,6 @@
 {
-  "version": "16.57",
-  "architecture": "clamshell_v16_57_hex_floor",
+  "version": "16.58",
+  "architecture": "clamshell_v16_58",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -28,7 +28,7 @@
     "tab_x0": -9.2,
     "tab_x1": 20.6,
     "cav_x": [
-      -6.0,
+      -6.3,
       17.4
     ],
     "cav_y": [
@@ -72,7 +72,7 @@
         16.82,
         19.68
       ],
-      "body_cav_x0": -6.0,
+      "body_cav_x0": -6.3,
       "body_cav_x1": 17.4,
       "outer_wall_past_far_tip_mm": 7.0,
       "note": "Shared named refs; both ears pocketed with TAB_CLR/TIP_WALL/ROOT_PAD; far_end_open=false"
@@ -1147,7 +1147,8 @@
     "16.49": "v16.49: same coplanar geometry as v16.48, rebuilt as one out-pattern sketch + one join extrude and one in-pattern sketch + one cut (clip; land the same per A/B half). Nested rings in one sketch rejected — overlapping hexes are sibling faces, not holes. Side Technic unchanged.",
     "16.50": "v16.50: reject the joined hex plate. Mouth tool minus the outer-hex keep-tool, then that remainder cuts the open-C blank; inner hexes cut the same blank. Wall-only Y[9.05,10.4] equals the lip. Footprint continues as the spine (no plate back at 10.8). Land grooves and side Technic unchanged.",
     "16.51": "v16.51: same merge as v16.50, with XZ extrudes flipped so they grow toward +Y. Outer keep Y[8.5,10.45] overcuts the mouth; inner cutters Y[8.85,12.25] pass through the blank. Land grooves land on Y[9.05,10.55] and Y[-10.55,-9.05]. v16.50 left flip false, so those solids sat in the air and the clamp face had no hex.",
-    "16.57": "v16.57: 14 hex cells, 0.8 mm walls, 3.5 mm openings, rotation 30 deg, pockets blind at the spine face. Shell floor keeps hex bosses and cuts wall rings 0.2 mm loose. Locating pins at X=-8.4 and X=24.4, Y=±9.4."
+    "16.57": "v16.57: 14 hex cells, 0.8 mm walls, 3.5 mm openings, rotation 30 deg, pockets blind at the spine face. Shell floor keeps hex bosses and cuts wall rings 0.2 mm loose. Locating pins at X=-8.4 and X=24.4, Y=±9.4.",
+    "16.58": "v16.58: one 12.3 mm bearing bore in the upper shell, Z[26, 37.95], face hole 8.15 mm. Cavity near wall moved to X=-6.3 so the bore does not nick it. Dropped the duplicate hub flange and the side-pin tip cutters that sat in the empty cavity."
   },
   "steps": 1121,
   "step_kinds": {
@@ -1228,9 +1229,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.57",
-  "revision": "v16.57",
-  "notes": "v16.57: 14-cell clip hex, 0.8 mm walls, 3.5 mm openings, blind to the spine face. Shell floor keeps hex bosses with 0.2 mm wall clearance. Locating pins at the corners. Side Technic unchanged.",
+  "VERSION": "16.58",
+  "revision": "v16.58",
+  "notes": "v16.58: one upper bearing bore, 12.3 mm from Z=26 to Z=37.95, face hole 8.15 mm. Cavity near wall at X=-6.3. Side-pin lead-ins stay; the unused tip cutters in the cavity are gone.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * v16.57 clip hex audit.
+ * v16.58 clip hex audit.
  * 14 cells, rotation 30 deg, wall 0.8 mm, open flat-to-flat 3.5 mm.
  * Inner pockets are blind and stop at the spine face.
  * XZ origin extrudes grow along world -Y; flip true is required.
@@ -12,19 +12,19 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const TIP = path.join(__dirname, "design_v16_57.nbcad.jsonc");
+const TIP = path.join(__dirname, "design_v16_58.nbcad.jsonc");
 // Technic side-hole steps, in document order. Hash is the v16.48 baseline.
 const SIDE_IDS = [
-  "cb_side_1_1_0",
-  "cb_side_1_1_1",
-  "cb_side_1_-1_0",
-  "cb_side_1_-1_1",
-  "cb_side_1_1_3",
-  "cb_side_1_1_4",
-  "cb_side_1_-1_3",
-  "cb_side_1_-1_4",
+  "Side hole x-8 +Y",
+  "Side hole x8 +Y",
+  "Side hole x-8 -Y",
+  "Side hole x8 -Y",
+  "Side hole x16 +Y",
+  "Side hole x24 +Y",
+  "Side hole x16 -Y",
+  "Side hole x24 -Y",
 ];
-const SIDE_SHA256 = "407e95783a0fa9c1d3468c1684bdb170f06a1d2b3c5342d3136fb108d99d79ee";
+const SIDE_SHA256 = "b22b63a87f1e6f83501a6a1ff087a265313f0a465c69aca571483e48b373caa8";
 
 const failures = [];
 function fail(msg) {
@@ -56,8 +56,10 @@ function canonicalJson(value) {
 
 function sideHoleOps(doc) {
   return doc.steps.filter((step) => {
-    if (step.id && /^cb_side/.test(step.id)) return true;
-    if (step.let && Object.keys(step.let).some((key) => /^cb_side/.test(key))) return true;
+    if (step.id && step.id.startsWith("Side hole ")) return true;
+    if (step.let && Object.keys(step.let).some((key) => key.startsWith("Side hole ") && key.endsWith(" face"))) {
+      return true;
+    }
     return false;
   });
 }
@@ -105,15 +107,28 @@ function polygonOf(step) {
   };
 }
 
+function sketchBounds(doc, sketchName) {
+  const begin = doc.steps.findIndex(
+    (s) => s.call && s.call.operation === "sketch_begin" && s.call.arguments.name === sketchName
+  );
+  const finish = doc.steps.findIndex(
+    (s, index) => index > begin && s.call && s.call.operation === "sketch_finish"
+  );
+  return { begin, finish };
+}
+
 function polygonsOfSketch(doc, sketchName) {
-  const begin = doc.steps.findIndex((s) => s.id === `${sketchName}_begin`);
-  const finish = doc.steps.findIndex((s) => s.id === `${sketchName}_finish`);
+  const { begin, finish } = sketchBounds(doc, sketchName);
   if (begin < 0 || finish < begin) {
     fail(`sketch ${sketchName} is missing begin/finish`);
     return [];
   }
   const beginName = doc.steps[begin].call.arguments.name;
-  if (beginName !== sketchName) fail(`${sketchName} begin name is ${beginName}`);
+  if (!beginName) fail(`${sketchName} sketch has no name`);
+  const used = doc.steps.some(
+    (step) => step.call && step.call.arguments && step.call.arguments.sketch_name === beginName
+  );
+  if (!used) fail(`${sketchName} sketch name ${beginName} is not used by a feature`);
   const plane = doc.steps[begin].call.arguments.plane;
   if (!plane || plane.plane !== "xz") fail(`${sketchName} is not an XZ sketch`);
   const polys = [];
@@ -126,10 +141,21 @@ function polygonsOfSketch(doc, sketchName) {
 }
 
 
+function featureFor(doc, sketchName, operation) {
+  return doc.steps.find(
+    (step) => step.call && step.call.operation === operation && step.call.arguments.sketch_name === sketchName
+  );
+}
+
+function moveAfter(doc, feature) {
+  const index = doc.steps.indexOf(feature);
+  return doc.steps.slice(index + 1).find((step) => step.call && step.call.operation === "solid_move_copy");
+}
+
 function auditV1652(doc) {
-  const byId = indexSteps(doc);
-  const outPolys = doc.steps.filter((s) => s.id && /^cyp_ho_\d+_poly$/.test(s.id)).map(polygonOf);
-  const inPolys = polygonsOfSketch(doc, "cyp_hex_in");
+  const outPolys = [];
+  for (let n = 1; n <= 14; n++) outPolys.push(...polygonsOfSketch(doc, "Clip +Y hex wall " + n));
+  const inPolys = polygonsOfSketch(doc, "Clip +Y hex pockets");
   if (outPolys.length !== 14 || inPolys.length !== 14) {
     fail("clip hex field is " + outPolys.length + "/" + inPolys.length + ", want 14 walls and 14 blind pockets");
     return;
@@ -146,43 +172,45 @@ function auditV1652(doc) {
   for (const [x, z] of samples) {
     if (!outPolys.some((c) => inHex(x - c.x, z - c.z, c.r))) fail("face sample (" + x + "," + z + ") is outside the hex field");
   }
-  const inEx = byId.get("cyp_hex_in_ex");
-  const inMv = byId.get("cyp_hex_in_mv");
+  const inEx = featureFor(doc, "Clip +Y hex pockets", "solid_extrude");
+  const inMv = moveAfter(doc, inEx);
   const yIn = yInterval({ extrude: inEx, move: inMv });
   if (inEx.call.arguments.flip !== true) fail("inner pockets must flip true");
   if (!(yIn[0] < 9.05 && yIn[1] <= 10.45 && yIn[1] >= 10.35)) {
     fail("inner pockets Y[" + yIn + "] are not a blind cut ending on the spine face");
   }
   if (yIn[1] > 11) fail("inner pockets bore into the spine");
-  const openEx = byId.get("cyp_open_ex");
-  const openMv = byId.get("cyp_open_mv");
+  const openEx = featureFor(doc, "Clip +Y mouth", "solid_extrude");
+  const openMv = moveAfter(doc, openEx);
   const z0 = openMv.call.arguments.translation.z;
   const z1 = z0 + openEx.call.arguments.extent.distance;
   if (z0 > 12.45 || z1 < 24.05) fail("mouth tool Z[" + z0 + "," + z1 + "] does not cover the clip");
   if (openEx.call.arguments.sketch_name) {
-    const openRect = byId.get("cyp_open_r").call.arguments;
+    const openRect = doc.steps.find(
+      (step) => step.call && step.call.operation === "sketch_add_rectangle_locked" && step.id.startsWith("Clip +Y mouth")
+    ).call.arguments;
     if (openRect.anchor.y > 9.05 || openRect.corner_hint.y < 12) {
       fail("mouth tool Y does not cut the rectangular lip through the spine");
     }
   }
-  const keepEx = byId.get("cyp_hex_out_c0_ex");
-  const keepMv = byId.get("cyp_hex_out_mv");
+  const keepEx = featureFor(doc, "Clip +Y hex wall 1", "solid_extrude");
+  const keepMv = doc.steps.find((step) => step.id === "Move Clip +Y hex walls");
   const yKeep = yInterval({ extrude: keepEx, move: keepMv });
   if (!(yKeep[0] < 9.05 && yKeep[1] > 12)) fail("hex keep Y[" + yKeep + "] does not run through the spine");
-  const keep = byId.get("cut_cyp_hex_keep");
-  const openCut = byId.get("cut_cyp_open");
-  const tipCut = byId.get("cut_cyp_hex_tip");
-  if (keep.call.arguments.tool_body_ids[0].$ref !== "cyp_ho_0_body") fail("keep tool is not the joined hex wall");
-  if (openCut.call.arguments.target_body_id.$ref !== "clip_yp_body") fail("mouth cut missed the clip");
+  const keep = doc.steps.find((step) => step.id === "Keep Clip +Y hex walls");
+  const openCut = doc.steps.find((step) => step.id === "Cut Clip +Y mouth");
+  const tipCut = doc.steps.find((step) => step.id === "Cut Clip +Y hex pockets");
+  if (keep.call.arguments.tool_body_ids[0].$ref !== "Clip +Y hex wall 1 body") fail("keep tool is not the joined hex wall");
+  if (openCut.call.arguments.target_body_id.$ref !== "Buckle clip +Y") fail("mouth cut missed the clip");
   if (tipCut.call.arguments.tool_body_ids.length !== 14) fail("tip hole count is not 14");
   const order = doc.steps.map((s) => s.id);
-  if (!(order.indexOf("cut_cyp_hex_keep") < order.indexOf("cut_cyp_open") && order.indexOf("cut_cyp_open") < order.indexOf("cut_cyp_hex_tip"))) {
+  if (!(order.indexOf("Keep Clip +Y hex walls") < order.indexOf("Cut Clip +Y mouth") && order.indexOf("Cut Clip +Y mouth") < order.indexOf("Cut Clip +Y hex pockets"))) {
     fail("clip cuts are out of order");
   }
   for (const step of doc.steps) {
     if (!step.call || step.call.operation !== "solid_combine") continue;
     const args = step.call.arguments;
-    if (args.operation === "join" && args.target_body_id && args.target_body_id.$ref === "clip_yp_body") {
+    if (args.operation === "join" && args.target_body_id && args.target_body_id.$ref === "Buckle clip +Y") {
       fail("a body is joined onto the clip");
     }
   }
@@ -190,7 +218,7 @@ function auditV1652(doc) {
 
 function main() {
   const { text, doc } = load();
-  if (!doc.name.includes("v16.57")) fail(`document name is not v16.57: ${doc.name}`);
+  if (!doc.name.includes("v16.58")) fail(`document name is not v16.58: ${doc.name}`);
   if (text.includes('"id": "cyp_hpad') || text.includes('"name": "cyp_hpad')) {
     fail("cyp_hpad full-face pad is still a feature");
   }
@@ -206,7 +234,7 @@ function main() {
   }
   const sideHash = crypto.createHash("sha256").update(canonicalJson(sideOps)).digest("hex");
   if (sideHash !== SIDE_SHA256) {
-    fail(`Technic side-hole ops differ from the v16.48 baseline (hash ${sideHash})`);
+    fail(`Technic side-hole ops changed (hash ${sideHash})`);
   }
 
   auditV1652(doc);
@@ -214,7 +242,7 @@ function main() {
     for (const msg of failures) console.error("FAIL " + msg);
     process.exit(1);
   }
-  console.log("PASS v16.57 hex-floor audit");
+  console.log("PASS v16.58 hex-floor audit");
 }
 
 main();
