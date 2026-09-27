@@ -1,6 +1,6 @@
 {
-  "version": "16.55",
-  "architecture": "clamshell_v16_55_wider_hex",
+  "version": "16.57",
+  "architecture": "clamshell_v16_57_hex_floor",
   "clamp_path": "open_c_over_central_land",
   "printed_parts": [
     "ClamshellA",
@@ -189,7 +189,7 @@
     "SOCK_DEPTH": 0.8999999999999999,
     "nub_xy_A": [
       [
-        8.4,
+        24.4,
         9.4
       ],
       [
@@ -199,7 +199,7 @@
     ],
     "sock_xy_A": [
       [
-        8.4,
+        24.4,
         -9.4
       ],
       [
@@ -387,15 +387,15 @@
       0.45,
       0.45
     ],
-    "expected_front_view": "Wider magenta clip (15 mm X) on split_z 18.25; open C (spine + legs); one coplanar clamp face — lips and 1.2 mm hex walls are leftovers of the same tip; open centers through spine; no full-face pad; no joined hex plate.",
-    "clip_z_center_note": "v16.50: clamp face is the blank front Y=9.05. Wall-only depth equals the lip (Y[9.05,10.4]). The wall footprint continues as the spine, so there is no separate plate ending at Y=10.8. CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25.",
+    "expected_front_view": "14-cell hex on the clip face, 0.8 mm walls, 3.5 mm openings, rotation 30 deg, pockets blind at the spine face. Shell floor keeps matching hex bosses.",
+    "clip_z_center_note": "CLIP_Z=[12.45,24.05]; CLIP_X=[-7.5,7.5]; mid-clip == split_z 18.25. Clamp face Y=9.05. Spine face Y=10.4.",
     "clip_z_datum": "split_z",
     "clip_engage_a_mm": 5.8,
     "clip_engage_b_mm": 5.8,
     "cross_member_count": 0,
     "cross_member_t_mm": 1.2,
     "cross_member_fillet_mm": 0.3,
-    "cross_member_note": "v16.50: inner xbars still absent. Hex walls are leftovers of the clip blank after the mouth is cut around the outer hexes and the cell holes are cut through. Not a joined lattice. Not a full-face pad.",
+    "cross_member_note": "No inner crossbars. Hex walls are leftovers of the clip blank. Cell pockets are blind at the spine face.",
     "spine_outer_y": 12.0,
     "chan_floor": 9.0,
     "slot_span_x": 7.42,
@@ -449,20 +449,19 @@
     "hex_interlock": true,
     "hex_pattern": {
       "style": "merged_clamp_tip_leftover_walls",
-      "construction": "clip: mouth tool minus cyp_hex_out keep-tool (27 depth-0 faces joined into one tool, 0.05 mm Y overcut), then that remainder cuts the blank. cyp_hex_in (8 disjoint inners) cuts the same blank through walls and spine. No lattice join. Nested outer+inner in one sketch still does not yield ring profiles (0.2.0 sibling faces, v16.49). Land: unchanged per A/B half (15-face join + 5-inner cut).",
-      "reject": "v16.49_joined_hex_plate_in_the_mouth_and_v16.46_full_face_pad",
+      "construction": "14 hex cells. Mouth tool minus the outer-hex keep, then that remainder cuts the blank. Inner hexes cut blind pockets that stop at the spine face. Shell floor keeps hex bosses and cuts only the wall rings, 0.2 mm loose.",
       "nozzle_mm": 0.4,
-      "wall_mm": 1.2,
-      "wall_perimeters": 3,
+      "wall_mm": 0.8,
+      "wall_perimeters": 2,
       "wall_mm_allowed": [
         0.8,
         1.6
       ],
-      "cell_flat_to_flat_mm": 2.2,
-      "cell_apothem_mm": 1.1,
-      "outer_apothem_mm": 2.3,
-      "land_groove_inner_apothem_mm": 0.9,
-      "land_groove_outer_apothem_mm": 2.5,
+      "cell_flat_to_flat_mm": 3.5,
+      "cell_apothem_mm": 1.75,
+      "outer_apothem_mm": 2.55,
+      "land_groove_inner_apothem_mm": 1.55,
+      "land_groove_outer_apothem_mm": 2.75,
       "land_opening_clr_mm": 0.2,
       "land_groove_y_yp": [
         9.05,
@@ -482,28 +481,11 @@
       ],
       "anchor_into_spine_mm": 0.0,
       "proud_of_spine_face_mm": 1.35,
-      "plate_back_y_removed": 10.8,
-      "pad_y_yp": null,
-      "rotation_deg": 0,
-      "orientation": "pointy_top_vertical_flats_parallel_Z",
+      "rotation_deg": 30,
+      "orientation": "flats_parallel_Z",
       "mode": "circumscribed",
-      "center_spacing_mm": 3.4,
-      "row_pitch_mm": 2.9445,
-      "cell_counts_note": "staggered 8 open rings; bottom row clamshell A, top row B, middle row split on 18.25",
-      "centers_x_even_rows": [
-        -3.4,
-        0.0,
-        3.4
-      ],
-      "centers_x_odd_rows": [
-        -1.7,
-        1.7
-      ],
-      "centers_z": [
-        15.3055,
-        18.25,
-        21.1945
-      ],
+      "cell_count": 14,
+      "cell_counts_note": "14 cells; pockets blind at the spine face",
       "face_span_xz_mm": [
         15.0,
         11.6
@@ -521,15 +503,15 @@
       "print_orient_note": "Clip YZ on bed, build along +X; vertical hex flats // Z for strength",
       "clamp_face_y": 9.05,
       "lip_hex_depth_to_spine_mm": 1.35,
-      "through_spine_open_centers": true,
-      "merge_note": "v16.50: wall-only Y[9.05,10.4] equals the lip. Footprint is the spine through Y=12, so Y=10.8 is inside one solid, not the back of a joined plate."
+      "through_spine_open_centers": false,
+      "blind_pocket_ends_at_spine_face": true
     },
     "honeycomb_verify": {
       "nozzle_mm": 0.4,
-      "wall_mm": 1.2,
-      "wall_perimeters": 3,
-      "cell_FF_mm": 2.2,
-      "rotation_deg": 0,
+      "wall_mm": 0.8,
+      "wall_perimeters": 2,
+      "cell_FF_mm": 3.5,
+      "rotation_deg": 30,
       "ring_y_yp": [
         9.05,
         12.0
@@ -542,7 +524,7 @@
         15.0,
         11.6
       ],
-      "cell_counts_X_x_Z": "3x3 staggered (8 open rings, no backing pad)",
+      "cell_counts_X_x_Z": "14 cells, blind pockets",
       "land_CLR_mm": 0.2,
       "print_orient": "YZ bed, build +X; vertical hex flats // Z",
       "clamp_face_y": 9.05,
@@ -1164,7 +1146,8 @@
     "16.48": "v16.48: coplanar clamp face — hex tips at lip Y=9.05; depth to spine 1.35 mm matches lips; through-spine open centers; land grooves Y±[9.05,10.55]; no full-face pad; side Technic unchanged.",
     "16.49": "v16.49: same coplanar geometry as v16.48, rebuilt as one out-pattern sketch + one join extrude and one in-pattern sketch + one cut (clip; land the same per A/B half). Nested rings in one sketch rejected — overlapping hexes are sibling faces, not holes. Side Technic unchanged.",
     "16.50": "v16.50: reject the joined hex plate. Mouth tool minus the outer-hex keep-tool, then that remainder cuts the open-C blank; inner hexes cut the same blank. Wall-only Y[9.05,10.4] equals the lip. Footprint continues as the spine (no plate back at 10.8). Land grooves and side Technic unchanged.",
-    "16.51": "v16.51: same merge as v16.50, with XZ extrudes flipped so they grow toward +Y. Outer keep Y[8.5,10.45] overcuts the mouth; inner cutters Y[8.85,12.25] pass through the blank. Land grooves land on Y[9.05,10.55] and Y[-10.55,-9.05]. v16.50 left flip false, so those solids sat in the air and the clamp face had no hex."
+    "16.51": "v16.51: same merge as v16.50, with XZ extrudes flipped so they grow toward +Y. Outer keep Y[8.5,10.45] overcuts the mouth; inner cutters Y[8.85,12.25] pass through the blank. Land grooves land on Y[9.05,10.55] and Y[-10.55,-9.05]. v16.50 left flip false, so those solids sat in the air and the clamp face had no hex.",
+    "16.57": "v16.57: 14 hex cells, 0.8 mm walls, 3.5 mm openings, rotation 30 deg, pockets blind at the spine face. Shell floor keeps hex bosses and cuts wall rings 0.2 mm loose. Locating pins at X=-8.4 and X=24.4, Y=±9.4."
   },
   "steps": 1121,
   "step_kinds": {
@@ -1245,9 +1228,9 @@
     ],
     "note": "8mm pitch grid on face Z=42; columns x={-8,8,16,24}; no bearing-adjacent (0,\u00b18); no pin at hub (0,0); shell edge 4 mm past \u00b1 outermost hole columns"
   },
-  "VERSION": "16.55",
-  "revision": "v16.55",
-  "notes": "v16.55: hex field widened by one column each side (14 cells). Clamshell A/B grooves use those cells clipped to pocket X[-7.55, 7.55] and split at Z=18.25. Wall 0.8 mm. Blind pockets. Side Technic unchanged.",
+  "VERSION": "16.57",
+  "revision": "v16.57",
+  "notes": "v16.57: 14-cell clip hex, 0.8 mm walls, 3.5 mm openings, blind to the spine face. Shell floor keeps hex bosses with 0.2 mm wall clearance. Locating pins at the corners. Side Technic unchanged.",
   "clip_placement": {
     "split_z": 18.25,
     "clip_z": [
