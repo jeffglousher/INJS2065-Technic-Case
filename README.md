@@ -1,13 +1,15 @@
 # INJS2065 Technic Case
 
-**Current revision: v16.58** — 14-cell clip hex, one upper bearing bore (12.3 mm, face hole 8.15 mm), locating pins at the corners. See `design/`.
+Current editable CAD: [design/current.nbcad](design/current.nbcad). Canonical native feature history: [design/current.model.json](design/current.model.json).
 
-## Parts
-- ClamshellA (blue lower), ClamshellB (green upper), OutputHub, BuckleClipYP/YM
-- Purchased proxies: Servo body, MR128 bearing
+The assembly contains the two clamshell halves, output hub, two honeycomb clips, and servo/bearing reference bodies. Each clip has two rows of four complete hex pockets, full walls, and four centered, symmetric rounded detent nubs. The housing has hidden rounded receiving pockets with minor nominal installed lip contact.
 
-## Process
-- **SoT:** `design/design_v16_58.nbcad.jsonc` — edit JSONC directly; replay that file on a blank document. Companion meta: `design/gen_meta.json`. No `gen_v*.py`.
-- Audit: `node design/validate_clip_hex_walls.cjs`
-- Branch: repo default `cad-bot/v16.8-session-handover`
-- Fits: journal **Ø7.94**, face hole **Ø8.15**, BRG pocket **12.3**, CROSS_DEPTH **8.0**
+[Current review](CURRENT_REVIEW.md) describes dimensions, verification and remaining physical checks. [Working instructions](AGENTIC.md) describe the source and replay workflow.
+
+The history cleanup reduced 476 steps to 392 without changing any of the seven solid meshes, topology signatures or assembly contact results. Native CAD validation passed. Printed insertion, retention, preload force, creep and PLA suitability remain unverified.
+
+Superseded experiments, captures and uncommitted work were archived at:
+
+`D:/noBS-CAD-Reviews/INJS2065-Technic-Case/history-cleanup-20261004`
+
+That archive includes a verified Git bundle of every pre-cleanup ref and a complete pre-cleanup working-tree tar. Older local branches were fully contained in the current tip before removal. No remote branches were deleted.
