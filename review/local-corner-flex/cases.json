@@ -1,0 +1,50 @@
+[
+  {
+    "name": "petg-classic-016",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 110580,
+    "vertices": 55292,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_revision": "local-corner-flex-20261005",
+    "source_model_sha256": "947a3531683decb6a92b62c1aadef36e00d2a1eab6c0a574cb4d0b49fef7b593",
+    "source_stl_sha256": "f31bba587eb4c9ba14a6ca33ec6d66800c5aa17b6881d0ae6c44915727ee521f"
+  },
+  {
+    "name": "pla-classic-016",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 110580,
+    "vertices": 55292,
+    "layer_height": "0.16",
+    "material": [
+      "PLA"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_revision": "local-corner-flex-20261005",
+    "source_model_sha256": "947a3531683decb6a92b62c1aadef36e00d2a1eab6c0a574cb4d0b49fef7b593",
+    "source_stl_sha256": "f31bba587eb4c9ba14a6ca33ec6d66800c5aa17b6881d0ae6c44915727ee521f"
+  },
+  {
+    "name": "petg-classic-012",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 110580,
+    "vertices": 55292,
+    "layer_height": "0.12",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_revision": "local-corner-flex-20261005",
+    "source_model_sha256": "947a3531683decb6a92b62c1aadef36e00d2a1eab6c0a574cb4d0b49fef7b593",
+    "source_stl_sha256": "f31bba587eb4c9ba14a6ca33ec6d66800c5aa17b6881d0ae6c44915727ee521f"
+  }
+]

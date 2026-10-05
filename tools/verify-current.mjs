@@ -6,9 +6,9 @@ import { Client } from './mcp-client.mjs';
 const base = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await fs.readFile(new URL(path, base), 'utf8'));
 const model = await read('design/current.model.json');
-const reference = await read('review/history-cleanup.json');
-const seat = await read('review/seat-validation.json');
-const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/nbcad/bevy/nbcad-mcp.exe';
+const reference = await read('review/local-corner-flex.json');
+const cleanup = await read('review/history-cleanup.json');
+const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/nbcad-mcp.exe';
 const client = new Client(binary, 180000);
 
 try {
@@ -23,6 +23,11 @@ try {
     assert.equal(body.topology_signature, expected.topologySignature, 'Topology changed for body ' + body.id);
     const hash = crypto.createHash('sha256').update(JSON.stringify(body.mesh)).digest('hex');
     assert.equal(hash, expected.meshSha256, 'Mesh changed for body ' + body.id);
+    if (reference.preservedBodyIds.includes(body.id)) {
+      const original = cleanup.bodies.find(item => item.id === body.id);
+      assert.equal(hash, original.meshSha256, 'Unrequested geometry change for body ' + body.id);
+      assert.equal(body.topology_signature, original.topologySignature);
+    }
   }
   assert.equal(load.document.features.length, reference.featureCountAfter);
   assert(load.document.features.every(feature => feature.status.state === 'ok'));
@@ -30,8 +35,8 @@ try {
     occurrence_ids: [268, 269, 270, 271, 272, 273, 274],
     clearance_threshold_mm: 0.1,
   });
-  assert.deepEqual(fit.pairs, seat.assemblyInterference);
-  console.log('PASS: 392 features; seven identical meshes/topologies; unchanged assembly contacts; zero native errors.');
+  assert.deepEqual(fit.pairs, reference.assemblyInterference);
+  console.log('PASS: 401 features; seven reviewed meshes/topologies; five non-clip bodies unchanged from cleanup; expected assembly contacts; zero native errors.');
 } finally {
   client.close();
 }

@@ -1,0 +1,3713 @@
+{
+  "petg-classic-016": {
+    "min_paths_across_thinned_wall": 3,
+    "samples": [
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7000553653861565,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9862269426995602,
+            "feature": "Gap infill",
+            "width": 0.222173
+          },
+          {
+            "t": 2.287634657792332,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7010510153764526,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9965210386365877,
+            "feature": "Gap infill",
+            "width": 0.223866
+          },
+          {
+            "t": 2.2874871578660243,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7000553653861596,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9862269426995567,
+            "feature": "Gap infill",
+            "width": 0.222163
+          },
+          {
+            "t": 2.2874871578660128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7010510153764584,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.996621072714503,
+            "feature": "Gap infill",
+            "width": 0.223313
+          },
+          {
+            "t": 2.287287644521358,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7073530657842713,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9909072608921436,
+            "feature": "Gap infill",
+            "width": 0.231569
+          },
+          {
+            "t": 2.2876346577923443,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7069566362006896,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.995916029446512,
+            "feature": "Gap infill",
+            "width": 0.229282
+          },
+          {
+            "t": 2.2874871578660367,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7073523704144928,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9909072608921505,
+            "feature": "Gap infill",
+            "width": 0.231244
+          },
+          {
+            "t": 2.2876619637755606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.707083885606503,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.992716960607056,
+            "feature": "Gap infill",
+            "width": 0.231372
+          },
+          {
+            "t": 2.2872876445213706,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7505243373338983,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.013003232064883,
+            "feature": "Gap infill",
+            "width": 0.170412
+          },
+          {
+            "t": 2.287523679687592,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7495309288990568,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020929484959716,
+            "feature": "Gap infill",
+            "width": 0.176513
+          },
+          {
+            "t": 2.2876227125726287,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.750524337333903,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.013003232064872,
+            "feature": "Gap infill",
+            "width": 0.170397
+          },
+          {
+            "t": 2.2877106530100724,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7495309288990475,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020929484959723,
+            "feature": "Gap infill",
+            "width": 0.176525
+          },
+          {
+            "t": 2.2874302092746865,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7573739531463,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.02340780569427,
+            "feature": "Gap infill",
+            "width": 0.173562
+          },
+          {
+            "t": 2.2875236796875957,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7577839757911722,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.022924148124333,
+            "feature": "Gap infill",
+            "width": 0.173623
+          },
+          {
+            "t": 2.2876227125726487,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.757374388751972,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0234078056942764,
+            "feature": "Gap infill",
+            "width": 0.17356
+          },
+          {
+            "t": 2.287647002295686,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7576410987266526,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0229241481243254,
+            "feature": "Gap infill",
+            "width": 0.173634
+          },
+          {
+            "t": 2.2872681585661083,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7891722195252884,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0382672422267514,
+            "feature": "Gap infill",
+            "width": 0.145241
+          },
+          {
+            "t": 2.287634657792332,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7901722130635385,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036564168566426,
+            "feature": "Gap infill",
+            "width": 0.134252
+          },
+          {
+            "t": 2.2874871578660243,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7891722195252677,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.038267242226751,
+            "feature": "Gap infill",
+            "width": 0.145678
+          },
+          {
+            "t": 2.2874871578660128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7901722130635294,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0365641685664304,
+            "feature": "Gap infill",
+            "width": 0.134234
+          },
+          {
+            "t": 2.2875416238746515,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7899508296815534,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.039075530301311,
+            "feature": "Gap infill",
+            "width": 0.141186
+          },
+          {
+            "t": 2.2876346577923443,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7904548301099947,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0388406409817486,
+            "feature": "Gap infill",
+            "width": 0.142645
+          },
+          {
+            "t": 2.2874871578660367,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7899506863629908,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.039075530301317,
+            "feature": "Gap infill",
+            "width": 0.141199
+          },
+          {
+            "t": 2.2876619637755606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7902236143602688,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0384278472888004,
+            "feature": "Gap infill",
+            "width": 0.142762
+          },
+          {
+            "t": 2.287727805451606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.807487510173112,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475161770672483,
+            "feature": "Gap infill",
+            "width": 0.123217
+          },
+          {
+            "t": 2.2872535301203256,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8074877918994894,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0442957242635393,
+            "feature": "Gap infill",
+            "width": 0.126958
+          },
+          {
+            "t": 2.2877056417029022,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.80748751017308,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475161770672416,
+            "feature": "Gap infill",
+            "width": 0.123204
+          },
+          {
+            "t": 2.2877056417028947,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.807487791899467,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.044295724263555,
+            "feature": "Gap infill",
+            "width": 0.126926
+          },
+          {
+            "t": 2.2876856042304805,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8062809646028146,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047586130845777,
+            "feature": "Gap infill",
+            "width": 0.124833
+          },
+          {
+            "t": 2.287253530120338,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8068145621656178,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475655387756815,
+            "feature": "Gap infill",
+            "width": 0.124924
+          },
+          {
+            "t": 2.28715270890218,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8066788391878683,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047586130845777,
+            "feature": "Gap infill",
+            "width": 0.12485
+          },
+          {
+            "t": 2.287619910120596,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8059369337375415,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475655387756815,
+            "feature": "Gap infill",
+            "width": 0.124907
+          },
+          {
+            "t": 2.2877771320541314,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8069478398938348,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0465273190414184,
+            "feature": "Gap infill",
+            "width": 0.122577
+          },
+          {
+            "t": 2.2872395926916074,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8069478398938352,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.043404672905829,
+            "feature": "Gap infill",
+            "width": 0.120624
+          },
+          {
+            "t": 2.287737916205044,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8069478398938323,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046527319041412,
+            "feature": "Gap infill",
+            "width": 0.122486
+          },
+          {
+            "t": 2.2874503166190956,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8069478398938374,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0465394368774192,
+            "feature": "Gap infill",
+            "width": 0.12257
+          },
+          {
+            "t": 2.2871738935249266,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8063711996435368,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046804671010017,
+            "feature": "Gap infill",
+            "width": 0.125333
+          },
+          {
+            "t": 2.287506993218128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8054931698553425,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0461328196445336,
+            "feature": "Gap infill",
+            "width": 0.126872
+          },
+          {
+            "t": 2.2871395825375918,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.806371228881527,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046804671010011,
+            "feature": "Gap infill",
+            "width": 0.125321
+          },
+          {
+            "t": 2.287450316619117,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8054931698553305,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0467959768917354,
+            "feature": "Gap infill",
+            "width": 0.125094
+          },
+          {
+            "t": 2.2878155993672293,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.790785317460293,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036691220504342,
+            "feature": "Gap infill",
+            "width": 0.143736
+          },
+          {
+            "t": 2.2872768479919467,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.790785317460293,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036831228532264,
+            "feature": "Gap infill",
+            "width": 0.143456
+          },
+          {
+            "t": 2.2872346286108707,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7907853174602983,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0366912205043297,
+            "feature": "Gap infill",
+            "width": 0.143739
+          },
+          {
+            "t": 2.287234628610868,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.790785317460298,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036972693089751,
+            "feature": "Gap infill",
+            "width": 0.143411
+          },
+          {
+            "t": 2.2872768479919467,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7900971596627275,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398491975914395,
+            "feature": "Gap infill",
+            "width": 0.141076
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7913737823659248,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398474068882715,
+            "feature": "Gap infill",
+            "width": 0.14108
+          },
+          {
+            "t": 2.287234628610883,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.790097159662714,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398491975914332,
+            "feature": "Gap infill",
+            "width": 0.141083
+          },
+          {
+            "t": 2.2872346286108804,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7894646002351613,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0394967652954143,
+            "feature": "Gap infill",
+            "width": 0.14089
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      }
+    ]
+  },
+  "pla-classic-016": {
+    "min_paths_across_thinned_wall": 3,
+    "samples": [
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7000553653861565,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9862269426995602,
+            "feature": "Gap infill",
+            "width": 0.222173
+          },
+          {
+            "t": 2.287634657792332,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7010510153764526,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9965210386365877,
+            "feature": "Gap infill",
+            "width": 0.223866
+          },
+          {
+            "t": 2.2874871578660243,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7000553653861596,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9862269426995567,
+            "feature": "Gap infill",
+            "width": 0.222163
+          },
+          {
+            "t": 2.2874871578660128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7010510153764584,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.996621072714503,
+            "feature": "Gap infill",
+            "width": 0.223313
+          },
+          {
+            "t": 2.287287644521358,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7073530657842713,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9909072608921436,
+            "feature": "Gap infill",
+            "width": 0.231569
+          },
+          {
+            "t": 2.2876346577923443,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7069566362006896,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.995916029446512,
+            "feature": "Gap infill",
+            "width": 0.229282
+          },
+          {
+            "t": 2.2874871578660367,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7073523704144928,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9909072608921505,
+            "feature": "Gap infill",
+            "width": 0.231244
+          },
+          {
+            "t": 2.2876619637755606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.707083885606503,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.992716960607056,
+            "feature": "Gap infill",
+            "width": 0.231372
+          },
+          {
+            "t": 2.2872876445213706,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7505243373338983,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.013003232064883,
+            "feature": "Gap infill",
+            "width": 0.170412
+          },
+          {
+            "t": 2.287523679687592,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7495309288990568,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020929484959716,
+            "feature": "Gap infill",
+            "width": 0.176513
+          },
+          {
+            "t": 2.2876227125726287,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.750524337333903,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.013003232064872,
+            "feature": "Gap infill",
+            "width": 0.170397
+          },
+          {
+            "t": 2.2877106530100724,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7495309288990475,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020929484959723,
+            "feature": "Gap infill",
+            "width": 0.176525
+          },
+          {
+            "t": 2.2874302092746865,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7573739531463,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.02340780569427,
+            "feature": "Gap infill",
+            "width": 0.173562
+          },
+          {
+            "t": 2.2875236796875957,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7577839757911722,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.022924148124333,
+            "feature": "Gap infill",
+            "width": 0.173623
+          },
+          {
+            "t": 2.2876227125726487,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.28,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.757374388751972,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0234078056942764,
+            "feature": "Gap infill",
+            "width": 0.17356
+          },
+          {
+            "t": 2.287647002295686,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.28,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7576410987266526,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0229241481243254,
+            "feature": "Gap infill",
+            "width": 0.173634
+          },
+          {
+            "t": 2.2872681585661083,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7891722195252884,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0382672422267514,
+            "feature": "Gap infill",
+            "width": 0.145241
+          },
+          {
+            "t": 2.287634657792332,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7901722130635385,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036564168566426,
+            "feature": "Gap infill",
+            "width": 0.134252
+          },
+          {
+            "t": 2.2874871578660243,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7891722195252677,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.038267242226751,
+            "feature": "Gap infill",
+            "width": 0.145678
+          },
+          {
+            "t": 2.2874871578660128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7901722130635294,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0365641685664304,
+            "feature": "Gap infill",
+            "width": 0.134234
+          },
+          {
+            "t": 2.2875416238746515,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7899508296815534,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.039075530301311,
+            "feature": "Gap infill",
+            "width": 0.141186
+          },
+          {
+            "t": 2.2876346577923443,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7904548301099947,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0388406409817486,
+            "feature": "Gap infill",
+            "width": 0.142645
+          },
+          {
+            "t": 2.2874871578660367,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.44,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7899506863629908,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.039075530301317,
+            "feature": "Gap infill",
+            "width": 0.141199
+          },
+          {
+            "t": 2.2876619637755606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.44,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7902236143602688,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0384278472888004,
+            "feature": "Gap infill",
+            "width": 0.142762
+          },
+          {
+            "t": 2.287727805451606,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.807487510173112,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475161770672483,
+            "feature": "Gap infill",
+            "width": 0.123217
+          },
+          {
+            "t": 2.2872535301203256,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8074877918994894,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0442957242635393,
+            "feature": "Gap infill",
+            "width": 0.126958
+          },
+          {
+            "t": 2.2877056417029022,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.80748751017308,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475161770672416,
+            "feature": "Gap infill",
+            "width": 0.123204
+          },
+          {
+            "t": 2.2877056417028947,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.807487791899467,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.044295724263555,
+            "feature": "Gap infill",
+            "width": 0.126926
+          },
+          {
+            "t": 2.2876856042304805,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8062809646028146,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047586130845777,
+            "feature": "Gap infill",
+            "width": 0.124833
+          },
+          {
+            "t": 2.287253530120338,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8068145621656178,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475655387756815,
+            "feature": "Gap infill",
+            "width": 0.124924
+          },
+          {
+            "t": 2.28715270890218,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8066788391878683,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047586130845777,
+            "feature": "Gap infill",
+            "width": 0.12485
+          },
+          {
+            "t": 2.287619910120596,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8059369337375415,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475655387756815,
+            "feature": "Gap infill",
+            "width": 0.124907
+          },
+          {
+            "t": 2.2877771320541314,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8069478398938348,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0465273190414184,
+            "feature": "Gap infill",
+            "width": 0.122577
+          },
+          {
+            "t": 2.2872395926916074,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8069478398938352,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.043404672905829,
+            "feature": "Gap infill",
+            "width": 0.120624
+          },
+          {
+            "t": 2.287737916205044,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8069478398938323,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046527319041412,
+            "feature": "Gap infill",
+            "width": 0.122486
+          },
+          {
+            "t": 2.2874503166190956,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8069478398938374,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0465394368774192,
+            "feature": "Gap infill",
+            "width": 0.12257
+          },
+          {
+            "t": 2.2871738935249266,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8063711996435368,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046804671010017,
+            "feature": "Gap infill",
+            "width": 0.125333
+          },
+          {
+            "t": 2.287506993218128,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8054931698553425,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0461328196445336,
+            "feature": "Gap infill",
+            "width": 0.126872
+          },
+          {
+            "t": 2.2871395825375918,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.76,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.806371228881527,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046804671010011,
+            "feature": "Gap infill",
+            "width": 0.125321
+          },
+          {
+            "t": 2.287450316619117,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.76,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8054931698553305,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0467959768917354,
+            "feature": "Gap infill",
+            "width": 0.125094
+          },
+          {
+            "t": 2.2878155993672293,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.790785317460293,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036691220504342,
+            "feature": "Gap infill",
+            "width": 0.143736
+          },
+          {
+            "t": 2.2872768479919467,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.790785317460293,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036831228532264,
+            "feature": "Gap infill",
+            "width": 0.143456
+          },
+          {
+            "t": 2.2872346286108707,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7907853174602983,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0366912205043297,
+            "feature": "Gap infill",
+            "width": 0.143739
+          },
+          {
+            "t": 2.287234628610868,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.790785317460298,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.036972693089751,
+            "feature": "Gap infill",
+            "width": 0.143411
+          },
+          {
+            "t": 2.2872768479919467,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7900971596627275,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398491975914395,
+            "feature": "Gap infill",
+            "width": 0.141076
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7913737823659248,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398474068882715,
+            "feature": "Gap infill",
+            "width": 0.14108
+          },
+          {
+            "t": 2.287234628610883,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.92,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.790097159662714,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0398491975914332,
+            "feature": "Gap infill",
+            "width": 0.141083
+          },
+          {
+            "t": 2.2872346286108804,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.92,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7894646002351613,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0394967652954143,
+            "feature": "Gap infill",
+            "width": 0.14089
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      }
+    ]
+  },
+  "petg-classic-012": {
+    "min_paths_across_thinned_wall": 3,
+    "samples": [
+      {
+        "corner": 1,
+        "layer_top_mm": 2.0,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.661794493640549,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.966337948177197,
+            "feature": "Gap infill",
+            "width": 0.247251
+          },
+          {
+            "t": 2.287350264020963,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.0,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.661794493640549,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9756693060615753,
+            "feature": "Gap infill",
+            "width": 0.253482
+          },
+          {
+            "t": 2.2873068219417636,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.0,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.661794493640528,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9663379481771937,
+            "feature": "Gap infill",
+            "width": 0.247242
+          },
+          {
+            "t": 2.287801958274308,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.0,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.6617944936405562,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9756693060615766,
+            "feature": "Gap infill",
+            "width": 0.253473
+          },
+          {
+            "t": 2.287442312330897,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.0,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.6651471840959435,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9722060337056009,
+            "feature": "Gap infill",
+            "width": 0.252551
+          },
+          {
+            "t": 2.2873502640209704,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.0,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.6659328172387171,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9721277136253494,
+            "feature": "Gap infill",
+            "width": 0.253133
+          },
+          {
+            "t": 2.287306821941776,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.0,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.6659775192661799,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9722060337056062,
+            "feature": "Gap infill",
+            "width": 0.252422
+          },
+          {
+            "t": 2.28739310954414,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.0,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.6659328172387051,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9721277136253486,
+            "feature": "Gap infill",
+            "width": 0.253143
+          },
+          {
+            "t": 2.2877861983634014,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7141927065942997,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9898155419366075,
+            "feature": "Gap infill",
+            "width": 0.197873
+          },
+          {
+            "t": 2.2875667261290222,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7131936111676196,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9975551068101622,
+            "feature": "Gap infill",
+            "width": 0.199559
+          },
+          {
+            "t": 2.28742350948457,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7141927065942961,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9898155419366002,
+            "feature": "Gap infill",
+            "width": 0.197883
+          },
+          {
+            "t": 2.287423509484568,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7131936111676336,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9975551068101742,
+            "feature": "Gap infill",
+            "width": 0.199557
+          },
+          {
+            "t": 2.287473585150531,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7150658495135942,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0011831588612847,
+            "feature": "Gap infill",
+            "width": 0.198437
+          },
+          {
+            "t": 2.287566726129043,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7137216044775,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9950229108721755,
+            "feature": "Gap infill",
+            "width": 0.197711
+          },
+          {
+            "t": 2.287336174537435,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7150658495136002,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0014944188495525,
+            "feature": "Gap infill",
+            "width": 0.198444
+          },
+          {
+            "t": 2.287598545422465,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.12,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7137216044775057,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 1.9950229108721709,
+            "feature": "Gap infill",
+            "width": 0.197706
+          },
+          {
+            "t": 2.2872191744928836,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.24,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7514654137516399,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.017809815300504,
+            "feature": "Gap infill",
+            "width": 0.161619
+          },
+          {
+            "t": 2.287523679687592,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.24,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7524655483424474,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.014850397094995,
+            "feature": "Gap infill",
+            "width": 0.163989
+          },
+          {
+            "t": 2.287295514352246,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.24,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7514654137516352,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.017734438574434,
+            "feature": "Gap infill",
+            "width": 0.161646
+          },
+          {
+            "t": 2.287383201645911,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.24,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7524655483424276,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0148503970950027,
+            "feature": "Gap infill",
+            "width": 0.164008
+          },
+          {
+            "t": 2.2874302092746865,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.24,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7520467706049903,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0206382831664316,
+            "feature": "Gap infill",
+            "width": 0.161605
+          },
+          {
+            "t": 2.2875236796875957,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.24,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7524940244604439,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020611087567726,
+            "feature": "Gap infill",
+            "width": 0.16166
+          },
+          {
+            "t": 2.2872955143522713,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.24,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7520467706049903,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.020638283166438,
+            "feature": "Gap infill",
+            "width": 0.161604
+          },
+          {
+            "t": 2.2873189679314803,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.24,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7524940244604246,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0206119893433088,
+            "feature": "Gap infill",
+            "width": 0.161578
+          },
+          {
+            "t": 2.2872681585661083,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.36,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7737121784100751,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0311572909259445,
+            "feature": "Gap infill",
+            "width": 0.138503
+          },
+          {
+            "t": 2.2877533504593974,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.36,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7727157529351572,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0308814822155696,
+            "feature": "Gap infill",
+            "width": 0.138633
+          },
+          {
+            "t": 2.2871205075997865,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.36,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7737121784100751,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.030758206726792,
+            "feature": "Gap infill",
+            "width": 0.13847
+          },
+          {
+            "t": 2.287686246924946,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.36,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7727157529351616,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0312231984112468,
+            "feature": "Gap infill",
+            "width": 0.138668
+          },
+          {
+            "t": 2.2872436122910775,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.36,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.780611257701917,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0341033567324827,
+            "feature": "Gap infill",
+            "width": 0.133953
+          },
+          {
+            "t": 2.28775335045941,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.36,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7802583007093118,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.034108724283042,
+            "feature": "Gap infill",
+            "width": 0.133897
+          },
+          {
+            "t": 2.287120507599799,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.36,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.78061125770192,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.034103356732483,
+            "feature": "Gap infill",
+            "width": 0.133924
+          },
+          {
+            "t": 2.287862018281762,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.36,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7802583007092858,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0341087242830356,
+            "feature": "Gap infill",
+            "width": 0.13394
+          },
+          {
+            "t": 2.2875919395893827,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.48,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7965030165376923,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.033682585524098,
+            "feature": "Gap infill",
+            "width": 0.113611
+          },
+          {
+            "t": 2.2874917500537753,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.48,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7955058729602142,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0412175732570055,
+            "feature": "Gap infill",
+            "width": 0.117399
+          },
+          {
+            "t": 2.2872665152766016,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.48,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7973696779711388,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0336825855240903,
+            "feature": "Gap infill",
+            "width": 0.113614
+          },
+          {
+            "t": 2.28735314679546,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.48,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7963719642725071,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.040818181885862,
+            "feature": "Gap infill",
+            "width": 0.117392
+          },
+          {
+            "t": 2.2873992677526944,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.48,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7983776849777482,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0432016506019726,
+            "feature": "Gap infill",
+            "width": 0.1159
+          },
+          {
+            "t": 2.2874917500537957,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.48,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7979118139665178,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.043198697690062,
+            "feature": "Gap infill",
+            "width": 0.115873
+          },
+          {
+            "t": 2.287503084179709,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.48,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.798377684977751,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0432016506019783,
+            "feature": "Gap infill",
+            "width": 0.1159
+          },
+          {
+            "t": 2.287439898353646,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.48,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7986000666697826,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0431986976900682,
+            "feature": "Gap infill",
+            "width": 0.115874
+          },
+          {
+            "t": 2.2874917500537957,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8056130187751445,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.046220367214848,
+            "feature": "Gap infill",
+            "width": 0.10934
+          },
+          {
+            "t": 2.2876607276628094,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8056130187751445,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0470001117206875,
+            "feature": "Gap infill",
+            "width": 0.1086
+          },
+          {
+            "t": 2.2875109663610864,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.805613018775143,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0464076830277462,
+            "feature": "Gap infill",
+            "width": 0.109349
+          },
+          {
+            "t": 2.2875109663610793,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.805613018775143,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.045664759734125,
+            "feature": "Gap infill",
+            "width": 0.109373
+          },
+          {
+            "t": 2.287635958472652,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8065203023236422,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0457583376119337,
+            "feature": "Gap infill",
+            "width": 0.108457
+          },
+          {
+            "t": 2.2876607276628134,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.807546725820819,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047743941683926,
+            "feature": "Gap infill",
+            "width": 0.106908
+          },
+          {
+            "t": 2.287510966361091,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8065203023236496,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.045758337611928,
+            "feature": "Gap infill",
+            "width": 0.108457
+          },
+          {
+            "t": 2.287510966361093,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.6,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8075467258208198,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0477439416839323,
+            "feature": "Gap infill",
+            "width": 0.106914
+          },
+          {
+            "t": 2.2877270613067373,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.72,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8080441810021073,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0473678035815883,
+            "feature": "Gap infill",
+            "width": 0.106134
+          },
+          {
+            "t": 2.287685783589313,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.72,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8070430814103093,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0457116563768767,
+            "feature": "Gap infill",
+            "width": 0.112598
+          },
+          {
+            "t": 2.2878448481937577,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.72,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8080441810021073,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0473678035815825,
+            "feature": "Gap infill",
+            "width": 0.106127
+          },
+          {
+            "t": 2.287533725152503,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.72,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8070430814103093,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0457116563768776,
+            "feature": "Gap infill",
+            "width": 0.112585
+          },
+          {
+            "t": 2.2875310299697404,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.72,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8071744831754504,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.047538227526783,
+            "feature": "Gap infill",
+            "width": 0.107926
+          },
+          {
+            "t": 2.287352252099983,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.72,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.806960886182583,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0476069892029125,
+            "feature": "Gap infill",
+            "width": 0.108385
+          },
+          {
+            "t": 2.28753372515253,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.72,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.8071744831754555,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475382275267773,
+            "feature": "Gap infill",
+            "width": 0.107927
+          },
+          {
+            "t": 2.2873060537668874,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.72,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.8069608861825897,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0475998756388183,
+            "feature": "Gap infill",
+            "width": 0.108612
+          },
+          {
+            "t": 2.2873522520999825,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.84,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.791707007747799,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0313647882081747,
+            "feature": "Gap infill",
+            "width": 0.113743
+          },
+          {
+            "t": 2.287864994366199,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.84,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.790711317603261,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.042617764959575,
+            "feature": "Gap infill",
+            "width": 0.11858
+          },
+          {
+            "t": 2.2877648610790846,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.84,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7917070077477952,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0313647882081702,
+            "feature": "Gap infill",
+            "width": 0.113742
+          },
+          {
+            "t": 2.2877648610790824,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.84,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7907113176032678,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0426177649595827,
+            "feature": "Gap infill",
+            "width": 0.118583
+          },
+          {
+            "t": 2.2878462924892484,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.84,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.798120141004905,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0423357398138875,
+            "feature": "Gap infill",
+            "width": 0.116308
+          },
+          {
+            "t": 2.2860502177477358,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.84,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7976558770836213,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0424849331203445,
+            "feature": "Gap infill",
+            "width": 0.117713
+          },
+          {
+            "t": 2.287316655750048,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.84,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7981201410048981,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.042335739813889,
+            "feature": "Gap infill",
+            "width": 0.116308
+          },
+          {
+            "t": 2.2877648610790944,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.84,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7976558770836213,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0424849331203503,
+            "feature": "Gap infill",
+            "width": 0.117617
+          },
+          {
+            "t": 2.287846292489261,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.96,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7742023122596957,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0228901989960764,
+            "feature": "Gap infill",
+            "width": 0.133527
+          },
+          {
+            "t": 2.287286547796034,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 1,
+        "layer_top_mm": 2.96,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7742023122596957,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0225208929348315,
+            "feature": "Gap infill",
+            "width": 0.132127
+          },
+          {
+            "t": 2.2872346286108707,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.96,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7742023122596957,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0226927313904914,
+            "feature": "Gap infill",
+            "width": 0.133525
+          },
+          {
+            "t": 2.287234628610868,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 2,
+        "layer_top_mm": 2.96,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7742023122596957,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0220809272015505,
+            "feature": "Gap infill",
+            "width": 0.132124
+          },
+          {
+            "t": 2.2872768479919467,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.96,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7792467096437412,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.033854505114203,
+            "feature": "Gap infill",
+            "width": 0.134353
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 3,
+        "layer_top_mm": 2.96,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.7802257591026875,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0335670871880183,
+            "feature": "Gap infill",
+            "width": 0.135949
+          },
+          {
+            "t": 2.287234628610883,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.96,
+        "side": -1,
+        "paths": [
+          {
+            "t": 1.7792467096437412,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.033854505114203,
+            "feature": "Gap infill",
+            "width": 0.134359
+          },
+          {
+            "t": 2.2872346286108804,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      },
+      {
+        "corner": 4,
+        "layer_top_mm": 2.96,
+        "side": 1,
+        "paths": [
+          {
+            "t": 1.780225759102683,
+            "feature": "Outer wall",
+            "width": 0.42
+          },
+          {
+            "t": 2.0335670871880183,
+            "feature": "Gap infill",
+            "width": 0.135944
+          },
+          {
+            "t": 2.287276847991959,
+            "feature": "Outer wall",
+            "width": 0.42
+          }
+        ]
+      }
+    ]
+  }
+}

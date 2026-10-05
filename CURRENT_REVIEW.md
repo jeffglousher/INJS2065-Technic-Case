@@ -1,23 +1,33 @@
-# Current honeycomb detent assembly — 2026-10-04
+# Current honeycomb detent assembly — 2026-10-05
 
-Editable project: [design/current.nbcad](design/current.nbcad). Canonical history: [design/current.model.json](design/current.model.json).
+Editable project: [design/current.nbcad](design/current.nbcad). Canonical history: [design/current.model.json](design/current.model.json). The native archive and JSON payload were compared and match exactly.
 
-Each clip retains eight blind hex pockets in two rows of four, full continuous walls, no isolation grooves, and four symmetric S-curve nubs centered on the confirmed cantilever spans. Nub center Y = ±9.80 mm; apex rise = 0.20 mm. The accepted clip geometry is unchanged.
+## Local corner flex relief
 
-Both housing interfaces have rounded receiving seats at the eight matching locations. Receiver radius is 0.50 mm; axial limits are |Y| = 9.12–9.95 mm. The outer recess mouths retain their uniform hex outlines. The geometric residual inward-travel target at the retaining lip is approximately 0.0273 mm. This is not a measured preload force or a verified elastic deformation model.
+Each clip retains eight blind hex pockets in two rows of four, full continuous walls and four symmetric S-curve nubs centered on the confirmed spans. Nub center Y = ±9.80 mm; apex rise = 0.20 mm. No isolation groove or through-cut was added.
 
-## Geometry-preserving cleanup
+Four rounded pocket-side reliefs thin only the nub-bearing corner regions of each clip. One shared R1.6 spherical profile is copied to the four positions and mirrored across Y = 0. The +Y centers are (-0.85, 9.40, 22.02), (16.85, 9.40, 22.02), (-3.80, 9.40, 14.48) and (13.90, 9.40, 14.48), in mm. The nominal minimum corner wall is 0.8976 mm, from the relief-to-outer-roof plane distance; minimum backing is 1.00 mm. The relief fades into thicker material away from its center. Its section meets the existing pocket without the small roof ledge found in the initial trial.
 
-476 history features became 392: 68 duplicate sketches share exact definitions, 15 duplicate datum planes share exact definitions, and one identity move was removed. Geometry parameters and body IDs were retained. The seven replayed bodies have byte-identical mesh arrays, unchanged topology signatures and exactly unchanged assembly contact results. Native history reports zero errors.
+The detent exterior, clip perimeter, outer broad face and all five non-clip bodies are unchanged. Only the two clip bodies changed. The history now has 401 features: the previous 392 plus nine native construction features.
 
-[Equality evidence](review/history-cleanup.json), [reference mappings](review/history-dedup-map.json) and [receiving-seat validation](review/seat-validation.json) are retained. The seat validation contains 224 successful local wall probes; minimum sampled radial remaining housing wall is 2.42 mm. All four exported shell/clip meshes passed the manifold audit. This is sampled wall evidence, not a global minimum-wall proof.
+Both housing interfaces retain their existing rounded receiving seats. Receiver radius is 0.50 mm; axial limits are |Y| = 9.12–9.95 mm. The outer recess mouths retain their uniform hex outlines. The geometric residual inward-travel target remains approximately 0.0273 mm. This is not a measured preload force or a verified elastic deformation model.
 
-## Review images
+## Checks and images
 
-[Installed isometric](review/installed-isometric.png), [rear](review/installed-rear.png), [housing recesses](review/housing-seats.png), [preload section](review/preload-section.png), [joint cutaway](review/joint-cutaway.png). The section images are temporary review cuts; the saved model is complete.
+[Pocket ISO](review/local-corner-flex/01-pocket-iso.png), [pocket front](review/local-corner-flex/03-pocket-front.png), [outer ISO](review/local-corner-flex/06-outer-iso.png), [backing section](review/local-corner-flex/05-backing-section.png), [four corner extrusion paths](review/local-corner-flex/04-four-corner-toolpaths.png).
 
-## Print status
+[Current native validation](review/local-corner-flex.json) records seven bodies, zero native errors, the five unchanged non-clip meshes, expected assembly contacts and both exported clip mesh audits. Each fine clip STL has 110,580 triangles, one connected component and two incident triangles per welded edge. The four intentional clip/housing contact groups remain approximately 0.0000358 mm³ each; no new interference was introduced.
 
-Default intent: Bambu X2D, 0.4 mm nozzle, PETG, 0.16 mm layers, 0.20 mm first layer, four wall loops, Classic walls, 0.42/0.45 mm outer/inner widths, 25% gyroid. Clip outer broad face on the build plate, pockets up. PLA is desired but unqualified.
+Bambu Studio 2.8.2.61 successfully sliced the updated +Y clip with the Bambu X2D 0.4 mm profile in PETG at 0.16 and 0.12 mm layers, and PLA at 0.16 mm. The mirrored clip has matching volume and passed its own connected/manifold mesh audit. Each inspected normal section on both flanks of all four thin corner walls retains the pocket and exterior boundary paths; Classic adds narrow gap fill between them. [Path audit](review/local-corner-flex/thin-wall-toolpath-audit.json) samples layer tops ≥2.0 mm, where the relief approaches its maximum width. The path images show centerlines, not measured printed surfaces.
 
-The final receiving-seat revision has not yet been sliced or physically tested. Previous sliced projects are archived and are not proof for this revision. Insertion travel, inward flex, retained force, rattle, creep and repeated insertion remain to be checked on printed parts. No printer job was started.
+Print orientation: clip outer broad face on the build plate, pockets up. Saved settings use a 0.20 mm first layer, four requested wall loops, Classic walls, 0.42/0.45 mm outer/inner widths, 25% gyroid and supports off. The thin zones necessarily have fewer wall paths than the requested four loops. PETG and PLA produced matching local paths at 0.16 mm; this establishes slicer feasibility rather than equal mechanical behavior.
+
+External review projects, fine meshes, G-code and scripts are preserved at D:/noBS-CAD-Reviews/INJS2065-Technic-Case/local-corner-flex-20261005.
+
+## Qualification status
+
+Ready for a fit-test print. Inward deflection, insertion force, retained force, rattle, creep and repeated insertion still need physical testing. The walls remain coupled to the backing; this revision has no free-standing cantilever and has not undergone a validated flexure simulation. PLA fatigue remains unqualified. No printer job was started.
+
+## Historical cleanup
+
+The earlier geometry-preserving cleanup reduced 476 features to 392 with identical meshes, topology and assembly contacts. Its [equality evidence](review/history-cleanup.json), [reference mappings](review/history-dedup-map.json) and [receiving-seat validation](review/seat-validation.json) remain unchanged. The new local corner reference explicitly records the authorized geometry change and does not replace that historical evidence.
