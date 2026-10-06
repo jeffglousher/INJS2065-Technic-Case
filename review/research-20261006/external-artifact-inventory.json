@@ -1,0 +1,231 @@
+{
+    "inventoried_on":  "2026-10-06",
+    "status":  "External regenerable artifacts retained locally; not tracked in Git",
+    "files":  [
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.09-clamped-floor.npz",
+                      "bytes":  5620150,
+                      "sha256":  "142014262115e7a5572b9c17c6949446c7330150d3547d1c741e03745ab0a404"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.09-normal-floor.npz",
+                      "bytes":  5647663,
+                      "sha256":  "7a93a93a648ea891adee135c634deb88e310a44c8cd2b7cc07549ca68b6ca3c4"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.12-clamped-floor.npz",
+                      "bytes":  2957316,
+                      "sha256":  "2b6239982989f76f17043428d7477125dd53ed509fb2056088f57b651bac47a9"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.12-normal-floor.npz",
+                      "bytes":  2977980,
+                      "sha256":  "456ab5a4b3965d3af0f88f7a70db745fad29c92e00af12c193de61d81a05ace9"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.2-clamped-floor.npz",
+                      "bytes":  1101694,
+                      "sha256":  "b4bc372dfd4ace50de6471e199abb7e1e7d17b85b59ce412ec95a231dbe34d58"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.2-normal-floor.npz",
+                      "bytes":  1115128,
+                      "sha256":  "acab524b61ef260c04dab9724082d4c982cce17171a2bed76981850fd3e49f32"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.35-clamped-floor.npz",
+                      "bytes":  562117,
+                      "sha256":  "5a48e8ba5fc1d6aec033ca9080a2019fbe0f6f68124488b2e6c96e648fb4c0c9"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\PETG-mechanics-20261005\\field-0.35-normal-floor.npz",
+                      "bytes":  571951,
+                      "sha256":  "4326d9119706655e43fff62cda40f4c39039421c908ef497339835b0f516df60"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\clip-coarse.stl",
+                      "bytes":  90684,
+                      "sha256":  "bd7d768d988b95d4a392a5f202a8e8a73d7c775ee7993081656d002c62308968"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\clip-fine.stl",
+                      "bytes":  2840684,
+                      "sha256":  "e0b77f9d0ad5babd24b3c799b80c755146d5abd1b7a82157275f37cef1464dde"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\lower-shell-fine.stl",
+                      "bytes":  895484,
+                      "sha256":  "e5f4334ad41098fb13c52f772e35e9a67e8bc2c86dc280cf129f9f4059b8955d"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\upper-shell-fine.stl",
+                      "bytes":  3035884,
+                      "sha256":  "f4f2a0482492c0b45fea939cc2e7b05bd5ffff2fbe63e43e987ec46d5bdc99ca"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\cli-smoke\\baseline-check-sliced.3mf",
+                      "bytes":  388907,
+                      "sha256":  "9f3ac4e8a8db782c12fcaaa77393a8786e84655ada3609eb21462b4fc144817f"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\cli-smoke\\plate_1.gcode",
+                      "bytes":  273839,
+                      "sha256":  "9c1872dd9f5e73da66c289a789d1b107117274447f1e8ff13c883210f2681283"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-arachne-016\\petg-arachne-016-sliced.3mf",
+                      "bytes":  789417,
+                      "sha256":  "76b763f8acf2aceb137bfbf5dd0cf57693720bf5db8592024ba040c049c7d975"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-arachne-016\\petg-arachne-016.3mf",
+                      "bytes":  754612,
+                      "sha256":  "aec1a6689ce01971e8dd0abcbf4b24a6a1d3c960c7d7b43373f37cd4996b4923"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-arachne-016\\plate_1.gcode",
+                      "bytes":  482713,
+                      "sha256":  "c1728af3e7a192c504f5a61923a7978e557fbcc22a4b5b9daa160ddf1460cca9"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-012\\petg-classic-012-sliced.3mf",
+                      "bytes":  757271,
+                      "sha256":  "8ea3ff29aaeb5185444ebd42056476a49facac577e305d54b1b5831af33e9b03"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-012\\petg-classic-012.3mf",
+                      "bytes":  754606,
+                      "sha256":  "c10495e770f54bdf679fe38a8ca5c4bbb47c00cad4fece2f5e60ef9ddf6e241a"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-012\\plate_1.gcode",
+                      "bytes":  334548,
+                      "sha256":  "b617293c23589ed5ac516073c61287a61fc0204a6d1b162902b5731e3023aa4b"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-016\\petg-classic-016-sliced.3mf",
+                      "bytes":  754585,
+                      "sha256":  "b7f2ae3c9f47f3ec999961107409401a89e1a57b8b0714632150d5742b6eda4f"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-016\\petg-classic-016.3mf",
+                      "bytes":  754609,
+                      "sha256":  "90b56989e1dbe2e9d4ca5e29f3bfce87bc744da492d539bb2c04d5bc9060405d"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-016\\plate_1.gcode",
+                      "bytes":  272333,
+                      "sha256":  "faa3b2af3a260e0b8ff493520319f0dd27d266995b497f69aeb61234dd8a681d"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-020\\petg-classic-020-sliced.3mf",
+                      "bytes":  753439,
+                      "sha256":  "d9b7e60cdb787d160cf3e652ba6c56d4854a6a024cd47c945cdd382bd1ccbd3a"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-020\\petg-classic-020.3mf",
+                      "bytes":  754608,
+                      "sha256":  "431087ee04a53f87a3e11d49c6b0f1352cf97ca75570a39fe8d433df5ce110c7"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-classic-020\\plate_1.gcode",
+                      "bytes":  245574,
+                      "sha256":  "efc764ba7d00f6bb2eb5b8717f21bdc367c152c34f5e70781a901ff10b9711d3"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-coarse-016\\petg-coarse-016-sliced.3mf",
+                      "bytes":  89979,
+                      "sha256":  "6661c88ecc572b7f21ae3c92401383afce2f6d39c8b74fc2b5089217bb0fb054"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-coarse-016\\petg-coarse-016.3mf",
+                      "bytes":  34027,
+                      "sha256":  "27c3ee7a0a1234ea470bf1a217c99cc5b8013662009d39be70fcc070475c48b2"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-coarse-016\\plate_1.gcode",
+                      "bytes":  272442,
+                      "sha256":  "e01588fa2df4affc764c79482a83f977604969e2f98b3bae265f7c4c440d5178"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-lower-shell-016\\petg-lower-shell-016-sliced.3mf",
+                      "bytes":  389420,
+                      "sha256":  "386f15dc8cd563e6abe823ba131869da2401e2cdab374c20ac8022464c55ca2a"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-lower-shell-016\\petg-lower-shell-016.3mf",
+                      "bytes":  220721,
+                      "sha256":  "90a49192bddfd7b903a1f70abb69b7dee82eba79b142da155df0b01b45152dee"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-lower-shell-016\\plate_1.gcode",
+                      "bytes":  1089041,
+                      "sha256":  "bdb8e63f783f4b839c25dafeb7ec10ad13bf510e1495f5a123db5b1872790453"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-upper-shell-016\\petg-upper-shell-016-sliced.3mf",
+                      "bytes":  1515058,
+                      "sha256":  "121eb97a557a85637f60a5f886d4b6e1c17ab53354c494df16407d722369a489"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-upper-shell-016\\petg-upper-shell-016.3mf",
+                      "bytes":  622899,
+                      "sha256":  "c7acc7173669b88dc06ed3ab9180ef4f7047541d00fe65e8910311f0d290c5a4"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\petg-upper-shell-016\\plate_1.gcode",
+                      "bytes":  4428941,
+                      "sha256":  "c3e6fd9259337dd03852cb5389109526c46829162f0e4ff49b18022c664fabda"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\pla-classic-016\\pla-classic-016-sliced.3mf",
+                      "bytes":  753683,
+                      "sha256":  "c99271bc21546976148097d7daa042cbddf28e4436d3bb170d5dbe47e2c84492"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\pla-classic-016\\pla-classic-016.3mf",
+                      "bytes":  754623,
+                      "sha256":  "bf52ba8e0f927251f62e6d7090790bd675ba6b3ae56f1d0ad0f3d5dbd4651eb9"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\slicer-challenge-20261005\\pla-classic-016\\plate_1.gcode",
+                      "bytes":  264170,
+                      "sha256":  "f4181c41fecb41735cacbb9c7d66510237d33b5f9969010d1e821be2dcb98695"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam-0.7.msh",
+                      "bytes":  1213791,
+                      "sha256":  "1b509e147b4d7d96772297ceb3d7d09b432763bf3e68b149b0290e6131912399"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam-1.0.msh",
+                      "bytes":  423231,
+                      "sha256":  "1a37dcca22deea9d9f45a9177d8f895d3d737500e008ee0540560c3320475d16"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam-1.5.msh",
+                      "bytes":  146928,
+                      "sha256":  "9cc77693b079a03c6d1422eca7c30448e72b7589400e659e27ecef5b680e6fa2"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam_0_7.frd",
+                      "bytes":  1752630,
+                      "sha256":  "cc910de5b5127a7fae3348508965bf69766a3aed4a6311a4399dc2f0b5e3c086"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam_1_0.frd",
+                      "bytes":  648632,
+                      "sha256":  "6c9a73fc859322e0e66c7d5ef946cfeadb6590e0759e48c3b20ccbecaee179b8"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\beam_1_5.frd",
+                      "bytes":  250401,
+                      "sha256":  "e5ed8fd15d5a8a186a3e3ac72655d7ba2893d32d04d08f05c758debd42aa3887"
+                  },
+                  {
+                      "path":  "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\structural-spike\\clip-173.msh",
+                      "bytes":  2132016,
+                      "sha256":  "04d96080f21d741654f43a9216ff952b2d5ff2c1032c115cb55cb057a446a314"
+                  }
+              ]
+}

@@ -1,0 +1,343 @@
+[
+  {
+    "name": "petg-classic-016",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 56812,
+    "vertices": 28408,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 276.6571960449219,
+    "totalSeconds": 614.2505493164062,
+    "grams": 0.8278551697731018,
+    "featureTimes": {
+      "Bottom surface": 9.716170310974121,
+      "Custom": 287.413330078125,
+      "Flush": 29,
+      "Gap infill": 20.724245071411133,
+      "Inner wall": 82.98120880126953,
+      "Internal solid infill": 57.662994384765625,
+      "Outer wall": 73.66957092285156,
+      "Top surface": 16.575281143188477,
+      "Travel": 44.32372283935547,
+      "Undefined": 36.503753662109375
+    },
+    "bbox": {
+      "depth": 13.707780838012695,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.14611053466797,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-coarse-016",
+    "source_mesh": "clip-coarse.stl",
+    "triangles": 1812,
+    "vertices": 908,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 277.0957336425781,
+    "totalSeconds": 614.6884155273438,
+    "grams": 0.8278215527534485,
+    "featureTimes": {
+      "Bottom surface": 9.716212272644043,
+      "Custom": 287.41265869140625,
+      "Flush": 29,
+      "Gap infill": 20.710081100463867,
+      "Inner wall": 82.9775161743164,
+      "Internal solid infill": 57.6712760925293,
+      "Outer wall": 73.93836975097656,
+      "Top surface": 16.592811584472656,
+      "Travel": 44.48526382446289,
+      "Undefined": 36.6652946472168
+    },
+    "bbox": {
+      "depth": 13.700679779052734,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.149658203125,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-arachne-016",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 56812,
+    "vertices": 28408,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "arachne",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 275.9548645019531,
+    "totalSeconds": 613.5474853515625,
+    "grams": 0.8250554203987122,
+    "featureTimes": {
+      "Bottom surface": 9.765304565429688,
+      "Custom": 287.41259765625,
+      "Flush": 29,
+      "Gap infill": 9.040776252746582,
+      "Inner wall": 95.58867645263672,
+      "Internal solid infill": 57.883750915527344,
+      "Outer wall": 71.31881713867188,
+      "Top surface": 13.193615913391113,
+      "Travel": 48.161033630371094,
+      "Undefined": 40.341064453125
+    },
+    "bbox": {
+      "depth": 13.707780838012695,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.14611053466797,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-classic-012",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 56812,
+    "vertices": 28408,
+    "layer_height": "0.12",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 365.8155822753906,
+    "totalSeconds": 703.408935546875,
+    "grams": 0.8316664099693298,
+    "featureTimes": {
+      "Bottom surface": 9.716168403625488,
+      "Custom": 287.4113464355469,
+      "Flush": 29,
+      "Gap infill": 26.18765640258789,
+      "Inner wall": 114.41759490966797,
+      "Internal solid infill": 73.12641143798828,
+      "Outer wall": 102.39187622070312,
+      "Top surface": 16.575632095336914,
+      "Travel": 52.38728332519531,
+      "Undefined": 44.56931686401367
+    },
+    "bbox": {
+      "depth": 13.707780838012695,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.14611053466797,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-classic-020",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 56812,
+    "vertices": 28408,
+    "layer_height": "0.20",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 232.68331909179688,
+    "totalSeconds": 570.2766723632812,
+    "grams": 0.8289597630500793,
+    "featureTimes": {
+      "Bottom surface": 9.71617317199707,
+      "Custom": 287.4093322753906,
+      "Flush": 29,
+      "Gap infill": 19.21197509765625,
+      "Inner wall": 68.41655731201172,
+      "Internal solid infill": 41.89982223510742,
+      "Outer wall": 63.83035659790039,
+      "Top surface": 17.087385177612305,
+      "Travel": 41.519412994384766,
+      "Undefined": 33.70344543457031
+    },
+    "bbox": {
+      "depth": 13.707780838012695,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.14611053466797,
+      "z": 0
+    }
+  },
+  {
+    "name": "pla-classic-016",
+    "source_mesh": "clip-fine.stl",
+    "triangles": 56812,
+    "vertices": 28408,
+    "layer_height": "0.16",
+    "material": [
+      "PLA"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "outer face down, pockets up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 226.83804321289062,
+    "totalSeconds": 564.431396484375,
+    "grams": 0.8338168859481812,
+    "featureTimes": {
+      "Bottom surface": 9.877429008483887,
+      "Custom": 287.413330078125,
+      "Flush": 29,
+      "Gap infill": 10.612248420715332,
+      "Inner wall": 66.29070281982422,
+      "Internal solid infill": 44.12150955200195,
+      "Outer wall": 65.98762512207031,
+      "Top surface": 13.589208602905273,
+      "Travel": 45.354312896728516,
+      "Undefined": 37.53434371948242
+    },
+    "bbox": {
+      "depth": 13.707780838012695,
+      "height": 2.9499998092651367,
+      "width": 27.75,
+      "x": 114.125,
+      "y": 121.14611053466797,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-lower-shell-016",
+    "source_mesh": "lower-shell-fine.stl",
+    "triangles": 17908,
+    "vertices": 8952,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "external broad face down, cavity up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 1303.3408203125,
+    "totalSeconds": 1640.9459228515625,
+    "grams": 5.385088920593262,
+    "featureTimes": {
+      "Bottom surface": 24.435373306274414,
+      "Bridge": 8.940013885498047,
+      "Custom": 287.0251159667969,
+      "Flush": 29,
+      "Gap infill": 66.74372100830078,
+      "Inner wall": 436.3739013671875,
+      "Internal solid infill": 132.24754333496094,
+      "Outer wall": 303.586669921875,
+      "Sparse infill": 152.44125366210938,
+      "Top surface": 20.064680099487305,
+      "Travel": 187.46018981933594,
+      "Undefined": 180.04022216796875
+    },
+    "bbox": {
+      "depth": 24,
+      "height": 10.950000762939453,
+      "width": 40,
+      "x": 108,
+      "y": 116,
+      "z": 0
+    }
+  },
+  {
+    "name": "petg-upper-shell-016",
+    "source_mesh": "upper-shell-fine.stl",
+    "triangles": 60716,
+    "vertices": 30358,
+    "layer_height": "0.16",
+    "material": [
+      "PETG"
+    ],
+    "wall_generator": "classic",
+    "wall_loops": "4",
+    "print_orientation": "external broad face down, cavity up",
+    "source_commit": "ec73ea966a47196b562c603a77cf7eb713e16893",
+    "returnCode": 0,
+    "error": "Success.",
+    "warnings": [
+      ""
+    ],
+    "modelSeconds": 4014.21337890625,
+    "totalSeconds": 4351.818359375,
+    "grams": 14.85417366027832,
+    "featureTimes": {
+      "Bottom surface": 17.97441291809082,
+      "Bridge": 116.56745910644531,
+      "Custom": 286.3450927734375,
+      "Flush": 29,
+      "Gap infill": 259.91888427734375,
+      "Inner wall": 1172.9129638671875,
+      "Internal solid infill": 444.1273498535156,
+      "Outer wall": 817.916748046875,
+      "Overhang wall": 31.444686889648438,
+      "Sparse infill": 422.1637878417969,
+      "Top surface": 43.31736755371094,
+      "Travel": 716.8646850585938,
+      "Undefined": 710.124755859375
+    },
+    "bbox": {
+      "depth": 24,
+      "height": 24.450000762939453,
+      "width": 40,
+      "x": 108,
+      "y": 116,
+      "z": 0
+    }
+  }
+]

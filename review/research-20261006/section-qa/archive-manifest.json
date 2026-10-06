@@ -1,0 +1,42 @@
+{
+  "archived_on": "2026-10-06",
+  "origin_directory": "D:\\noBS-CAD-builds\\bevy-section-review-20261006\\qa",
+  "method": "exact byte copies; original evidence not edited",
+  "files": [
+    {
+      "file": "clip-section.json",
+      "bytes": 11181,
+      "sha256": "abc0f332fc0d6147321581fe707daf18ec44154a91cbdf0f7392bd7b1d7bccd3"
+    },
+    {
+      "file": "clip-section.svg",
+      "bytes": 5372,
+      "sha256": "7c80c60a4d6c4e7b867f07e26d2f2d338d374f880efb9777bd0d691cbc6289ad"
+    },
+    {
+      "file": "clip-drawing-section.svg",
+      "bytes": 30783,
+      "sha256": "fdee89a2fe83676a935561aca1219f6057b8ee65f4e0aa8fa512e49f035c6bec"
+    },
+    {
+      "file": "bevy-section-3d.png",
+      "bytes": 260626,
+      "sha256": "6cbed5a23ccb23b78eaf0baf1c9b1728857611c00a2283e705e5405d27a95a14"
+    },
+    {
+      "file": "bevy-section-3d-reverse.png",
+      "bytes": 398156,
+      "sha256": "0978113ed691c47a4aca521f359081ed8aed3fb707c06b443282168a111d937f"
+    },
+    {
+      "file": "bevy-section-preview.png",
+      "bytes": 440575,
+      "sha256": "1c6b3a0983d2a5e0bad587899477af0bbdb23ac55cdb5a8a9a5d3911991a1800"
+    },
+    {
+      "file": "bevy-drawing-section.png",
+      "bytes": 144194,
+      "sha256": "4977b2a4ff2080a898c4d84b537c925148cddf2f3df441577eba472ddeeb74b3"
+    }
+  ]
+}

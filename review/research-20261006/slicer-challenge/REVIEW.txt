@@ -1,0 +1,88 @@
+INJS2065 clip and detent slicer challenge — 2026-10-05
+
+Source: committed native model ec73ea966a47196b562c603a77cf7eb713e16893.
+No design geometry changed. Tests and exports are outside the design repository.
+No printer job was started. These are virtual slicer tests and geometric checks,
+not measurements of printed snap force, fatigue, creep, or dimensional accuracy.
+
+Eight Bambu Studio 02.08.02.61 tests completed successfully with empty CLI warning
+messages. Six clip tests: PETG Classic 0.16 mm (fine and coarse CAD mesh), PETG
+Arachne 0.16 mm, PETG Classic 0.12 and 0.20 mm, and PLA Classic 0.16 mm. Two housing
+tests: PETG Classic 0.16 mm, lower and upper shell. PLA housings were not sliced.
+
+Printer/process: installed Bambu Lab X2D 0.4 mm profile; clip outer face on plate,
+pockets upward; four walls, 0.42 mm outer and 0.45 mm inner wall width; initial
+layer 0.20 mm; 25% gyroid; supports disabled. Lower shell base down; upper shell
+outside top down. Generic PETG baseline and resolved installed Generic PLA.
+
+Observed findings:
+1. All four nubs survive as connected turns in the outer extrusion perimeter.
+   Inner wall paths at the nub peak retain the plain hex corner shape. Thus the
+   small protrusion is principally expressed by the outer bead, rather than by
+   several wall paths independently following the nub. No detached nub islands
+   appear in the inspected peak layer. Full pocket walls and the back skin remain.
+2. Classic gives smooth arc paths at the nub; Arachne produces a noticeably more
+   faceted/asymmetric path at the inspected nub. This comparison supports keeping
+   Classic for this part; it does not establish general superiority of Classic.
+3. Maximum nub-vs-plain-corner centerline extension for four nubs: fine Classic
+   0.16 mm 0.231–0.232 mm; coarse Classic 0.16 mm 0.219–0.224 mm; Arachne
+   0.16 mm 0.209–0.226 mm; Classic 0.12 mm 0.231–0.232 mm; Classic 0.20 mm
+   0.223–0.224 mm. These are extrusion CENTERLINE comparisons, not printed nub
+   height or installed deflection. Bead width, corner rounding, and physical
+   extrusion effects are excluded. Different measurements have different axes.
+4. PLA and PETG Classic 0.16 mm produce identical local nub centerlines under the
+   shared process geometry. This says nothing about equal snap force or life.
+5. Housing receiving reliefs remain in the sliced contours. Neighboring 0.16 mm
+   layers show appreciable changes in opening shape. There are no Bridge feature
+   paths in the inspected receiver layers. Elsewhere the housing does contain
+   bridges; the longest individual bridge G-code segment is approximately
+   22.79 mm in the upper shell and 9.30 mm in the lower shell. Segment length is
+   not necessarily the total continuous unsupported span. Successful slicing
+   does not establish the resulting physical bridge quality.
+
+Adversarial mechanical assessment:
+The native design's nominal residual inward movement allowance is about
+0.0273 mm. Exact CAD contact is tiny and concentrated on nub flanks near the
+receiving lip, not a broad, centered bearing patch. Existing fine-mesh probes
+show the contacted sloping roof faces have essentially zero normal component
+along the intended inward bending direction. Rounded lip transitions, friction,
+and elastic deformation could alter the actual load path; the current CAD contact
+alone does not prove that insertion drives the intended inward bend.
+
+The nominally flexing region remains joined to full hex walls and approximately
+1.45 mm of back skin. It must be assessed as a coupled wall/plate structure, not
+as a free cantilever. There is no validated force or strain calculation here.
+The tiny preload/contact geometry is sensitive to mesh, wall generation, layer
+registration and physical dimensional error. Do not assume CAD interference
+survives as a repeatable printed preload, or that no warnings implies retention.
+
+Recommendations BEFORE any geometry change:
+Keep current geometry for the first controlled fit test. Use fine export,
+Classic walls, 0.16 mm layers, four walls, and the saved 0.4 mm PETG setup.
+Use 0.12 mm as a comparison if receiver stair steps cause rough engagement;
+the clip-only finer-layer test did not materially improve maximum nub extension.
+Measure insertion/removal force, observe the actual inward deflection, check
+fully seated rattle/play, inspect damage, then repeat after cycling and a seated
+dwell. Test PLA separately; a successful PLA slice is not mechanical validation.
+Use multiple specimens and record printer/filament/process settings so a single
+good fit does not mask sensitivity. Agree on application load requirements before
+declaring retention force acceptable.
+
+If fit is stiff or damage appears, first revise local flex thickness and the
+hidden receiving lip/load direction while preserving full walls and no grooves.
+Do not simply enlarge the nub or increase interference. If it seats loosely,
+first measure the printed contact geometry before choosing a preload adjustment.
+The housing's external hex interface should stay uniform.
+
+Verdict: ready for a controlled fit-test print, not reliability signoff or an
+unqualified PETG/PLA production recommendation. No geometry changes made.
+
+Evidence:
+detent-toolpath-comparison.png — six actual clip toolpath comparisons.
+housing-seat-toolpaths.png — CAD mesh sections and adjacent housing toolpaths.
+cases.json — eight input definitions and source commit.
+slice-results.json — CLI results and slicer metadata.
+toolpath-metrics.json — all four nubs across relevant layers.
+housing-path-check.json — local receiver feature checks and global bridges.
+build-tests.py, analyze-paths.py, inspect-housing.py — reproducible test scripts.
+Each test directory includes its input 3MF, sliced 3MF, G-code and result.json.

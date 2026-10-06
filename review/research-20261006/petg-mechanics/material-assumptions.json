@@ -1,0 +1,13 @@
+{
+  "material": "Bambu PETG Basic",
+  "E_MPa": 1460,
+  "surrogate_stiffness_sensitivity_MPa": [1120, 1790],
+  "poisson": 0.38,
+  "nominalResidualTravel_mm": 0.02730182005407089,
+  "source": "Bambu PETG Basic Technical Data Sheet V2.0; XY Young's modulus 1460 +/-190 MPa. Sensitivity endpoints use published Z Young's modulus and XY bending modulus; they are not a statistical confidence interval or an orthotropic constitutive model.",
+  "specimen_caveat": "Datasheet specimens were annealed and dried at 65 C for 8 hours. Printed clip properties and creep are not established by these figures.",
+  "sources": [
+    "https://www.additive-x.com/shop/media/mageplaza/product_attachments/attachment_file/b/a/bambu_petg_basic_technical_data_sheet_18.pdf",
+    "https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1557218421.pdf"
+  ]
+}

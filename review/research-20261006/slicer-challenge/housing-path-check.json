@@ -1,0 +1,21 @@
+{
+  "petg-upper-shell-016": {
+    "receiver_layer_features": [
+      "Inner wall",
+      "Outer wall",
+      "Top surface"
+    ],
+    "bridge_segments_at_receiver_layers": 0,
+    "total_bridge_length_mm": 2805.799894785741,
+    "longest_bridge_gcode_segment_mm": 22.789000000000016
+  },
+  "petg-lower-shell-016": {
+    "receiver_layer_features": [
+      "Inner wall",
+      "Outer wall"
+    ],
+    "bridge_segments_at_receiver_layers": 0,
+    "total_bridge_length_mm": 217.39698063932042,
+    "longest_bridge_gcode_segment_mm": 9.303117595731026
+  }
+}

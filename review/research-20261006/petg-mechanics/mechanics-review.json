@@ -1,0 +1,38 @@
+{
+  "material": "Bambu PETG Basic",
+  "youngs_modulus_MPa": 1460,
+  "modulus_source": "Bambu Technical Data Sheet V2.0, XY tensile modulus; specimens annealed and dried at 65 C for 8 h",
+  "source_url": "https://www.additive-x.com/shop/media/mageplaza/product_attachments/attachment_file/b/a/bambu_petg_basic_technical_data_sheet_18.pdf",
+  "poisson_assumed": 0.38,
+  "dimensions_mm": {
+    "in_plane_min_wall": 0.8975842277326658,
+    "minimum_Y_backing": 1.0,
+    "full_Y_thickness": 2.95,
+    "spherical_relief_radius": 1.6,
+    "nub_radial_height": 0.2
+  },
+  "preload_geometric_travel_mm": 0.02730182005407089,
+  "force_N_per_nub_at_nominal": [
+    4.396354206660469,
+    4.516219069737438
+  ],
+  "peak_linear_principal_strain_at_nominal": [
+    0.02178944983763859,
+    0.022378907357088806
+  ],
+  "final_force_refinement_relative": [
+    0.01578100856546749,
+    0.01550598627534372
+  ],
+  "limitations": [
+    "Floor surfaces constrained; real unilateral contact, flexible housing, friction and load direction are not solved.",
+    "Linear isotropic continuum approximates printed material. No toolpath-resolved voids, creep, yielding or fatigue.",
+    "0.0273 mm is geometric residual travel, not a measured installed deflection.",
+    "0.20 mm radial nub rise is not inward travel. Peak insertion travel remains unverified.",
+    "Sharp edges and the prescribed finite nub load patch affect local peak strains; peak strain is a screening flag, not a validated allowable."
+  ],
+  "canonical_geometry_changed": false,
+  "source_sha256": "947a3531683decb6a92b62c1aadef36e00d2a1eab6c0a574cb4d0b49fef7b593",
+  "step_sha256": "16fcea27f5cef85e050fe2aea1bd8deab5011b71e94501e7192e2e4fc7dcb79a",
+  "recommendation": "Keep about 0.9 mm minimum in-plane wall and 1.0 mm minimum backing for now. Prefer a longer, tapered interior flex region and tangent blends at relief-to-floor/wall junctions; preserve full walls and nub envelope. Evaluate a roughly 0.4\u20130.6 mm blend locally rather than assuming a round cutter makes a smooth junction. Recalculate and reslice before claiming reliability."
+}
