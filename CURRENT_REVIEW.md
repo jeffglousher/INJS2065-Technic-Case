@@ -14,7 +14,9 @@ Both housing interfaces retain their existing rounded receiving seats. Receiver 
 
 ## Checks and images
 
-[Pocket ISO](review/local-corner-flex/01-pocket-iso.png), [pocket front](review/local-corner-flex/03-pocket-front.png), [outer ISO](review/local-corner-flex/06-outer-iso.png), [backing section](review/local-corner-flex/05-backing-section.png), [four corner extrusion paths](review/local-corner-flex/04-four-corner-toolpaths.png).
+[Four corner closeups](review/corner-closeups/corner-closeups.png), [pocket ISO](review/local-corner-flex/01-pocket-iso.png), [pocket front](review/local-corner-flex/03-pocket-front.png), [outer ISO](review/local-corner-flex/06-outer-iso.png), [backing section](review/local-corner-flex/05-backing-section.png), [four corner extrusion paths](review/local-corner-flex/04-four-corner-toolpaths.png).
+
+The follow-up audit found a clean design working tree and no newer uncommitted INJS2065 geometry in the CAD session snapshots. Native replay passed again. A fresh fine STL export matches the mesh used for the recorded slicer checks byte for byte. The new corner closeups use depth-tested orthographic rendering of that verified CAD mesh; no design geometry was changed. [Render provenance](review/corner-closeups/render-provenance.json) and [audit evidence](review/corner-closeups/work-audit.json) record the reviewed sources. Reproduce the images with `tools/render-corners.py` and a fine native STL export of body 173.
 
 [Current native validation](review/local-corner-flex.json) records seven bodies, zero native errors, the five unchanged non-clip meshes, expected assembly contacts and both exported clip mesh audits. Each fine clip STL has 110,580 triangles, one connected component and two incident triangles per welded edge. The four intentional clip/housing contact groups remain approximately 0.0000358 mm³ each; no new interference was introduced.
 
