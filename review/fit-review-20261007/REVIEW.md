@@ -89,8 +89,10 @@ rechecked 7 October, reports XY tensile E = 2780 MPa and Z tensile E = 2550 MPa.
 The old model used the V2.0 XY value of 1460 MPa. Substituting the V3 XY value into
 the same isotropic displacement-controlled surrogate scales the original patch
 forces to 8.371–8.599 N, with unchanged strain. This is material sensitivity,
-not a calibrated orthotropic printed-clip prediction. Spool formulation remains
-unidentified; coupon conditions differ from the actual clip profile.
+not a calibrated orthotropic printed-clip prediction. The user confirmed Bambu
+Lab PETG Basic; the current estimate uses the manufacturer-hosted V3 data as its
+main material case. The archived V2 case remains historical sensitivity evidence.
+Coupon conditions differ from the actual clip profile.
 
 ## Dynamic insertion and tolerance gaps
 
@@ -117,16 +119,132 @@ surface-normal audit likewise has nonzero normal mismatches; its raw orientation
 are not all certified outward dihedral angles. Keep this junction-blend issue
 open; no geometry was altered in this review.
 
+## Updated PETG Basic estimates and design recommendations
+
+The follow-up uses the existing verified mesh for new load-footprint experiments
+with current PETG Basic XY tensile stiffness E = 2780 MPa and assumed nu = 0.38.
+It runs both the 0.12 and 0.09 mm local mesh levels, three finite pressure footprints
+and two floor-support prescriptions. Equal inward displacement of 0.02730182 mm
+is prescribed in the area-weighted sense at each of the four patches. Forces and
+strains now belong to that same prescription. The original simultaneous equal-load
+case was separately reproduced at each mesh/support to roundoff after modulus
+scaling, confirming that the new code and boundary extraction retain the old model.
+
+At the finer mesh, the assumed loading cases give:
+
+- Broad crest footprint: 8.25–8.69 N per patch; 2.15–2.22% peak absolute principal strain.
+- Wider paired flank footprints: 8.12–8.52 N per patch; 3.41–3.49% peak strain.
+- Narrower paired flank footprints: 7.35–7.71 N per patch; 7.23–7.43% peak strain.
+
+These are **load-patch sensitivities, not solved physical contact forces or actual
+strain bounds**. The flank patches are padded beyond the true nominal engagement
+band and still prescribe axial pressure. They do not solve normal contact,
+friction, seating motion or flexible housing. This improves the assessment of
+the old crest-load assumption, without substituting it for contact analysis.
+
+Each solve checks affine elasticity, positive element volumes, imported volume
+agreement, force/moment balance, free equilibrium, energy/work, positive reciprocal
+compliance, and achieved target displacement. Final-level force changes remain
+below 1.9% in these cases. The narrower-patch strain peak rises 10.7–11.3% between
+levels and shifts position; it is not converged. Its footprint has only 12–14
+boundary triangles per nub on the finer mesh. Even a low force change cannot
+qualify its local maximum strain.
+
+Maximum tensile principal elastic stress ranges from approximately 74 to 182 MPa
+across these cases, above even the manufacturer's 51 MPa XY tensile-strength
+coupon figure. This warns that the linear elastic/contact-footprint assumptions
+cannot support physical peak predictions at the imposed travel. It does not
+establish actual yield, fracture or a strength safety factor for the clip.
+The manufacturer supplies neither a calibrated nonlinear printed constitutive
+law nor a repeated-snap strain allowance in that sheet.
+
+The elevated strains are highly localized: the volume-weighted 99th percentile
+over the entire clip is approximately 0.19–0.22%. That metric differs from the old
+unweighted element percentile and must not be directly compared with it.
+About 15–26% of model strain energy lies in the small descriptive nub region used
+by this study. These numbers support investigating local load transfer and the
+backed frame; they do not excuse a high local surface strain.
+
+Using the published Z tensile modulus of 2550 MPa as a separate isotropic
+sensitivity scales the above forces by 2550/2780, about 0.917, with unchanged
+displacement-controlled strains. Across these cases that gives 6.74–7.97 N per
+patch. It is not an orthotropic model or a proven bound: shear properties and
+printed directional behavior remain uncalibrated.
+
+### Native slicing with the correct material preset
+
+The previous saved tests used `Generic PETG @BBL X2D 0.4 nozzle`. New isolated
+native CLI slices explicitly replace that filament with the installed
+`Bambu PETG Basic @BBL X2D 0.4 nozzle` preset while preserving the reviewed mesh,
+printer, orientation and process settings. Both 0.16 and 0.12 mm layer cases
+complete with native return code 0. Effective config identifies Bambu Lab, density
+1.25 g/cm³, flow ratio 0.95, main nozzle 250 °C and first layer 245 °C. No print was
+sent and no user's active project or system profile was overwritten.
+
+The nominal lateral bead-envelope check adds half the commanded extrusion width
+to the saved outer/overhang wall paths at the layer crossing the receiver end.
+Against the exact **unsliced** housing flank plane, it gives:
+
+- 0.16 mm layers: 0.00156–0.00457 mm nominal flank overrun across the eight flanks.
+- 0.12 mm layers: 0.00821–0.01055 mm nominal flank overrun.
+
+The newly sliced Basic preset has the same checked boundary envelopes as the
+Generic baseline. Material temperature/flow changes are still meaningful to
+physical printing, but they do not correct this nominal geometry sensitivity.
+The comparison models commanded bead widths and constant layer slabs. Real bead
+cross sections, shrinkage, flow, seam and housing extrusion geometry can change
+the result. It is **not** a printed fit measurement or a paired housing/clip
+toolpath-interference qualification. In this print orientation, the nub's axial
+S-curve varies through the layers, so unsliced 0.0273 mm clearance travel should
+not silently become a prediction for the stepped printed surface.
+
+See the [comparison figure](../petg-update-20261007/petg-estimate-update.png),
+[checked result summary](../petg-update-20261007/summary.json),
+[fine patch study](../petg-update-20261007/patch-sensitivity-0.09.json),
+[second mesh level](../petg-update-20261007/patch-sensitivity-0.12.json),
+[correct-material native receipts](../petg-update-20261007/native-basic-slicing.json),
+and [Basic bead-envelope audit](../petg-update-20261007/bead-envelope.json).
+The scripts and a labelled Generic baseline remain alongside them. Native Basic
+G-code, resolved preset/config and logs are preserved at
+`D:/noBS-CAD-Reviews/INJS2065-Technic-Case/petg-basic-update-20261007`.
+
+### Design actions supported by these findings
+
+1. Preserve the full walls, nub midpoint, symmetric S-curve and current minimum
+   wall/backing for the next candidate. The evidence does not justify further
+   blanket thinning of a region already relying on two printable boundary paths.
+2. Replace the inner relief's floor/wall creases with tangent transitions and
+   study a longer, gradual local relief along the nub-bearing span. Keep the
+   minimum 0.90 mm corner wall and 1.00 mm backing until a candidate's native
+   section, load path and slicer paths establish a better choice. A larger smooth
+   compliant region is a candidate, not a proven stiffness reduction.
+3. Smooth the hidden receiving edge and study a broader rounded flank contact.
+   Keep the visible housing hex recess unchanged. The smoothing must preserve a
+   withdrawal barrier and be evaluated together with the nub; adding a fillet
+   alone could remove the small existing engagement.
+4. Fix the next controlled clip test at 0.12 mm layers with the Basic preset.
+   Retune nub and receiver together against the intended deposited geometry and
+   measured fit. The current 7.7 µm CAD flank overrun, or smaller 0.16 mm nominal
+   bead margin, is too fragile to assume reliable continuous preload without a
+   measured manufacturing tolerance window.
+5. Use measured insertion/holding travel, force and free play to calibrate actual
+   unilateral contacts and printed stiffness. Then evaluate contact-patch spread,
+   insertion and withdrawal motion, relaxation and repeated use. No peak dynamic
+   insertion strain or lifetime prediction has been established here.
+
+These are recommendations for the next geometry iteration. The current model
+and native archive remain unchanged; smoothing radii, added relief length and
+new preload dimensions have not been silently selected or qualified.
+
 ## Current decision
 
-The nubs, full walls and hidden seats remain mechanically plausible. The fresh
-three-dimensional check confirms the intended flank engagement and nominal
-holding clearance target. The design is suitable for a controlled fit-test print,
-but is not qualified for reliable minor preload, insertion, creep, fatigue or PLA
-endurance. Preserve the current wall thickness pending measured insertion/holding
-travel and force, free-play and dwell/cycle checks. Next analysis should use the
-actual diagonal contact patches and assembly path, then examine tangent relief
-blends and printed tolerance sensitivity before changing the geometry.
+The nubs, full walls and hidden seats retain their intended nominal engagement.
+The follow-up supports a geometry revision to improve local transitions and
+contact distribution, and establishes 0.12 mm as the more consistent of the two
+checked clip bead envelopes for a controlled fit test. It does not establish
+reliable minor preload, insertion, creep, fatigue or PLA endurance. Preserve the
+minimum wall/backing while studying the recommended geometry changes; use actual
+contact and printed-fit evidence before assigning new preload dimensions.
 
 Reproduction sources and native exports are preserved at
 `D:/noBS-CAD-Reviews/INJS2065-Technic-Case/fit-review-20261007`. Exact copies of the

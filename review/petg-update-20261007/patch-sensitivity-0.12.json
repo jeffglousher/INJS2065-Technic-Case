@@ -1,0 +1,708 @@
+{
+  "reviewed_at": "2026-10-07",
+  "study": "Same-mesh V3 PETG Basic axial load-patch sensitivity",
+  "E_MPa": 2780.0,
+  "poisson_assumed": 0.38,
+  "level_mm": 0.12,
+  "nodes": 23940,
+  "tetrahedra": 110475,
+  "geometry_changed": false,
+  "contact_solved": false,
+  "step_sha256": "16fcea27f5cef85e050fe2aea1bd8deab5011b71e94501e7192e2e4fc7dcb79a",
+  "mesh_field_sha256": "456ab5a4b3965d3af0f88f7a70db745fad29c92e00af12c193de61d81a05ace9",
+  "script_sha256": "e07d2c19db3b864665b3534907abb969e47103333994f91f1773038f1a818507",
+  "mesh_volume_mm3": 676.3847914189437,
+  "affine_patch_check_passed": true,
+  "patch_metadata": [
+    {
+      "name": "crest-broad",
+      "selection_half_width_x_mm": 0.28,
+      "selection_half_width_Y_mm": 0.28,
+      "center_Y_mm": 9.8,
+      "patches": [
+        {
+          "area_mm2": 0.3572921180022542,
+          "nodes": 96,
+          "triangles": 154,
+          "centroid_xyz_mm": [
+            -0.8513493939721143,
+            9.8030337072608,
+            25.037111885393884
+          ],
+          "bounds_xyz_mm": [
+            [
+              -1.1532826159577105,
+              9.524632798898198,
+              24.906308414229308
+            ],
+            [
+              -0.5498126215836905,
+              10.1088758733227,
+              25.10260796733038
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.3579862069914832,
+          "nodes": 97,
+          "triangles": 154,
+          "centroid_xyz_mm": [
+            16.853817896766586,
+            9.797787012154012,
+            25.03745407235366
+          ],
+          "bounds_xyz_mm": [
+            [
+              16.55419513837513,
+              9.49072033518817,
+              24.908955273585814
+            ],
+            [
+              17.153283115936027,
+              10.109438849539613,
+              25.102623171843046
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.3599669384087697,
+          "nodes": 97,
+          "triangles": 152,
+          "centroid_xyz_mm": [
+            -3.7968888209842504,
+            9.800827942350804,
+            11.462751137437435
+          ],
+          "bounds_xyz_mm": [
+            [
+              -4.098499606610696,
+              9.487755879506059,
+              11.397382990040908
+            ],
+            [
+              -3.496533694507982,
+              10.11691146581401,
+              11.592506962623075
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.3531879467868678,
+          "nodes": 91,
+          "triangles": 143,
+          "centroid_xyz_mm": [
+            13.895468379725765,
+            9.789283090550372,
+            11.460995036961222
+          ],
+          "bounds_xyz_mm": [
+            [
+              13.598493387893713,
+              9.477281581023918,
+              11.397313664694744
+            ],
+            [
+              14.192948278072306,
+              10.108657850882006,
+              11.584276766115682
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flanks-wide",
+      "selection_half_width_x_mm": 0.1,
+      "selection_half_width_Y_mm": 0.12,
+      "center_Y_mm": 9.95,
+      "patches": [
+        {
+          "area_mm2": 0.1143323295930261,
+          "nodes": 42,
+          "triangles": 48,
+          "centroid_xyz_mm": [
+            -0.8495506330833342,
+            9.95281337255929,
+            25.01836527174357
+          ],
+          "bounds_xyz_mm": [
+            [
+              -1.1508381914241603,
+              9.788875506393694,
+              24.909245205585677
+            ],
+            [
+              -0.5388691875821294,
+              10.1088758733227,
+              25.09239546077716
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.11002492264725026,
+          "nodes": 40,
+          "triangles": 47,
+          "centroid_xyz_mm": [
+            16.84969411259221,
+            9.943890343130699,
+            25.017096785567134
+          ],
+          "bounds_xyz_mm": [
+            [
+              16.53288391794793,
+              9.798220673383865,
+              24.913256336988493
+            ],
+            [
+              17.153283115936027,
+              10.06970155247973,
+              25.09564544995293
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.12005614232865222,
+          "nodes": 43,
+          "triangles": 52,
+          "centroid_xyz_mm": [
+            -3.799163087215926,
+            9.948353354905066,
+            11.479314997814832
+          ],
+          "bounds_xyz_mm": [
+            [
+              -4.098499606610696,
+              9.798218486010787,
+              11.404354550045747
+            ],
+            [
+              -3.496814637686863,
+              10.07640495862553,
+              11.592506962623075
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.11147308068622072,
+          "nodes": 38,
+          "triangles": 44,
+          "centroid_xyz_mm": [
+            13.892781524548822,
+            9.943791023285904,
+            11.479568312355124
+          ],
+          "bounds_xyz_mm": [
+            [
+              13.594499319831558,
+              9.794269048036972,
+              11.407657779649409
+            ],
+            [
+              14.21266275458735,
+              10.070191875658809,
+              11.595233677348308
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flanks-narrow",
+      "selection_half_width_x_mm": 0.06,
+      "selection_half_width_Y_mm": 0.06,
+      "center_Y_mm": 9.95,
+      "patches": [
+        {
+          "area_mm2": 0.035458668782954714,
+          "nodes": 18,
+          "triangles": 14,
+          "centroid_xyz_mm": [
+            -0.8751292623056611,
+            9.955614870471386,
+            25.027098346165236
+          ],
+          "bounds_xyz_mm": [
+            [
+              -1.1145093392253074,
+              9.85818467132901,
+              24.963696672541023
+            ],
+            [
+              -0.575002802736357,
+              10.054606813539616,
+              25.074688414241724
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.03241960022162412,
+          "nodes": 18,
+          "triangles": 14,
+          "centroid_xyz_mm": [
+            16.863847124563552,
+            9.941381116264813,
+            25.031872871906025
+          ],
+          "bounds_xyz_mm": [
+            [
+              16.58584784009632,
+              9.869056565846623,
+              24.968540454560348
+            ],
+            [
+              17.119465088359316,
+              10.012022036228695,
+              25.078334736235675
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.035059911478533316,
+          "nodes": 18,
+          "triangles": 15,
+          "centroid_xyz_mm": [
+            -3.7825514789212518,
+            9.945068741352177,
+            11.468784643827908
+          ],
+          "bounds_xyz_mm": [
+            [
+              -4.0663591343466265,
+              9.869420231963296,
+              11.422688805661267
+            ],
+            [
+              -3.5306389924775994,
+              10.029973308292146,
+              11.528278080501453
+            ]
+          ]
+        },
+        {
+          "area_mm2": 0.035911584563564004,
+          "nodes": 16,
+          "triangles": 14,
+          "centroid_xyz_mm": [
+            13.876692995533505,
+            9.939494492459573,
+            11.469510693016575
+          ],
+          "bounds_xyz_mm": [
+            [
+              13.625855313433052,
+              9.865725416941455,
+              11.428156021622273
+            ],
+            [
+              14.15970526721523,
+              10.0096431028565,
+              11.53808487526296
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "support": "normal-floor",
+      "patch_case": "crest-broad",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        8.624798560885957,
+        8.409442919946624,
+        8.417306466198005,
+        8.574120344542518
+      ],
+      "stiffness_N_per_mm": [
+        315.90562621117044,
+        308.01766707464316,
+        308.30568985978374,
+        314.0494050419198
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.0031635048434657423,
+          -4.808919517688478e-07,
+          2.8548224956765266e-06,
+          -3.2164811444447653e-07
+        ],
+        [
+          -4.8089195176789e-07,
+          0.0032442607896529035,
+          -2.8976182990129095e-08,
+          2.774118245841402e-06
+        ],
+        [
+          2.8548224956758393e-06,
+          -2.8976182990666084e-08,
+          0.0032411442565828848,
+          -4.971997089882144e-07
+        ],
+        [
+          -3.2164811444468463e-07,
+          2.7741182458423927e-06,
+          -4.971997089877802e-07,
+          0.0031823031869288713
+        ]
+      ],
+      "elastic_energy_Nmm": 0.46448133645802436,
+      "metrics": {
+        "max_abs_principal_strain": 0.022603634957198204,
+        "volume_weighted_p99_abs_principal_strain": 0.0021806935492638866,
+        "peak_strain_position_xyz_mm": [
+          -0.8149580556850191,
+          10.32688734893449,
+          24.87721680974947
+        ],
+        "max_tensile_principal_stress_MPa": 74.49258639458395,
+        "max_von_mises_stress_MPa": 60.45528118541679,
+        "volume_fraction_above_1pct_principal_strain": 0.0004162490319859122,
+        "elastic_energy_share_in_geometric_nub_zone": 0.1528019495782648,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 7.224872467700479e-13,
+      "legacy_equal_force_reproduction": {
+        "force_N_per_patch": 8.505363414621879,
+        "force_relative_error": 4.9960036108132044e-15,
+        "strain_relative_error": 1.7763568394002505e-14,
+        "metrics": {
+          "max_abs_principal_strain": 0.02229074288156086,
+          "volume_weighted_p99_abs_principal_strain": 0.0021806280653296948,
+          "peak_strain_position_xyz_mm": [
+            -0.8149580556850191,
+            10.32688734893449,
+            24.87721680974947
+          ],
+          "max_tensile_principal_stress_MPa": 73.46141907129511,
+          "max_von_mises_stress_MPa": 59.6184320339176,
+          "volume_fraction_above_1pct_principal_strain": 0.000418350077757345,
+          "elastic_energy_share_in_geometric_nub_zone": 0.15274035362515337,
+          "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+        }
+      }
+    },
+    {
+      "support": "normal-floor",
+      "patch_case": "flanks-wide",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        8.44872570054427,
+        8.274647067319577,
+        8.249314417094961,
+        8.392010247484418
+      ],
+      "stiffness_N_per_mm": [
+        309.45650084176367,
+        303.0804192149735,
+        302.1525451694174,
+        307.3791502128486
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.0032295441965723352,
+          -4.7472551406728734e-07,
+          2.7720026933601065e-06,
+          -3.1600727060469505e-07
+        ],
+        [
+          -4.7472551406627667e-07,
+          0.0032972241916390905,
+          -2.8503632532863987e-08,
+          2.7048974963202644e-06
+        ],
+        [
+          2.7720026933594776e-06,
+          -2.850363253342205e-08,
+          0.003307275890346603,
+          -4.912604075012092e-07
+        ],
+        [
+          -3.160072706048732e-07,
+          2.7048974963213914e-06,
+          -4.912604075008016e-07,
+          0.0032514450766341347
+        ]
+      ],
+      "elastic_energy_Nmm": 0.45545848272954625,
+      "metrics": {
+        "max_abs_principal_strain": 0.03389694387467332,
+        "volume_weighted_p99_abs_principal_strain": 0.0020779005911624234,
+        "peak_strain_position_xyz_mm": [
+          13.695659758184675,
+          9.845344582207138,
+          11.486716440900405
+        ],
+        "max_tensile_principal_stress_MPa": 98.47561431668305,
+        "max_von_mises_stress_MPa": 92.7380377602045,
+        "volume_fraction_above_1pct_principal_strain": 0.000318015254257244,
+        "elastic_energy_share_in_geometric_nub_zone": 0.18773571432941347,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 7.224872467700479e-13
+    },
+    {
+      "support": "normal-floor",
+      "patch_case": "flanks-narrow",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        7.683864584166561,
+        7.447856989394719,
+        7.413535398420588,
+        7.57403138525215
+      ],
+      "stiffness_N_per_mm": [
+        281.44147785564365,
+        272.7970873240076,
+        271.53996999973555,
+        277.41855195924234
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.003551246614089836,
+          -4.774683747469993e-07,
+          2.7638259928572803e-06,
+          -3.184089309636453e-07
+        ],
+        [
+          -4.774683747460535e-07,
+          0.003663438429768432,
+          -2.8723871359082507e-08,
+          2.7642197938995408e-06
+        ],
+        [
+          2.7638259928566188e-06,
+          -2.8723871359647276e-08,
+          0.0036803688861628808,
+          -4.948350396219974e-07
+        ],
+        [
+          -3.1840893096385985e-07,
+          2.7642197939006466e-06,
+          -4.948350396215199e-07,
+          0.003602750799485994
+        ]
+      ],
+      "elastic_energy_Nmm": 0.41115569544294683,
+      "metrics": {
+        "max_abs_principal_strain": 0.06537958252782883,
+        "volume_weighted_p99_abs_principal_strain": 0.0018890354459854659,
+        "peak_strain_position_xyz_mm": [
+          -1.0300899668461863,
+          9.882161933361488,
+          25.027246996860796
+        ],
+        "max_tensile_principal_stress_MPa": 166.57698281073112,
+        "max_von_mises_stress_MPa": 170.58715727525342,
+        "volume_fraction_above_1pct_principal_strain": 0.00027590511699354,
+        "elastic_energy_share_in_geometric_nub_zone": 0.25540918288791686,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 7.224872467700479e-13
+    },
+    {
+      "support": "clamped-floor",
+      "patch_case": "crest-broad",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        8.831374909604207,
+        8.66499880255843,
+        8.672240154004482,
+        8.77289091285903
+      ],
+      "stiffness_N_per_mm": [
+        323.47202099031443,
+        317.3780643707091,
+        317.64329765668464,
+        321.3298928600524
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.0030899351217895522,
+          -3.4916782536442507e-07,
+          2.068980074540688e-06,
+          -1.6785870386418555e-07
+        ],
+        [
+          -3.491678253644238e-07,
+          0.0031490636460371657,
+          -8.003392971459055e-09,
+          2.0905732761073534e-06
+        ],
+        [
+          2.0689800745406848e-06,
+          -8.00339297145904e-09,
+          0.0031464575431851224,
+          -3.6681000249995076e-07
+        ],
+        [
+          -1.678587038641861e-07,
+          2.0905732761074914e-06,
+          -3.6681000249995044e-07,
+          0.003110533232177383
+        ]
+      ],
+      "elastic_energy_Nmm": 0.47698333794771625,
+      "metrics": {
+        "max_abs_principal_strain": 0.023156840482860017,
+        "volume_weighted_p99_abs_principal_strain": 0.002215431529840271,
+        "peak_strain_position_xyz_mm": [
+          -0.8149580556850191,
+          10.32688734893449,
+          24.87721680974947
+        ],
+        "max_tensile_principal_stress_MPa": 76.32496069704959,
+        "max_von_mises_stress_MPa": 61.933688813790376,
+        "volume_fraction_above_1pct_principal_strain": 0.00045123004555088587,
+        "elastic_energy_share_in_geometric_nub_zone": 0.15688960183397566,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 6.641493335914567e-13,
+      "legacy_equal_force_reproduction": {
+        "force_N_per_patch": 8.734818005000504,
+        "force_relative_error": 3.3306690738754696e-15,
+        "strain_relative_error": 5.972999872483342e-14,
+        "metrics": {
+          "max_abs_principal_strain": 0.02290375159068928,
+          "volume_weighted_p99_abs_principal_strain": 0.002214244242601749,
+          "peak_strain_position_xyz_mm": [
+            -0.8149580556850191,
+            10.32688734893449,
+            24.87721680974947
+          ],
+          "max_tensile_principal_stress_MPa": 75.49078648916822,
+          "max_von_mises_stress_MPa": 61.25679859020734,
+          "volume_fraction_above_1pct_principal_strain": 0.00045189647080070346,
+          "elastic_energy_share_in_geometric_nub_zone": 0.15685577512156812,
+          "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+        }
+      }
+    },
+    {
+      "support": "clamped-floor",
+      "patch_case": "flanks-wide",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        8.64361215911172,
+        8.517415431645711,
+        8.490232386903376,
+        8.579275675238405
+      ],
+      "stiffness_N_per_mm": [
+        316.5947230621681,
+        311.9724404738249,
+        310.97679092780567,
+        314.2382324052852
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.003157163614927591,
+          -3.4508239047901905e-07,
+          1.9890541461911224e-06,
+          -1.6622359856206617e-07
+        ],
+        [
+          -3.4508239047901794e-07,
+          0.0032037435903797054,
+          -7.930842134569627e-09,
+          2.0112480385192857e-06
+        ],
+        [
+          1.9890541461911203e-06,
+          -7.930842134569639e-09,
+          0.0032140236422600003,
+          -3.62807789597329e-07
+        ],
+        [
+          -1.662235985620666e-07,
+          2.011248038519427e-06,
+          -3.628077895973287e-07,
+          0.0031808287257298717
+        ]
+      ],
+      "elastic_energy_Nmm": 0.46727796237496116,
+      "metrics": {
+        "max_abs_principal_strain": 0.03465540284225244,
+        "volume_weighted_p99_abs_principal_strain": 0.0021017081785056017,
+        "peak_strain_position_xyz_mm": [
+          13.695659758184675,
+          9.845344582207138,
+          11.486716440900405
+        ],
+        "max_tensile_principal_stress_MPa": 100.74308540463394,
+        "max_von_mises_stress_MPa": 94.80241093888723,
+        "volume_fraction_above_1pct_principal_strain": 0.00033614868642088637,
+        "elastic_energy_share_in_geometric_nub_zone": 0.19259076124958793,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 6.641493335914567e-13
+    },
+    {
+      "support": "clamped-floor",
+      "patch_case": "flanks-narrow",
+      "target_equal_patch_displacement_mm": 0.02730182005407089,
+      "forces_N_per_patch": [
+        7.845879424926514,
+        7.646296589562846,
+        7.609224317852918,
+        7.7273412329775875
+      ],
+      "stiffness_N_per_mm": [
+        287.3756917812752,
+        280.06545257493667,
+        278.70758443147565,
+        283.03392292798395
+      ],
+      "compliance_mm_per_N": [
+        [
+          0.003478378496164162,
+          -3.463962226698626e-07,
+          1.9476917999893743e-06,
+          -1.6693926197469405e-07
+        ],
+        [
+          -3.4639622266986133e-07,
+          0.003568838719022236,
+          -7.990199586548016e-09,
+          2.096362751462136e-06
+        ],
+        [
+          1.9476917999893718e-06,
+          -7.99019958654803e-09,
+          0.003586361289005628,
+          -3.6593937495496846e-07
+        ],
+        [
+          -1.6693926197469453e-07,
+          2.096362751462279e-06,
+          -3.6593937495496724e-07,
+          0.0035316008598613104
+        ]
+      ],
+      "elastic_energy_Nmm": 0.4208403773549091,
+      "metrics": {
+        "max_abs_principal_strain": 0.06676188889107153,
+        "volume_weighted_p99_abs_principal_strain": 0.0019095401771047188,
+        "peak_strain_position_xyz_mm": [
+          -1.0300899668461863,
+          9.882161933361488,
+          25.027246996860796
+        ],
+        "max_tensile_principal_stress_MPa": 170.96484995490053,
+        "max_von_mises_stress_MPa": 175.09951087937722,
+        "volume_fraction_above_1pct_principal_strain": 0.00029106224952371855,
+        "elastic_energy_share_in_geometric_nub_zone": 0.26142089802450436,
+        "nub_zone_definition": "Element centroid within 0.5 mm in X, 0.65 mm in Y of nub axis, radial Z beyond 0.15 mm; descriptive region, not a strain acceptance criterion."
+      },
+      "relative_residual_max": 6.641493335914567e-13
+    }
+  ],
+  "total_seconds": 11.057165899999973,
+  "limitations": [
+    "Finite assumed axial-pressure patches, not a unilateral contact solve or solved insertion path.",
+    "Flank patches are padded larger than the nominal 0.0273 mm engagement band; smallest actual contact remains unresolved.",
+    "Load-patch sensitivity and measured mesh-level changes, not local peak-strain convergence.",
+    "Bilateral floor supports and isotropic solid V3 coupon stiffness; no calibrated printed orthotropy, plasticity, friction, creep or fatigue.",
+    "Peak elastic stress is a model-validity warning, not a strength safety factor."
+  ]
+}

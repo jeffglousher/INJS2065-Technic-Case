@@ -1,0 +1,290 @@
+{
+  "filament_name": "Bambu PETG Basic @BBL X2D 0.4 nozzle",
+  "resolved_preset_sha256": "104405c8e4c0d8fab80ece1adf655e0e269dfce5e9d15c6ece3ceaa4d5c03264",
+  "preset_source_sha256": {
+    "C:\\Program Files\\Bambu Studio\\resources\\profiles\\BBL\\filament\\Bambu PETG Basic @BBL X2D 0.4 nozzle.json": "83a3a37b09b45079552e79747c2a8ee5c7da3bcd0c78b3e94a566b7f741c16da",
+    "C:\\Program Files\\Bambu Studio\\resources\\profiles\\BBL\\filament\\Bambu PETG Basic @base.json": "6c90530c589a513125b90466f778781bdea24b00cc03b13459237cfccd351cc7",
+    "C:\\Program Files\\Bambu Studio\\resources\\profiles\\BBL\\filament\\fdm_filament_pet.json": "33ce64c25a626455eecf244ddd2e75022c08f95a074ba0d1690ab63802fab9d7",
+    "C:\\Program Files\\Bambu Studio\\resources\\profiles\\BBL\\filament\\fdm_filament_common.json": "55573eb37c4031a58e939c4a2c281d62e234192509cac525d4f8d911e8a85c09",
+    "C:\\Program Files\\Bambu Studio\\resources\\profiles\\BBL\\filament\\fdm_filament_template_direct_bowden_e3d.json": "e0088c00ac37e56353cd094b06325da37c2bae650bbd322554540cddb53ac277"
+  },
+  "native_executable": "C:/Program Files/Bambu Studio/bambu-studio.exe",
+  "native_executable_sha256": "7680dac4a953cb4f8a96cc2b4ad4ea0b8bfc62f937d3491256922ff24dbb8268",
+  "print_sent": false,
+  "cases": [
+    {
+      "case": "petg-classic-016",
+      "source_project_sha256": "fd20cce98d29f5b7830f28830246c9e9f661cbba7d20ba3406edc678c6176f04",
+      "command": [
+        "C:/Program Files/Bambu Studio/bambu-studio.exe",
+        "--load-filaments",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\bambu-petg-basic-resolved.json",
+        "--slice",
+        "1",
+        "--outputdir",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\petg-classic-016",
+        "--export-settings",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\petg-classic-016\\resolved-settings.json",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\local-corner-flex-20261005\\petg-classic-016\\petg-classic-016.3mf"
+      ],
+      "exit_code": 0,
+      "native_result": {
+        "error_string": "Success.",
+        "export_time": 0,
+        "layer_height": 0.1599999964237213,
+        "plate_index": 1,
+        "prepare_time": 214,
+        "return_code": 0,
+        "sliced_plates": [
+          {
+            "feature_type_times": {
+              "Bottom surface": 9.612000465393066,
+              "Custom": 287.3846435546875,
+              "Flush": 29.0,
+              "Gap infill": 28.55054473876953,
+              "Inner wall": 80.9688720703125,
+              "Internal solid infill": 50.48603439331055,
+              "Outer wall": 75.31897735595703,
+              "Top surface": 16.28457260131836,
+              "Travel": 72.65840148925781,
+              "Undefined": 64.83843231201172
+            },
+            "filament_change_times": 0,
+            "filaments": [
+              {
+                "filament_id": "GFG00",
+                "id": 1,
+                "main_used_g": 0.7993788123130798,
+                "total_used_g": 0.7993788123130798
+              }
+            ],
+            "generate_support_material_time": 28,
+            "id": 1,
+            "infill_time": 25,
+            "layer_filament_change": 0,
+            "main_predication": 304.8835754394531,
+            "make_perimeters_time": 53,
+            "obj_cached_cnt": 0,
+            "objects": [
+              {
+                "bbox": {
+                  "depth": 13.707780838012695,
+                  "height": 2.9499998092651367,
+                  "width": 27.75,
+                  "x": 114.125,
+                  "y": 121.14611053466797,
+                  "z": 0.0
+                },
+                "id": 5,
+                "name": "petg-classic-016",
+                "triangle_count": 110580
+              }
+            ],
+            "sliced_time": 348,
+            "sliced_time_with_cache": 198,
+            "total_predication": 642.4482421875,
+            "triangle_count": 110580,
+            "warning_message": ""
+          }
+        ],
+        "sparse_infill_density": 25.0,
+        "upward_compatible_machine": [
+          "Bambu Lab A1 0.4 nozzle",
+          "Bambu Lab P2S 0.4 nozzle",
+          "Bambu Lab H2S 0.4 nozzle",
+          "Bambu Lab H2D 0.4 nozzle",
+          "Bambu Lab H2D Pro 0.4 nozzle",
+          "Bambu Lab H2C 0.4 nozzle",
+          "Bambu Lab A2L 0.4 nozzle"
+        ],
+        "wall_loops": 4
+      },
+      "gcode_sha256": "93dfa5930d13a078113fd7c00dca2b9d32be7c4219d1a531ac388228ab8ce2f0",
+      "resolved_settings_sha256": "531e1ecdc957694db607655cba293381952d6868c1039b117df89c875618b98c",
+      "effective_settings": {
+        "filament_settings_id": [
+          "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+        ],
+        "filament_vendor": [
+          "Bambu Lab"
+        ],
+        "filament_density": [
+          "1.25"
+        ],
+        "filament_flow_ratio": [
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95"
+        ],
+        "filament_max_volumetric_speed": [
+          "15",
+          "21",
+          "15",
+          "15",
+          "15",
+          "15"
+        ],
+        "nozzle_temperature": [
+          "250",
+          "250",
+          "250",
+          "250",
+          "250",
+          "250"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "245",
+          "245",
+          "245",
+          "245",
+          "245",
+          "245"
+        ],
+        "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+        "layer_height": "0.16",
+        "wall_generator": "classic",
+        "outer_wall_line_width": "0.42"
+      }
+    },
+    {
+      "case": "petg-classic-012",
+      "source_project_sha256": "1877341a08979397f9a848f60603f50851258e00675935afd852a079d7fa37b8",
+      "command": [
+        "C:/Program Files/Bambu Studio/bambu-studio.exe",
+        "--load-filaments",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\bambu-petg-basic-resolved.json",
+        "--slice",
+        "1",
+        "--outputdir",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\petg-classic-012",
+        "--export-settings",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\petg-basic-update-20261007\\petg-classic-012\\resolved-settings.json",
+        "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\local-corner-flex-20261005\\petg-classic-012\\petg-classic-012.3mf"
+      ],
+      "exit_code": 0,
+      "native_result": {
+        "error_string": "Success.",
+        "export_time": 0,
+        "layer_height": 0.11999999731779099,
+        "plate_index": 1,
+        "prepare_time": 224,
+        "return_code": 0,
+        "sliced_plates": [
+          {
+            "feature_type_times": {
+              "Bottom surface": 9.612000465393066,
+              "Custom": 287.3826599121094,
+              "Flush": 29.0,
+              "Gap infill": 37.249969482421875,
+              "Inner wall": 110.0823974609375,
+              "Internal solid infill": 65.6577377319336,
+              "Outer wall": 103.46601867675781,
+              "Top surface": 16.153749465942383,
+              "Travel": 88.03325653076172,
+              "Undefined": 80.21528625488281
+            },
+            "filament_change_times": 0,
+            "filaments": [
+              {
+                "filament_id": "GFG00",
+                "id": 1,
+                "main_used_g": 0.803834080696106,
+                "total_used_g": 0.803834080696106
+              }
+            ],
+            "generate_support_material_time": 28,
+            "id": 1,
+            "infill_time": 21,
+            "layer_filament_change": 0,
+            "main_predication": 401.2709655761719,
+            "make_perimeters_time": 62,
+            "obj_cached_cnt": 0,
+            "objects": [
+              {
+                "bbox": {
+                  "depth": 13.707780838012695,
+                  "height": 2.9499998092651367,
+                  "width": 27.75,
+                  "x": 114.125,
+                  "y": 121.14611053466797,
+                  "z": 0.0
+                },
+                "id": 5,
+                "name": "petg-classic-012",
+                "triangle_count": 110580
+              }
+            ],
+            "sliced_time": 369,
+            "sliced_time_with_cache": 214,
+            "total_predication": 738.8356323242188,
+            "triangle_count": 110580,
+            "warning_message": ""
+          }
+        ],
+        "sparse_infill_density": 25.0,
+        "upward_compatible_machine": [
+          "Bambu Lab A1 0.4 nozzle",
+          "Bambu Lab P2S 0.4 nozzle",
+          "Bambu Lab H2S 0.4 nozzle",
+          "Bambu Lab H2D 0.4 nozzle",
+          "Bambu Lab H2D Pro 0.4 nozzle",
+          "Bambu Lab H2C 0.4 nozzle",
+          "Bambu Lab A2L 0.4 nozzle"
+        ],
+        "wall_loops": 4
+      },
+      "gcode_sha256": "2dbc95884bb7c50477c65a616bde37b4706d533b4229f9195ed71505bfeb899f",
+      "resolved_settings_sha256": "9eeddb3544b526570769e3e18f9264af237a2aa49bb369b4f8e00ded10ff0b12",
+      "effective_settings": {
+        "filament_settings_id": [
+          "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+        ],
+        "filament_vendor": [
+          "Bambu Lab"
+        ],
+        "filament_density": [
+          "1.25"
+        ],
+        "filament_flow_ratio": [
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95",
+          "0.95"
+        ],
+        "filament_max_volumetric_speed": [
+          "15",
+          "21",
+          "15",
+          "15",
+          "15",
+          "15"
+        ],
+        "nozzle_temperature": [
+          "250",
+          "250",
+          "250",
+          "250",
+          "250",
+          "250"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "245",
+          "245",
+          "245",
+          "245",
+          "245",
+          "245"
+        ],
+        "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+        "layer_height": "0.12",
+        "wall_generator": "classic",
+        "outer_wall_line_width": "0.42"
+      }
+    }
+  ]
+}

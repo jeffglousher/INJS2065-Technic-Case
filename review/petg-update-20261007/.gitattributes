@@ -1,0 +1,4 @@
+# Preserve the exact bytes referenced by the evidence SHA-256 records.
+*.json -text
+*.py -text
+*.png binary
