@@ -1,0 +1,656 @@
+{
+  "reviewed_at": "2026-10-07",
+  "source_mesh_sha256": "c232b7978e02c3a6d2aca40665e4c0f2279d7b6b0438262551be039785e662fb",
+  "housing_flank_plane_distance_mm": 0.373205080756889,
+  "method": "Outer/overhang wall segment endpoint support plus half commanded line width. G2/G3 segmented at <=0.005 mm arc length. Layer slab assumed constant bead envelope. Compared with exact unsliced housing plane, not sliced housing.",
+  "results": [
+    {
+      "case": "clip-fine",
+      "gcode_sha256": "7692c74631c7a5f7b1c77f3894248e03e595575e333f73504813c7d6c7c682bb",
+      "filament_preset": "Bambu PETG Basic @BBL X2D 0.4 nozzle",
+      "corners": [
+        {
+          "corner": "upper-left",
+          "layers": [
+            {
+              "layer_top_mm": 2.0,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                10.0,
+                10.12
+              ],
+              "CAD_Y_midplane_mm": 10.059999999999999,
+              "CAD_radial_envelope_at_midplane_mm": 0.35657121277511017,
+              "nominal_capsule_flank_support_mm": [
+                0.3549823646774214,
+                0.3556881360433525
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.018222716079467627,
+                -0.017516944713536542
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.12,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.879999999999999,
+                9.999999999999998
+              ],
+              "CAD_Y_midplane_mm": 9.939999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+              "nominal_capsule_flank_support_mm": [
+                0.38393043393764537,
+                0.3869255153179119
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.010725353180756347,
+                0.013720434561022898
+              ],
+              "intersects_receiver_end": true,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.24,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.76,
+                9.879999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.82,
+              "CAD_radial_envelope_at_midplane_mm": 0.39974996092528825,
+              "nominal_capsule_flank_support_mm": [
+                0.3984389624415682,
+                0.3958195332515022
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.02523388168467916,
+                0.02261445249461319
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.36,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.64,
+                9.76
+              ],
+              "CAD_Y_midplane_mm": 9.7,
+              "CAD_radial_envelope_at_midplane_mm": 0.39372539331937706,
+              "nominal_capsule_flank_support_mm": [
+                0.39000897013076113,
+                0.39301622510845846
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.016803889373872116,
+                0.019811144351569443
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.48,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.52,
+                9.639999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.579999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3691553809211757,
+              "nominal_capsule_flank_support_mm": [
+                0.3667725199099035,
+                0.36570479654176125
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.006432560846985513,
+                -0.007500284215127773
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.6,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.4,
+                9.52
+              ],
+              "CAD_Y_midplane_mm": 9.46,
+              "CAD_radial_envelope_at_midplane_mm": 0.3241546796092669,
+              "nominal_capsule_flank_support_mm": [
+                0.3218293428772822,
+                0.32183864906244475
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.05137573787960681,
+                -0.05136643169444427
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            }
+          ],
+          "receiver_end_layer": {
+            "layer_top_mm": 2.12,
+            "layer_height_mm": 0.12,
+            "original_CAD_Y_interval_mm": [
+              9.879999999999999,
+              9.999999999999998
+            ],
+            "CAD_Y_midplane_mm": 9.939999999999998,
+            "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+            "nominal_capsule_flank_support_mm": [
+              0.38393043393764537,
+              0.3869255153179119
+            ],
+            "nominal_capsule_flank_excess_mm": [
+              0.010725353180756347,
+              0.013720434561022898
+            ],
+            "intersects_receiver_end": true,
+            "roles": [
+              "Outer wall"
+            ]
+          }
+        },
+        {
+          "corner": "upper-right",
+          "layers": [
+            {
+              "layer_top_mm": 2.0,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                10.0,
+                10.12
+              ],
+              "CAD_Y_midplane_mm": 10.059999999999999,
+              "CAD_radial_envelope_at_midplane_mm": 0.35657121277511017,
+              "nominal_capsule_flank_support_mm": [
+                0.3547314166923903,
+                0.3557144154849756
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.01847366406449874,
+                -0.017490665271913397
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.12,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.879999999999999,
+                9.999999999999998
+              ],
+              "CAD_Y_midplane_mm": 9.939999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+              "nominal_capsule_flank_support_mm": [
+                0.3861139870128616,
+                0.3861105497305457
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.012908906255972574,
+                0.012905468973656686
+              ],
+              "intersects_receiver_end": true,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.24,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.76,
+                9.879999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.82,
+              "CAD_radial_envelope_at_midplane_mm": 0.39974996092528825,
+              "nominal_capsule_flank_support_mm": [
+                0.39841829057994266,
+                0.39742235861847425
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.02521320982305364,
+                0.02421727786158523
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.36,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.64,
+                9.76
+              ],
+              "CAD_Y_midplane_mm": 9.7,
+              "CAD_radial_envelope_at_midplane_mm": 0.39372539331937706,
+              "nominal_capsule_flank_support_mm": [
+                0.3929410551549183,
+                0.39269517759850536
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.019735974398029266,
+                0.019490096841616344
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.48,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.52,
+                9.639999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.579999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3691553809211757,
+              "nominal_capsule_flank_support_mm": [
+                0.36756213042749064,
+                0.36814261871525744
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.005642950329398377,
+                -0.005062462041631577
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.6,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.4,
+                9.52
+              ],
+              "CAD_Y_midplane_mm": 9.46,
+              "CAD_radial_envelope_at_midplane_mm": 0.3241546796092669,
+              "nominal_capsule_flank_support_mm": [
+                0.3190891432662484,
+                0.32273365337145066
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.05411593749064064,
+                -0.05047142738543836
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            }
+          ],
+          "receiver_end_layer": {
+            "layer_top_mm": 2.12,
+            "layer_height_mm": 0.12,
+            "original_CAD_Y_interval_mm": [
+              9.879999999999999,
+              9.999999999999998
+            ],
+            "CAD_Y_midplane_mm": 9.939999999999998,
+            "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+            "nominal_capsule_flank_support_mm": [
+              0.3861139870128616,
+              0.3861105497305457
+            ],
+            "nominal_capsule_flank_excess_mm": [
+              0.012908906255972574,
+              0.012905468973656686
+            ],
+            "intersects_receiver_end": true,
+            "roles": [
+              "Outer wall"
+            ]
+          }
+        },
+        {
+          "corner": "lower-left",
+          "layers": [
+            {
+              "layer_top_mm": 2.0,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                10.0,
+                10.12
+              ],
+              "CAD_Y_midplane_mm": 10.059999999999999,
+              "CAD_radial_envelope_at_midplane_mm": 0.35657121277511017,
+              "nominal_capsule_flank_support_mm": [
+                0.3559560852357875,
+                0.3556463742034457
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.01724899552110154,
+                -0.017558706553443326
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.12,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.879999999999999,
+                9.999999999999998
+              ],
+              "CAD_Y_midplane_mm": 9.939999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+              "nominal_capsule_flank_support_mm": [
+                0.38623107598337936,
+                0.3865721200505076
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.013025995226490339,
+                0.013367039293618599
+              ],
+              "intersects_receiver_end": true,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.24,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.76,
+                9.879999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.82,
+              "CAD_radial_envelope_at_midplane_mm": 0.39974996092528825,
+              "nominal_capsule_flank_support_mm": [
+                0.3990113910268632,
+                0.39896951814710835
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.02580631026997421,
+                0.02576443739021933
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.36,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.64,
+                9.76
+              ],
+              "CAD_Y_midplane_mm": 9.7,
+              "CAD_radial_envelope_at_midplane_mm": 0.39372539331937706,
+              "nominal_capsule_flank_support_mm": [
+                0.3931974209208774,
+                0.39020452465203714
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.019992340163988376,
+                0.016999443895148125
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.48,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.52,
+                9.639999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.579999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3691553809211757,
+              "nominal_capsule_flank_support_mm": [
+                0.36837466952282594,
+                0.36793921747014924
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.004830411234063081,
+                -0.00526586328673978
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.6,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.4,
+                9.52
+              ],
+              "CAD_Y_midplane_mm": 9.46,
+              "CAD_radial_envelope_at_midplane_mm": 0.3241546796092669,
+              "nominal_capsule_flank_support_mm": [
+                0.3228676279676616,
+                0.32113288060894274
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.05033745278922741,
+                -0.05207220014794628
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            }
+          ],
+          "receiver_end_layer": {
+            "layer_top_mm": 2.12,
+            "layer_height_mm": 0.12,
+            "original_CAD_Y_interval_mm": [
+              9.879999999999999,
+              9.999999999999998
+            ],
+            "CAD_Y_midplane_mm": 9.939999999999998,
+            "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+            "nominal_capsule_flank_support_mm": [
+              0.38623107598337936,
+              0.3865721200505076
+            ],
+            "nominal_capsule_flank_excess_mm": [
+              0.013025995226490339,
+              0.013367039293618599
+            ],
+            "intersects_receiver_end": true,
+            "roles": [
+              "Outer wall"
+            ]
+          }
+        },
+        {
+          "corner": "lower-right",
+          "layers": [
+            {
+              "layer_top_mm": 2.0,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                10.0,
+                10.12
+              ],
+              "CAD_Y_midplane_mm": 10.059999999999999,
+              "CAD_radial_envelope_at_midplane_mm": 0.35657121277511017,
+              "nominal_capsule_flank_support_mm": [
+                0.3556534381904633,
+                0.35532211063957286
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.017551642566425718,
+                -0.017882970117316155
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.12,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.879999999999999,
+                9.999999999999998
+              ],
+              "CAD_Y_midplane_mm": 9.939999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+              "nominal_capsule_flank_support_mm": [
+                0.3850888830055221,
+                0.3855135716392265
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.011883802248633057,
+                0.012308490882337486
+              ],
+              "intersects_receiver_end": true,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.24,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.76,
+                9.879999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.82,
+              "CAD_radial_envelope_at_midplane_mm": 0.39974996092528825,
+              "nominal_capsule_flank_support_mm": [
+                0.39833299153425694,
+                0.3993484774747085
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.025127910777367923,
+                0.026143396717819456
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.36,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.64,
+                9.76
+              ],
+              "CAD_Y_midplane_mm": 9.7,
+              "CAD_radial_envelope_at_midplane_mm": 0.39372539331937706,
+              "nominal_capsule_flank_support_mm": [
+                0.39127159710976556,
+                0.39247266035565065
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                0.018066516352876538,
+                0.01926757959876163
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.48,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.52,
+                9.639999999999999
+              ],
+              "CAD_Y_midplane_mm": 9.579999999999998,
+              "CAD_radial_envelope_at_midplane_mm": 0.3691553809211757,
+              "nominal_capsule_flank_support_mm": [
+                0.3678485077927134,
+                0.3648420176077447
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.005356572964175632,
+                -0.008363063149144312
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer_top_mm": 2.6,
+              "layer_height_mm": 0.12,
+              "original_CAD_Y_interval_mm": [
+                9.4,
+                9.52
+              ],
+              "CAD_Y_midplane_mm": 9.46,
+              "CAD_radial_envelope_at_midplane_mm": 0.3241546796092669,
+              "nominal_capsule_flank_support_mm": [
+                0.3207983804992043,
+                0.3213435213038263
+              ],
+              "nominal_capsule_flank_excess_mm": [
+                -0.052406700257684735,
+                -0.0518615594530627
+              ],
+              "intersects_receiver_end": false,
+              "roles": [
+                "Outer wall"
+              ]
+            }
+          ],
+          "receiver_end_layer": {
+            "layer_top_mm": 2.12,
+            "layer_height_mm": 0.12,
+            "original_CAD_Y_interval_mm": [
+              9.879999999999999,
+              9.999999999999998
+            ],
+            "CAD_Y_midplane_mm": 9.939999999999998,
+            "CAD_radial_envelope_at_midplane_mm": 0.3876547467006092,
+            "nominal_capsule_flank_support_mm": [
+              0.3850888830055221,
+              0.3855135716392265
+            ],
+            "nominal_capsule_flank_excess_mm": [
+              0.011883802248633057,
+              0.012308490882337486
+            ],
+            "intersects_receiver_end": true,
+            "roles": [
+              "Outer wall"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Nominal capsule envelope, not physical extrusion or dimensional measurement.",
+    "Housing toolpath geometry is not included; this cannot establish actual mating preload.",
+    "Slicer centerline rounding, bead cross section, shrinkage, line-width interpretation, seams, extrusion compensation and flow can change the real contact."
+  ]
+}

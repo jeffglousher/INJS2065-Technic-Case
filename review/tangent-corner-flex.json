@@ -1,0 +1,253 @@
+{
+  "reviewedAt": "2026-10-07",
+  "change": "Tangent broader corner relief, R0.25 side-wall blends, wider R0.8 nub crest and rounded hidden receiving cap",
+  "baseCommit": "dfa2464",
+  "featureCountAfter": 403,
+  "bodyCount": 7,
+  "preservedBodyIds": [
+    1,
+    53,
+    54
+  ],
+  "assemblyInterference": [
+    {
+      "below_clearance": true,
+      "body_a": 8,
+      "body_b": 18,
+      "closest_point_a": [
+        -6.875000000000002,
+        12,
+        18.25
+      ],
+      "closest_point_b": [
+        -6.874999999999999,
+        12,
+        18.25
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0,
+      "occurrence_a": 268,
+      "occurrence_b": 269,
+      "overlap_volume_mm3": 0
+    },
+    {
+      "below_clearance": false,
+      "body_a": 8,
+      "body_b": 1,
+      "closest_point_a": [
+        -6.299999999999997,
+        6.65,
+        18.25
+      ],
+      "closest_point_b": [
+        -6.299999999999997,
+        6.5,
+        18.25
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0.15000000000000036,
+      "occurrence_a": 268,
+      "occurrence_b": 270,
+      "overlap_volume_mm3": 0
+    },
+    {
+      "below_clearance": true,
+      "body_a": 8,
+      "body_b": 173,
+      "closest_point_a": [
+        3.849999999999999,
+        10.549999999999999,
+        14.68486208775406
+      ],
+      "closest_point_b": [
+        3.849999999999999,
+        10.549999999999999,
+        14.68486208775406
+      ],
+      "interfering": true,
+      "minimum_clearance_mm": 0,
+      "occurrence_a": 268,
+      "occurrence_b": 273,
+      "overlap_volume_mm3": 0.000029358910869526234
+    },
+    {
+      "below_clearance": true,
+      "body_a": 8,
+      "body_b": 267,
+      "closest_point_a": [
+        3.849999999999999,
+        -10.55,
+        14.68486208775406
+      ],
+      "closest_point_b": [
+        3.849999999999999,
+        -10.549999999999999,
+        14.68486208775406
+      ],
+      "interfering": true,
+      "minimum_clearance_mm": 1.7763568394002505e-15,
+      "occurrence_a": 268,
+      "occurrence_b": 274,
+      "overlap_volume_mm3": 0.00002935873197131879
+    },
+    {
+      "below_clearance": false,
+      "body_a": 18,
+      "body_b": 1,
+      "closest_point_a": [
+        -6.299999999999997,
+        6.65,
+        18.25
+      ],
+      "closest_point_b": [
+        -6.299999999999997,
+        6.5,
+        18.25
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0.15000000000000036,
+      "occurrence_a": 269,
+      "occurrence_b": 270,
+      "overlap_volume_mm3": 0
+    },
+    {
+      "below_clearance": true,
+      "body_a": 18,
+      "body_b": 173,
+      "closest_point_a": [
+        6.8,
+        10.549999999999999,
+        21.81513791224594
+      ],
+      "closest_point_b": [
+        6.8,
+        10.549999999999999,
+        21.81513791224594
+      ],
+      "interfering": true,
+      "minimum_clearance_mm": 0,
+      "occurrence_a": 269,
+      "occurrence_b": 273,
+      "overlap_volume_mm3": 0.00002936019216521579
+    },
+    {
+      "below_clearance": true,
+      "body_a": 18,
+      "body_b": 267,
+      "closest_point_a": [
+        6.8,
+        -10.55,
+        21.81513791224594
+      ],
+      "closest_point_b": [
+        6.8,
+        -10.549999999999999,
+        21.81513791224594
+      ],
+      "interfering": true,
+      "minimum_clearance_mm": 1.7763568394002505e-15,
+      "occurrence_a": 269,
+      "occurrence_b": 274,
+      "overlap_volume_mm3": 0.000029360371074978013
+    },
+    {
+      "below_clearance": true,
+      "body_a": 18,
+      "body_b": 53,
+      "closest_point_a": [
+        -4.075,
+        -9.98087141305093e-16,
+        37.95
+      ],
+      "closest_point_b": [
+        -4.075,
+        -9.98087141305093e-16,
+        37.85
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0.10000000000000142,
+      "occurrence_a": 269,
+      "occurrence_b": 271,
+      "overlap_volume_mm3": 0
+    },
+    {
+      "below_clearance": false,
+      "body_a": 18,
+      "body_b": 54,
+      "closest_point_a": [
+        -4.075,
+        -9.98087141305093e-16,
+        42
+      ],
+      "closest_point_b": [
+        -3.97,
+        4.861847792614993e-16,
+        42
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0.10499999999999991,
+      "occurrence_a": 269,
+      "occurrence_b": 272,
+      "overlap_volume_mm3": 0
+    },
+    {
+      "below_clearance": true,
+      "body_a": 53,
+      "body_b": 54,
+      "closest_point_a": [
+        -4,
+        -9.797174393178826e-16,
+        34.35
+      ],
+      "closest_point_b": [
+        -3.97,
+        -1.2768493838432496e-15,
+        34.35
+      ],
+      "interfering": false,
+      "minimum_clearance_mm": 0.029999999999999805,
+      "occurrence_a": 271,
+      "occurrence_b": 272,
+      "overlap_volume_mm3": 0
+    }
+  ],
+  "canonicalModelSha256": "26f416271392bcb929f121589192f799877d2f97bd184b0b73ed712ab8b2e0fc",
+  "nativeContainerSha256": "92565137c7be546d5f9cdb4756b3ce7fbd3a733d4e5c5513dba675f4306b279b",
+  "bodies": [
+    {
+      "id": 1,
+      "topologySignature": "connectivity-v1:13984917998651256374",
+      "meshSha256": "60c97cca70f5c72605210f457b3b227c75d1ea43d0dfc84200cc0d34955b03da"
+    },
+    {
+      "id": 8,
+      "topologySignature": "connectivity-v1:2262583543536611402",
+      "meshSha256": "6e04f9214e54acefd0314daa8e62331724b5597b5024462e32bad156290a1681"
+    },
+    {
+      "id": 18,
+      "topologySignature": "connectivity-v1:16529220685676855502",
+      "meshSha256": "f2d88d9159b77a1b46f985c10d4b5f0c42e989f630e43004f7c2af38591aaf74"
+    },
+    {
+      "id": 53,
+      "topologySignature": "connectivity-v1:12897160718602513543",
+      "meshSha256": "9736c80965711fb02a163d451d6272bebfe39dcfe88f4caf4bdbeb3723d0e049"
+    },
+    {
+      "id": 54,
+      "topologySignature": "connectivity-v1:6320437548824863118",
+      "meshSha256": "849916b4fb081f781aeefd989305d602520f55269fe825d5f0509b1438e1752f"
+    },
+    {
+      "id": 173,
+      "topologySignature": "connectivity-v1:10334680459691891404",
+      "meshSha256": "2f218d506c00f47a0b1f555b467f53a0f79fc2ac9b1359b27d2ff7c8f249b1ea"
+    },
+    {
+      "id": 267,
+      "topologySignature": "connectivity-v1:9163885509102047708",
+      "meshSha256": "3e701a600524d1107eb780b8e9cd47dd478d9c11619b6c7d7b7ef5c8ba9c1225"
+    }
+  ]
+}

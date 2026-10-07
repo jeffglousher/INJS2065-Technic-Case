@@ -5,13 +5,16 @@ import { Client } from './mcp-client.mjs';
 
 const base = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await fs.readFile(new URL(path, base), 'utf8'));
-const model = await read('design/current.model.json');
-const reference = await read('review/local-corner-flex.json');
+const modelBytes = await fs.readFile(new URL('design/current.model.json', base));
+const model = JSON.parse(modelBytes);
+const reference = await read('review/tangent-corner-flex.json');
 const cleanup = await read('review/history-cleanup.json');
-const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/nbcad-mcp.exe';
+const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe';
 const client = new Client(binary, 180000);
 
 try {
+  const modelHash = crypto.createHash('sha256').update(modelBytes).digest('hex');
+  assert.equal(modelHash, reference.canonicalModelSha256, 'Canonical model bytes differ from the reviewed source');
   await client.start();
   const load = await client.call('cad_load_project_model', { model_json: JSON.stringify(model) });
   const scene = await client.call('solid_scene', {});
@@ -36,7 +39,7 @@ try {
     clearance_threshold_mm: 0.1,
   });
   assert.deepEqual(fit.pairs, reference.assemblyInterference);
-  console.log('PASS: 401 features; seven reviewed meshes/topologies; five non-clip bodies unchanged from cleanup; expected assembly contacts; zero native errors.');
+  console.log(`PASS: ${reference.featureCountAfter} features; ${reference.bodyCount} reviewed meshes/topologies; ${reference.preservedBodyIds.length} servo/bearing/hub bodies unchanged; expected assembly contacts; zero native errors.`);
 } finally {
   client.close();
 }

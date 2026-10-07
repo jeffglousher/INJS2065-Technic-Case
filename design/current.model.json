@@ -1,6 +1,6 @@
 {
   "format": "limo-cad-project",
-  "schema_version": 10,
+  "schema_version": 14,
   "document": {
     "name": "INJS2065 - corner flex detent assembly",
     "settings": {
@@ -3547,8 +3547,8 @@
           }
         },
         {
-          "id": 774,
-          "name": "Rounded local flex relief R1.6",
+          "id": 784,
+          "name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
           "kind": "sketch",
           "suppressed": false,
           "status": {
@@ -3557,7 +3557,7 @@
         },
         {
           "id": 775,
-          "name": "Revolve3",
+          "name": "Form tangent corner relief",
           "kind": "revolve",
           "suppressed": false,
           "status": {
@@ -3617,9 +3617,27 @@
           "status": {
             "state": "ok"
           }
+        },
+        {
+          "id": 782,
+          "name": "Blend +Y corner relief side walls R0.25",
+          "kind": "fillet",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 783,
+          "name": "Blend -Y corner relief side walls R0.25",
+          "kind": "fillet",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
         }
       ],
-      "rollback_index": 401
+      "rollback_index": 403
     }
   },
   "sketches": [
@@ -29215,20 +29233,20 @@
         "reference_edges": [],
         "entities": [
           [
-            26,
+            44,
             {
               "type": "arc",
               "center": {
-                "x": 9.079999999999345,
-                "y": 25.46396185241151
+                "x": 9.08000000000032,
+                "y": 25.263961852412162
               },
-              "radius": 0.6000000000010743,
-              "start_angle": -1.570796326793804,
-              "end_angle": -0.92729521800181
+              "radius": 0.4000000000017252,
+              "start_angle": -1.570796326795696,
+              "end_angle": -0.9272952180048416
             }
           ],
           [
-            27,
+            45,
             {
               "type": "point",
               "position": {
@@ -29238,106 +29256,73 @@
             }
           ],
           [
-            28,
+            46,
             {
               "type": "point",
               "position": {
-                "x": 9.440000000000001,
-                "y": 24.983961852410438
+                "x": 9.32,
+                "y": 24.943961852410435
               }
             }
           ],
           [
-            29,
+            47,
             {
               "type": "arc",
               "center": {
-                "x": 9.799999999999514,
-                "y": 24.503961852410157
+                "x": 9.800000000000043,
+                "y": 24.303961852410282
               },
-              "radius": 0.5999999999999325,
-              "start_angle": 1.5707963267940854,
-              "end_angle": 2.21429743558725
+              "radius": 0.8000000000001485,
+              "start_angle": 0.9272952180017712,
+              "end_angle": 2.214297435588109
             }
           ],
           [
-            30,
+            48,
             {
               "type": "point",
               "position": {
-                "x": 9.8,
-                "y": 25.103961852410436
+                "x": 10.28,
+                "y": 24.943961852410435
               }
             }
           ],
           [
-            31,
+            49,
             {
               "type": "point",
               "position": {
-                "x": 9.440000000000001,
-                "y": 24.983961852410438
+                "x": 9.32,
+                "y": 24.943961852410435
               }
             }
           ],
           [
-            32,
+            50,
             {
               "type": "arc",
               "center": {
-                "x": 9.799999999999876,
-                "y": 24.503961852409923
+                "x": 10.519999999999778,
+                "y": 25.26396185240956
               },
-              "radius": 0.600000000000513,
-              "start_angle": 0.9272952180019628,
-              "end_angle": 1.5707963267946894
+              "radius": 0.39999999999916797,
+              "start_angle": -2.2142974355890477,
+              "end_angle": -1.5707963267943414
             }
           ],
           [
-            33,
+            51,
             {
               "type": "point",
               "position": {
-                "x": 10.16,
-                "y": 24.983961852410438
+                "x": 10.28,
+                "y": 24.943961852410435
               }
             }
           ],
           [
-            34,
-            {
-              "type": "point",
-              "position": {
-                "x": 9.8,
-                "y": 25.103961852410436
-              }
-            }
-          ],
-          [
-            35,
-            {
-              "type": "arc",
-              "center": {
-                "x": 10.520000000000548,
-                "y": 25.46396185241127
-              },
-              "radius": 0.6000000000009944,
-              "start_angle": -2.2142974355880805,
-              "end_angle": -1.5707963267958114
-            }
-          ],
-          [
-            36,
-            {
-              "type": "point",
-              "position": {
-                "x": 10.16,
-                "y": 24.983961852410438
-              }
-            }
-          ],
-          [
-            37,
+            52,
             {
               "type": "point",
               "position": {
@@ -29347,7 +29332,7 @@
             }
           ],
           [
-            38,
+            53,
             {
               "type": "point",
               "position": {
@@ -29357,15 +29342,15 @@
             }
           ],
           [
-            39,
+            54,
             {
               "type": "line",
-              "start": 37,
-              "end": 38
+              "start": 52,
+              "end": 53
             }
           ],
           [
-            40,
+            55,
             {
               "type": "point",
               "position": {
@@ -29375,15 +29360,15 @@
             }
           ],
           [
-            41,
+            56,
             {
               "type": "line",
-              "start": 38,
-              "end": 40
+              "start": 53,
+              "end": 55
             }
           ],
           [
-            42,
+            57,
             {
               "type": "point",
               "position": {
@@ -29393,97 +29378,77 @@
             }
           ],
           [
-            43,
+            58,
             {
               "type": "line",
-              "start": 40,
-              "end": 42
+              "start": 55,
+              "end": 57
             }
           ]
         ],
         "generated_points": [
-          27,
-          28,
-          30,
-          31,
-          33,
-          34,
-          36,
-          37,
-          38,
-          40,
-          42
+          45,
+          46,
+          48,
+          49,
+          51,
+          52,
+          53,
+          55,
+          57
         ],
         "constraints": [
           [
-            12,
+            20,
             {
               "type": "arc_endpoint_coincident",
-              "point": 27,
-              "arc": 26,
+              "point": 45,
+              "arc": 44,
               "end": "start"
             }
           ],
           [
-            13,
+            21,
             {
               "type": "arc_endpoint_coincident",
-              "point": 28,
-              "arc": 26,
+              "point": 46,
+              "arc": 44,
               "end": "end"
             }
           ],
           [
-            14,
+            22,
             {
               "type": "arc_endpoint_coincident",
-              "point": 30,
-              "arc": 29,
+              "point": 48,
+              "arc": 47,
               "end": "start"
             }
           ],
           [
-            15,
+            23,
             {
               "type": "arc_endpoint_coincident",
-              "point": 31,
-              "arc": 29,
+              "point": 49,
+              "arc": 47,
               "end": "end"
             }
           ],
           [
-            16,
+            24,
             {
               "type": "arc_endpoint_coincident",
-              "point": 33,
-              "arc": 32,
+              "point": 51,
+              "arc": 50,
               "end": "start"
             }
           ],
           [
-            17,
+            25,
             {
               "type": "arc_endpoint_coincident",
-              "point": 34,
-              "arc": 32,
-              "end": "end"
-            }
-          ],
-          [
-            18,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 36,
-              "arc": 35,
-              "end": "start"
-            }
-          ],
-          [
-            19,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 37,
-              "arc": 35,
+              "point": 52,
+              "arc": 50,
               "end": "end"
             }
           ]
@@ -29497,11 +29462,11 @@
         "dim_params": {},
         "dim_placements": {},
         "dim_modes": {},
-        "next_entity": 43,
-        "next_constraint": 19
+        "next_entity": 58,
+        "next_constraint": 25
       },
       "profile_identities": {
-        "next": 4,
+        "next": 5,
         "records": [
           {
             "id": 0,
@@ -30817,10 +30782,197 @@
                 24863962
               ]
             ]
+          },
+          {
+            "id": 4,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 44
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 58
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 56
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 54
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 50
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 47
+                  }
+                ],
+                1
+              ]
+            ],
+            "shape": [
+              [
+                9080000,
+                24703962
+              ],
+              [
+                10520000,
+                24703962
+              ],
+              [
+                10520000,
+                24863962
+              ],
+              [
+                10487860,
+                24865255
+              ],
+              [
+                10455927,
+                24869127
+              ],
+              [
+                10424409,
+                24875552
+              ],
+              [
+                10393509,
+                24884489
+              ],
+              [
+                10363427,
+                24895879
+              ],
+              [
+                10334357,
+                24909650
+              ],
+              [
+                10306488,
+                24925712
+              ],
+              [
+                10280000,
+                24943962
+              ],
+              [
+                10219222,
+                24985323
+              ],
+              [
+                10154903,
+                25020930
+              ],
+              [
+                10087587,
+                25050483
+              ],
+              [
+                10017843,
+                25073731
+              ],
+              [
+                9946259,
+                25090478
+              ],
+              [
+                9873439,
+                25100584
+              ],
+              [
+                9800000,
+                25103962
+              ],
+              [
+                9726561,
+                25100584
+              ],
+              [
+                9653741,
+                25090478
+              ],
+              [
+                9582157,
+                25073731
+              ],
+              [
+                9512413,
+                25050483
+              ],
+              [
+                9445097,
+                25020930
+              ],
+              [
+                9380778,
+                24985323
+              ],
+              [
+                9320000,
+                24943962
+              ],
+              [
+                9293512,
+                24925712
+              ],
+              [
+                9265643,
+                24909650
+              ],
+              [
+                9236573,
+                24895879
+              ],
+              [
+                9206491,
+                24884489
+              ],
+              [
+                9175591,
+                24875552
+              ],
+              [
+                9144073,
+                24869127
+              ],
+              [
+                9112140,
+                24865255
+              ],
+              [
+                9080000,
+                24863962
+              ]
+            ]
           }
         ]
       },
-      "entity_id_high_water": 43
+      "entity_id_high_water": 58
     },
     {
       "feature_id": 765,
@@ -30858,96 +31010,131 @@
         "reference_edges": [],
         "entities": [
           [
-            1,
+            10,
             {
               "type": "point",
               "position": {
                 "x": 9.12,
                 "y": 24.703961852410437
               }
+            }
+          ],
+          [
+            11,
+            {
+              "type": "point",
+              "position": {
+                "x": 9.12,
+                "y": 25.203961852410437
+              }
+            }
+          ],
+          [
+            12,
+            {
+              "type": "line",
+              "start": 10,
+              "end": 11
+            }
+          ],
+          [
+            13,
+            {
+              "type": "point",
+              "position": {
+                "x": 9.65,
+                "y": 25.203961852410437
+              }
+            }
+          ],
+          [
+            14,
+            {
+              "type": "line",
+              "start": 11,
+              "end": 13
+            }
+          ],
+          [
+            15,
+            {
+              "type": "arc",
+              "center": {
+                "x": 9.64999999999994,
+                "y": 24.703961852410195
+              },
+              "radius": 0.5000000000002416,
+              "start_angle": 4.831690603168098e-13,
+              "end_angle": 1.5707963267947758
+            }
+          ],
+          [
+            16,
+            {
+              "type": "point",
+              "position": {
+                "x": 10.15,
+                "y": 24.703961852410437
+              }
+            }
+          ],
+          [
+            17,
+            {
+              "type": "point",
+              "position": {
+                "x": 9.65,
+                "y": 25.203961852410437
+              }
+            }
+          ],
+          [
+            18,
+            {
+              "type": "point",
+              "position": {
+                "x": 9.12,
+                "y": 24.703961852410437
+              }
+            }
+          ],
+          [
+            19,
+            {
+              "type": "line",
+              "start": 16,
+              "end": 18
+            }
+          ]
+        ],
+        "generated_points": [
+          10,
+          11,
+          13,
+          16,
+          17,
+          18
+        ],
+        "constraints": [
+          [
+            1,
+            {
+              "type": "arc_endpoint_coincident",
+              "point": 16,
+              "arc": 15,
+              "end": "start"
             }
           ],
           [
             2,
             {
-              "type": "point",
-              "position": {
-                "x": 9.95,
-                "y": 24.703961852410437
-              }
-            }
-          ],
-          [
-            3,
-            {
-              "type": "line",
-              "start": 1,
-              "end": 2
-            }
-          ],
-          [
-            4,
-            {
-              "type": "point",
-              "position": {
-                "x": 9.95,
-                "y": 25.203961852410437
-              }
-            }
-          ],
-          [
-            5,
-            {
-              "type": "line",
-              "start": 2,
-              "end": 4
-            }
-          ],
-          [
-            6,
-            {
-              "type": "point",
-              "position": {
-                "x": 9.12,
-                "y": 25.203961852410437
-              }
-            }
-          ],
-          [
-            7,
-            {
-              "type": "line",
-              "start": 4,
-              "end": 6
-            }
-          ],
-          [
-            8,
-            {
-              "type": "point",
-              "position": {
-                "x": 9.12,
-                "y": 24.703961852410437
-              }
-            }
-          ],
-          [
-            9,
-            {
-              "type": "line",
-              "start": 6,
-              "end": 8
+              "type": "arc_endpoint_coincident",
+              "point": 17,
+              "arc": 15,
+              "end": "end"
             }
           ]
         ],
-        "generated_points": [
-          1,
-          2,
-          4,
-          6,
-          8
-        ],
-        "constraints": [],
         "fix_targets": {},
         "params": {
           "params": [],
@@ -30957,11 +31144,11 @@
         "dim_params": {},
         "dim_placements": {},
         "dim_modes": {},
-        "next_entity": 9,
-        "next_constraint": 0
+        "next_entity": 19,
+        "next_constraint": 2
       },
       "profile_identities": {
-        "next": 1,
+        "next": 2,
         "records": [
           {
             "id": 0,
@@ -31017,14 +31204,129 @@
                 25203962
               ]
             ]
+          },
+          {
+            "id": 1,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 12
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 19
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 15
+                  }
+                ],
+                1
+              ],
+              [
+                [
+                  {
+                    "entity": 14
+                  }
+                ],
+                -1
+              ]
+            ],
+            "shape": [
+              [
+                9120000,
+                24703962
+              ],
+              [
+                10150000,
+                24703962
+              ],
+              [
+                10147592,
+                24752970
+              ],
+              [
+                10140393,
+                24801507
+              ],
+              [
+                10128470,
+                24849104
+              ],
+              [
+                10111940,
+                24895304
+              ],
+              [
+                10090961,
+                24939660
+              ],
+              [
+                10065735,
+                24981747
+              ],
+              [
+                10036505,
+                25021158
+              ],
+              [
+                10003553,
+                25057515
+              ],
+              [
+                9967197,
+                25090467
+              ],
+              [
+                9927785,
+                25119697
+              ],
+              [
+                9885698,
+                25144922
+              ],
+              [
+                9841342,
+                25165902
+              ],
+              [
+                9795142,
+                25182432
+              ],
+              [
+                9747545,
+                25194354
+              ],
+              [
+                9699009,
+                25201554
+              ],
+              [
+                9650000,
+                25203962
+              ],
+              [
+                9120000,
+                25203962
+              ]
+            ]
           }
         ]
       },
-      "entity_id_high_water": 9
+      "entity_id_high_water": 19
     },
     {
-      "feature_id": 774,
-      "name": "Rounded local flex relief R1.6",
+      "feature_id": 784,
+      "name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
       "plane": {
         "type": "datum_plane",
         "datum_id": 36
@@ -31033,7 +31335,7 @@
         "origin": [
           0.0,
           0.0,
-          22.02
+          21.558119784648298
         ],
         "u": [
           1.0,
@@ -31062,12 +31364,12 @@
             {
               "type": "arc",
               "center": {
-                "x": -0.8499999999999952,
-                "y": 9.4
+                "x": -0.8499999999999933,
+                "y": 8.66527777777778
               },
-              "radius": 1.6000000000000005,
-              "start_angle": -1.5707963267948997,
-              "end_angle": 1.5707963267948997
+              "radius": 2.3347222222222204,
+              "start_angle": 1.1281674420993164,
+              "end_angle": 1.5707963267948994
             }
           ],
           [
@@ -31075,8 +31377,8 @@
             {
               "type": "point",
               "position": {
-                "x": -0.85,
-                "y": 7.8
+                "x": 0.15000000000000002,
+                "y": 10.775
               }
             }
           ],
@@ -31093,26 +31395,99 @@
           [
             4,
             {
-              "type": "point",
-              "position": {
-                "x": -0.85,
-                "y": 7.8
-              }
+              "type": "arc",
+              "center": {
+                "x": 1.1499999999999997,
+                "y": 12.884722222222186
+              },
+              "radius": 2.3347222222221884,
+              "start_angle": -2.013425211490486,
+              "end_angle": -1.5707963267948966
             }
           ],
           [
             5,
             {
+              "type": "point",
+              "position": {
+                "x": 0.15000000000000002,
+                "y": 10.775
+              }
+            }
+          ],
+          [
+            6,
+            {
+              "type": "point",
+              "position": {
+                "x": 1.15,
+                "y": 10.55
+              }
+            }
+          ],
+          [
+            7,
+            {
+              "type": "point",
+              "position": {
+                "x": 1.15,
+                "y": 9.0
+              }
+            }
+          ],
+          [
+            8,
+            {
               "type": "line",
-              "start": 3,
-              "end": 4
+              "start": 6,
+              "end": 7
+            }
+          ],
+          [
+            9,
+            {
+              "type": "point",
+              "position": {
+                "x": -0.85,
+                "y": 9.0
+              }
+            }
+          ],
+          [
+            10,
+            {
+              "type": "line",
+              "start": 7,
+              "end": 9
+            }
+          ],
+          [
+            11,
+            {
+              "type": "point",
+              "position": {
+                "x": -0.85,
+                "y": 11.0
+              }
+            }
+          ],
+          [
+            12,
+            {
+              "type": "line",
+              "start": 9,
+              "end": 11
             }
           ]
         ],
         "generated_points": [
           2,
           3,
-          4
+          5,
+          6,
+          7,
+          9,
+          11
         ],
         "constraints": [
           [
@@ -31132,6 +31507,24 @@
               "arc": 1,
               "end": "end"
             }
+          ],
+          [
+            3,
+            {
+              "type": "arc_endpoint_coincident",
+              "point": 5,
+              "arc": 4,
+              "end": "start"
+            }
+          ],
+          [
+            4,
+            {
+              "type": "arc_endpoint_coincident",
+              "point": 6,
+              "arc": 4,
+              "end": "end"
+            }
           ]
         ],
         "fix_targets": {},
@@ -31143,8 +31536,8 @@
         "dim_params": {},
         "dim_placements": {},
         "dim_modes": {},
-        "next_entity": 5,
-        "next_constraint": 2
+        "next_entity": 12,
+        "next_constraint": 4
       },
       "profile_identities": {
         "next": 1,
@@ -31163,144 +31556,108 @@
               [
                 [
                   {
-                    "entity": 5
+                    "entity": 12
                   }
                 ],
-                1
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 10
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 8
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 4
+                  }
+                ],
+                -1
               ]
             ],
             "shape": [
               [
                 -850000,
-                7800000
+                9000000
               ],
               [
-                -697910,
-                7807245
+                1150000,
+                9000000
               ],
               [
-                -547198,
-                7828914
+                1150000,
+                10550000
               ],
               [
-                -399228,
-                7864811
+                1020889,
+                10553573
               ],
               [
-                -255340,
-                7914611
+                892173,
+                10564280
               ],
               [
-                -116838,
-                7977863
+                764246,
+                10582089
               ],
               [
-                15025,
-                8053994
+                637500,
+                10606944
               ],
               [
-                139054,
-                8142315
+                512322,
+                10638771
               ],
               [
-                254126,
-                8242026
+                389096,
+                10677472
               ],
               [
-                359199,
-                8352223
+                268199,
+                10722928
               ],
               [
-                453322,
-                8471909
+                150000,
+                10775000
               ],
               [
-                535641,
-                8600000
+                31801,
+                10827072
               ],
               [
-                605411,
-                8735336
+                -89096,
+                10872528
               ],
               [
-                662001,
-                8876691
+                -212322,
+                10911229
               ],
               [
-                704899,
-                9022786
+                -337500,
+                10943056
               ],
               [
-                733714,
-                9172296
+                -464246,
+                10967911
               ],
               [
-                748188,
-                9323869
+                -592173,
+                10985720
               ],
               [
-                748188,
-                9476131
-              ],
-              [
-                733714,
-                9627704
-              ],
-              [
-                704899,
-                9777214
-              ],
-              [
-                662001,
-                9923309
-              ],
-              [
-                605411,
-                10064664
-              ],
-              [
-                535641,
-                10200000
-              ],
-              [
-                453322,
-                10328091
-              ],
-              [
-                359199,
-                10447777
-              ],
-              [
-                254126,
-                10557974
-              ],
-              [
-                139054,
-                10657685
-              ],
-              [
-                15025,
-                10746006
-              ],
-              [
-                -116838,
-                10822137
-              ],
-              [
-                -255340,
-                10885389
-              ],
-              [
-                -399228,
-                10935189
-              ],
-              [
-                -547198,
-                10971086
-              ],
-              [
-                -697910,
-                10992755
+                -720889,
+                10996427
               ],
               [
                 -850000,
@@ -31310,7 +31667,7 @@
           }
         ]
       },
-      "entity_id_high_water": 5
+      "entity_id_high_water": 12
     }
   ],
   "extrudes": [
@@ -34031,7 +34388,7 @@
       "name": "Form symmetric S-curve nub",
       "sketch_name": "Rounded ridge nub - confirmed midpoint",
       "profile_indices": [
-        3
+        4
       ],
       "axis_origin": {
         "x": 9.8,
@@ -34056,7 +34413,7 @@
       "name": "Form rounded receiving seat cutter",
       "sketch_name": "Rounded housing detent receiver",
       "profile_indices": [
-        0
+        1
       ],
       "axis_origin": {
         "x": 9.8,
@@ -34078,8 +34435,8 @@
     },
     {
       "feature_id": 775,
-      "name": "Revolve3",
-      "sketch_name": "Rounded local flex relief R1.6",
+      "name": "Form tangent corner relief",
+      "sketch_name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
       "profile_indices": [
         0
       ],
@@ -34291,7 +34648,62 @@
     }
   ],
   "ribs": [],
-  "fillets": [],
+  "fillets": [
+    {
+      "feature_id": 782,
+      "name": "Blend +Y corner relief side walls R0.25",
+      "body_id": 173,
+      "edge_ids": [
+        6350925990840274,
+        6352025502468485,
+        8186010897945983,
+        725824505579913,
+        5940807895776591,
+        6796227942335524,
+        1160131337261288,
+        2015551383820221
+      ],
+      "edge_keys": [
+        "edge:156",
+        "edge:157",
+        "edge:173",
+        "edge:184",
+        "edge:212",
+        "edge:226",
+        "edge:240",
+        "edge:254"
+      ],
+      "radius": 0.25,
+      "tangent_chain": false
+    },
+    {
+      "feature_id": 783,
+      "name": "Blend -Y corner relief side walls R0.25",
+      "body_id": 267,
+      "edge_ids": [
+        1246785294827979,
+        1245685783199768,
+        3202816481036898,
+        4197874504378628,
+        5316078093213230,
+        8260570232994613,
+        1089555396987541,
+        93397862017600
+      ],
+      "edge_keys": [
+        "edge:156",
+        "edge:157",
+        "edge:173",
+        "edge:184",
+        "edge:212",
+        "edge:226",
+        "edge:240",
+        "edge:254"
+      ],
+      "radius": 0.25,
+      "tangent_chain": false
+    }
+  ],
   "chamfers": [],
   "holes": [
     {
@@ -35588,13 +36000,13 @@
           "type": "origin_plane",
           "plane": "xy"
         },
-        "distance": 22.02
+        "distance": 21.558119784648298
       },
       "basis": {
         "origin": [
           0.0,
           0.0,
-          22.02
+          21.558119784648298
         ],
         "u": [
           1.0,
@@ -39242,7 +39654,7 @@
       "translation": {
         "x": -2.95,
         "y": 0.0,
-        "z": -7.54
+        "z": -6.616239569296596
       },
       "rotation": [
         0.0,
@@ -39270,7 +39682,7 @@
       "translation": {
         "x": 14.75,
         "y": 0.0,
-        "z": -7.54
+        "z": -6.616239569296596
       },
       "rotation": [
         0.0,
@@ -40044,7 +40456,6 @@
       "Hub spline socket",
       "Lower shell hex boundary trim",
       "Rounded housing detent receiver",
-      "Rounded local flex relief R1.6",
       "Rounded ridge nub - confirmed midpoint",
       "Servo body",
       "Servo ear far",
@@ -40165,6 +40576,24 @@
       }
     }
   ],
+  "print_intent": {
+    "version": 4,
+    "source_document_id": null,
+    "selected_process": null,
+    "defaults": {
+      "wall_count": null,
+      "infill_density_percent": null,
+      "infill_pattern": null,
+      "top_shell_layers": null,
+      "bottom_shell_layers": null
+    },
+    "parts": [],
+    "presets": [],
+    "target_handoffs": [],
+    "modifiers": [],
+    "height_ranges": [],
+    "layer_height_profiles": []
+  },
   "cam": {
     "setups": [],
     "active_setup_id": null,
@@ -40183,13 +40612,13 @@
     "next_tool_id": 1
   },
   "counters": {
-    "sketch": 253,
+    "sketch": 254,
     "extrude": 213,
     "revolve": 3,
     "sweep": 0,
     "loft": 8,
     "rib": 0,
-    "fillet": 6,
+    "fillet": 8,
     "chamfer": 5,
     "hole": 18
   },

@@ -1,0 +1,9 @@
+﻿import fs from 'node:fs/promises';import {Client} from 'file:///C:/Users/jeffg/dev/INJS2065-Technic-Case/tools/mcp-client.mjs';
+const out='D:/noBS-CAD-Reviews/INJS2065-Technic-Case/revision-20261007';const c=new Client('C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe',180000);
+try{await c.start();const m=JSON.parse(await fs.readFile(out+'/bowl.model.json'));await c.call('cad_load_project_model',{model_json:JSON.stringify(m)});const z=22.02-.4/Math.sqrt(.75);await c.call('construction_plane_edit_offset',{feature_id:773,reference:{type:'origin_plane',plane:'xy'},distance:z});
+for(const id of [777,778]){const b=m.body_features.find(f=>f.feature_id===id);let {body_ids,translation,rotation,pivot,copy}=b;translation={...translation,z:36.5-2*z};await c.call('solid_edit_move_copy',{feature_id:id,request:{body_ids,translation,rotation,pivot,copy}});}
+await fs.writeFile(out+'/tangent-preblend.model.json',await c.call('cad_project_model'));let s=await c.call('solid_scene');
+for(let id of [173,267]){let b=s.bodies.find(b=>b.id===id),es=[];for(let e of b.edges){let adj=b.faces.filter(f=>f.edge_keys.includes(e.key));let p=adj.find(f=>f.plane&&Math.abs(f.plane.normal[1])<1e-6);let curved=adj.some(f=>!f.plane);let box=e.points.map(p=>p.z);if(p&&curved&&e.points.every(p=>Math.abs(p.y)>9.0499&&Math.abs(p.y)<11.0001)&&((Math.min(...box)>21&&Math.max(...box)<23.62)||(Math.max(...box)<15.5&&Math.min(...box)>12.88)))es.push(e);}
+console.log(id,'sidewall edges',es.map(e=>e.key));await c.call('solid_fillet',{body_id:id,edge_ids:es.map(e=>e.id),radius:.25,tangent_chain:false});s=await c.call('solid_scene');console.log('errors',s.errors);if(s.errors.length)break;}
+await fs.writeFile(out+'/blended.model.json',await c.call('cad_project_model'));await fs.writeFile(out+'/blended-scene.json',JSON.stringify(s));
+}finally{c.close()}

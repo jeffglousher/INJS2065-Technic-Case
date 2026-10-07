@@ -1,0 +1,7 @@
+*.json -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+*.py -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+*.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+*.stl binary
+*.step binary
+*.3mf binary
+*.png binary
