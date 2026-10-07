@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-10-07",
+  "canonicalModelSha256": "947a3531683decb6a92b62c1aadef36e00d2a1eab6c0a574cb4d0b49fef7b593",
+  "method": "Exact saved circular nub arc and native OCCT roof-face plane equations; kinematic local-envelope screening.",
+  "seat_end_Y_mm": 9.95,
+  "profile_arc_R_mm": 0.600000000000513,
+  "profile_arc_center_offset_mm": -0.20000000000051443,
+  "corners": [
+    {
+      "corner": "upper-left",
+      "housing_body": 18,
+      "native_roof_face_ids": [
+        3077729792486204,
+        3073331745973360
+      ],
+      "axis_mm": [
+        -0.85,
+        9.8,
+        24.703961852410437
+      ],
+      "housing_flank_plane_distance_from_axis_mm": 0.373205080756889,
+      "crest_radial_radius_mm": 0.3999999999999986,
+      "receiver_radial_radius_mm": 0.5,
+      "radial_crest_to_seat_clearance_mm": 0.10000000000000142,
+      "radial_flank_excess_at_receiver_end_mm": 0.0077424211742392335,
+      "radial_crest_excess_above_unrelieved_flank_mm": 0.02679491924310956,
+      "installed_rigid_envelope_inward_Y_shift_to_clear_end_mm": 0.027301820054151688
+    },
+    {
+      "corner": "upper-right",
+      "housing_body": 18,
+      "native_roof_face_ids": [
+        2084870792400896,
+        2089268838913740
+      ],
+      "axis_mm": [
+        16.85,
+        9.8,
+        24.703961852410437
+      ],
+      "housing_flank_plane_distance_from_axis_mm": 0.3732050807568891,
+      "crest_radial_radius_mm": 0.3999999999999986,
+      "receiver_radial_radius_mm": 0.5,
+      "radial_crest_to_seat_clearance_mm": 0.10000000000000142,
+      "radial_flank_excess_at_receiver_end_mm": 0.007742421174239178,
+      "radial_crest_excess_above_unrelieved_flank_mm": 0.026794919243109505,
+      "installed_rigid_envelope_inward_Y_shift_to_clear_end_mm": 0.027301820054151216
+    },
+    {
+      "corner": "lower-left",
+      "housing_body": 8,
+      "native_roof_face_ids": [
+        20512725222140,
+        8429354752281541
+      ],
+      "axis_mm": [
+        -3.8,
+        9.8,
+        11.796038147589563
+      ],
+      "housing_flank_plane_distance_from_axis_mm": 0.3732050807568893,
+      "crest_radial_radius_mm": 0.3999999999999986,
+      "receiver_radial_radius_mm": 0.5,
+      "radial_crest_to_seat_clearance_mm": 0.10000000000000142,
+      "radial_flank_excess_at_receiver_end_mm": 0.007742421174238956,
+      "radial_crest_excess_above_unrelieved_flank_mm": 0.026794919243109283,
+      "installed_rigid_envelope_inward_Y_shift_to_clear_end_mm": 0.027301820054150577
+    },
+    {
+      "corner": "lower-right",
+      "housing_body": 8,
+      "native_roof_face_ids": [
+        8434852310422596,
+        2255596962872621
+      ],
+      "axis_mm": [
+        13.9,
+        9.8,
+        11.796038147589563
+      ],
+      "housing_flank_plane_distance_from_axis_mm": 0.3732050807568891,
+      "crest_radial_radius_mm": 0.3999999999999986,
+      "receiver_radial_radius_mm": 0.5,
+      "radial_crest_to_seat_clearance_mm": 0.10000000000000142,
+      "radial_flank_excess_at_receiver_end_mm": 0.007742421174239178,
+      "radial_crest_excess_above_unrelieved_flank_mm": 0.026794919243109505,
+      "installed_rigid_envelope_inward_Y_shift_to_clear_end_mm": 0.027301820054151216
+    }
+  ],
+  "limitations": [
+    "Rigid-envelope clearance shift is not a contact-solved elastic displacement or force.",
+    "Center-crest gap does not mean no preload: two diagonal nub flanks overrun the receiver-end edge.",
+    "Peak radial obstruction overrun is not inward Y travel and cannot be used as dynamic insertion deflection.",
+    "No prescribed assembly path, friction, housing flexibility, large rotation, creep or time-dependent insertion has been solved."
+  ]
+}

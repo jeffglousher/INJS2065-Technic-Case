@@ -28,6 +28,8 @@ External review projects, fine meshes, G-code and scripts are preserved at D:/no
 
 ## Qualification status
 
+The [7 October fit/mechanics review](review/fit-review-20261007/REVIEW.md) adds fresh native mesh renderings and an exact all-four-corner flank audit, with unchanged geometry and interference results. It independently reproduces the 0.02730 mm nominal inward-clearance target and shows why a center-only section misses the loaded diagonal flanks. Static screening gives roughly 2.18–2.24% local peak strain under its assumed load/support prescription; this is not a validated installed-contact or insertion solution. Peak insertion travel/strain, printed preload and endurance remain unqualified.
+
 Ready for a fit-test print. Inward deflection, insertion force, retained force, rattle, creep and repeated insertion still need physical testing. The walls remain coupled to the backing; this revision has no free-standing cantilever and has not undergone a validated flexure simulation. PLA fatigue remains unqualified. No printer job was started.
 
 ## Historical cleanup
