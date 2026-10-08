@@ -11,3 +11,7 @@ review/print-layout-20261008/*.3mf binary
 review/print-layout-20261008/*.png binary
 review/hex-underside-20261008/*.json -text
 review/hex-underside-20261008/*.png binary
+review/root-bevel.json -text
+review/root-ramp-20261008/*.json -text
+review/root-ramp-20261008/*.png binary
+review/root-ramp-20261008/*.3mf binary

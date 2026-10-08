@@ -1,0 +1,240 @@
+{
+  "source_model_sha256": "4851d587131ca28d08d3040db72470f1c95a239b3b466d2268eae0755fc4602c",
+  "candidate_model_sha256": "c2db236b3ba8f5bbb95af305f0f7971312d64f698626d8b818be437c9a9602a6",
+  "source_commit": "f85e290",
+  "angle_from_vertical_deg": 55,
+  "projection_mm": 1.7,
+  "root_height_mm": 0.6735031482788676,
+  "profile_slope_x": 0.5773502691896257,
+  "profile_slope_y": 0.39617832251698093,
+  "feature_count": 390,
+  "body_count": 7,
+  "assembly_structure_and_poses_unchanged": true,
+  "other_five_bodies_unchanged": true,
+  "nominal_contact_volumes_preserved": true,
+  "receipts": [
+    {
+      "tool": "solid_loft",
+      "args": {
+        "sections": [
+          {
+            "sketch_name": "Root support seed section 0",
+            "profile_index": 0
+          },
+          {
+            "sketch_name": "Root support seed section 1",
+            "profile_index": 0
+          }
+        ],
+        "ruled": true,
+        "continuity": "g0",
+        "operation": "new_body",
+        "target_body_ids": []
+      },
+      "feature_id": 792,
+      "added_body_ids": [
+        292
+      ],
+      "label": "Form root ramp seed left flank - 55 deg"
+    },
+    {
+      "tool": "solid_loft",
+      "args": {
+        "sections": [
+          {
+            "sketch_name": "Root support seed section 1",
+            "profile_index": 0
+          },
+          {
+            "sketch_name": "Root support seed section 2",
+            "profile_index": 0
+          }
+        ],
+        "ruled": true,
+        "continuity": "g0",
+        "operation": "new_body",
+        "target_body_ids": []
+      },
+      "feature_id": 793,
+      "added_body_ids": [
+        293
+      ],
+      "label": "Form root ramp seed right flank - 55 deg"
+    },
+    {
+      "tool": "solid_combine",
+      "args": {
+        "target_body_id": 292,
+        "tool_body_ids": [
+          293
+        ],
+        "operation": "join",
+        "keep_tools": false
+      },
+      "feature_id": 794,
+      "added_body_ids": [],
+      "label": "Unify root support seed"
+    },
+    {
+      "tool": "solid_rectangular_pattern",
+      "args": {
+        "body_ids": [
+          292
+        ],
+        "direction": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "spacing": 5.9,
+        "count": 4
+      },
+      "feature_id": 795,
+      "added_body_ids": [
+        294,
+        295,
+        296
+      ],
+      "label": "Repeat four hex root supports"
+    },
+    {
+      "tool": "solid_mirror",
+      "args": {
+        "body_ids": [
+          292,
+          294,
+          295,
+          296
+        ],
+        "plane": {
+          "type": "origin_plane",
+          "plane": "xz"
+        }
+      },
+      "feature_id": 796,
+      "added_body_ids": [
+        297,
+        298,
+        299,
+        300
+      ],
+      "label": "Mirror supports to opposite lower side"
+    },
+    {
+      "tool": "solid_mirror",
+      "args": {
+        "body_ids": [
+          292,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300
+        ],
+        "plane": {
+          "type": "datum_plane",
+          "datum_id": 40
+        }
+      },
+      "feature_id": 798,
+      "added_body_ids": [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "label": "Mirror eight supports to upper clamshell"
+    },
+    {
+      "tool": "solid_move_copy",
+      "args": {
+        "body_ids": [
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308
+        ],
+        "translation": {
+          "x": 2.95,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "pivot": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "copy": false
+      },
+      "feature_id": 799,
+      "added_body_ids": [],
+      "label": "Align upper bevels to staggered hex row"
+    },
+    {
+      "tool": "solid_combine",
+      "args": {
+        "target_body_id": 8,
+        "tool_body_ids": [
+          292,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300
+        ],
+        "operation": "cut",
+        "keep_tools": false
+      },
+      "feature_id": 800,
+      "added_body_ids": [],
+      "label": "Bevel lower hex undersides from root - 55 deg"
+    },
+    {
+      "tool": "solid_combine",
+      "args": {
+        "target_body_id": 18,
+        "tool_body_ids": [
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308
+        ],
+        "operation": "cut",
+        "keep_tools": false
+      },
+      "feature_id": 801,
+      "added_body_ids": [],
+      "label": "Bevel upper hex undersides from root - 55 deg"
+    }
+  ],
+  "export_linear_deflection_mm": 0.0005,
+  "export_angular_deflection_rad": 0.04,
+  "named_views": [
+    "Local flex pocket ISO",
+    "Assembled ISO",
+    "Exploded assembly",
+    "PETG print by object"
+  ]
+}

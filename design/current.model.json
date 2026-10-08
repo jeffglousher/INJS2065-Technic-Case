@@ -3374,9 +3374,153 @@
           "status": {
             "state": "ok"
           }
+        },
+        {
+          "id": 786,
+          "name": "Root support seed plane 0",
+          "kind": "construction_plane",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 787,
+          "name": "Root support seed section 0",
+          "kind": "sketch",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 788,
+          "name": "Root support seed plane 1",
+          "kind": "construction_plane",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 789,
+          "name": "Root support seed section 1",
+          "kind": "sketch",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 790,
+          "name": "Root support seed plane 2",
+          "kind": "construction_plane",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 791,
+          "name": "Root support seed section 2",
+          "kind": "sketch",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 792,
+          "name": "Form root ramp seed left flank - 55 deg",
+          "kind": "loft",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 793,
+          "name": "Form root ramp seed right flank - 55 deg",
+          "kind": "loft",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 794,
+          "name": "Unify root bevel cutter",
+          "kind": "combine",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 795,
+          "name": "Repeat four hex root bevel cutters",
+          "kind": "rectangular_pattern",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 796,
+          "name": "Mirror bevel cutters to opposite lower side",
+          "kind": "mirror",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 797,
+          "name": "Clamshell symmetry for root supports",
+          "kind": "construction_plane",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 798,
+          "name": "Mirror eight bevel cutters to upper clamshell",
+          "kind": "mirror",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 799,
+          "name": "Align upper bevels to staggered hex row",
+          "kind": "move_copy",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 800,
+          "name": "Bevel lower hex undersides from root - 55 deg",
+          "kind": "combine",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
+        },
+        {
+          "id": 801,
+          "name": "Bevel upper hex undersides from root - 55 deg",
+          "kind": "combine",
+          "suppressed": false,
+          "status": {
+            "state": "ok"
+          }
         }
       ],
-      "rollback_index": 374
+      "rollback_index": 390
     }
   },
   "sketches": [
@@ -28011,6 +28155,606 @@
         ]
       },
       "entity_id_high_water": 12
+    },
+    {
+      "feature_id": 787,
+      "name": "Root support seed section 0",
+      "plane": {
+        "type": "datum_plane",
+        "datum_id": 37
+      },
+      "basis": {
+        "origin": [
+          -5.55,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "dimension_style": "aligned",
+      "grid_snap": false,
+      "snapshot": {
+        "offset_sides": {},
+        "reference_edges": [],
+        "entities": [
+          [
+            1,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            2,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            3,
+            {
+              "type": "line",
+              "start": 1,
+              "end": 2
+            }
+          ],
+          [
+            4,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 15.362327019258098
+              }
+            }
+          ],
+          [
+            5,
+            {
+              "type": "line",
+              "start": 2,
+              "end": 4
+            }
+          ],
+          [
+            6,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 14.68486208775406
+              }
+            }
+          ],
+          [
+            7,
+            {
+              "type": "line",
+              "start": 4,
+              "end": 6
+            }
+          ],
+          [
+            8,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            9,
+            {
+              "type": "line",
+              "start": 6,
+              "end": 8
+            }
+          ]
+        ],
+        "generated_points": [
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "constraints": [],
+        "fix_targets": {},
+        "params": {
+          "params": [],
+          "next_id": 0,
+          "next_name": 0
+        },
+        "dim_params": {},
+        "dim_placements": {},
+        "dim_modes": {},
+        "next_entity": 9,
+        "next_constraint": 0
+      },
+      "profile_identities": {
+        "next": 1,
+        "records": [
+          {
+            "id": 0,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 3
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 9
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 7
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 5
+                  }
+                ],
+                -1
+              ]
+            ],
+            "shape": [
+              [
+                -10560000,
+                13684862
+              ],
+              [
+                -8850000,
+                13684862
+              ],
+              [
+                -8850000,
+                14684862
+              ],
+              [
+                -10560000,
+                15362327
+              ]
+            ]
+          }
+        ]
+      },
+      "entity_id_high_water": 9
+    },
+    {
+      "feature_id": 789,
+      "name": "Root support seed section 1",
+      "plane": {
+        "type": "datum_plane",
+        "datum_id": 38
+      },
+      "basis": {
+        "origin": [
+          -3.8,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "dimension_style": "aligned",
+      "grid_snap": false,
+      "snapshot": {
+        "offset_sides": {},
+        "reference_edges": [],
+        "entities": [
+          [
+            1,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 12.674499116672216
+              }
+            }
+          ],
+          [
+            2,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 12.674499116672216
+              }
+            }
+          ],
+          [
+            3,
+            {
+              "type": "line",
+              "start": 1,
+              "end": 2
+            }
+          ],
+          [
+            4,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 14.351964048176255
+              }
+            }
+          ],
+          [
+            5,
+            {
+              "type": "line",
+              "start": 2,
+              "end": 4
+            }
+          ],
+          [
+            6,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 13.674499116672216
+              }
+            }
+          ],
+          [
+            7,
+            {
+              "type": "line",
+              "start": 4,
+              "end": 6
+            }
+          ],
+          [
+            8,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 12.674499116672216
+              }
+            }
+          ],
+          [
+            9,
+            {
+              "type": "line",
+              "start": 6,
+              "end": 8
+            }
+          ]
+        ],
+        "generated_points": [
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "constraints": [],
+        "fix_targets": {},
+        "params": {
+          "params": [],
+          "next_id": 0,
+          "next_name": 0
+        },
+        "dim_params": {},
+        "dim_placements": {},
+        "dim_modes": {},
+        "next_entity": 9,
+        "next_constraint": 0
+      },
+      "profile_identities": {
+        "next": 1,
+        "records": [
+          {
+            "id": 0,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 3
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 9
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 7
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 5
+                  }
+                ],
+                -1
+              ]
+            ],
+            "shape": [
+              [
+                -10560000,
+                12674499
+              ],
+              [
+                -8850000,
+                12674499
+              ],
+              [
+                -8850000,
+                13674499
+              ],
+              [
+                -10560000,
+                14351964
+              ]
+            ]
+          }
+        ]
+      },
+      "entity_id_high_water": 9
+    },
+    {
+      "feature_id": 791,
+      "name": "Root support seed section 2",
+      "plane": {
+        "type": "datum_plane",
+        "datum_id": 39
+      },
+      "basis": {
+        "origin": [
+          -2.05,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "dimension_style": "aligned",
+      "grid_snap": false,
+      "snapshot": {
+        "offset_sides": {},
+        "reference_edges": [],
+        "entities": [
+          [
+            1,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            2,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            3,
+            {
+              "type": "line",
+              "start": 1,
+              "end": 2
+            }
+          ],
+          [
+            4,
+            {
+              "type": "point",
+              "position": {
+                "x": -10.56,
+                "y": 15.362327019258098
+              }
+            }
+          ],
+          [
+            5,
+            {
+              "type": "line",
+              "start": 2,
+              "end": 4
+            }
+          ],
+          [
+            6,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 14.68486208775406
+              }
+            }
+          ],
+          [
+            7,
+            {
+              "type": "line",
+              "start": 4,
+              "end": 6
+            }
+          ],
+          [
+            8,
+            {
+              "type": "point",
+              "position": {
+                "x": -8.85,
+                "y": 13.68486208775406
+              }
+            }
+          ],
+          [
+            9,
+            {
+              "type": "line",
+              "start": 6,
+              "end": 8
+            }
+          ]
+        ],
+        "generated_points": [
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "constraints": [],
+        "fix_targets": {},
+        "params": {
+          "params": [],
+          "next_id": 0,
+          "next_name": 0
+        },
+        "dim_params": {},
+        "dim_placements": {},
+        "dim_modes": {},
+        "next_entity": 9,
+        "next_constraint": 0
+      },
+      "profile_identities": {
+        "next": 1,
+        "records": [
+          {
+            "id": 0,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 3
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 9
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 7
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 5
+                  }
+                ],
+                -1
+              ]
+            ],
+            "shape": [
+              [
+                -10560000,
+                13684862
+              ],
+              [
+                -8850000,
+                13684862
+              ],
+              [
+                -8850000,
+                14684862
+              ],
+              [
+                -10560000,
+                15362327
+              ]
+            ]
+          }
+        ]
+      },
+      "entity_id_high_water": 9
     }
   ],
   "extrudes": [
@@ -30855,6 +31599,48 @@
       "continuity": "g1",
       "centerline": null,
       "guide_rail": null
+    },
+    {
+      "feature_id": 792,
+      "name": "Form root ramp seed left flank - 55 deg",
+      "sections": [
+        {
+          "sketch_name": "Root support seed section 0",
+          "profile_index": 0
+        },
+        {
+          "sketch_name": "Root support seed section 1",
+          "profile_index": 0
+        }
+      ],
+      "ruled": true,
+      "operation": "new_body",
+      "target_body_ids": [],
+      "new_body_id": 292,
+      "continuity": "g0",
+      "centerline": null,
+      "guide_rail": null
+    },
+    {
+      "feature_id": 793,
+      "name": "Form root ramp seed right flank - 55 deg",
+      "sections": [
+        {
+          "sketch_name": "Root support seed section 1",
+          "profile_index": 0
+        },
+        {
+          "sketch_name": "Root support seed section 2",
+          "profile_index": 0
+        }
+      ],
+      "ruled": true,
+      "operation": "new_body",
+      "target_body_ids": [],
+      "new_body_id": 293,
+      "continuity": "g0",
+      "centerline": null,
+      "guide_rail": null
     }
   ],
   "ribs": [],
@@ -32056,6 +32842,146 @@
           0.0,
           0.0,
           21.558119784648298
+        ],
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "feature_id": 786,
+      "name": "Root support seed plane 0",
+      "datum_id": 37,
+      "source": {
+        "type": "offset",
+        "reference": {
+          "type": "origin_plane",
+          "plane": "yz"
+        },
+        "distance": -5.55
+      },
+      "basis": {
+        "origin": [
+          -5.55,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "feature_id": 788,
+      "name": "Root support seed plane 1",
+      "datum_id": 38,
+      "source": {
+        "type": "offset",
+        "reference": {
+          "type": "origin_plane",
+          "plane": "yz"
+        },
+        "distance": -3.8
+      },
+      "basis": {
+        "origin": [
+          -3.8,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "feature_id": 790,
+      "name": "Root support seed plane 2",
+      "datum_id": 39,
+      "source": {
+        "type": "offset",
+        "reference": {
+          "type": "origin_plane",
+          "plane": "yz"
+        },
+        "distance": -2.05
+      },
+      "basis": {
+        "origin": [
+          -2.05,
+          0.0,
+          0.0
+        ],
+        "u": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "feature_id": 797,
+      "name": "Clamshell symmetry for root supports",
+      "datum_id": 40,
+      "source": {
+        "type": "offset",
+        "reference": {
+          "type": "origin_plane",
+          "plane": "xy"
+        },
+        "distance": 18.25
+      },
+      "basis": {
+        "origin": [
+          0.0,
+          0.0,
+          18.25
         ],
         "u": [
           1.0,
@@ -35624,6 +36550,212 @@
       ],
       "operation": "cut",
       "keep_tools": false
+    },
+    {
+      "type": "combine",
+      "feature_id": 794,
+      "name": "Unify root bevel cutter",
+      "target_body_id": 292,
+      "tool_body_ids": [
+        293
+      ],
+      "operation": "join",
+      "keep_tools": false
+    },
+    {
+      "type": "rectangular_pattern",
+      "feature_id": 795,
+      "name": "Repeat four hex root bevel cutters",
+      "body_ids": [
+        292
+      ],
+      "direction": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "spacing": 5.9,
+      "count": 4,
+      "second_direction": null,
+      "second_spacing": 0.0,
+      "second_count": 1,
+      "new_body_ids": [
+        294,
+        295,
+        296
+      ]
+    },
+    {
+      "type": "mirror",
+      "feature_id": 796,
+      "name": "Mirror bevel cutters to opposite lower side",
+      "body_ids": [
+        292,
+        294,
+        295,
+        296
+      ],
+      "plane": {
+        "type": "origin_plane",
+        "plane": "xz"
+      },
+      "plane_basis": {
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      "new_body_ids": [
+        297,
+        298,
+        299,
+        300
+      ]
+    },
+    {
+      "type": "mirror",
+      "feature_id": 798,
+      "name": "Mirror eight bevel cutters to upper clamshell",
+      "body_ids": [
+        292,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "plane": {
+        "type": "datum_plane",
+        "datum_id": 40
+      },
+      "plane_basis": {
+        "origin": [
+          0.0,
+          0.0,
+          18.25
+        ],
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "new_body_ids": [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ]
+    },
+    {
+      "type": "move_copy",
+      "feature_id": 799,
+      "name": "Align upper bevels to staggered hex row",
+      "body_ids": [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "translation": {
+        "x": 2.95,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "copy": false,
+      "result_body_ids": [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ]
+    },
+    {
+      "type": "combine",
+      "feature_id": 800,
+      "name": "Bevel lower hex undersides from root - 55 deg",
+      "target_body_id": 8,
+      "tool_body_ids": [
+        292,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "operation": "cut",
+      "keep_tools": false
+    },
+    {
+      "type": "combine",
+      "feature_id": 801,
+      "name": "Bevel upper hex undersides from root - 55 deg",
+      "target_body_id": 18,
+      "tool_body_ids": [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "operation": "cut",
+      "keep_tools": false
     }
   ],
   "body_appearances": [
@@ -36063,8 +37195,8 @@
           "grounded": false
         }
       ],
-      "next_component_id": 389,
-      "next_occurrence_id": 389
+      "next_component_id": 406,
+      "next_occurrence_id": 406
     },
     "positions": [],
     "next_position_id": 1,
@@ -36237,7 +37369,24 @@
       288,
       289,
       290,
-      291
+      291,
+      292,
+      293,
+      294,
+      295,
+      296,
+      297,
+      298,
+      299,
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308
     ],
     "hidden_datum_plane_ids": [
       1,
@@ -36890,11 +38039,11 @@
     "next_tool_id": 1
   },
   "counters": {
-    "sketch": 254,
+    "sketch": 257,
     "extrude": 213,
     "revolve": 3,
     "sweep": 0,
-    "loft": 8,
+    "loft": 10,
     "rib": 0,
     "fillet": 8,
     "chamfer": 6,

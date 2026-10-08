@@ -1,0 +1,159 @@
+{
+  "project_sha256": "d558158cb2141f1396e25ea393815e20e6ad5303c2f052407d993a9676802e2f",
+  "source": {
+    "canonical_sha256": "c2db236b3ba8f5bbb95af305f0f7971312d64f698626d8b818be437c9a9602a6",
+    "parent_project_sha256": "04b3f1b38da08c526afc4cd94e2958f61e3edf5ad11fca008832e6c9bf98fec8",
+    "changed_bodies": [
+      8,
+      18
+    ],
+    "preserved_body_meshes": [
+      54,
+      173,
+      267
+    ]
+  },
+  "parts": [
+    {
+      "name": "Lower clamshell",
+      "body_id": 8,
+      "source_sha256": "345df221b99308b8099ef050b7838f6ecf79566ffb77f62fc8e36b311c87173e",
+      "mesh_entry_sha256": "89b5da32f885474ee71d375f713bbec3577e883779fffb11fbc199ee49362713",
+      "triangles": 50570,
+      "volume_mm3": 5631.968359465826,
+      "plate_bounds_mm": [
+        [
+          30.0,
+          70.0
+        ],
+        [
+          43.0,
+          67.0
+        ],
+        [
+          0.0,
+          10.950000763
+        ]
+      ],
+      "supports": false,
+      "orientation": "outside face down"
+    },
+    {
+      "name": "Upper clamshell",
+      "body_id": 18,
+      "source_sha256": "a307a76e2e4194495904278ecaa7ccff1520cc42799fb9346faaf1c11251053f",
+      "mesh_entry_sha256": "2bda108e09a9572eae1f9d4c98e0d8404617b6458765390af955fdaba96f6c37",
+      "triangles": 103792,
+      "volume_mm3": 14908.710329088057,
+      "plate_bounds_mm": [
+        [
+          30.0,
+          70.0
+        ],
+        [
+          163.0,
+          187.0
+        ],
+        [
+          0.0,
+          24.450000763
+        ]
+      ],
+      "supports": false,
+      "orientation": "outside face down"
+    },
+    {
+      "name": "Clip +Y",
+      "body_id": 173,
+      "source_sha256": "527f8c98eb869404ebf911b4b30343597d67527576680fe37fae05c57b837028",
+      "mesh_entry_sha256": "544c6c9fa39e9f343bdf17c98e21fcc09af27d7015f45c159bae9ed088450cb0",
+      "triangles": 159442,
+      "volume_mm3": 667.6498783648201,
+      "plate_bounds_mm": [
+        [
+          136.12500009500002,
+          163.874999619
+        ],
+        [
+          48.146059036,
+          61.853940964
+        ],
+        [
+          0.0,
+          2.949999809
+        ]
+      ],
+      "supports": false,
+      "orientation": "outer broad face down"
+    },
+    {
+      "name": "Clip -Y",
+      "body_id": 267,
+      "source_sha256": "8695479f1b37a86e48a2aa511dcb5b732d0b2fcefd599c55fc3b70896d0b826b",
+      "mesh_entry_sha256": "507b78a36a8554664947a570636bdbe5df5bf86922238ea06ef21a6189b97eb1",
+      "triangles": 159424,
+      "volume_mm3": 667.6498765755651,
+      "plate_bounds_mm": [
+        [
+          136.12500009536745,
+          163.8749996185303
+        ],
+        [
+          168.14605903625488,
+          181.85394096374512
+        ],
+        [
+          0.0,
+          2.9499998092651367
+        ]
+      ],
+      "supports": false,
+      "orientation": "outer broad face down"
+    },
+    {
+      "name": "Output hub",
+      "body_id": 54,
+      "source_sha256": "473e6b19a8f0df80183c939a6afd5fe504e3a6001d26870da6780977cb7e822f",
+      "mesh_entry_sha256": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3",
+      "triangles": 4920,
+      "volume_mm3": 1065.6332952136702,
+      "plate_bounds_mm": [
+        [
+          214.00024890899658,
+          226.0
+        ],
+        [
+          109.00006198883057,
+          120.99993801116943
+        ],
+        [
+          0.0,
+          15.700000762939453
+        ]
+      ],
+      "supports": true,
+      "orientation": "output face Z42 down"
+    }
+  ],
+  "saved_settings": {
+    "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+    "filament_settings_id": [
+      "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+    ],
+    "layer_height": "0.12",
+    "wall_loops": "4",
+    "enable_support": "0",
+    "sparse_infill_density": "25%",
+    "print_sequence": "by object"
+  },
+  "project_settings_identical_to_reviewed_clip": false,
+  "hardware_not_printed": [
+    "servo",
+    "bearing"
+  ],
+  "print_sent": false,
+  "source_geometry_project": "design/current.model.json",
+  "clip_quality_candidate": false,
+  "hub_brim_enabled": false,
+  "print_settings_unchanged_from_parent": true
+}

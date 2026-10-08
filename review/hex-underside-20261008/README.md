@@ -1,5 +1,7 @@
 # Hex protrusion underside trials — 8 October 2026
 
+Follow-up: the [root-started bevel revision](../root-ramp-20261008/README.md) supersedes the active recommendation below. These lip-only trials addressed the wrong starting point and remain historical experimental evidence.
+
 Jeff clarified that the defect occurs on the build-plate-facing underside of the projecting hex features, rather than the previously marked A/B rims. The requested small bevel was tested against the actual saved shell print orientations. **The trials are reviewed experiments; canonical geometry and active print projects remain unchanged.** The A/B clarification is resolved.
 
 ![Native underside comparison](underside-trials.png)
