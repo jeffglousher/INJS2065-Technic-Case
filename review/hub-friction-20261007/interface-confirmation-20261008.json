@@ -1,0 +1,42 @@
+{
+  "canonicalModelSha256": "d0eb8b69911514d34e5e677ddcba20fedb385efa84d71dc8ae0940412ab89923",
+  "crossSectionPlane": "world Z40 mm",
+  "crossProfileEdgeCount": 12,
+  "normalizedNativeSectionMatchesPrevious": true,
+  "axialCrossSocketEdgesMatchPrevious": true,
+  "crossSpanMm": 4.85,
+  "crossArmWidthMm": 1.85,
+  "crossSocketDepthMm": 8,
+  "nativeGeometryChanged": false,
+  "checkedAt": "2026-10-08T05:02:04.967314+00:00",
+  "gardenSource": "C:\\Users\\jeffg\\dev\\garden-auger-technic\\garden-auger-direct-drive.nbcad",
+  "gardenNativeModelSha256": "7aec2f6e07779a093be8c28f2f882ea781238963bf6f8998ca1c8d159a516e53",
+  "gardenMeasuredPilot": {
+    "diameterMm": 5.7,
+    "depthMm": 3.6999999999999886,
+    "straightLengthMm": 3.549999999999983,
+    "leadInAxialMm": 0.15000000000000568,
+    "leadInRadialMm": 0.1499999999999999
+  },
+  "matchingHubPilot": {
+    "diameterMm": 5.7,
+    "depthMm": 3.7,
+    "straightLengthMm": 3.55,
+    "leadInAxialMm": 0.15,
+    "leadInRadialMm": 0.15
+  },
+  "technicFeatureDefinitionsExactlyMatchCommit": "66a71d0",
+  "unchangedTechnicFeatureIds": [
+    311,
+    315,
+    312,
+    316,
+    313,
+    314,
+    317,
+    318,
+    319
+  ],
+  "ownerFeedback": "Owner confirms the garden auger dimensions give a good tight friction fit. This hub intentionally omits the auger center screw and uses friction retention only.",
+  "geometryChangedDuringCheck": false
+}
