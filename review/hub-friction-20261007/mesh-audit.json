@@ -1,0 +1,10 @@
+{
+  "triangles": 4920,
+  "mesh_sha256": "473e6b19a8f0df80183c939a6afd5fe504e3a6001d26870da6780977cb7e822f",
+  "closed_two_incidence_edges": true,
+  "connected_components": 1,
+  "signed_volume_mm3": 1065.63329521367,
+  "mesh_edge_weld_quantization_mm": 1e-05,
+  "STEP_manifold_solids": 1,
+  "step_sha256": "071024b0f7b6dca8e6a504b0bde24d38ac4415ed0a0f46d7a60b989ed0630d4a"
+}

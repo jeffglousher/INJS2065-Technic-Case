@@ -1,6 +1,8 @@
 # Current honeycomb detent assembly - 7 October 2026
 
-Editable native project: [design/current.nbcad](design/current.nbcad). Canonical history: [design/current.model.json](design/current.model.json). Their parsed native payloads match. All 403 features replay with zero errors and seven bodies.
+Editable native project: [design/current.nbcad](design/current.nbcad). Canonical history: [design/current.model.json](design/current.model.json). Their parsed native payloads match. All 374 features replay with zero errors and seven bodies.
+
+The latest authorized change removes the accidental servo-side hub tabs and redundant horn operations. The compact friction-only socket matches the auger's trial diameter 5.70 mm and depth 3.70 mm, including its 0.15 mm entry chamfer. It has 3.55 mm straight engagement and a 4.00 mm solid web separating the opposite axle socket. The existing 12 mm flange envelope remains. No retaining-screw passage is added. All six other solids and assembly poses are unchanged. [Updated hub views, native checks and full five-part PETG project](review/hub-friction-20261007/README.md) document the revision. Actual seating, axial retention and torque transmission require physical fit testing.
 
 The authorized revision adds a wider tangent corner relief with 0.25 mm side-wall blends, a broader R0.80 nub crest with tangent R0.40 outer arcs, and a rounded hidden receiver cap. All eight blind hex pockets per clip and continuous walls remain. Nub protrusion remains 0.20 mm, centered on the confirmed spans. Minimum in-plane corner wall remains 0.8976 mm; broad-face backing remains 1.00 mm. Exterior housing hex-mouth signatures are unchanged; only the hidden seats change.
 
@@ -10,6 +12,6 @@ The nominal local inward holding-clearance target is now 0.02257 mm. The crest h
 
 The updated part was remeshed and screened with Bambu PETG Basic V3 stiffness. Fine axial reactions are 4.15-5.04 N per nub at the new nominal movement; narrow-patch local strain peaks reduce to 4.29-4.38%. Other footprints do not uniformly improve. Local strain remains unconverged, and inclined seat loads reveal additional support sensitivity. Peak dynamic insertion, actual printed preload, creep and fatigue remain unqualified.
 
-All three parts generated native Bambu PETG Basic / X2D 0.4 mm toolpaths at 0.12 mm main layers. Fine mesh audits and exact assembly checks pass; only the expected detent contact groups remain. No printer job was started. This is a fit-test candidate, not a mechanically qualified production release.
+Both shells, both clips and the updated hub generated native Bambu PETG Basic / X2D 0.4 mm toolpaths at 0.12 mm main layers. Fine mesh audits and exact assembly checks pass; only the expected detent contact groups remain. The five-part plate has no native slicer warning and supports only around the hub. No printer job was started. This is a fit-test candidate, not a mechanically qualified production release.
 
-[Current validation reference](review/tangent-corner-flex.json) preserves the three unchanged servo/bearing/hub meshes and records the authorized clip and hidden-seat changes. Run `node tools/verify-current.mjs`. Earlier [corner-flex evidence](review/local-corner-flex.json) and [geometry-preserving cleanup](review/history-cleanup.json) remain unchanged historical references.
+[Current validation reference](review/hub-friction-fit.json) records the authorized hub revision and verifies the six other solids against the unchanged [corner-flex reference](review/tangent-corner-flex.json). Run `node tools/verify-current.mjs`. Earlier [corner-flex evidence](review/local-corner-flex.json) and [geometry-preserving cleanup](review/history-cleanup.json) remain unchanged historical references.

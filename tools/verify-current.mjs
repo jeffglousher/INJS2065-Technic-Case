@@ -7,8 +7,8 @@ const base = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await fs.readFile(new URL(path, base), 'utf8'));
 const modelBytes = await fs.readFile(new URL('design/current.model.json', base));
 const model = JSON.parse(modelBytes);
-const reference = await read('review/tangent-corner-flex.json');
-const cleanup = await read('review/history-cleanup.json');
+const reference = await read('review/hub-friction-fit.json');
+const cleanup = await read(reference.preservedReference);
 const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe';
 const client = new Client(binary, 180000);
 
@@ -39,7 +39,7 @@ try {
     clearance_threshold_mm: 0.1,
   });
   assert.deepEqual(fit.pairs, reference.assemblyInterference);
-  console.log(`PASS: ${reference.featureCountAfter} features; ${reference.bodyCount} reviewed meshes/topologies; ${reference.preservedBodyIds.length} servo/bearing/hub bodies unchanged; expected assembly contacts; zero native errors.`);
+  console.log(`PASS: ${reference.featureCountAfter} features; ${reference.bodyCount} reviewed meshes/topologies; ${reference.preservedBodyIds.length} preserved bodies unchanged; expected assembly contacts; zero native errors.`);
 } finally {
   client.close();
 }
