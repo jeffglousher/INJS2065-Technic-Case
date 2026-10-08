@@ -15,3 +15,7 @@ review/root-bevel.json -text
 review/root-ramp-20261008/*.json -text
 review/root-ramp-20261008/*.png binary
 review/root-ramp-20261008/*.3mf binary
+review/flat-clip-base.json -text
+review/flat-clip-base-20261008/*.json -text
+review/flat-clip-base-20261008/*.png binary
+review/flat-clip-base-20261008/*.3mf binary

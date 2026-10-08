@@ -3278,7 +3278,7 @@
         },
         {
           "id": 784,
-          "name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
+          "name": "Corner wall relief - R2, flat floor, 1.45 mm backing",
           "kind": "sketch",
           "suppressed": false,
           "status": {
@@ -3287,7 +3287,7 @@
         },
         {
           "id": 775,
-          "name": "Form tangent corner relief",
+          "name": "Form corner wall relief - stop at flat pocket floor",
           "kind": "revolve",
           "suppressed": false,
           "status": {
@@ -27813,7 +27813,7 @@
     },
     {
       "feature_id": 784,
-      "name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
+      "name": "Corner wall relief - R2, flat floor, 1.45 mm backing",
       "plane": {
         "type": "datum_plane",
         "datum_id": 36
@@ -27847,63 +27847,17 @@
         "reference_edges": [],
         "entities": [
           [
-            1,
-            {
-              "type": "arc",
-              "center": {
-                "x": -0.8499999999999933,
-                "y": 8.66527777777778
-              },
-              "radius": 2.3347222222222204,
-              "start_angle": 1.1281674420993164,
-              "end_angle": 1.5707963267948994
-            }
-          ],
-          [
-            2,
-            {
-              "type": "point",
-              "position": {
-                "x": 0.15000000000000002,
-                "y": 10.775
-              }
-            }
-          ],
-          [
-            3,
+            13,
             {
               "type": "point",
               "position": {
                 "x": -0.85,
-                "y": 11.0
+                "y": 10.55
               }
             }
           ],
           [
-            4,
-            {
-              "type": "arc",
-              "center": {
-                "x": 1.1499999999999997,
-                "y": 12.884722222222186
-              },
-              "radius": 2.3347222222221884,
-              "start_angle": -2.013425211490486,
-              "end_angle": -1.5707963267948966
-            }
-          ],
-          [
-            5,
-            {
-              "type": "point",
-              "position": {
-                "x": 0.15000000000000002,
-                "y": 10.775
-              }
-            }
-          ],
-          [
-            6,
+            14,
             {
               "type": "point",
               "position": {
@@ -27913,7 +27867,15 @@
             }
           ],
           [
-            7,
+            15,
+            {
+              "type": "line",
+              "start": 13,
+              "end": 14
+            }
+          ],
+          [
+            16,
             {
               "type": "point",
               "position": {
@@ -27923,15 +27885,15 @@
             }
           ],
           [
-            8,
+            17,
             {
               "type": "line",
-              "start": 6,
-              "end": 7
+              "start": 14,
+              "end": 16
             }
           ],
           [
-            9,
+            18,
             {
               "type": "point",
               "position": {
@@ -27941,79 +27903,40 @@
             }
           ],
           [
-            10,
+            19,
             {
               "type": "line",
-              "start": 7,
-              "end": 9
+              "start": 16,
+              "end": 18
             }
           ],
           [
-            11,
+            20,
             {
               "type": "point",
               "position": {
                 "x": -0.85,
-                "y": 11.0
+                "y": 10.55
               }
             }
           ],
           [
-            12,
+            21,
             {
               "type": "line",
-              "start": 9,
-              "end": 11
+              "start": 18,
+              "end": 20
             }
           ]
         ],
         "generated_points": [
-          2,
-          3,
-          5,
-          6,
-          7,
-          9,
-          11
+          13,
+          14,
+          16,
+          18,
+          20
         ],
-        "constraints": [
-          [
-            1,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 2,
-              "arc": 1,
-              "end": "start"
-            }
-          ],
-          [
-            2,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 3,
-              "arc": 1,
-              "end": "end"
-            }
-          ],
-          [
-            3,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 5,
-              "arc": 4,
-              "end": "start"
-            }
-          ],
-          [
-            4,
-            {
-              "type": "arc_endpoint_coincident",
-              "point": 6,
-              "arc": 4,
-              "end": "end"
-            }
-          ]
-        ],
+        "constraints": [],
         "fix_targets": {},
         "params": {
           "params": [],
@@ -28023,11 +27946,11 @@
         "dim_params": {},
         "dim_placements": {},
         "dim_modes": {},
-        "next_entity": 12,
+        "next_entity": 21,
         "next_constraint": 4
       },
       "profile_identities": {
-        "next": 1,
+        "next": 2,
         "records": [
           {
             "id": 0,
@@ -28151,10 +28074,65 @@
                 11000000
               ]
             ]
+          },
+          {
+            "id": 1,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 15
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 21
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 19
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 17
+                  }
+                ],
+                -1
+              ]
+            ],
+            "shape": [
+              [
+                -850000,
+                9000000
+              ],
+              [
+                1150000,
+                9000000
+              ],
+              [
+                1150000,
+                10550000
+              ],
+              [
+                -850000,
+                10550000
+              ]
+            ]
           }
         ]
       },
-      "entity_id_high_water": 12
+      "entity_id_high_water": 21
     },
     {
       "feature_id": 787,
@@ -31426,10 +31404,10 @@
     },
     {
       "feature_id": 775,
-      "name": "Form tangent corner relief",
-      "sketch_name": "Tangent corner relief - 2 mm footprint, 1 mm backing",
+      "name": "Form corner wall relief - stop at flat pocket floor",
+      "sketch_name": "Corner wall relief - R2, flat floor, 1.45 mm backing",
       "profile_indices": [
-        0
+        1
       ],
       "axis_origin": {
         "x": -0.85,
@@ -31650,24 +31628,24 @@
       "name": "Blend +Y corner relief side walls R0.25",
       "body_id": 173,
       "edge_ids": [
-        6350925990840274,
-        6352025502468485,
-        8186010897945983,
-        725824505579913,
-        5940807895776591,
-        6796227942335524,
-        1160131337261288,
-        2015551383820221
+        6344328921071008,
+        6345428432699219,
+        177168201431354,
+        8184911386317772,
+        4951247430575916,
+        4960043523601604,
+        6791829895822680,
+        7785788407536199
       ],
       "edge_keys": [
-        "edge:156",
-        "edge:157",
-        "edge:173",
-        "edge:184",
-        "edge:212",
-        "edge:226",
-        "edge:240",
-        "edge:254"
+        "edge:150",
+        "edge:151",
+        "edge:167",
+        "edge:172",
+        "edge:200",
+        "edge:208",
+        "edge:222",
+        "edge:230"
       ],
       "radius": 0.25,
       "tangent_chain": false
@@ -31677,24 +31655,24 @@
       "name": "Blend -Y corner relief side walls R0.25",
       "body_id": 267,
       "edge_ids": [
-        1246785294827979,
-        1245685783199768,
-        3202816481036898,
-        4197874504378628,
-        5316078093213230,
-        8260570232994613,
-        1089555396987541,
-        93397862017600
+        1253382364597245,
+        1252282852969034,
+        2213256015836223,
+        3203915992665109,
+        6305638558413905,
+        6296842465388217,
+        8256172186481769,
+        7297398046871002
       ],
       "edge_keys": [
-        "edge:156",
-        "edge:157",
-        "edge:173",
-        "edge:184",
-        "edge:212",
-        "edge:226",
-        "edge:240",
-        "edge:254"
+        "edge:150",
+        "edge:151",
+        "edge:167",
+        "edge:172",
+        "edge:200",
+        "edge:208",
+        "edge:222",
+        "edge:230"
       ],
       "radius": 0.25,
       "tangent_chain": false

@@ -1,0 +1,8 @@
+{
+  "source_commit": "645a22f",
+  "canonical_sha256": "27cb737aa9b6fb2b244dc68c8676469a55dc2f78c0f57a72a2992f2489ac4b46",
+  "native_archive_sha256": "59fd7df5806e641a90a6ebc4aa465fee4fd49eccd7787f4cfa39a15884814e41",
+  "external_workspace": "D:\\noBS-CAD-Reviews\\INJS2065-Technic-Case\\flat-clip-base-20261008",
+  "rebuild_feature_data_matches_reviewed_model": true,
+  "print_sent": false
+}
