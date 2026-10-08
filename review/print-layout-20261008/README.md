@@ -1,5 +1,7 @@
 # Named views and PETG print layout — 8 October 2026
 
+Follow-up: the A/B surface question below is resolved. Jeff identified the build-plate-facing underside of the projecting hex features. See the [measured underside trials](../hex-underside-20261008/README.md); their small bevels were not promoted to the active design.
+
 The canonical native project now contains **Assembled ISO**, **Exploded assembly** and **PETG print by object**, alongside the existing corner inspection view. They store cameras, visibility and occurrence display transforms. Mechanical assembly placement, all seven solid meshes, topology and all 374 features remain unchanged. The new [preservation reference](../print-layout.json) checks every solid against the previous hub revision; earlier references remain untouched.
 
 ![Assembled named view](assembled.png)

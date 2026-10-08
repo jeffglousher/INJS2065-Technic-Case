@@ -1,0 +1,137 @@
+{
+  "canonical_changed": false,
+  "trials": {
+    "before": {
+      "lower_volume_mm3": 5647.984977213255,
+      "selected_post_underside_faces": [
+        {
+          "key": "face:84",
+          "angle_from_vertical_deg": 60.000008495158575,
+          "area_mm2": 3.435233422189649,
+          "centroid": [
+            -2.924999952316284,
+            -9.700000286102295,
+            14.179680824279785
+          ]
+        },
+        {
+          "key": "face:86",
+          "angle_from_vertical_deg": 60.00001187522468,
+          "area_mm2": 3.4352337731997746,
+          "centroid": [
+            -4.675000071525574,
+            -9.700000286102295,
+            14.179680824279785
+          ]
+        }
+      ]
+    },
+    "equal-bevel": {
+      "lower_volume_mm3": 5647.313327693311,
+      "selected_post_underside_faces": [
+        {
+          "key": "face:73",
+          "angle_from_vertical_deg": 60.00001187522471,
+          "area_mm2": 3.0310889634905887,
+          "centroid": [
+            -4.675000071525574,
+            -9.600000381469727,
+            14.179680824279785
+          ]
+        },
+        {
+          "key": "face:75",
+          "angle_from_vertical_deg": 60.000008495158575,
+          "area_mm2": 3.0310886537757376,
+          "centroid": [
+            -2.924999952316284,
+            -9.600000381469727,
+            14.179680824279785
+          ]
+        },
+        {
+          "key": "face:126",
+          "angle_from_vertical_deg": 37.76124870728303,
+          "area_mm2": 0.5715470776278924,
+          "centroid": [
+            -4.675000071525574,
+            -10.450000286102295,
+            14.295150756835938
+          ]
+        },
+        {
+          "key": "face:128",
+          "angle_from_vertical_deg": 37.76124795147747,
+          "area_mm2": 0.5715470094941739,
+          "centroid": [
+            -2.924999952316284,
+            -10.450000286102295,
+            14.295150756835938
+          ]
+        }
+      ],
+      "removed_volume_mm3": 0.6716495199434576,
+      "removed_lower_shell_volume_percent": 0.011891843244152057,
+      "same_expected_pair_states": true,
+      "max_overlap_volume_difference_mm3": 1.0842021724855044e-17
+    },
+    "angled-bevel": {
+      "lower_volume_mm3": 5647.946771098942,
+      "selected_post_underside_faces": [
+        {
+          "key": "face:73",
+          "angle_from_vertical_deg": 60.00001187522471,
+          "area_mm2": 3.214650470366202,
+          "centroid": [
+            -4.675000071525574,
+            -9.64542007446289,
+            14.179680824279785
+          ]
+        },
+        {
+          "key": "face:75",
+          "angle_from_vertical_deg": 60.000008495158575,
+          "area_mm2": 3.214650141895147,
+          "centroid": [
+            -2.924999952316284,
+            -9.64542007446289,
+            14.179680824279785
+          ]
+        },
+        {
+          "key": "face:117",
+          "angle_from_vertical_deg": 27.500044542924837,
+          "area_mm2": 0.4137110020502366,
+          "centroid": [
+            -4.675000071525574,
+            -10.495419979095459,
+            14.279680728912354
+          ]
+        },
+        {
+          "key": "face:119",
+          "angle_from_vertical_deg": 27.500044254127605,
+          "area_mm2": 0.41371094969239924,
+          "centroid": [
+            -2.924999952316284,
+            -10.495419979095459,
+            14.279680728912354
+          ]
+        }
+      ],
+      "removed_volume_mm3": 0.03820611431274301,
+      "removed_lower_shell_volume_percent": 0.0006764556645756893,
+      "same_expected_pair_states": true,
+      "max_overlap_volume_difference_mm3": 0
+    }
+  },
+  "servo_bearing_hub_and_clips_unchanged": true,
+  "angled_parameters": {
+    "new_face_angle_from_vertical_deg": 27.5,
+    "vertical_setback_mm": 0.2,
+    "y_setback_mm": 0.10916030479754135,
+    "protrusion_mm": 1.7,
+    "remaining_unbeveled_protrusion_mm": 1.5908396952024586,
+    "full_depth_required_vertical_setback_mm": 3.1146853302635513
+  }
+}
