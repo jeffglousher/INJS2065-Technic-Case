@@ -1,5 +1,7 @@
 # Current honeycomb detent assembly - 8 October 2026
 
+[Full print-readiness review](review/print-readiness-20261008/README.md): fresh native replay, exact expected contacts, all five 3MF meshes, visual sections, and a fresh full-plate PETG slice passed. Ready for the next fit/strength-test print. Tight bearing clearance, servo friction retention and detent preload remain physical acceptance checks. No geometry or profile change was needed in that review.
+
 Current printing project: [complete PETG assembly with stronger, finer output hub only](review/hub-quality-20261008/README.md). The hub uses six requested walls, fully solid fill and 0.08 mm layers with slower walls; shells and clips retain their existing settings. Native slicing and actual toolpaths were checked. CAD geometry is unchanged. The 0.12 mm hub slice described below is historical.
 
 Editable native project: [design/current.nbcad](design/current.nbcad). Canonical history: [design/current.model.json](design/current.model.json). Their parsed native payloads match. All 374 features replay with zero errors and seven bodies.
