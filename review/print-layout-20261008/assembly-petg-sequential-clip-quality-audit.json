@@ -1,0 +1,114 @@
+{
+  "native_sequential_validation_passed": true,
+  "print_sequence": "by object",
+  "actual_object_extrusion_order_labels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "one_contiguous_extrusion_group_per_object": true,
+  "object_layer_heights_mm": {
+    "1": {
+      "count": 91,
+      "first_layer": 0.2,
+      "main_layer": 0.12
+    },
+    "2": {
+      "count": 203,
+      "first_layer": 0.2,
+      "main_layer": 0.12
+    },
+    "3": {
+      "count": 35,
+      "first_layer": 0.2,
+      "main_layer": 0.08
+    },
+    "4": {
+      "count": 35,
+      "first_layer": 0.2,
+      "main_layer": 0.08
+    },
+    "5": {
+      "count": 195,
+      "first_layer": 0.2,
+      "main_layer": 0.08
+    }
+  },
+  "feature_counts": {
+    "1": {
+      "Gap infill": 1389,
+      "Sparse infill": 8716,
+      "Inner wall": 7061,
+      "Bridge": 65,
+      "Bottom surface": 307,
+      "Top surface": 417,
+      "Internal solid infill": 1972,
+      "Outer wall": 3489,
+      "Floating vertical shell": 1757
+    },
+    "2": {
+      "Gap infill": 12849,
+      "Sparse infill": 22530,
+      "Inner wall": 26651,
+      "Bridge": 805,
+      "Bottom surface": 183,
+      "Top surface": 823,
+      "Internal solid infill": 6336,
+      "Overhang wall": 81,
+      "Outer wall": 11892,
+      "Floating vertical shell": 9366
+    },
+    "3": {
+      "Gap infill": 3173,
+      "Inner wall": 2723,
+      "Top surface": 250,
+      "Bottom surface": 78,
+      "Internal solid infill": 1492,
+      "Outer wall": 2011
+    },
+    "4": {
+      "Gap infill": 3158,
+      "Inner wall": 2704,
+      "Top surface": 261,
+      "Bottom surface": 97,
+      "Internal solid infill": 1507,
+      "Outer wall": 2007
+    },
+    "5": {
+      "Gap infill": 304,
+      "Inner wall": 5104,
+      "Bridge": 33,
+      "Top surface": 64,
+      "Overhang wall": 51,
+      "Internal solid infill": 1584,
+      "Outer wall": 2342
+    }
+  },
+  "max_commanded_outer_wall_speeds_mm_s": {
+    "1": 60.0,
+    "2": 60.0,
+    "3": 25.0,
+    "4": 25.0,
+    "5": 22.883333333333333
+  },
+  "hub_support_bounds_mm": [
+    [
+      206.58095009595985,
+      230.92572539234382
+    ],
+    [
+      102.18979574757655,
+      126.23966579028522
+    ]
+  ],
+  "minimum_object_bbox_gap_mm": 66.12500009500002,
+  "profile_clearance_max_radius_mm": "60",
+  "profile_height_to_rod_mm": "32.8",
+  "sockets_interior_path_samples": 0,
+  "gcode_sha256": "3172ca63bd6c6b91f23dfac501e5ad3302fb9af9264e466503f4c93a94fe1ad3",
+  "object_brim_requested": false,
+  "tree_support_footings_retained": true,
+  "print_sent": false
+}

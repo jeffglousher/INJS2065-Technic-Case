@@ -1,0 +1,163 @@
+{
+  "project_sha256": "55b727b09f201b297e95ade56041d21d91664240c51fe69b68d78690f0df2f79",
+  "source": {
+    "canonical_sha256": "d0eb8b69911514d34e5e677ddcba20fedb385efa84d71dc8ae0940412ab89923",
+    "exports": [
+      {
+        "name": "hub",
+        "body_id": 54,
+        "sha256": "473e6b19a8f0df80183c939a6afd5fe504e3a6001d26870da6780977cb7e822f",
+        "bytes": 246084
+      },
+      {
+        "name": "clip-minus",
+        "body_id": 267,
+        "sha256": "8695479f1b37a86e48a2aa511dcb5b732d0b2fcefd599c55fc3b70896d0b826b",
+        "bytes": 7971284,
+        "reused_after_native_geometry_equality_check": true
+      }
+    ]
+  },
+  "parts": [
+    {
+      "name": "Lower clamshell",
+      "body_id": 8,
+      "source_sha256": "b237bccf84660e5a933f7b9babb0d8f352975fc4c8b0555b52e621f08c5362d4",
+      "mesh_entry_sha256": "d6c78fabadb392c128e0ec29f4358ae5d2fa090586624f05e38f09a9f11f1261",
+      "triangles": 50570,
+      "volume_mm3": 5647.997727389652,
+      "plate_bounds_mm": [
+        [
+          30.0,
+          70.0
+        ],
+        [
+          43.0,
+          67.0
+        ],
+        [
+          0.0,
+          10.950000763
+        ]
+      ],
+      "supports": false,
+      "orientation": "outside face down"
+    },
+    {
+      "name": "Upper clamshell",
+      "body_id": 18,
+      "source_sha256": "fff1b28d11fcb3ef7017e0c4a0590406671487e3b9a87e04e4b0042d83361d00",
+      "mesh_entry_sha256": "e943a2805bad8554c1095dd9139e39b9d53474cead4f738b5360f31c14d67bb3",
+      "triangles": 103792,
+      "volume_mm3": 14924.739696977531,
+      "plate_bounds_mm": [
+        [
+          30.0,
+          70.0
+        ],
+        [
+          163.0,
+          187.0
+        ],
+        [
+          0.0,
+          24.450000763
+        ]
+      ],
+      "supports": false,
+      "orientation": "outside face down"
+    },
+    {
+      "name": "Clip +Y",
+      "body_id": 173,
+      "source_sha256": "527f8c98eb869404ebf911b4b30343597d67527576680fe37fae05c57b837028",
+      "mesh_entry_sha256": "544c6c9fa39e9f343bdf17c98e21fcc09af27d7015f45c159bae9ed088450cb0",
+      "triangles": 159442,
+      "volume_mm3": 667.6498783648201,
+      "plate_bounds_mm": [
+        [
+          136.12500009500002,
+          163.874999619
+        ],
+        [
+          48.146059036,
+          61.853940964
+        ],
+        [
+          0.0,
+          2.949999809
+        ]
+      ],
+      "supports": false,
+      "orientation": "outer broad face down"
+    },
+    {
+      "name": "Clip -Y",
+      "body_id": 267,
+      "source_sha256": "8695479f1b37a86e48a2aa511dcb5b732d0b2fcefd599c55fc3b70896d0b826b",
+      "mesh_entry_sha256": "507b78a36a8554664947a570636bdbe5df5bf86922238ea06ef21a6189b97eb1",
+      "triangles": 159424,
+      "volume_mm3": 667.6498765755651,
+      "plate_bounds_mm": [
+        [
+          136.12500009536745,
+          163.8749996185303
+        ],
+        [
+          168.14605903625488,
+          181.85394096374512
+        ],
+        [
+          0.0,
+          2.9499998092651367
+        ]
+      ],
+      "supports": false,
+      "orientation": "outer broad face down"
+    },
+    {
+      "name": "Output hub",
+      "body_id": 54,
+      "source_sha256": "473e6b19a8f0df80183c939a6afd5fe504e3a6001d26870da6780977cb7e822f",
+      "mesh_entry_sha256": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3",
+      "triangles": 4920,
+      "volume_mm3": 1065.6332952136702,
+      "plate_bounds_mm": [
+        [
+          214.00024890899658,
+          226.0
+        ],
+        [
+          109.00006198883057,
+          120.99993801116943
+        ],
+        [
+          0.0,
+          15.700000762939453
+        ]
+      ],
+      "supports": true,
+      "orientation": "output face Z42 down"
+    }
+  ],
+  "saved_settings": {
+    "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+    "filament_settings_id": [
+      "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+    ],
+    "layer_height": "0.12",
+    "wall_loops": "4",
+    "enable_support": "0",
+    "sparse_infill_density": "25%",
+    "print_sequence": "by object"
+  },
+  "project_settings_identical_to_reviewed_clip": false,
+  "hardware_not_printed": [
+    "servo",
+    "bearing"
+  ],
+  "print_sent": false,
+  "source_geometry_project": "review/hub-friction-20261007/assembly-petg-friction-hub.3mf",
+  "clip_quality_candidate": true,
+  "hub_brim_enabled": false
+}

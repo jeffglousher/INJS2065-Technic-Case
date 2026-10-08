@@ -36075,14 +36075,12 @@
   },
   "visibility": {
     "hidden_body_ids": [
-      1,
       2,
       3,
       4,
       5,
       6,
       7,
-      8,
       9,
       10,
       11,
@@ -36092,7 +36090,6 @@
       15,
       16,
       17,
-      18,
       19,
       20,
       21,
@@ -36127,8 +36124,6 @@
       50,
       51,
       52,
-      53,
-      54,
       55,
       56,
       57,
@@ -36219,7 +36214,6 @@
       200,
       201,
       202,
-      267,
       268,
       269,
       270,
@@ -36324,6 +36318,7 @@
   },
   "views": [
     {
+      "id": "e689b0f1-f220-4fda-8c97-d3bf1cec83d4",
       "name": "Local flex pocket ISO",
       "camera": {
         "position": [
@@ -36354,6 +36349,455 @@
           261.0
         ],
         "margin_mm": 0.0,
+        "nozzle_mode": "main",
+        "origin_mm": [
+          0.0,
+          0.0
+        ],
+        "printable_regions": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ]
+        ],
+        "source": {
+          "repository": "bambulab/BambuStudio",
+          "revision": "da8b44ee34dd349f2ae0df3f1cbae366df482354",
+          "profile": "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json",
+          "files": {
+            "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json": "7bfa994c9e0233ffac9e7bb20ea65a45aacee2d6106db9af1ff58c06ae42eabb",
+            "resources/profiles/BBL/machine/fdm_bbl_3dp_002_common.json": "98b41984e0edd3e3a80b65ff3bb7d3d8677c5e1fb265599966a2ea1d65538703",
+            "resources/profiles/BBL/machine/fdm_machine_common.json": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c"
+          }
+        }
+      }
+    },
+    {
+      "id": "ca23a4e5-9892-4c6d-93a2-9cc0ca58782e",
+      "name": "Assembled ISO",
+      "camera": {
+        "position": [
+          68.0,
+          -78.0,
+          72.0
+        ],
+        "target": [
+          8.0,
+          0.0,
+          23.0
+        ],
+        "up": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "visible_body_ids": [
+        1,
+        8,
+        18,
+        53,
+        54,
+        173,
+        267
+      ],
+      "print_layout": false,
+      "print_bed": {
+        "name": "Bambu X2D",
+        "size_mm": [
+          256.0,
+          256.0,
+          261.0
+        ],
+        "margin_mm": 0.0,
+        "nozzle_mode": "main",
+        "origin_mm": [
+          0.0,
+          0.0
+        ],
+        "printable_regions": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ]
+        ],
+        "source": {
+          "repository": "bambulab/BambuStudio",
+          "revision": "da8b44ee34dd349f2ae0df3f1cbae366df482354",
+          "profile": "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json",
+          "files": {
+            "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json": "7bfa994c9e0233ffac9e7bb20ea65a45aacee2d6106db9af1ff58c06ae42eabb",
+            "resources/profiles/BBL/machine/fdm_bbl_3dp_002_common.json": "98b41984e0edd3e3a80b65ff3bb7d3d8677c5e1fb265599966a2ea1d65538703",
+            "resources/profiles/BBL/machine/fdm_machine_common.json": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c"
+          }
+        }
+      }
+    },
+    {
+      "id": "8d68b95b-835b-40ef-ad60-f2001090c143",
+      "name": "Exploded assembly",
+      "camera": {
+        "position": [
+          130.0,
+          -155.0,
+          150.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          38.0
+        ],
+        "up": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "visible_body_ids": [
+        1,
+        8,
+        18,
+        53,
+        54,
+        173,
+        267
+      ],
+      "occurrence_offsets": [
+        {
+          "occurrence_id": 268,
+          "translation": [
+            0.0,
+            0.0,
+            -12.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 269,
+          "translation": [
+            0.0,
+            0.0,
+            24.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 270,
+          "translation": [
+            -35.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 271,
+          "translation": [
+            0.0,
+            0.0,
+            18.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 272,
+          "translation": [
+            0.0,
+            0.0,
+            38.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 273,
+          "translation": [
+            0.0,
+            32.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 274,
+          "translation": [
+            0.0,
+            -32.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "print_layout": false,
+      "print_bed": {
+        "name": "Bambu X2D",
+        "size_mm": [
+          256.0,
+          256.0,
+          261.0
+        ],
+        "margin_mm": 0.0,
+        "nozzle_mode": "main",
+        "origin_mm": [
+          0.0,
+          0.0
+        ],
+        "printable_regions": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ],
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              256.0,
+              0.0
+            ],
+            [
+              256.0,
+              256.0
+            ],
+            [
+              0.0,
+              256.0
+            ]
+          ]
+        ],
+        "source": {
+          "repository": "bambulab/BambuStudio",
+          "revision": "da8b44ee34dd349f2ae0df3f1cbae366df482354",
+          "profile": "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json",
+          "files": {
+            "resources/profiles/BBL/machine/Bambu Lab X2D 0.4 nozzle.json": "7bfa994c9e0233ffac9e7bb20ea65a45aacee2d6106db9af1ff58c06ae42eabb",
+            "resources/profiles/BBL/machine/fdm_bbl_3dp_002_common.json": "98b41984e0edd3e3a80b65ff3bb7d3d8677c5e1fb265599966a2ea1d65538703",
+            "resources/profiles/BBL/machine/fdm_machine_common.json": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c"
+          }
+        }
+      }
+    },
+    {
+      "id": "bbb657da-75fa-482f-9777-79135cb2c7f2",
+      "name": "PETG print by object",
+      "camera": {
+        "position": [
+          430.0,
+          -345.0,
+          370.0
+        ],
+        "target": [
+          128.0,
+          128.0,
+          5.0
+        ],
+        "up": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "visible_body_ids": [
+        8,
+        18,
+        54,
+        173,
+        267
+      ],
+      "occurrence_offsets": [
+        {
+          "occurrence_id": 268,
+          "translation": [
+            42.0,
+            55.0,
+            -8.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence_id": 269,
+          "translation": [
+            42.0,
+            175.0,
+            42.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "occurrence_id": 272,
+          "translation": [
+            220.0,
+            115.0,
+            42.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "occurrence_id": 273,
+          "translation": [
+            143.475,
+            36.75,
+            12.0
+          ],
+          "rotation": [
+            -0.7071067811865476,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "occurrence_id": 274,
+          "translation": [
+            143.475,
+            193.25,
+            12.0
+          ],
+          "rotation": [
+            0.7071067811865476,
+            0.0,
+            0.0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "print_layout": true,
+      "print_bed": {
+        "name": "Bambu X2D",
+        "size_mm": [
+          256.0,
+          256.0,
+          261.0
+        ],
+        "margin_mm": 10.0,
         "nozzle_mode": "main",
         "origin_mm": [
           0.0,
