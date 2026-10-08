@@ -1,0 +1,147 @@
+{
+  "native_exit_code": 0,
+  "bounded_owned_child_shutdown": false,
+  "elapsed_seconds": 5.017353100000037,
+  "native_result": {
+    "error_string": "Success.",
+    "export_time": 1,
+    "layer_height": 0.11999999731779099,
+    "plate_index": 1,
+    "prepare_time": 480,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 62.181190490722656,
+          "Bridge": 126.18262481689453,
+          "Custom": 286.3034973144531,
+          "Flush": 29.0,
+          "Gap infill": 365.89312744140625,
+          "Inner wall": 2352.507080078125,
+          "Internal solid infill": 758.2200927734375,
+          "Outer wall": 1755.4027099609375,
+          "Overhang wall": 31.087549209594727,
+          "Sparse infill": 778.3111572265625,
+          "Support": 129.28164672851562,
+          "Support interface": 3.092127799987793,
+          "Top surface": 90.38502502441406,
+          "Travel": 1906.0941162109375,
+          "Undefined": 1899.35009765625
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 22.97211265563965,
+            "total_used_g": 22.97211456298828
+          }
+        ],
+        "generate_support_material_time": 187,
+        "id": 1,
+        "infill_time": 426,
+        "layer_filament_change": 0,
+        "main_predication": 8329.5908203125,
+        "make_perimeters_time": 664,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.950000762939453,
+              "width": 40.0,
+              "x": 60.0,
+              "y": 88.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 50570
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 120.0,
+              "y": 88.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 103792
+          },
+          {
+            "bbox": {
+              "depth": 13.707883834838867,
+              "height": 2.9499998092651367,
+              "width": 27.75,
+              "x": 66.125,
+              "y": 143.14605712890625,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 159442
+          },
+          {
+            "bbox": {
+              "depth": 13.707883834838867,
+              "height": 2.9499998092651367,
+              "width": 27.75,
+              "x": 116.125,
+              "y": 143.14605712890625,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 159424
+          },
+          {
+            "bbox": {
+              "depth": 11.999876976013184,
+              "height": 15.899999618530273,
+              "width": 11.999755859375,
+              "x": 184.000244140625,
+              "y": 94.00006103515625,
+              "z": 0.0
+            },
+            "id": 21,
+            "name": "Output hub",
+            "triangle_count": 3676
+          }
+        ],
+        "sliced_time": 4013,
+        "sliced_time_with_cache": 2377,
+        "total_predication": 8667.150390625,
+        "triangle_count": 476904,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "project_sha256": "933e0000e998aba3e48cf19ba5690e466123dc2a94f260da5f1145a13d10ce63",
+  "gcode_sha256": "fa18656e14696fe540e9b8472853dfdcdc11a8b57a304b6c915e5a8c44cc2ec0",
+  "sliced_project_sha256": null,
+  "settings": {
+    "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+    "filament_settings_id": [
+      "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+    ],
+    "layer_height": "0.12",
+    "wall_loops": "4",
+    "sparse_infill_density": "25%",
+    "enable_support": "0"
+  },
+  "print_sent": false
+}

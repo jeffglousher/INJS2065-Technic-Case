@@ -1,0 +1,5 @@
+*.json -text
+*.py -text
+*.mjs -text
+*.3mf binary
+*.png binary
