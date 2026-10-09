@@ -2,6 +2,8 @@
 
 Current editable CAD: [design/current.nbcad](design/current.nbcad). Canonical native feature history: [design/current.model.json](design/current.model.json).
 
+**Current printed fit failed:** the clips slide in without snap or friction and wobble. [Investigation and native CAD sections](review/loose-fit-20261009/README.md) record inadequate retaining-contact margin and recommendations. Pause full-assembly reprints until the locating fit and hidden seats are corrected and tested together. Earlier fit-test readiness statements are superseded; this investigation changed no geometry.
+
 The assembly contains the two clamshell halves, output hub, two honeycomb clips, and servo/bearing reference bodies. Each clip has two rows of four complete hex pockets, full walls, and four centered, symmetric rounded detent nubs. Local pocket-side reliefs thin the four nub-bearing corner spans to approximately 0.90 mm, with flat pocket floors and 1.45 mm backing. The housing has hidden rounded receiving pockets with minor nominal installed lip contact.
 
 [Current review](CURRENT_REVIEW.md) describes dimensions, verification and remaining physical checks. [Working instructions](AGENTIC.md) describe the source and replay workflow.

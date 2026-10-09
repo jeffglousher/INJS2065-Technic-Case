@@ -1,0 +1,72 @@
+{
+  "origin": "C:\\Users\\jeffg\\dev\\INJS2065-Technic-Case\\review\\flat-clip-base-20261008\\assembly-petg-flat-clip-base.3mf",
+  "job_name": "INJS2065_PETG_print_set_-_friction_hub",
+  "job_status": "Finished",
+  "job_layers": 452,
+  "estimated_seconds": 8813,
+  "grams_displayed": 23.83,
+  "global_layer_height_mm": 0.16,
+  "reviewed_global_layer_height_mm": 0.12,
+  "hub_layer_height_mm": 0.08,
+  "same_five_part_geometry": true,
+  "meshes": [
+    {
+      "object": 1,
+      "triangles": 50570,
+      "same_connectivity": true,
+      "maximum_vertex_error_after_recentering_mm": 1.0030000012761775e-06,
+      "restored_origin_shift_mm": [
+        0.0,
+        0.0,
+        5.475000381499999
+      ]
+    },
+    {
+      "object": 2,
+      "triangles": 103792,
+      "same_connectivity": true,
+      "maximum_vertex_error_after_recentering_mm": 1.0030000012761775e-06,
+      "restored_origin_shift_mm": [
+        0.0,
+        0.0,
+        12.2250003815
+      ]
+    },
+    {
+      "object": 3,
+      "triangles": 70004,
+      "same_connectivity": true,
+      "maximum_vertex_error_after_recentering_mm": 6.009999999889715e-07,
+      "restored_origin_shift_mm": [
+        -1.4299999939737518e-07,
+        0.0,
+        1.4749999044999997
+      ]
+    },
+    {
+      "object": 4,
+      "triangles": 70004,
+      "same_connectivity": true,
+      "maximum_vertex_error_after_recentering_mm": 6.009999999889715e-07,
+      "restored_origin_shift_mm": [
+        -1.4299999939737518e-07,
+        0.0,
+        1.4749999044999997
+      ]
+    },
+    {
+      "object": 5,
+      "triangles": 4920,
+      "same_connectivity": true,
+      "maximum_vertex_error_after_recentering_mm": 5.000000413701855e-09,
+      "restored_origin_shift_mm": [
+        0.0001244544999998709,
+        0.0,
+        7.850000381499999
+      ]
+    }
+  ],
+  "gcode_sha256": "023d710cc771334558ef07080b2e955736ecf20f662890f5854cc632da58e78b",
+  "printer_storage_package_not_downloaded": true,
+  "print_sent": false
+}

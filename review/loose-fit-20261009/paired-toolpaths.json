@@ -1,0 +1,215 @@
+{
+  "method": "Nominal commanded-width capsules, constant layer slabs; local upper-left nub ROI. No physical extrusion/deformation/contact solve.",
+  "results": [
+    {
+      "case": "printed-0.16",
+      "Y_mm": 9.98,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.007686457690575215,
+      "clip_area_mm2": 0.13432339834114956,
+      "housing_area_mm2": 0.4354280782196738,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.002858096110599225,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0003143584316564474,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.011918251417581165
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.03528710701518223
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.05835457462178949
+        }
+      ]
+    },
+    {
+      "case": "printed-0.16",
+      "Y_mm": 10.015,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.009711586384492439,
+      "clip_area_mm2": 0.13432339834114956,
+      "housing_area_mm2": 0.44047546319809816,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.004125742346195704,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0008034820560839774,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.004040952788156803
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.02770083538228091
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.05117259083860997
+        }
+      ]
+    },
+    {
+      "case": "printed-0.16",
+      "Y_mm": 10.06,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.000758578374149189,
+      "clip_area_mm2": 0.08903099062665147,
+      "housing_area_mm2": 0.4439163469893896,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.004939816674208889
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.027672184678494454
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.05040124185895509
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.07345299500186352
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.0968431430610962
+        }
+      ]
+    },
+    {
+      "case": "reviewed-0.12",
+      "Y_mm": 9.98,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.004639724781675239,
+      "clip_area_mm2": 0.140755771654281,
+      "housing_area_mm2": 0.43234902229953154,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0011594819197433544,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 2.1010907136564193e-07,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.02317012717614527
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.04696217152659285
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.07083139597856244
+        }
+      ]
+    },
+    {
+      "case": "reviewed-0.12",
+      "Y_mm": 10.015,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.0014345408079010661,
+      "clip_area_mm2": 0.11265099300960832,
+      "housing_area_mm2": 0.43713977767479484,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 5.2686498655068185e-06,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.021710684135244847
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.04552123921846891
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.0693053944477875
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.09282374197514462
+        }
+      ]
+    },
+    {
+      "case": "reviewed-0.12",
+      "Y_mm": 10.06,
+      "minimum_nominal_bead_clearance_mm": 0.0,
+      "nominal_overlap_area_mm2": 0.0022090558463337745,
+      "clip_area_mm2": 0.11265099300960832,
+      "housing_area_mm2": 0.4402309593208464,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.00012370306161513817,
+          "clearance_mm": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.01609578969145761
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.03937809551936666
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.06272037893009771
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0,
+          "clearance_mm": 0.0862744964849645
+        }
+      ]
+    }
+  ]
+}

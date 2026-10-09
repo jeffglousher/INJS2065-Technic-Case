@@ -1,0 +1,618 @@
+{
+  "printed-0.16": [
+    {
+      "corner": "upper-left",
+      "layers": [
+        {
+          "top": 1.96,
+          "height": 0.16,
+          "Y_slab": [
+            10.04,
+            10.2
+          ],
+          "flank_excess_mm": [
+            -0.045811173347601764,
+            -0.04533745278922224
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.16,
+          "Y_slab": [
+            9.879999999999999,
+            10.04
+          ],
+          "flank_excess_mm": [
+            0.004124071437842658,
+            0.0078035633621576506
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.28,
+          "height": 0.16,
+          "Y_slab": [
+            9.72,
+            9.88
+          ],
+          "flank_excess_mm": [
+            0.019480477898385085,
+            0.015813182305397466
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.44,
+          "height": 0.16,
+          "Y_slab": [
+            9.56,
+            9.72
+          ],
+          "flank_excess_mm": [
+            0.006705487150797662,
+            0.00042087745997415604
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.16,
+          "Y_slab": [
+            9.4,
+            9.56
+          ],
+          "flank_excess_mm": [
+            -0.045311173347599376,
+            -0.04497142738543608
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "upper-right",
+      "layers": [
+        {
+          "top": 1.96,
+          "height": 0.16,
+          "Y_slab": [
+            10.04,
+            10.2
+          ],
+          "flank_excess_mm": [
+            -0.045239376577865864,
+            -0.04644514794381305
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.16,
+          "Y_slab": [
+            9.879999999999999,
+            10.04
+          ],
+          "flank_excess_mm": [
+            0.00743753795836416,
+            0.00597343634323072
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.28,
+          "height": 0.16,
+          "Y_slab": [
+            9.72,
+            9.88
+          ],
+          "flank_excess_mm": [
+            0.01777728392052691,
+            0.019882401687045304
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.44,
+          "height": 0.16,
+          "Y_slab": [
+            9.56,
+            9.72
+          ],
+          "flank_excess_mm": [
+            0.007169588765939816,
+            0.004758046034066654
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.16,
+          "Y_slab": [
+            9.4,
+            9.56
+          ],
+          "flank_excess_mm": [
+            -0.045239376577865864,
+            -0.04644514794381305
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "lower-left",
+      "layers": [
+        {
+          "top": 1.96,
+          "height": 0.16,
+          "Y_slab": [
+            10.04,
+            10.2
+          ],
+          "flank_excess_mm": [
+            -0.045811173347591605,
+            -0.04533745278921508
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.16,
+          "Y_slab": [
+            9.879999999999999,
+            10.04
+          ],
+          "flank_excess_mm": [
+            0.004124071437838606,
+            0.006937537958368156
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.28,
+          "height": 0.16,
+          "Y_slab": [
+            9.72,
+            9.88
+          ],
+          "flank_excess_mm": [
+            0.018614452494612854,
+            0.015813182305390472
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.44,
+          "height": 0.16,
+          "Y_slab": [
+            9.56,
+            9.72
+          ],
+          "flank_excess_mm": [
+            0.006937537958365492,
+            0.007071512554590542
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.16,
+          "Y_slab": [
+            9.4,
+            9.56
+          ],
+          "flank_excess_mm": [
+            -0.04531117334758922,
+            -0.04497142738542892
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "lower-right",
+      "layers": [
+        {
+          "top": 1.96,
+          "height": 0.16,
+          "Y_slab": [
+            10.04,
+            10.2
+          ],
+          "flank_excess_mm": [
+            -0.051981046328668956,
+            -0.04471309713623428
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.16,
+          "Y_slab": [
+            9.879999999999999,
+            10.04
+          ],
+          "flank_excess_mm": [
+            0.005705487150808819,
+            0.006143309324321333
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.28,
+          "height": 0.16,
+          "Y_slab": [
+            9.72,
+            9.88
+          ],
+          "flank_excess_mm": [
+            0.019973436343228956,
+            0.02123176659243947
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.44,
+          "height": 0.16,
+          "Y_slab": [
+            9.56,
+            9.72
+          ],
+          "flank_excess_mm": [
+            0.005705487150808819,
+            0.0065093347281074965
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.16,
+          "Y_slab": [
+            9.4,
+            9.56
+          ],
+          "flank_excess_mm": [
+            -0.04456950359679329,
+            -0.04634707173244962
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    }
+  ],
+  "reviewed-0.12": [
+    {
+      "corner": "upper-left",
+      "layers": [
+        {
+          "top": 2.0,
+          "height": 0.12,
+          "Y_slab": [
+            10.0,
+            10.12
+          ],
+          "flank_excess_mm": [
+            -0.01822271607948084,
+            -0.01751694471352322
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.12,
+          "Y_slab": [
+            9.879999999999999,
+            9.999999999999998
+          ],
+          "flank_excess_mm": [
+            0.010724123254674478,
+            0.013720434561035166
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.24,
+          "height": 0.12,
+          "Y_slab": [
+            9.76,
+            9.879999999999999
+          ],
+          "flank_excess_mm": [
+            0.025237811809704414,
+            0.02261445249461319
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.36,
+          "height": 0.12,
+          "Y_slab": [
+            9.64,
+            9.76
+          ],
+          "flank_excess_mm": [
+            0.016808225339591976,
+            0.01981114435155812
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.48,
+          "height": 0.12,
+          "Y_slab": [
+            9.52,
+            9.639999999999999
+          ],
+          "flank_excess_mm": [
+            -0.006427564555304854,
+            -0.007500284215133934
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.12,
+          "Y_slab": [
+            9.4,
+            9.52
+          ],
+          "flank_excess_mm": [
+            -0.05127098580301592,
+            -0.05116809834025954
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "upper-right",
+      "layers": [
+        {
+          "top": 2.0,
+          "height": 0.12,
+          "Y_slab": [
+            10.0,
+            10.12
+          ],
+          "flank_excess_mm": [
+            -0.018469610962263794,
+            -0.01749066527190113
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.12,
+          "Y_slab": [
+            9.879999999999999,
+            9.999999999999998
+          ],
+          "flank_excess_mm": [
+            0.01290934360931123,
+            0.012909663179456687
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.24,
+          "height": 0.12,
+          "Y_slab": [
+            9.76,
+            9.879999999999999
+          ],
+          "flank_excess_mm": [
+            0.026088288966353124,
+            0.025094921160609795
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.36,
+          "height": 0.12,
+          "Y_slab": [
+            9.64,
+            9.76
+          ],
+          "flank_excess_mm": [
+            0.019744161907500724,
+            0.01949009684162256
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.48,
+          "height": 0.12,
+          "Y_slab": [
+            9.52,
+            9.639999999999999
+          ],
+          "flank_excess_mm": [
+            -0.0056412025051038595,
+            -0.005062462041631577
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.12,
+          "Y_slab": [
+            9.4,
+            9.52
+          ],
+          "flank_excess_mm": [
+            -0.05414701378808112,
+            -0.05047142738542604
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "lower-left",
+      "layers": [
+        {
+          "top": 2.0,
+          "height": 0.12,
+          "Y_slab": [
+            10.0,
+            10.12
+          ],
+          "flank_excess_mm": [
+            -0.017248995521108645,
+            -0.017554057233343967
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.12,
+          "Y_slab": [
+            9.879999999999999,
+            9.999999999999998
+          ],
+          "flank_excess_mm": [
+            0.013025995226483233,
+            0.013361580904225845
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.24,
+          "height": 0.12,
+          "Y_slab": [
+            9.76,
+            9.879999999999999
+          ],
+          "flank_excess_mm": [
+            0.025806310269968102,
+            0.025762010558464665
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.36,
+          "height": 0.12,
+          "Y_slab": [
+            9.64,
+            9.76
+          ],
+          "flank_excess_mm": [
+            0.01999709264498345,
+            0.016998695566402378
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.48,
+          "height": 0.12,
+          "Y_slab": [
+            9.52,
+            9.639999999999999
+          ],
+          "flank_excess_mm": [
+            -0.004830411234056975,
+            -0.005266242143662836
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.12,
+          "Y_slab": [
+            9.4,
+            9.52
+          ],
+          "flank_excess_mm": [
+            -0.05033745278922741,
+            -0.05202635083995888
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    },
+    {
+      "corner": "lower-right",
+      "layers": [
+        {
+          "top": 2.0,
+          "height": 0.12,
+          "Y_slab": [
+            10.0,
+            10.12
+          ],
+          "flank_excess_mm": [
+            -0.017539953990385604,
+            -0.017882970117316155
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.12,
+          "height": 0.12,
+          "Y_slab": [
+            9.879999999999999,
+            9.999999999999998
+          ],
+          "flank_excess_mm": [
+            0.011880305395371826,
+            0.012318666212954854
+          ],
+          "covers_flank_boundary": true
+        },
+        {
+          "top": 2.24,
+          "height": 0.12,
+          "Y_slab": [
+            9.76,
+            9.879999999999999
+          ],
+          "flank_excess_mm": [
+            0.02513897082872485,
+            0.026139927693473897
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.36,
+          "height": 0.12,
+          "Y_slab": [
+            9.64,
+            9.76
+          ],
+          "flank_excess_mm": [
+            0.018061688630442163,
+            0.019266818637475536
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.48,
+          "height": 0.12,
+          "Y_slab": [
+            9.52,
+            9.639999999999999
+          ],
+          "flank_excess_mm": [
+            -0.005350186801421686,
+            -0.008345813489731568
+          ],
+          "covers_flank_boundary": false
+        },
+        {
+          "top": 2.6,
+          "height": 0.12,
+          "Y_slab": [
+            9.4,
+            9.52
+          ],
+          "flank_excess_mm": [
+            -0.052475266564566636,
+            -0.05181332074678319
+          ],
+          "covers_flank_boundary": false
+        }
+      ]
+    }
+  ]
+}
