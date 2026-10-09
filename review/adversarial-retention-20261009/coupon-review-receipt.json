@@ -1,0 +1,314 @@
+{
+  "read_only_inputs": true,
+  "reviewed_commit": "613402c",
+  "checks": {
+    "retention-coupon": {
+      "project_hash_match": true,
+      "gcode_hash_match": true,
+      "settings": {
+        "layer_height": "0.16",
+        "initial_layer_print_height": "0.2",
+        "wall_loops": "4",
+        "sparse_infill_density": "25%",
+        "sparse_infill_pattern": "gyroid",
+        "print_sequence": "by object",
+        "brim_type": "no_brim",
+        "enable_support": "0",
+        "printer_model": "Bambu Lab X2D",
+        "printer_variant": "0.4",
+        "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+        "filament_settings_id": [
+          "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+        ],
+        "xy_contour_compensation": "0",
+        "xy_hole_compensation": "0"
+      },
+      "mesh_receipt_matches": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "source_receipt_matches": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "object_settings": {
+        "101": {
+          "name": "Lower receiver coupon",
+          "extruder": "1"
+        },
+        "102": {
+          "name": "Upper receiver coupon",
+          "extruder": "1"
+        },
+        "103": {
+          "name": "Clip 0.26 mm - nominal",
+          "extruder": "1"
+        },
+        "104": {
+          "name": "Clip 0.24 mm - looser",
+          "extruder": "1"
+        },
+        "105": {
+          "name": "Clip 0.28 mm - tighter",
+          "extruder": "1"
+        }
+      }
+    },
+    "assembly-fit-candidate": {
+      "project_hash_match": true,
+      "gcode_hash_match": true,
+      "settings": {
+        "layer_height": "0.16",
+        "initial_layer_print_height": "0.2",
+        "wall_loops": "4",
+        "sparse_infill_density": "25%",
+        "sparse_infill_pattern": "gyroid",
+        "print_sequence": "by object",
+        "brim_type": "no_brim",
+        "enable_support": "0",
+        "printer_model": "Bambu Lab X2D",
+        "printer_variant": "0.4",
+        "printer_settings_id": "Bambu Lab X2D 0.4 nozzle",
+        "filament_settings_id": [
+          "Bambu PETG Basic @BBL X2D 0.4 nozzle"
+        ],
+        "xy_contour_compensation": "0",
+        "xy_hole_compensation": "0"
+      },
+      "mesh_receipt_matches": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "source_receipt_matches": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "object_settings": {
+        "101": {
+          "name": "Lower clamshell",
+          "extruder": "1"
+        },
+        "102": {
+          "name": "Upper clamshell",
+          "extruder": "1"
+        },
+        "103": {
+          "name": "Clip +Y",
+          "extruder": "1"
+        },
+        "104": {
+          "name": "Clip -Y",
+          "extruder": "1"
+        },
+        "105": {
+          "sparse_infill_speed": "90",
+          "internal_solid_infill_speed": "90",
+          "top_surface_speed": "30",
+          "inner_wall_speed": "60",
+          "outer_wall_speed": "30",
+          "bottom_shell_thickness": "16",
+          "top_shell_thickness": "16",
+          "bottom_shell_layers": "12",
+          "top_shell_layers": "12",
+          "layer_height": "0.08",
+          "skin_infill_density": "100",
+          "skeleton_infill_density": "100",
+          "sparse_infill_pattern": "zig-zag",
+          "sparse_infill_density": "100",
+          "wall_loops": "6",
+          "name": "Output hub",
+          "extruder": "1",
+          "enable_support": "1",
+          "support_type": "tree(auto)",
+          "support_on_build_plate_only": "1",
+          "brim_type": "no_brim",
+          "brim_width": "0"
+        }
+      }
+    },
+    "fresh_parser_matches_cached_paths": {
+      "full": true,
+      "coupon": true
+    },
+    "housing_layer_phase": {
+      "1": {
+        "coupon_world_Z_layer_count": 64,
+        "matching_full_layer_count": 64,
+        "nonmatching_world_Z_levels_mm": []
+      },
+      "2": {
+        "coupon_world_Z_layer_count": 62,
+        "matching_full_layer_count": 62,
+        "nonmatching_world_Z_levels_mm": []
+      }
+    },
+    "reported_nominal_sample_equality": [
+      {
+        "corner": "upper-left",
+        "Y_mm": 10.1,
+        "full_reported_overlap_mm2": 0.0065154509693341675,
+        "coupon_reported_overlap_mm2": 0.0065154509693341675,
+        "exactly_equal": true
+      },
+      {
+        "corner": "upper-left",
+        "Y_mm": 10.1424065573,
+        "full_reported_overlap_mm2": 0.011359456839302094,
+        "coupon_reported_overlap_mm2": 0.011359456839302094,
+        "exactly_equal": true
+      },
+      {
+        "corner": "upper-left",
+        "Y_mm": 10.18,
+        "full_reported_overlap_mm2": 0.014263435607190785,
+        "coupon_reported_overlap_mm2": 0.014263435607190785,
+        "exactly_equal": true
+      },
+      {
+        "corner": "upper-right",
+        "Y_mm": 10.1,
+        "full_reported_overlap_mm2": 0.006465003388260278,
+        "coupon_reported_overlap_mm2": 0.006465003388260278,
+        "exactly_equal": true
+      },
+      {
+        "corner": "upper-right",
+        "Y_mm": 10.1424065573,
+        "full_reported_overlap_mm2": 0.011277138091285784,
+        "coupon_reported_overlap_mm2": 0.011277138091285784,
+        "exactly_equal": true
+      },
+      {
+        "corner": "upper-right",
+        "Y_mm": 10.18,
+        "full_reported_overlap_mm2": 0.014124084644619226,
+        "coupon_reported_overlap_mm2": 0.014124084644619226,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-left",
+        "Y_mm": 10.1,
+        "full_reported_overlap_mm2": 0.0033611923599663517,
+        "coupon_reported_overlap_mm2": 0.0033611923599663517,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-left",
+        "Y_mm": 10.1424065573,
+        "full_reported_overlap_mm2": 0.007758970756350238,
+        "coupon_reported_overlap_mm2": 0.007758970756350238,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-left",
+        "Y_mm": 10.18,
+        "full_reported_overlap_mm2": 0.010589570258443313,
+        "coupon_reported_overlap_mm2": 0.010589570258443313,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-right",
+        "Y_mm": 10.1,
+        "full_reported_overlap_mm2": 0.0035996180888919925,
+        "coupon_reported_overlap_mm2": 0.0035996180888919925,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-right",
+        "Y_mm": 10.1424065573,
+        "full_reported_overlap_mm2": 0.008186418724812784,
+        "coupon_reported_overlap_mm2": 0.008186418724812784,
+        "exactly_equal": true
+      },
+      {
+        "corner": "lower-right",
+        "Y_mm": 10.18,
+        "full_reported_overlap_mm2": 0.01112046499518542,
+        "coupon_reported_overlap_mm2": 0.01112046499518542,
+        "exactly_equal": true
+      }
+    ]
+  },
+  "registration": {
+    "coupon_crop_world_mm": {
+      "X": [
+        -8,
+        21
+      ],
+      "Y": [
+        6,
+        12
+      ],
+      "Z": [
+        8,
+        27.6
+      ]
+    },
+    "original_alignment_nub_moves": [
+      {
+        "feature_id": 59,
+        "body_ids": [
+          13
+        ],
+        "translation_mm": {
+          "x": 24.4,
+          "y": 9.4,
+          "z": 18.6
+        }
+      },
+      {
+        "feature_id": 77,
+        "body_ids": [
+          15
+        ],
+        "translation_mm": {
+          "x": -8.4,
+          "y": -9.4,
+          "z": 18.6
+        }
+      },
+      {
+        "feature_id": 223,
+        "body_ids": [
+          45
+        ],
+        "translation_mm": {
+          "x": 24.4,
+          "y": -9.4,
+          "z": 17.9
+        }
+      },
+      {
+        "feature_id": 241,
+        "body_ids": [
+          47
+        ],
+        "translation_mm": {
+          "x": -8.4,
+          "y": 9.4,
+          "z": 17.9
+        }
+      }
+    ],
+    "upper_plus_Y_nub_tip_max_X_mm": -8.02,
+    "all_complete_alignment_nub_tips_retained": false,
+    "fixture_or_datum_setup_included": false
+  },
+  "warnings": [
+    "Local layer phase and sampled toolpath areas do not establish receiver support stiffness or force.",
+    "Both +Y shell alignment nub tips are outside cropped volume; left tapered/base remnant is open at cut.",
+    "README only requests alignment/support without a registered fixture, so hand placement or squeeze may mask .020 mm nominal holding target.",
+    "0.28 clip outer blend is 0.2 mm and meridian span 1.466424 mm, versus nominal 0.214 and 1.44 mm; calibration compares related profiles, not only independent height.",
+    "Three clip identities exist as 3MF object names, not physical geometry labels."
+  ]
+}

@@ -8,6 +8,8 @@ Open the native project for CAD editing. After an authorized edit, export `cad_p
 
 ## Scope and validation
 
+The [independent adversarial review](review/adversarial-retention-20261009/README.md) blocks mechanical qualification of revision 613402c. Its candidate-generated regression baseline checks repeatability, not independently approved mechanics. The current FEM fixes unsupported floor material and the cropped test receivers lack original registration. Do not use the prior coupon-first recommendation as acceptance evidence until these findings are resolved. Geometry remains unchanged pending further direction.
+
 Follow Jeff's current instructions. Historical handovers describe earlier designs and must not override current direction. The 2026-10-04 cleanup was explicitly geometry preserving; future geometry changes depend on the user's requested scope.
 
 For further cleanup, preserve feature/body/component IDs and all dimensions, profile identities and assembly poses. Only share profiles when their complete geometry, constraints, plane basis and profile identities match. Only remove operations that are provably redundant. Never simplify a solid by its feature name alone.
