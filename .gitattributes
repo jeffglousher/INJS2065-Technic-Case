@@ -19,3 +19,8 @@ review/flat-clip-base.json -text
 review/flat-clip-base-20261008/*.json -text
 review/flat-clip-base-20261008/*.png binary
 review/flat-clip-base-20261008/*.3mf binary
+review/retention-fit.json -text
+review/retention-fit-20261009/*.json -text
+review/retention-fit-20261009/*.png binary
+review/retention-fit-20261009/*.3mf binary
+review/retention-fit-20261009/*.nbcad binary

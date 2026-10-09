@@ -7,7 +7,7 @@ const base = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await fs.readFile(new URL(path, base), 'utf8'));
 const modelBytes = await fs.readFile(new URL('design/current.model.json', base));
 const model = JSON.parse(modelBytes);
-const reference = await read('review/flat-clip-base.json');
+const reference = await read('review/retention-fit.json');
 const cleanup = await read(reference.preservedReference);
 const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe';
 const client = new Client(binary, 180000);

@@ -1,0 +1,171 @@
+{
+  "parts": [
+    {
+      "object_id": 1,
+      "body_id": 8,
+      "file": "candidate-8.stl",
+      "mesh_sha256": "a365cda25b81e03b1730d137f5f1108baeb4389d7d8d4f1dce17153fc4facd22",
+      "source_sha256": "1f75383315e3d7593b5e12538b8283fef0c4750ec9a6371970c27c379796cb26",
+      "triangles": 50570,
+      "name": "Lower clamshell"
+    },
+    {
+      "object_id": 2,
+      "body_id": 18,
+      "file": "candidate-18.stl",
+      "mesh_sha256": "3ce759d73824b9eb065df089597a41eb0cf5b44ae84070298baa449fa468de27",
+      "source_sha256": "8a26435cf1f16e29c317d092a20b47dbf1e049243856cc4d1a4c5a2ce9518818",
+      "triangles": 103792,
+      "name": "Upper clamshell"
+    },
+    {
+      "object_id": 3,
+      "body_id": 173,
+      "file": "candidate-173.stl",
+      "mesh_sha256": "e24fec0e84927c256aedd18f00718ae0ba0b9fb05c0b32d83926a6b9436b3161",
+      "source_sha256": "6157fd414e497a293924affe51af17acadf51a81c20801f54f01ab3043e13647",
+      "triangles": 79412,
+      "name": "Clip +Y"
+    },
+    {
+      "object_id": 4,
+      "body_id": 267,
+      "file": "candidate-267.stl",
+      "mesh_sha256": "9ba36890acf5111da9b65f93e29fdd53e657ec3ccc784966f7e0250df850c121",
+      "source_sha256": "74996e0ede01398468ee781dc05516774f26e11c834ba649956d1b37da3afb0a",
+      "triangles": 79412,
+      "name": "Clip -Y"
+    }
+  ],
+  "project_sha256": "5e1e19aaadc4512c8500e4b94568e81cca7bd044483b96860cb99657bc3cbcc0",
+  "gcode_sha256": "df69e50d0554802878aae954ac4f5f708bae189cfd9c1aa6766ff6b4a21580ca",
+  "native_result": {
+    "error_string": "Success.",
+    "export_time": 0,
+    "layer_height": 0.1599999964237213,
+    "plate_index": 1,
+    "prepare_time": 428,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 61.82924270629883,
+          "Bridge": 127.00015258789062,
+          "Custom": 286.872802734375,
+          "Flush": 29.0,
+          "Gap infill": 402.8182678222656,
+          "Inner wall": 2596.87451171875,
+          "Internal solid infill": 863.21533203125,
+          "Outer wall": 1812.9500732421875,
+          "Overhang wall": 41.6228141784668,
+          "Sparse infill": 547.6400146484375,
+          "Support": 529.2935791015625,
+          "Support interface": 10.629609107971191,
+          "Top surface": 105.64469909667969,
+          "Travel": 1563.90185546875,
+          "Undefined": 1556.5560302734375
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 23.112510681152344,
+            "total_used_g": 23.112510681152344
+          }
+        ],
+        "generate_support_material_time": 250,
+        "id": 1,
+        "infill_time": 414,
+        "layer_filament_change": 0,
+        "main_predication": 8635.0771484375,
+        "make_perimeters_time": 636,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 50570
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 163.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 103792
+          },
+          {
+            "bbox": {
+              "depth": 13.82771110534668,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 48.086143493652344,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 79412
+          },
+          {
+            "bbox": {
+              "depth": 13.827703475952148,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 168.08615112304688,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 79412
+          },
+          {
+            "bbox": {
+              "depth": 11.999876976013184,
+              "height": 15.700000762939453,
+              "width": 11.999755859375,
+              "x": 214.000244140625,
+              "y": 109.00006103515625,
+              "z": 0.0
+            },
+            "id": 21,
+            "name": "Output hub",
+            "triangle_count": 4920
+          }
+        ],
+        "sliced_time": 4511,
+        "sliced_time_with_cache": 2859,
+        "total_predication": 8972.6044921875,
+        "triangle_count": 318106,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "print_sent": false
+}
