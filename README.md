@@ -2,6 +2,8 @@
 
 Current editable CAD: [design/current.nbcad](design/current.nbcad). Canonical native feature history: [design/current.model.json](design/current.model.json).
 
+[Latest complete PETG project with localized hex supports](review/hex-support-20261010/assembly-petg-local-hex-supports.3mf): native interfaces beneath all 16 housing hex posts, no supports on clips or hub, no brims, and identical CAD geometry. [Comparison, inspected preview and validation](review/hex-support-20261010/README.md) record the 0.20 mm gap test and its approximately 79-second / 0.11-g increase. Physical removal and hex fit remain to verify.
+
 [Current incremental fit revision, CAD pictures and PETG projects](review/incremental-fit-20261010/README.md): underside bevels removed on all 16 hex posts, nubs increased from 0.26 to 0.28 mm, and stationary shaft aperture opened from Ø8.15 to Ø8.35 mm. The hub and bearing interfaces remain unchanged. The current [complete PETG project](review/incremental-fit-20261010/assembly-petg-incremental-fit.3mf) keeps support-free hub bridging; an updated [registered complete-shell fit test](review/incremental-fit-20261010/registered-receivers.3mf) uses the same shells and clips. No printer job has been sent by the agent.
 
 **Current: incremental fit-test candidate; functional qualification remains blocked.** Native checks and slicing pass. The selected 0.28 mm nubs improve the paired-toolpath tolerance screen but still need a successful printed snap, seating and retention test. Accepted holding/insertion mechanics are not available. Earlier force/strain and cropped-coupon acceptance recommendations remain withdrawn; the [contact correction](review/contact-fix-20261009/README.md) and [independent adversarial review](review/adversarial-retention-20261009/README.md) remain traceable historical evidence.
@@ -12,7 +14,7 @@ The assembly contains the two clamshell halves, output hub, two honeycomb clips,
 
 [Previous clip-floor correction and CAD pictures](review/flat-clip-base-20261008/README.md) remove the relief depressions from the base while retaining the relieved walls and nubs. Native checks and slicing pass; the former strain/force screen does not qualify the restored backing.
 
-The current history has **374 valid features** and seven bodies; the 16-feature bevel subtree is removed. Native named views retain assembled, exploded and print-by-object arrangements. The compact hub retains its friction-only Ø5.70 × 3.70 mm servo socket and 0.15 mm lead-in. Current projects use X2D / 0.4 mm / Bambu PETG Basic, hub-only six-wall solid 0.08 mm settings and no supports or brims. Physical fit and mechanical qualification remain to verify.
+The current history has **374 valid features** and seven bodies; the 16-feature bevel subtree is removed. Native named views retain assembled, exploded and print-by-object arrangements. The compact hub retains its friction-only Ø5.70 × 3.70 mm servo socket and 0.15 mm lead-in. Current projects use X2D / 0.4 mm / Bambu PETG Basic and hub-only six-wall solid 0.08 mm settings. The latest printing test adds local hex supports to the shells; clips and hub remain support-free, with no brims. Physical fit and mechanical qualification remain to verify.
 
 Superseded experiments, captures and uncommitted work were archived at:
 

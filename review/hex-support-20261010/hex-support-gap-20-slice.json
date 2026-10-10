@@ -1,0 +1,234 @@
+{
+  "source_sha256": "a48b40a8caa19482876fe13076e2b6b90a53118be49823b44c2798e1d89e437a",
+  "project_sha256": "2948262a77f76bd90cd8811ac8456a44108a224182970d49c09edd17073f7928",
+  "gcode_sha256": "cc91d9122556fed115a27a83a3fe35e7bdc6b5e0bc5f58bdf2a14c6d85af153b",
+  "painting": [
+    {
+      "object": 1,
+      "enforced_triangles": [
+        50293,
+        50294,
+        50297,
+        50298,
+        50309,
+        50310,
+        50313,
+        50314,
+        50321,
+        50322,
+        50325,
+        50326,
+        50341,
+        50342,
+        50345,
+        50346,
+        50423,
+        50424,
+        50427,
+        50428,
+        50439,
+        50440,
+        50443,
+        50444,
+        50451,
+        50452,
+        50455,
+        50456,
+        50471,
+        50472,
+        50475,
+        50476
+      ],
+      "enforced_count": 32,
+      "blocked_count": 50538,
+      "geometry_unchanged": true
+    },
+    {
+      "object": 2,
+      "enforced_triangles": [
+        60449,
+        60450,
+        60457,
+        60458,
+        60465,
+        60466,
+        60473,
+        60474,
+        60481,
+        60482,
+        60489,
+        60490,
+        60497,
+        60498,
+        60505,
+        60506,
+        80661,
+        80662,
+        80669,
+        80670,
+        80677,
+        80678,
+        80685,
+        80686,
+        80693,
+        80694,
+        80701,
+        80702,
+        80709,
+        80710,
+        80717,
+        80718
+      ],
+      "enforced_count": 32,
+      "blocked_count": 103760,
+      "geometry_unchanged": true
+    }
+  ],
+  "shell_only_overrides": {
+    "enable_support": "1",
+    "support_type": "normal(manual)",
+    "support_style": "snug",
+    "support_on_build_plate_only": "0",
+    "support_remove_small_overhang": "0",
+    "bridge_no_support": "0",
+    "support_interface_top_layers": "3",
+    "support_interface_bottom_layers": "2",
+    "support_interface_spacing": "0.2",
+    "support_bottom_interface_spacing": "0.2",
+    "support_top_z_distance": "0.2",
+    "support_bottom_z_distance": "0.2",
+    "support_object_xy_distance": "0.35"
+  },
+  "native_result": {
+    "error_string": "Success.",
+    "export_time": 0,
+    "layer_height": 0.1599999964237213,
+    "plate_index": 1,
+    "prepare_time": 466,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 61.44646453857422,
+          "Bridge": 127.21099853515625,
+          "Custom": 286.872802734375,
+          "Flush": 29.0,
+          "Gap infill": 400.1888122558594,
+          "Inner wall": 2639.644775390625,
+          "Internal solid infill": 862.287353515625,
+          "Outer wall": 1921.7310791015625,
+          "Overhang wall": 30.529075622558594,
+          "Sparse infill": 546.1133422851562,
+          "Support": 3.8285226821899414,
+          "Support interface": 51.96471405029297,
+          "Top surface": 114.2540283203125,
+          "Travel": 1488.831298828125,
+          "Undefined": 1481.4854736328125
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 22.88405990600586,
+            "total_used_g": 22.88405990600586
+          }
+        ],
+        "generate_support_material_time": 91,
+        "id": 1,
+        "infill_time": 411,
+        "layer_filament_change": 0,
+        "main_predication": 8219.400390625,
+        "make_perimeters_time": 662,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 50570
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 163.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 103792
+          },
+          {
+            "bbox": {
+              "depth": 13.867902755737305,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 48.06604766845703,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 83636
+          },
+          {
+            "bbox": {
+              "depth": 13.867895126342773,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 168.06605529785156,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 83636
+          },
+          {
+            "bbox": {
+              "depth": 11.999876976013184,
+              "height": 15.700000762939453,
+              "width": 11.999755859375,
+              "x": 214.000244140625,
+              "y": 109.00006103515625,
+              "z": 6.054712287095754e-11
+            },
+            "id": 21,
+            "name": "Output hub",
+            "triangle_count": 4920
+          }
+        ],
+        "sliced_time": 3898,
+        "sliced_time_with_cache": 2400,
+        "total_predication": 8556.927734375,
+        "triangle_count": 326554,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "all_mesh_geometry_unchanged": true,
+  "clips_hub_unchanged": true,
+  "global_profile_and_placements_unchanged": true,
+  "print_sent": false
+}
