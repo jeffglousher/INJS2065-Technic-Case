@@ -1,0 +1,144 @@
+{
+  "canonical_geometry_changed": false,
+  "cropped_receivers": false,
+  "full_shell_locators_preserved": true,
+  "source_project_sha256": "5e1e19aaadc4512c8500e4b94568e81cca7bd044483b96860cb99657bc3cbcc0",
+  "project_sha256": "079e63e87564d60d936bbbf402827ab297c2e9dc3bf853fe41abdddfbcc0d036",
+  "unchanged_meshes": [
+    {
+      "object": 101,
+      "mesh_sha256": "a365cda25b81e03b1730d137f5f1108baeb4389d7d8d4f1dce17153fc4facd22",
+      "build_transform_unchanged": true
+    },
+    {
+      "object": 102,
+      "mesh_sha256": "3ce759d73824b9eb065df089597a41eb0cf5b44ae84070298baa449fa468de27",
+      "build_transform_unchanged": true
+    },
+    {
+      "object": 103,
+      "mesh_sha256": "e24fec0e84927c256aedd18f00718ae0ba0b9fb05c0b32d83926a6b9436b3161",
+      "build_transform_unchanged": true
+    },
+    {
+      "object": 104,
+      "mesh_sha256": "9ba36890acf5111da9b65f93e29fdd53e657ec3ccc784966f7e0250df850c121",
+      "build_transform_unchanged": true
+    }
+  ],
+  "native_result": {
+    "error_string": "Success.",
+    "export_time": 0,
+    "layer_height": 0.1599999964237213,
+    "plate_index": 1,
+    "prepare_time": 551,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 61.82924270629883,
+          "Bridge": 123.62892150878906,
+          "Custom": 287.72613525390625,
+          "Flush": 29.0,
+          "Gap infill": 327.5872497558594,
+          "Inner wall": 1728.5322265625,
+          "Internal solid infill": 662.0081176757812,
+          "Outer wall": 1222.1146240234375,
+          "Overhang wall": 28.396650314331055,
+          "Sparse infill": 547.6448364257812,
+          "Top surface": 91.98888397216797,
+          "Travel": 1271.5731201171875,
+          "Undefined": 1263.3739013671875
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 21.50469207763672,
+            "total_used_g": 21.50469207763672
+          }
+        ],
+        "generate_support_material_time": 155,
+        "id": 1,
+        "infill_time": 506,
+        "layer_filament_change": 0,
+        "main_predication": 6036.57421875,
+        "make_perimeters_time": 636,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 50570
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 163.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 103792
+          },
+          {
+            "bbox": {
+              "depth": 13.82771110534668,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 48.086143493652344,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 79412
+          },
+          {
+            "bbox": {
+              "depth": 13.827703475952148,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 168.08615112304688,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 79412
+          }
+        ],
+        "sliced_time": 4610,
+        "sliced_time_with_cache": 2813,
+        "total_predication": 6374.10107421875,
+        "triangle_count": 313186,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "gcode_sha256": "a80908819af7ecb323f5482844f9faadf259f6f3b2fcf894794d18440f443e79",
+  "print_sent": false
+}

@@ -8,7 +8,7 @@ Open the native project for CAD editing. After an authorized edit, export `cad_p
 
 ## Scope and validation
 
-The [independent adversarial review](review/adversarial-retention-20261009/README.md) blocks mechanical qualification of revision 613402c. Its candidate-generated regression baseline checks repeatability, not independently approved mechanics. The current FEM fixes unsupported floor material and the cropped test receivers lack original registration. Do not use the prior coupon-first recommendation as acceptance evidence until these findings are resolved. Geometry remains unchanged pending further direction.
+The [independent adversarial review](review/adversarial-retention-20261009/README.md) blocks mechanical qualification of revision 613402c. Its candidate-generated regression baseline checks repeatability, not independently approved mechanics. The [corrected contact experiment and complete-shell test](review/contact-fix-20261009/README.md) remove imposed floor supports and preserve original receiver registration. Use that registered test project, not the cropped three-variant coupon. No replacement force/strain prediction is valid until its solve and convergence checks pass; physical retention and insertion remain to verify. Geometry remains unchanged by these fixes.
 
 Follow Jeff's current instructions. Historical handovers describe earlier designs and must not override current direction. The 2026-10-04 cleanup was explicitly geometry preserving; future geometry changes depend on the user's requested scope.
 

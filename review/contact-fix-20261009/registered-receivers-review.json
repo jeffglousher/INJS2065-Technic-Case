@@ -1,0 +1,25 @@
+{
+  "reviewer": "retention_coupon_review",
+  "read_only_independent_review": true,
+  "project_sha256": "079e63e87564d60d936bbbf402827ab297c2e9dc3bf853fe41abdddfbcc0d036",
+  "gcode_sha256": "a80908819af7ecb323f5482844f9faadf259f6f3b2fcf894794d18440f443e79",
+  "four_mesh_payloads_byte_identical": true,
+  "four_build_transforms_identical": true,
+  "original_locator_regions_have_extrusion": true,
+  "hub_resource_relationship_overrides_removed": true,
+  "settings_unchanged": true,
+  "unchanged_extrusion_geometry": ["Lower clamshell", "Clip +Y", "Clip -Y"],
+  "upper_shell_changed_paths": {
+    "removed": 83,
+    "added": 161,
+    "print_z_mm": 8.36,
+    "world_z_mm": 33.64,
+    "types": ["bridge", "sparse infill"],
+    "filament_length_delta_mm": -0.02945,
+    "away_from_retaining_contact_region": true
+  },
+  "clip_positive_final_layer_speed_delta_mm_s": -0.01667,
+  "blocking_packaging_findings": [],
+  "qualification": "Controlled fit experiment; not snap strength or service-life qualification",
+  "print_sent": false
+}

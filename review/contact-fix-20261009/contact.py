@@ -1,0 +1,89 @@
+"""Linear tetrahedral elastic foundation for the separate contact experiment.
+
+Contains no imposed pocket-floor supports. Optional rigid-mode guides and driver
+node selections are used only by explicitly constrained contact poses.
+"""
+from pathlib import Path
+import hashlib, json, sys
+
+SOURCE = Path('D:/noBS-CAD-Reviews/INJS2065-Technic-Case/retention-fit-20261009')
+OUTPUT = Path('D:/noBS-CAD-Reviews/INJS2065-Technic-Case/contact-fix-20261009')
+REPO = Path('C:/Users/jeffg/dev/INJS2065-Technic-Case')
+sys.path[:0] = [str(OUTPUT/'python-libs'),
+    'D:/noBS-CAD-Reviews/INJS2065-Technic-Case/PETG-mechanics-20261005/python-libs']
+import numpy as np
+from scipy.sparse import coo_matrix, csc_matrix, triu
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def blocks(x):
+    affine = np.concatenate((np.ones((len(x),4,1)),x),axis=2)
+    volume = abs(np.linalg.det(affine))/6
+    grad = np.linalg.inv(affine)[:,1:,:].transpose(0,2,1)
+    b = np.zeros((len(x),6,12))
+    for i in range(4):
+        gx,gy,gz = grad[:,i,:].T
+        b[:,0,3*i]=gx; b[:,1,3*i+1]=gy; b[:,2,3*i+2]=gz
+        b[:,3,3*i]=gy; b[:,3,3*i+1]=gx
+        b[:,4,3*i+1]=gz; b[:,4,3*i+2]=gy
+        b[:,5,3*i]=gz; b[:,5,3*i+2]=gx
+    return volume,b
+
+class ElasticMesh:
+    def __init__(self, level):
+        self.level=level
+        field=SOURCE/f'mesh-{level:g}.npz'
+        a=np.load(field); self.xyz,self.tet=a['xyz'],a['tet']
+        self.n=len(self.xyz); self.ndof=3*self.n
+        E,nu=2780.,.38
+        lam=E*nu/((1+nu)*(1-2*nu)); mu=E/(2*(1+nu))
+        self.D=np.zeros((6,6)); self.D[:3,:3]=lam
+        np.fill_diagonal(self.D[:3,:3],lam+2*mu); self.D[3:,3:]=np.eye(3)*mu
+        tx=np.array([[[0,0,0],[2,0,0],[0,3,0],[0,0,4]]],float)
+        v,b=blocks(tx); ts=self.D@b[0]@(tx*np.array([1,-nu,-nu])).ravel()
+        assert np.max(abs(ts-[E,0,0,0,0,0]))<1e-9 and abs(v[0]-4)<1e-12
+        rows=[];cols=[];data=[];volumes=[]
+        for start in range(0,len(self.tet),8000):
+            ids=self.tet[start:start+8000]; v,b=blocks(self.xyz[ids]); assert np.all(v>1e-15)
+            volumes.append(v)
+            ke=np.einsum('nki,kl,nlj,n->nij',b,self.D,b,v,optimize=True)
+            ix=(ids[:,:,None]*3+np.arange(3)).reshape(-1,12)
+            rows.append(np.repeat(ix,12,axis=1).ravel()); cols.append(np.tile(ix,(1,12)).ravel()); data.append(ke.ravel())
+        self.K=coo_matrix((np.concatenate(data),(np.concatenate(rows),np.concatenate(cols))),shape=(self.ndof,self.ndof)).tocsc()
+        self.volumes=np.concatenate(volumes)
+        metadata=json.loads((SOURCE/f'mesh-{level:g}.json').read_text())
+        assert abs(self.volumes.sum()/metadata['native_volume_mm3']-1)<.001
+        faces=np.concatenate([self.tet[:,i] for i in ([0,1,2],[0,1,3],[0,2,3],[1,2,3])])
+        _,first,count=np.unique(np.sort(faces,axis=1),axis=0,return_index=True,return_counts=True)
+        self.boundary=faces[first[count==1]]; self.surface=np.unique(self.boundary)
+        centered=self.xyz-self.xyz.mean(axis=0)
+        # Mean X/Z translations and infinitesimal rotations about X/Y/Z.
+        guides=np.zeros((5,self.n,3)); guides[0,:,0]=1; guides[1,:,2]=1
+        guides[2,:,1]=-centered[:,2]; guides[2,:,2]=centered[:,1]
+        guides[3,:,0]=centered[:,2]; guides[3,:,2]=-centered[:,0]
+        guides[4,:,0]=-centered[:,1]; guides[4,:,1]=centered[:,0]
+        guides=guides.reshape(5,-1); guides/=np.linalg.norm(guides,axis=1)[:,None]
+        self.guides=csc_matrix(guides)
+        self.driver=np.flatnonzero(abs(self.xyz[:,1]-12)<1e-8)
+        self.P=triu(self.K,format='csc')
+        self.metadata={'level_mm':level,'nodes':self.n,'tets':len(self.tet),
+            'field_sha256':sha(field),'step_sha256':sha(SOURCE/'current.step'),
+            'affine_patch_check_passed':True,'mesh_volume_mm3':float(self.volumes.sum())}
+
+    def metrics(self,u):
+        strain=[];stress=[]
+        for start in range(0,len(self.tet),8000):
+            ids=self.tet[start:start+8000]; _,b=blocks(self.xyz[ids])
+            e=np.einsum('nki,ni->nk',b,u[ids].reshape(-1,12)); strain.append(e); stress.append(e@self.D)
+        e,s=np.concatenate(strain),np.concatenate(stress)
+        tensor=np.zeros((len(e),3,3)); tensor[:,0,0]=e[:,0];tensor[:,1,1]=e[:,1];tensor[:,2,2]=e[:,2]
+        tensor[:,0,1]=tensor[:,1,0]=e[:,3]/2; tensor[:,1,2]=tensor[:,2,1]=e[:,4]/2; tensor[:,0,2]=tensor[:,2,0]=e[:,5]/2
+        principal=np.max(abs(np.linalg.eigvalsh(tensor)),axis=1)
+        order=np.argsort(principal); cw=np.cumsum(self.volumes[order])/self.volumes.sum()
+        return {'peak_abs_principal_strain':float(principal.max()),
+            'volume_weighted_p99_strain':float(principal[order[np.searchsorted(cw,.99)]]),
+            'peak_element_centroid_mm':self.xyz[self.tet[np.argmax(principal)]].mean(axis=0).tolist(),
+            'max_displacement_mm':float(np.linalg.norm(u,axis=1).max()),
+            'strain_energy_Nmm':float(.5*u.ravel()@(self.K@u.ravel())),
+            'strain_field':principal}

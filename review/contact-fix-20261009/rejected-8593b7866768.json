@@ -1,0 +1,25 @@
+{
+  "accepted": false,
+  "status": "solved inaccurate",
+  "run_id": "8593b7866768",
+  "approach_Y_mm": 0,
+  "insertion": false,
+  "centered": false,
+  "iteration": 0,
+  "qp_iterations": 2450,
+  "primal_residual": 1.8854778198597043e-08,
+  "dual_residual": 3.1210362583998502e-06,
+  "mesh": {
+    "level_mm": 0.12,
+    "nodes": 28783,
+    "tets": 127967,
+    "field_sha256": "ffae78aa97eeaab03488af7ae6e36d7aed0da615c96f0f5cc9c98e05fd7251ad",
+    "step_sha256": "4d05cda3be644dc80e8d7b37477b1bba848d13d07881b84f53ed7c8e76abdd07",
+    "affine_patch_check_passed": true,
+    "mesh_volume_mm3": 686.5449017130748
+  },
+  "contact_rows": 10140,
+  "canonical_sha256": "19a73dd1a82072cfbd80a95da27a19720c7a09fef52b39dab940d3c3ec4ec340",
+  "solver_sha256": "cad76988cb1d61b2715cb754f732193ec7dcb93f2969bd80c4cd5cb15dc74c70",
+  "note": "Rejected solve; no physical preload or strain inference"
+}
