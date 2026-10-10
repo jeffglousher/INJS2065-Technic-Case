@@ -1,5 +1,7 @@
 # Hub roof bridging settings — 10 October 2026
 
+**Current geometry update:** use the [incremental fit revision and its latest complete PETG project](../incremental-fit-20261010/README.md). It retains these hub settings and mesh while changing the shells/clips. The full project in this report is the preceding 0.26 mm / beveled-post geometry.
+
 **The updated [complete PETG project](assembly-petg-bridge-tuned.3mf) applies normal short-span bridging to the output hub only:** bridge flow **0.90**, bridge speed **25 mm/s**, thick bridges **off**, Don't support bridges **on**, counterbore bridging **None**, and hub supports **off**. Servo rim remains down, Technic cross up. No CAD dimensions, meshes, placements, other-part overrides, global process or filament settings change. Hub fine layers, six requested walls, fully solid fill and no brim remain.
 
 This is an uncalibrated starting setting for the next print, not proof of a flat physical roof. A print was already running when Bambu Studio was inspected; these saved changes were not sent to that job. No new print was started.

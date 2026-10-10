@@ -1,0 +1,99 @@
+{
+  "objects": {
+    "1": {
+      "extrusion_segments": 19483,
+      "roles": [
+        "Bottom surface",
+        "Bridge",
+        "Floating vertical shell",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Sparse infill",
+        "Top surface"
+      ],
+      "wall_widths_mm": [
+        0.42,
+        0.45,
+        0.5
+      ]
+    },
+    "2": {
+      "extrusion_segments": 70844,
+      "roles": [
+        "Bottom surface",
+        "Bridge",
+        "Floating vertical shell",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Overhang wall",
+        "Sparse infill",
+        "Top surface"
+      ],
+      "wall_widths_mm": [
+        0.42,
+        0.45,
+        0.5
+      ]
+    },
+    "3": {
+      "extrusion_segments": 5289,
+      "roles": [
+        "Bottom surface",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Top surface"
+      ],
+      "wall_widths_mm": [
+        0.42,
+        0.45,
+        0.5
+      ]
+    },
+    "4": {
+      "extrusion_segments": 5305,
+      "roles": [
+        "Bottom surface",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Top surface"
+      ],
+      "wall_widths_mm": [
+        0.42,
+        0.45,
+        0.5
+      ]
+    },
+    "5": {
+      "extrusion_segments": 8934,
+      "roles": [
+        "Bridge",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Top surface"
+      ],
+      "wall_widths_mm": [
+        0.42,
+        0.45,
+        0.5
+      ]
+    }
+  },
+  "no_supports_brims_skirts": true,
+  "clips_and_hub_slice_solid": true,
+  "hub_bridge_z_mm": 3.8,
+  "hub_bridge_height_mm": 0.08,
+  "hub_bridge_speed_mm_s": 25,
+  "source_gcode_sha256": "8a329e4a6928569daa550850d2be8895e2bab80280938b1b8b16639020d6a826",
+  "path_centerlines_not_measured_beads": true,
+  "print_sent": false
+}

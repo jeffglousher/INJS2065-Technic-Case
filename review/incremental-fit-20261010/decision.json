@@ -1,0 +1,154 @@
+{
+  "selected": "nub-28",
+  "canonical_sha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7",
+  "native_payload_matches": true,
+  "current_project_sha256": "a48b40a8caa19482876fe13076e2b6b90a53118be49823b44c2798e1d89e437a",
+  "baseline_modified_user_project_preserved": "review/hub-orientation-20261010/flipped-no-support.3mf",
+  "trials": {
+    "nub-28": {
+      "seconds": 8477.8193359375,
+      "grams": 22.771894454956055,
+      "sections": 24,
+      "lost_contact_by_setback": {
+        "0.01": 0,
+        "0.02": 0,
+        "0.03": 4,
+        "0.04": 19,
+        "0.05": 24
+      },
+      "parameters": {
+        "nub_protrusion_mm": 0.28,
+        "crest_radius_from_axis_mm": 0.48000000000000004,
+        "crest_curve_radius_mm": 0.8,
+        "outer_blend_radius_mm": 0.2,
+        "meridian_span_mm": 1.466424222385869,
+        "holding_clearance_movement_mm": 0.056926281323929906,
+        "receiver_cap_start_abs_y_mm": 9.809663461670024,
+        "receiver_end_abs_y_mm": 10.309663461670024,
+        "inner_hex_clearance_per_flat_mm": 0.1,
+        "corner_min_wall_mm": 0.897584,
+        "backing_mm": 1.45,
+        "features": 374,
+        "expected_interfering_pairs": [
+          [
+            8,
+            173,
+            0.002292087277011183
+          ],
+          [
+            8,
+            267,
+            0.002292085582887128
+          ],
+          [
+            18,
+            173,
+            0.00229208556405803
+          ],
+          [
+            18,
+            267,
+            0.002292087258998734
+          ]
+        ]
+      }
+    },
+    "nub-30": {
+      "seconds": 8477.8212890625,
+      "grams": 22.772157669067383,
+      "sections": 24,
+      "lost_contact_by_setback": {
+        "0.01": 0,
+        "0.02": 0,
+        "0.03": 0,
+        "0.04": 7,
+        "0.05": 21
+      },
+      "parameters": {
+        "nub_protrusion_mm": 0.3,
+        "crest_radius_from_axis_mm": 0.5,
+        "crest_curve_radius_mm": 0.8,
+        "outer_blend_radius_mm": 0.2,
+        "meridian_span_mm": 1.502531197679436,
+        "holding_clearance_movement_mm": 0.08979122061301553,
+        "receiver_cap_start_abs_y_mm": 9.809663461670024,
+        "receiver_end_abs_y_mm": 10.309663461670024,
+        "inner_hex_clearance_per_flat_mm": 0.1,
+        "corner_min_wall_mm": 0.897584,
+        "backing_mm": 1.45,
+        "features": 374,
+        "expected_interfering_pairs": [
+          [
+            8,
+            173,
+            0.010331032967831506
+          ],
+          [
+            8,
+            267,
+            0.0103310338807715
+          ],
+          [
+            18,
+            173,
+            0.01033103333488445
+          ],
+          [
+            18,
+            267,
+            0.010331032422851959
+          ]
+        ]
+      }
+    },
+    "nub-30-relieved": {
+      "seconds": 8481.0966796875,
+      "grams": 22.77264404296875,
+      "sections": 24,
+      "lost_contact_by_setback": {
+        "0.01": 0,
+        "0.02": 0,
+        "0.03": 8,
+        "0.04": 13,
+        "0.05": 24
+      },
+      "parameters": {
+        "nub_protrusion_mm": 0.3,
+        "crest_radius_from_axis_mm": 0.5,
+        "crest_curve_radius_mm": 0.8,
+        "outer_blend_radius_mm": 0.2,
+        "meridian_span_mm": 1.502531197679436,
+        "holding_clearance_movement_mm": 0.060432165339784405,
+        "receiver_cap_start_abs_y_mm": 9.809663461670024,
+        "receiver_end_abs_y_mm": 10.329663461670023,
+        "inner_hex_clearance_per_flat_mm": 0.1,
+        "corner_min_wall_mm": 0.897584,
+        "backing_mm": 1.45,
+        "features": 374,
+        "expected_interfering_pairs": [
+          [
+            8,
+            173,
+            0.0033464503756017207
+          ],
+          [
+            8,
+            267,
+            0.0033464512307045963
+          ],
+          [
+            18,
+            173,
+            0.0033464520611653104
+          ],
+          [
+            18,
+            267,
+            0.0033464512062947906
+          ]
+        ]
+      }
+    }
+  },
+  "print_sent": false
+}

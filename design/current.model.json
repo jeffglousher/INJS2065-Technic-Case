@@ -3374,153 +3374,9 @@
           "status": {
             "state": "ok"
           }
-        },
-        {
-          "id": 786,
-          "name": "Root support seed plane 0",
-          "kind": "construction_plane",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 787,
-          "name": "Root support seed section 0",
-          "kind": "sketch",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 788,
-          "name": "Root support seed plane 1",
-          "kind": "construction_plane",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 789,
-          "name": "Root support seed section 1",
-          "kind": "sketch",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 790,
-          "name": "Root support seed plane 2",
-          "kind": "construction_plane",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 791,
-          "name": "Root support seed section 2",
-          "kind": "sketch",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 792,
-          "name": "Form root ramp seed left flank - 55 deg",
-          "kind": "loft",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 793,
-          "name": "Form root ramp seed right flank - 55 deg",
-          "kind": "loft",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 794,
-          "name": "Unify root bevel cutter",
-          "kind": "combine",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 795,
-          "name": "Repeat four hex root bevel cutters",
-          "kind": "rectangular_pattern",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 796,
-          "name": "Mirror bevel cutters to opposite lower side",
-          "kind": "mirror",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 797,
-          "name": "Clamshell symmetry for root supports",
-          "kind": "construction_plane",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 798,
-          "name": "Mirror eight bevel cutters to upper clamshell",
-          "kind": "mirror",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 799,
-          "name": "Align upper bevels to staggered hex row",
-          "kind": "move_copy",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 800,
-          "name": "Bevel lower hex undersides from root - 55 deg",
-          "kind": "combine",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
-        },
-        {
-          "id": 801,
-          "name": "Bevel upper hex undersides from root - 55 deg",
-          "kind": "combine",
-          "suppressed": false,
-          "status": {
-            "state": "ok"
-          }
         }
       ],
-      "rollback_index": 390
+      "rollback_index": 374
     }
   },
   "sketches": [
@@ -25720,222 +25576,222 @@
         "reference_edges": [],
         "entities": [
           [
-            74,
+            89,
             {
               "type": "arc",
               "center": {
-                "x": 9.080000000001132,
-                "y": 25.077961852407146
+                "x": 9.066787888805827,
+                "y": 25.063961852412316
               },
-              "radius": 0.21399999999670882,
-              "start_angle": -1.570796326800184,
-              "end_angle": -0.7812140873881681
+              "radius": 0.20000000000187867,
+              "start_angle": -1.570796326788697,
+              "end_angle": -0.7477626346625912
             }
           ],
           [
-            75,
+            90,
             {
               "type": "point",
               "position": {
-                "x": 9.08,
+                "x": 9.066787888807067,
                 "y": 24.863961852410437
               }
             }
           ],
           [
-            76,
+            91,
             {
               "type": "point",
               "position": {
-                "x": 9.231952662721895,
-                "y": 24.927275461877894
+                "x": 9.213430311045654,
+                "y": 24.927961852410437
               }
             }
           ],
           [
-            77,
+            92,
             {
               "type": "arc",
               "center": {
-                "x": 9.799999999999931,
-                "y": 24.36396185241027
+                "x": 9.800000000000013,
+                "y": 24.38396185241064
               },
-              "radius": 0.8000000000000688,
-              "start_angle": 0.7812140873954625,
-              "end_angle": 2.3603785661942087
+              "radius": 0.7999999999998713,
+              "start_angle": 0.7477626346597466,
+              "end_angle": 2.3938300189300676
             }
           ],
           [
-            78,
+            93,
             {
               "type": "point",
               "position": {
-                "x": 10.368047337278107,
-                "y": 24.927275461877894
+                "x": 10.386569688954348,
+                "y": 24.927961852410437
               }
             }
           ],
           [
-            79,
+            94,
             {
               "type": "point",
               "position": {
-                "x": 9.231952662721895,
-                "y": 24.927275461877894
+                "x": 9.213430311045654,
+                "y": 24.927961852410437
               }
             }
           ],
           [
-            80,
+            95,
             {
               "type": "arc",
               "center": {
-                "x": 10.519999999998483,
-                "y": 25.077961852407917
+                "x": 10.5332121111914,
+                "y": 25.063961852408063
               },
-              "radius": 0.213999999997147,
-              "start_angle": -2.360378566197793,
-              "end_angle": -1.5707963267877996
+              "radius": 0.1999999999972606,
+              "start_angle": -2.3938300189333583,
+              "end_angle": -1.5707963267872227
             }
           ],
           [
-            81,
+            96,
             {
               "type": "point",
               "position": {
-                "x": 10.368047337278107,
-                "y": 24.927275461877894
+                "x": 10.386569688954348,
+                "y": 24.927961852410437
               }
             }
           ],
           [
-            82,
+            97,
             {
               "type": "point",
               "position": {
-                "x": 10.520000000000001,
+                "x": 10.533212111192935,
                 "y": 24.863961852410437
               }
             }
           ],
           [
-            83,
+            98,
             {
               "type": "point",
               "position": {
-                "x": 10.520000000000001,
+                "x": 10.533212111192935,
                 "y": 24.703961852410437
               }
             }
           ],
           [
-            84,
+            99,
             {
               "type": "line",
-              "start": 82,
-              "end": 83
+              "start": 97,
+              "end": 98
             }
           ],
           [
-            85,
+            100,
             {
               "type": "point",
               "position": {
-                "x": 9.08,
+                "x": 9.066787888807067,
                 "y": 24.703961852410437
               }
             }
           ],
           [
-            86,
+            101,
             {
               "type": "line",
-              "start": 83,
-              "end": 85
+              "start": 98,
+              "end": 100
             }
           ],
           [
-            87,
+            102,
             {
               "type": "point",
               "position": {
-                "x": 9.08,
+                "x": 9.066787888807067,
                 "y": 24.863961852410437
               }
             }
           ],
           [
-            88,
+            103,
             {
               "type": "line",
-              "start": 85,
-              "end": 87
+              "start": 100,
+              "end": 102
             }
           ]
         ],
         "generated_points": [
-          75,
-          76,
-          78,
-          79,
-          81,
-          82,
-          83,
-          85,
-          87
+          90,
+          91,
+          93,
+          94,
+          96,
+          97,
+          98,
+          100,
+          102
         ],
         "constraints": [
           [
-            32,
+            38,
             {
               "type": "arc_endpoint_coincident",
-              "point": 75,
-              "arc": 74,
+              "point": 90,
+              "arc": 89,
               "end": "start"
             }
           ],
           [
-            33,
+            39,
             {
               "type": "arc_endpoint_coincident",
-              "point": 76,
-              "arc": 74,
+              "point": 91,
+              "arc": 89,
               "end": "end"
             }
           ],
           [
-            34,
+            40,
             {
               "type": "arc_endpoint_coincident",
-              "point": 78,
-              "arc": 77,
+              "point": 93,
+              "arc": 92,
               "end": "start"
             }
           ],
           [
-            35,
+            41,
             {
               "type": "arc_endpoint_coincident",
-              "point": 79,
-              "arc": 77,
+              "point": 94,
+              "arc": 92,
               "end": "end"
             }
           ],
           [
-            36,
+            42,
             {
               "type": "arc_endpoint_coincident",
-              "point": 81,
-              "arc": 80,
+              "point": 96,
+              "arc": 95,
               "end": "start"
             }
           ],
           [
-            37,
+            43,
             {
               "type": "arc_endpoint_coincident",
-              "point": 82,
-              "arc": 80,
+              "point": 97,
+              "arc": 95,
               "end": "end"
             }
           ]
@@ -25949,11 +25805,11 @@
         "dim_params": {},
         "dim_placements": {},
         "dim_modes": {},
-        "next_entity": 88,
-        "next_constraint": 37
+        "next_entity": 103,
+        "next_constraint": 43
       },
       "profile_identities": {
-        "next": 7,
+        "next": 8,
         "records": [
           {
             "id": 0,
@@ -27854,10 +27710,217 @@
                 24863962
               ]
             ]
+          },
+          {
+            "id": 7,
+            "key": [
+              [
+                [
+                  {
+                    "entity": 89
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 103
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 101
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 99
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 95
+                  }
+                ],
+                -1
+              ],
+              [
+                [
+                  {
+                    "entity": 92
+                  }
+                ],
+                1
+              ]
+            ],
+            "shape": [
+              [
+                9066788,
+                24703962
+              ],
+              [
+                10533212,
+                24703962
+              ],
+              [
+                10533212,
+                24863962
+              ],
+              [
+                10514948,
+                24864798
+              ],
+              [
+                10496836,
+                24867298
+              ],
+              [
+                10479029,
+                24871441
+              ],
+              [
+                10461674,
+                24877194
+              ],
+              [
+                10444917,
+                24884507
+              ],
+              [
+                10428898,
+                24893320
+              ],
+              [
+                10413751,
+                24903559
+              ],
+              [
+                10399602,
+                24915139
+              ],
+              [
+                10386570,
+                24927962
+              ],
+              [
+                10331230,
+                24982121
+              ],
+              [
+                10270914,
+                25030677
+              ],
+              [
+                10206186,
+                25073173
+              ],
+              [
+                10137653,
+                25109214
+              ],
+              [
+                10065957,
+                25138460
+              ],
+              [
+                9991769,
+                25160637
+              ],
+              [
+                9915785,
+                25175539
+              ],
+              [
+                9838716,
+                25183024
+              ],
+              [
+                9761284,
+                25183024
+              ],
+              [
+                9684215,
+                25175539
+              ],
+              [
+                9608231,
+                25160637
+              ],
+              [
+                9534043,
+                25138460
+              ],
+              [
+                9462347,
+                25109214
+              ],
+              [
+                9393814,
+                25073173
+              ],
+              [
+                9329086,
+                25030677
+              ],
+              [
+                9268770,
+                24982121
+              ],
+              [
+                9213430,
+                24927962
+              ],
+              [
+                9200398,
+                24915139
+              ],
+              [
+                9186249,
+                24903559
+              ],
+              [
+                9171102,
+                24893320
+              ],
+              [
+                9155083,
+                24884507
+              ],
+              [
+                9138326,
+                24877194
+              ],
+              [
+                9120971,
+                24871441
+              ],
+              [
+                9103164,
+                24867298
+              ],
+              [
+                9085052,
+                24864798
+              ],
+              [
+                9066788,
+                24863962
+              ]
+            ]
           }
         ]
       },
-      "entity_id_high_water": 88
+      "entity_id_high_water": 103
     },
     {
       "feature_id": 765,
@@ -28888,606 +28951,6 @@
         ]
       },
       "entity_id_high_water": 21
-    },
-    {
-      "feature_id": 787,
-      "name": "Root support seed section 0",
-      "plane": {
-        "type": "datum_plane",
-        "datum_id": 37
-      },
-      "basis": {
-        "origin": [
-          -5.55,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      },
-      "dimension_style": "aligned",
-      "grid_snap": false,
-      "snapshot": {
-        "offset_sides": {},
-        "reference_edges": [],
-        "entities": [
-          [
-            1,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            2,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            3,
-            {
-              "type": "line",
-              "start": 1,
-              "end": 2
-            }
-          ],
-          [
-            4,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 15.362327019258098
-              }
-            }
-          ],
-          [
-            5,
-            {
-              "type": "line",
-              "start": 2,
-              "end": 4
-            }
-          ],
-          [
-            6,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 14.68486208775406
-              }
-            }
-          ],
-          [
-            7,
-            {
-              "type": "line",
-              "start": 4,
-              "end": 6
-            }
-          ],
-          [
-            8,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            9,
-            {
-              "type": "line",
-              "start": 6,
-              "end": 8
-            }
-          ]
-        ],
-        "generated_points": [
-          1,
-          2,
-          4,
-          6,
-          8
-        ],
-        "constraints": [],
-        "fix_targets": {},
-        "params": {
-          "params": [],
-          "next_id": 0,
-          "next_name": 0
-        },
-        "dim_params": {},
-        "dim_placements": {},
-        "dim_modes": {},
-        "next_entity": 9,
-        "next_constraint": 0
-      },
-      "profile_identities": {
-        "next": 1,
-        "records": [
-          {
-            "id": 0,
-            "key": [
-              [
-                [
-                  {
-                    "entity": 3
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 9
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 7
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 5
-                  }
-                ],
-                -1
-              ]
-            ],
-            "shape": [
-              [
-                -10560000,
-                13684862
-              ],
-              [
-                -8850000,
-                13684862
-              ],
-              [
-                -8850000,
-                14684862
-              ],
-              [
-                -10560000,
-                15362327
-              ]
-            ]
-          }
-        ]
-      },
-      "entity_id_high_water": 9
-    },
-    {
-      "feature_id": 789,
-      "name": "Root support seed section 1",
-      "plane": {
-        "type": "datum_plane",
-        "datum_id": 38
-      },
-      "basis": {
-        "origin": [
-          -3.8,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      },
-      "dimension_style": "aligned",
-      "grid_snap": false,
-      "snapshot": {
-        "offset_sides": {},
-        "reference_edges": [],
-        "entities": [
-          [
-            1,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 12.674499116672216
-              }
-            }
-          ],
-          [
-            2,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 12.674499116672216
-              }
-            }
-          ],
-          [
-            3,
-            {
-              "type": "line",
-              "start": 1,
-              "end": 2
-            }
-          ],
-          [
-            4,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 14.351964048176255
-              }
-            }
-          ],
-          [
-            5,
-            {
-              "type": "line",
-              "start": 2,
-              "end": 4
-            }
-          ],
-          [
-            6,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 13.674499116672216
-              }
-            }
-          ],
-          [
-            7,
-            {
-              "type": "line",
-              "start": 4,
-              "end": 6
-            }
-          ],
-          [
-            8,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 12.674499116672216
-              }
-            }
-          ],
-          [
-            9,
-            {
-              "type": "line",
-              "start": 6,
-              "end": 8
-            }
-          ]
-        ],
-        "generated_points": [
-          1,
-          2,
-          4,
-          6,
-          8
-        ],
-        "constraints": [],
-        "fix_targets": {},
-        "params": {
-          "params": [],
-          "next_id": 0,
-          "next_name": 0
-        },
-        "dim_params": {},
-        "dim_placements": {},
-        "dim_modes": {},
-        "next_entity": 9,
-        "next_constraint": 0
-      },
-      "profile_identities": {
-        "next": 1,
-        "records": [
-          {
-            "id": 0,
-            "key": [
-              [
-                [
-                  {
-                    "entity": 3
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 9
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 7
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 5
-                  }
-                ],
-                -1
-              ]
-            ],
-            "shape": [
-              [
-                -10560000,
-                12674499
-              ],
-              [
-                -8850000,
-                12674499
-              ],
-              [
-                -8850000,
-                13674499
-              ],
-              [
-                -10560000,
-                14351964
-              ]
-            ]
-          }
-        ]
-      },
-      "entity_id_high_water": 9
-    },
-    {
-      "feature_id": 791,
-      "name": "Root support seed section 2",
-      "plane": {
-        "type": "datum_plane",
-        "datum_id": 39
-      },
-      "basis": {
-        "origin": [
-          -2.05,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      },
-      "dimension_style": "aligned",
-      "grid_snap": false,
-      "snapshot": {
-        "offset_sides": {},
-        "reference_edges": [],
-        "entities": [
-          [
-            1,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            2,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            3,
-            {
-              "type": "line",
-              "start": 1,
-              "end": 2
-            }
-          ],
-          [
-            4,
-            {
-              "type": "point",
-              "position": {
-                "x": -10.56,
-                "y": 15.362327019258098
-              }
-            }
-          ],
-          [
-            5,
-            {
-              "type": "line",
-              "start": 2,
-              "end": 4
-            }
-          ],
-          [
-            6,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 14.68486208775406
-              }
-            }
-          ],
-          [
-            7,
-            {
-              "type": "line",
-              "start": 4,
-              "end": 6
-            }
-          ],
-          [
-            8,
-            {
-              "type": "point",
-              "position": {
-                "x": -8.85,
-                "y": 13.68486208775406
-              }
-            }
-          ],
-          [
-            9,
-            {
-              "type": "line",
-              "start": 6,
-              "end": 8
-            }
-          ]
-        ],
-        "generated_points": [
-          1,
-          2,
-          4,
-          6,
-          8
-        ],
-        "constraints": [],
-        "fix_targets": {},
-        "params": {
-          "params": [],
-          "next_id": 0,
-          "next_name": 0
-        },
-        "dim_params": {},
-        "dim_placements": {},
-        "dim_modes": {},
-        "next_entity": 9,
-        "next_constraint": 0
-      },
-      "profile_identities": {
-        "next": 1,
-        "records": [
-          {
-            "id": 0,
-            "key": [
-              [
-                [
-                  {
-                    "entity": 3
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 9
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 7
-                  }
-                ],
-                -1
-              ],
-              [
-                [
-                  {
-                    "entity": 5
-                  }
-                ],
-                -1
-              ]
-            ],
-            "shape": [
-              [
-                -10560000,
-                13684862
-              ],
-              [
-                -8850000,
-                13684862
-              ],
-              [
-                -8850000,
-                14684862
-              ],
-              [
-                -10560000,
-                15362327
-              ]
-            ]
-          }
-        ]
-      },
-      "entity_id_high_water": 9
     }
   ],
   "extrudes": [
@@ -32112,7 +31575,7 @@
       "name": "Form symmetric S-curve nub",
       "sketch_name": "Rounded ridge nub - confirmed midpoint",
       "profile_indices": [
-        6
+        7
       ],
       "axis_origin": {
         "x": 9.8,
@@ -32332,48 +31795,6 @@
       "continuity": "g1",
       "centerline": null,
       "guide_rail": null
-    },
-    {
-      "feature_id": 792,
-      "name": "Form root ramp seed left flank - 55 deg",
-      "sections": [
-        {
-          "sketch_name": "Root support seed section 0",
-          "profile_index": 0
-        },
-        {
-          "sketch_name": "Root support seed section 1",
-          "profile_index": 0
-        }
-      ],
-      "ruled": true,
-      "operation": "new_body",
-      "target_body_ids": [],
-      "new_body_id": 292,
-      "continuity": "g0",
-      "centerline": null,
-      "guide_rail": null
-    },
-    {
-      "feature_id": 793,
-      "name": "Form root ramp seed right flank - 55 deg",
-      "sections": [
-        {
-          "sketch_name": "Root support seed section 1",
-          "profile_index": 0
-        },
-        {
-          "sketch_name": "Root support seed section 2",
-          "profile_index": 0
-        }
-      ],
-      "ruled": true,
-      "operation": "new_body",
-      "target_body_ids": [],
-      "new_body_id": 293,
-      "continuity": "g0",
-      "centerline": null,
-      "guide_rail": null
     }
   ],
   "ribs": [],
@@ -32460,7 +31881,7 @@
       },
       "position_reference": null,
       "positions": [],
-      "diameter": 8.15,
+      "diameter": 8.35,
       "extent": {
         "type": "through_all"
       },
@@ -33575,146 +32996,6 @@
           0.0,
           0.0,
           21.558119784648298
-        ],
-        "u": [
-          1.0,
-          0.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "normal": [
-          0.0,
-          0.0,
-          1.0
-        ]
-      }
-    },
-    {
-      "feature_id": 786,
-      "name": "Root support seed plane 0",
-      "datum_id": 37,
-      "source": {
-        "type": "offset",
-        "reference": {
-          "type": "origin_plane",
-          "plane": "yz"
-        },
-        "distance": -5.55
-      },
-      "basis": {
-        "origin": [
-          -5.55,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      }
-    },
-    {
-      "feature_id": 788,
-      "name": "Root support seed plane 1",
-      "datum_id": 38,
-      "source": {
-        "type": "offset",
-        "reference": {
-          "type": "origin_plane",
-          "plane": "yz"
-        },
-        "distance": -3.8
-      },
-      "basis": {
-        "origin": [
-          -3.8,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      }
-    },
-    {
-      "feature_id": 790,
-      "name": "Root support seed plane 2",
-      "datum_id": 39,
-      "source": {
-        "type": "offset",
-        "reference": {
-          "type": "origin_plane",
-          "plane": "yz"
-        },
-        "distance": -2.05
-      },
-      "basis": {
-        "origin": [
-          -2.05,
-          0.0,
-          0.0
-        ],
-        "u": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          1.0,
-          0.0,
-          0.0
-        ]
-      }
-    },
-    {
-      "feature_id": 797,
-      "name": "Clamshell symmetry for root supports",
-      "datum_id": 40,
-      "source": {
-        "type": "offset",
-        "reference": {
-          "type": "origin_plane",
-          "plane": "xy"
-        },
-        "distance": 18.25
-      },
-      "basis": {
-        "origin": [
-          0.0,
-          0.0,
-          18.25
         ],
         "u": [
           1.0,
@@ -37283,212 +36564,6 @@
       ],
       "operation": "cut",
       "keep_tools": false
-    },
-    {
-      "type": "combine",
-      "feature_id": 794,
-      "name": "Unify root bevel cutter",
-      "target_body_id": 292,
-      "tool_body_ids": [
-        293
-      ],
-      "operation": "join",
-      "keep_tools": false
-    },
-    {
-      "type": "rectangular_pattern",
-      "feature_id": 795,
-      "name": "Repeat four hex root bevel cutters",
-      "body_ids": [
-        292
-      ],
-      "direction": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "spacing": 5.9,
-      "count": 4,
-      "second_direction": null,
-      "second_spacing": 0.0,
-      "second_count": 1,
-      "new_body_ids": [
-        294,
-        295,
-        296
-      ]
-    },
-    {
-      "type": "mirror",
-      "feature_id": 796,
-      "name": "Mirror bevel cutters to opposite lower side",
-      "body_ids": [
-        292,
-        294,
-        295,
-        296
-      ],
-      "plane": {
-        "type": "origin_plane",
-        "plane": "xz"
-      },
-      "plane_basis": {
-        "origin": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "u": [
-          1.0,
-          0.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "normal": [
-          0.0,
-          -1.0,
-          0.0
-        ]
-      },
-      "new_body_ids": [
-        297,
-        298,
-        299,
-        300
-      ]
-    },
-    {
-      "type": "mirror",
-      "feature_id": 798,
-      "name": "Mirror eight bevel cutters to upper clamshell",
-      "body_ids": [
-        292,
-        294,
-        295,
-        296,
-        297,
-        298,
-        299,
-        300
-      ],
-      "plane": {
-        "type": "datum_plane",
-        "datum_id": 40
-      },
-      "plane_basis": {
-        "origin": [
-          0.0,
-          0.0,
-          18.25
-        ],
-        "u": [
-          1.0,
-          0.0,
-          0.0
-        ],
-        "v": [
-          0.0,
-          1.0,
-          0.0
-        ],
-        "normal": [
-          0.0,
-          0.0,
-          1.0
-        ]
-      },
-      "new_body_ids": [
-        301,
-        302,
-        303,
-        304,
-        305,
-        306,
-        307,
-        308
-      ]
-    },
-    {
-      "type": "move_copy",
-      "feature_id": 799,
-      "name": "Align upper bevels to staggered hex row",
-      "body_ids": [
-        301,
-        302,
-        303,
-        304,
-        305,
-        306,
-        307,
-        308
-      ],
-      "translation": {
-        "x": 2.95,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "rotation": [
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "pivot": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "copy": false,
-      "result_body_ids": [
-        301,
-        302,
-        303,
-        304,
-        305,
-        306,
-        307,
-        308
-      ]
-    },
-    {
-      "type": "combine",
-      "feature_id": 800,
-      "name": "Bevel lower hex undersides from root - 55 deg",
-      "target_body_id": 8,
-      "tool_body_ids": [
-        292,
-        294,
-        295,
-        296,
-        297,
-        298,
-        299,
-        300
-      ],
-      "operation": "cut",
-      "keep_tools": false
-    },
-    {
-      "type": "combine",
-      "feature_id": 801,
-      "name": "Bevel upper hex undersides from root - 55 deg",
-      "target_body_id": 18,
-      "tool_body_ids": [
-        301,
-        302,
-        303,
-        304,
-        305,
-        306,
-        307,
-        308
-      ],
-      "operation": "cut",
-      "keep_tools": false
     }
   ],
   "body_appearances": [
@@ -38102,24 +37177,7 @@
       288,
       289,
       290,
-      291,
-      292,
-      293,
-      294,
-      295,
-      296,
-      297,
-      298,
-      299,
-      300,
-      301,
-      302,
-      303,
-      304,
-      305,
-      306,
-      307,
-      308
+      291
     ],
     "hidden_datum_plane_ids": [
       1,

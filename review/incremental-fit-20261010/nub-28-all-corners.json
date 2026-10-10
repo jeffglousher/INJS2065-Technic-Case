@@ -1,0 +1,679 @@
+{
+  "method": "Current candidate native slice; both clips and both shells. Commanded-width capsules and constant layer slabs, local nub ROI. Surface erosion is a hypothetical sensitivity, not measured dimensional error.",
+  "results": [
+    {
+      "clip_body": 173,
+      "corner": "upper-left",
+      "Y_mm": 10.1,
+      "nominal_overlap_area_mm2": 0.01231911944214873,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.00557376306821712
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0016429806084899824
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 3.0182378592628862e-05
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "upper-left",
+      "Y_mm": 10.1424065573,
+      "nominal_overlap_area_mm2": 0.018751777168191593,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.010152186741332078
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004438125288874182
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0009933262073422038
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "upper-left",
+      "Y_mm": 10.18,
+      "nominal_overlap_area_mm2": 0.022413483160201326,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.01293785173580104
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.006329059076149146
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0019686536285756125
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 6.017286647958224e-05
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "upper-right",
+      "Y_mm": 10.1,
+      "nominal_overlap_area_mm2": 0.011667791746023223,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.00524576260518579
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0014606230969842903
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 1.0112924968563683e-05
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "upper-right",
+      "Y_mm": 10.1424065573,
+      "nominal_overlap_area_mm2": 0.017910792707972908,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.009672663920844553
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004110066867854584
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0008337079292391953
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "upper-right",
+      "Y_mm": 10.18,
+      "nominal_overlap_area_mm2": 0.021443399959859995,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.01234005811993065
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.005896699170432654
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0017188935179436478
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 2.1782979458604706e-05
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-left",
+      "Y_mm": 10.1,
+      "nominal_overlap_area_mm2": 0.01006964786632731,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0029424103574776607
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0004323719431939078
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-left",
+      "Y_mm": 10.1424065573,
+      "nominal_overlap_area_mm2": 0.01621777594920551,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.007189703754523242
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0026904647660975344
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.00033877300227399165
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-left",
+      "Y_mm": 10.18,
+      "nominal_overlap_area_mm2": 0.019915693965180115,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.00996235067724062
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004502460005463827
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0011473086221354672
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 1.0702351957870566e-07
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-right",
+      "Y_mm": 10.1,
+      "nominal_overlap_area_mm2": 0.009806448684358328,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.002801208590835963
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.00037765747040386115
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-right",
+      "Y_mm": 10.1424065573,
+      "nominal_overlap_area_mm2": 0.015888673274084743,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.006977074557009468
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0025585717406068596
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0002921480443152074
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 173,
+      "corner": "lower-right",
+      "Y_mm": 10.18,
+      "nominal_overlap_area_mm2": 0.019555936224028986,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0097167173191391
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0043346954490829925
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.001061929864383096
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-left",
+      "Y_mm": -10.1,
+      "nominal_overlap_area_mm2": 0.012155617101350888,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.005489018856966774
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0015987283068276195
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 2.5868200058725767e-05
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-left",
+      "Y_mm": -10.1424065573,
+      "nominal_overlap_area_mm2": 0.018623568798834866,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.010096361782518905
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004410956285082448
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0009877923104109712
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-left",
+      "Y_mm": -10.18,
+      "nominal_overlap_area_mm2": 0.022281094840230477,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.012878563527092459
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.006300907327207046
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0019644811039369867
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 6.169210890047766e-05
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-right",
+      "Y_mm": -10.1,
+      "nominal_overlap_area_mm2": 0.011906271372560276,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0053157884363641324
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0015005133163786696
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 1.3676597630564366e-05
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-right",
+      "Y_mm": -10.1424065573,
+      "nominal_overlap_area_mm2": 0.018275942838817637,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.009825843578612057
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004215879015389748
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0008854454207764474
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "upper-right",
+      "Y_mm": -10.18,
+      "nominal_overlap_area_mm2": 0.021881954873033935,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0125578007002634
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.006054825848261527
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.001810318253557049
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 3.3910013957456744e-05
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-left",
+      "Y_mm": -10.1,
+      "nominal_overlap_area_mm2": 0.00991111373274615,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.0028579202974130186
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0003989062095318416
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-left",
+      "Y_mm": -10.1424065573,
+      "nominal_overlap_area_mm2": 0.016101036790170373,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.007122591029748186
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0026488448094407575
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0003233526167255536
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-left",
+      "Y_mm": -10.18,
+      "nominal_overlap_area_mm2": 0.01978764067995139,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.009883777680370017
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004448977460292767
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.001119736783117466
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-right",
+      "Y_mm": -10.1,
+      "nominal_overlap_area_mm2": 0.009200372243416795,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.002675927220379438
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.0003334504081887905
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-right",
+      "Y_mm": -10.1424065573,
+      "nominal_overlap_area_mm2": 0.015270751705638509,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.006821255875706833
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.002463668170978253
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.00026093326944997956
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    },
+    {
+      "clip_body": 267,
+      "corner": "lower-right",
+      "Y_mm": -10.18,
+      "nominal_overlap_area_mm2": 0.018898325017989506,
+      "surface_setback_sensitivity": [
+        {
+          "setback_per_surface_mm": 0.01,
+          "overlap_area_mm2": 0.009522830227810494
+        },
+        {
+          "setback_per_surface_mm": 0.02,
+          "overlap_area_mm2": 0.004203854190071311
+        },
+        {
+          "setback_per_surface_mm": 0.03,
+          "overlap_area_mm2": 0.000996612124047492
+        },
+        {
+          "setback_per_surface_mm": 0.04,
+          "overlap_area_mm2": 0.0
+        },
+        {
+          "setback_per_surface_mm": 0.05,
+          "overlap_area_mm2": 0.0
+        }
+      ]
+    }
+  ],
+  "source_project_sha256": "a48b40a8caa19482876fe13076e2b6b90a53118be49823b44c2798e1d89e437a",
+  "source_script": "review/retention-fit-20261009/paired-screen.py (path substitutions only)"
+}

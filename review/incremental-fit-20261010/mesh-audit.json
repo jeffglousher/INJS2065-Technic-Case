@@ -1,0 +1,202 @@
+[
+  {
+    "project": "nub-28",
+    "object": 1,
+    "triangles": 50570,
+    "volume_mm3": 5647.928377682502,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -20.0,
+        -12.0,
+        0.0
+      ],
+      [
+        20.0,
+        12.0,
+        10.95
+      ]
+    ]
+  },
+  {
+    "project": "nub-28",
+    "object": 2,
+    "triangles": 103792,
+    "volume_mm3": 14914.190525494703,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -20.0,
+        -12.0,
+        0.0
+      ],
+      [
+        20.0,
+        12.0,
+        24.45
+      ]
+    ]
+  },
+  {
+    "project": "nub-28",
+    "object": 3,
+    "triangles": 83636,
+    "volume_mm3": 686.6583773175024,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -13.875,
+        -6.933950306,
+        0.0
+      ],
+      [
+        13.875,
+        6.933950306,
+        2.95
+      ]
+    ]
+  },
+  {
+    "project": "nub-28",
+    "object": 4,
+    "triangles": 83636,
+    "volume_mm3": 686.6583773175029,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -13.875,
+        -6.933950306,
+        0.0
+      ],
+      [
+        13.875,
+        6.933950306,
+        2.95
+      ]
+    ]
+  },
+  {
+    "project": "nub-28",
+    "object": 5,
+    "triangles": 4920,
+    "volume_mm3": 1065.6332952347248,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -5.999751091,
+        -5.999938011,
+        0.0
+      ],
+      [
+        6.0,
+        5.999938011,
+        15.700000763
+      ]
+    ]
+  },
+  {
+    "project": "nub-30-relieved",
+    "object": 1,
+    "triangles": 51834,
+    "volume_mm3": 5647.825282230049,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -20.0,
+        -12.0,
+        0.0
+      ],
+      [
+        20.0,
+        12.0,
+        10.95
+      ]
+    ]
+  },
+  {
+    "project": "nub-30-relieved",
+    "object": 2,
+    "triangles": 105056,
+    "volume_mm3": 14914.08743004225,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -20.0,
+        -12.0,
+        0.0
+      ],
+      [
+        20.0,
+        12.0,
+        24.45
+      ]
+    ]
+  },
+  {
+    "project": "nub-30-relieved",
+    "object": 3,
+    "triangles": 97588,
+    "volume_mm3": 686.7900641460432,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -13.875,
+        -6.953814452,
+        0.0
+      ],
+      [
+        13.875,
+        6.953814452,
+        2.951265599
+      ]
+    ]
+  },
+  {
+    "project": "nub-30-relieved",
+    "object": 4,
+    "triangles": 97588,
+    "volume_mm3": 686.7900641460498,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -13.875,
+        -6.953814452,
+        0.0
+      ],
+      [
+        13.875,
+        6.953814452,
+        2.951265599
+      ]
+    ]
+  },
+  {
+    "project": "nub-30-relieved",
+    "object": 5,
+    "triangles": 4920,
+    "volume_mm3": 1065.6332952347248,
+    "closed_manifold_at_1e_5_mm": true,
+    "components": 1,
+    "bounds_local_mm": [
+      [
+        -5.999751091,
+        -5.999938011,
+        0.0
+      ],
+      [
+        6.0,
+        5.999938011,
+        15.700000763
+      ]
+    ]
+  }
+]

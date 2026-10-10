@@ -1,0 +1,134 @@
+{
+  "source_project_sha256": "9d7c3cd40f0810005845eb8030f46af5a14131474a3cc2b5e5f1cb4fade5ef82",
+  "project_sha256": "2676d65c15ad7ebf3b33d11a0516cd387ebd2d4f85f9238ba7fcf36d93904f96",
+  "gcode_sha256": "972dc7ad29d9506c1515d0b443a822b78dcc31245c57b55b52affde14fb77a76",
+  "native_result": {
+    "error_string": "Success.",
+    "export_time": 0,
+    "layer_height": 0.1599999964237213,
+    "plate_index": 1,
+    "prepare_time": 611,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 61.445556640625,
+          "Bridge": 127.32893371582031,
+          "Custom": 286.86322021484375,
+          "Flush": 29.0,
+          "Gap infill": 401.9687805175781,
+          "Inner wall": 2656.392822265625,
+          "Internal solid infill": 862.0814819335938,
+          "Outer wall": 1921.76806640625,
+          "Overhang wall": 30.52871322631836,
+          "Sparse infill": 546.6134643554688,
+          "Top surface": 109.27909088134766,
+          "Travel": 1454.9345703125,
+          "Undefined": 1447.5887451171875
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 22.77264404296875,
+            "total_used_g": 22.77264404296875
+          }
+        ],
+        "generate_support_material_time": 201,
+        "id": 1,
+        "infill_time": 622,
+        "layer_filament_change": 0,
+        "main_predication": 8143.5791015625,
+        "make_perimeters_time": 805,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 51834
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 163.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 105056
+          },
+          {
+            "bbox": {
+              "depth": 13.90762996673584,
+              "height": 2.951265573501587,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 48.04618453979492,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 97588
+          },
+          {
+            "bbox": {
+              "depth": 13.907626152038574,
+              "height": 2.951265573501587,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 168.0461883544922,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 97588
+          },
+          {
+            "bbox": {
+              "depth": 11.999876976013184,
+              "height": 15.700000762939453,
+              "width": 11.999755859375,
+              "x": 214.000244140625,
+              "y": 109.00006103515625,
+              "z": 6.054712287095754e-11
+            },
+            "id": 21,
+            "name": "Output hub",
+            "triangle_count": 4920
+          }
+        ],
+        "sliced_time": 5845,
+        "sliced_time_with_cache": 3664,
+        "total_predication": 8481.0966796875,
+        "triangle_count": 356986,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "hub_mesh_unchanged": true,
+  "all_poses_profiles_and_object_overrides_unchanged": true,
+  "print_sent": false
+}
