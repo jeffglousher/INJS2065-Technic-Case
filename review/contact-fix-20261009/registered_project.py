@@ -29,6 +29,9 @@ for plate in cfg.findall('plate'):
         if any(m.get('key')=='object_id' and m.get('value')=='105' for m in instance.findall('metadata')):plate.remove(instance)
     for meta in plate.findall('metadata'):
         if meta.get('key')=='plater_name':meta.set('value','Registered full-shell retention test')
+    sequence=next((m for m in plate.findall('metadata') if m.get('key')=='print_sequence'),None)
+    if sequence is None:sequence=E.SubElement(plate,'metadata',{'key':'print_sequence'})
+    sequence.set('value','by object')
 for meta in main.findall('{'+NS+'}metadata'):
     if meta.get('name')=='Title':meta.text='INJS2065 registered full-shell retention test - nominal 0.26 mm clips'
 main.set('xmlns:BambuStudio','http://schemas.bambulab.com/package/2021')

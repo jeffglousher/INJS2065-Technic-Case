@@ -2,7 +2,7 @@
   "canonical_sha256": "19a73dd1a82072cfbd80a95da27a19720c7a09fef52b39dab940d3c3ec4ec340",
   "canonical_geometry_changed": false,
   "source_project_sha256": "5e1e19aaadc4512c8500e4b94568e81cca7bd044483b96860cb99657bc3cbcc0",
-  "project_sha256": "edc96a87baa57ba405c29050c92a88f77f963aa99011172c63838b64bbf57221",
+  "project_sha256": "9bdb85a0d2a66f8410cc1c17d8c2e41ca90df2b085be70411f397cd38c1f48d9",
   "all_mesh_payloads_byte_identical": true,
   "build_transforms_identical": true,
   "object_overrides_identical": true,
@@ -10,6 +10,7 @@
   "only_changes": [
     "main project Title",
     "plate plater_name",
+    "explicit plate print_sequence by object",
     "XML serialization and ZIP packaging"
   ],
   "native_result": {
@@ -17,42 +18,42 @@
     "export_time": 0,
     "layer_height": 0.1599999964237213,
     "plate_index": 1,
-    "prepare_time": 340,
+    "prepare_time": 554,
     "return_code": 0,
     "sliced_plates": [
       {
         "feature_type_times": {
           "Bottom surface": 61.82924270629883,
-          "Bridge": 127.50534057617188,
+          "Bridge": 127.00015258789062,
           "Custom": 286.872802734375,
           "Flush": 29.0,
           "Gap infill": 402.8182678222656,
           "Inner wall": 2596.87451171875,
-          "Internal solid infill": 863.33642578125,
-          "Outer wall": 1807.9500732421875,
+          "Internal solid infill": 863.21533203125,
+          "Outer wall": 1812.9500732421875,
           "Overhang wall": 41.6228141784668,
-          "Sparse infill": 547.6448364257812,
+          "Sparse infill": 547.6400146484375,
           "Support": 529.2935791015625,
           "Support interface": 10.629609107971191,
-          "Top surface": 110.64469909667969,
-          "Travel": 1563.939453125,
-          "Undefined": 1556.5936279296875
+          "Top surface": 105.64469909667969,
+          "Travel": 1563.90185546875,
+          "Undefined": 1556.5560302734375
         },
         "filament_change_times": 0,
         "filaments": [
           {
             "filament_id": "GFG00",
             "id": 1,
-            "main_used_g": 23.1124210357666,
-            "total_used_g": 23.1124210357666
+            "main_used_g": 23.112510681152344,
+            "total_used_g": 23.112510681152344
           }
         ],
-        "generate_support_material_time": 264,
+        "generate_support_material_time": 344,
         "id": 1,
-        "infill_time": 361,
+        "infill_time": 567,
         "layer_filament_change": 0,
-        "main_predication": 8635.7451171875,
-        "make_perimeters_time": 545,
+        "main_predication": 8635.0771484375,
+        "make_perimeters_time": 868,
         "obj_cached_cnt": 0,
         "objects": [
           {
@@ -121,9 +122,9 @@
             "triangle_count": 4920
           }
         ],
-        "sliced_time": 3817,
-        "sliced_time_with_cache": 2339,
-        "total_predication": 8973.2724609375,
+        "sliced_time": 5481,
+        "sliced_time_with_cache": 3249,
+        "total_predication": 8972.6044921875,
         "triangle_count": 318106,
         "warning_message": ""
       }
@@ -140,8 +141,8 @@
     ],
     "wall_loops": 4
   },
-  "gcode_sha256": "a59e9d6b9ca085e4fe2525163f487fbceae34b82a691090f69940f3507bca1d2",
-  "registered_fit_project_sha256": "079e63e87564d60d936bbbf402827ab297c2e9dc3bf853fe41abdddfbcc0d036",
+  "gcode_sha256": "df69e50d0554802878aae954ac4f5f708bae189cfd9c1aa6766ff6b4a21580ca",
+  "registered_fit_project_sha256": "420b4f70b6a1863005bf965aeac5381e9a183a0cd6f6c9829374e7adb440296f",
   "object_metadata": {
     "101": {
       "name": "Lower clamshell",
@@ -184,7 +185,7 @@
       "brim_width": "0"
     }
   },
-  "prepared_by_script_sha256": "c2ee8518ea104d7bc7ef73b5dd5a275ac69fa7635d28dd88b01ded6f715b65d4",
+  "prepared_by_script_sha256": "9cc447f740d42cc1ba00d85a4fb1cee64eee4d2524bfb1a5e48c02738463c14e",
   "print_sent": false,
   "mechanical_qualification": "Not established; numerical contact experiment rejected. User decides go/no-go."
 }

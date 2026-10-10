@@ -5,10 +5,16 @@ Prepared for Jeff's final go/no-go. **My recommendation is GO for a controlled f
 ## What is ready
 
 - [Complete five-part assembly](assembly-petg-review.3mf): lower shell, upper shell, both actual clips and output hub. Fresh native slicing passes without warnings; estimate **2 h 29 min 33 s / 23.11 g**. Servo and bearing are purchased reference hardware, not printed parts.
-- [Registered fit test](../contact-fix-20261009/registered-receivers.3mf): complete lower and upper shells with their original locators and both nominal clips. Independently checked and sliced without warnings; estimate **1 h 46 min 14 s / 21.50 g**. This replaces the cropped coupon.
-- [Package audit](package-audit.json): mesh payloads, placement transforms, object overrides and embedded project settings exactly match the reviewed full candidate. Only project/plate names and serialization changed. Canonical geometry remains revision 613402c, SHA-256 `19a73dd1a82072cfbd80a95da27a19720c7a09fef52b39dab940d3c3ec4ec340`.
+- [Registered fit test](../contact-fix-20261009/registered-receivers.3mf): complete lower and upper shells with their original locators and both nominal clips. Meshes and transforms independently checked; fresh native slicing passes without warnings; estimate **1 h 46 min 13 s / 21.50 g**. This replaces the cropped coupon.
+- [Package audit](package-audit.json): mesh payloads, placement transforms, object overrides and embedded project settings exactly match the reviewed full candidate. Project/plate names, serialization and an explicit plate-level `by object` override changed. Canonical geometry remains revision 613402c, SHA-256 `19a73dd1a82072cfbd80a95da27a19720c7a09fef52b39dab940d3c3ec4ec340`.
 
 The fit test saves about 43 minutes but only 1.61 g; the full prototype adds the output hub. Its additional time is largely the hub's small layers and solid print. Either option uses the same nominal clip and complete receiver geometry.
+
+## Bambu Studio GUI check
+
+The complete five-part project was opened and sliced in Bambu Studio, then left in Line Type Preview. The GUI confirms X2D, 0.4 mm, PETG Basic, **By object**, **23.11 g / 2 h 30 min** (rounded). The GUI caught and prompted correction of an invalid slash in the plate label and a missing plate-level print-sequence override. Both prepared projects now explicitly save `by object` at plate level; all original meshes and placements remain unchanged. The GUI prompted for nozzle/AMS synchronization; this review used the saved configuration and did not establish the printer's live hardware configuration. No print was sent.
+
+![Complete five-part assembly in Bambu Studio Line Type Preview](bambu-preview.png)
 
 ## Actual print settings and modifiers
 

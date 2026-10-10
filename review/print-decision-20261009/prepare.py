@@ -1,6 +1,6 @@
 """Prepare a clearly labeled, geometry-preserving PETG assembly for user review.
 
-Only project/plate labels change. Native slicing stays local and sends no job.
+Project/plate labels and the explicit plate print sequence change. Native slicing stays local and sends no job.
 """
 from pathlib import Path
 import hashlib
@@ -38,7 +38,13 @@ main.set('xmlns:BambuStudio', 'http://schemas.bambulab.com/package/2021')
 cfg = ET.fromstring(data['Metadata/model_settings.config'])
 for meta in cfg.findall('plate/metadata'):
     if meta.get('key') == 'plater_name':
-        meta.set('value', 'Complete assembly - PETG - awaiting user go/no-go')
+        meta.set('value', 'Complete assembly - PETG - awaiting user decision')
+plate = cfg.find('plate')
+assert plate is not None
+sequence = next((m for m in plate.findall('metadata') if m.get('key') == 'print_sequence'), None)
+if sequence is None:
+    sequence = ET.SubElement(plate, 'metadata', {'key': 'print_sequence'})
+sequence.set('value', 'by object')
 data['3D/3dmodel.model'] = ET.tostring(main, encoding='utf-8', xml_declaration=True)
 data['Metadata/model_settings.config'] = ET.tostring(cfg, encoding='utf-8', xml_declaration=True)
 assert len(main.find('{' + NS + '}build')) == 5
@@ -81,7 +87,7 @@ receipt = {
     'source_project_sha256': sha(SOURCE), 'project_sha256': sha(project),
     'all_mesh_payloads_byte_identical': True, 'build_transforms_identical': True,
     'object_overrides_identical': True, 'project_settings_byte_identical': True,
-    'only_changes': ['main project Title', 'plate plater_name', 'XML serialization and ZIP packaging'],
+    'only_changes': ['main project Title', 'plate plater_name', 'explicit plate print_sequence by object', 'XML serialization and ZIP packaging'],
     'native_result': result, 'gcode_sha256': sha(OUT / 'plate_1.gcode'),
     'registered_fit_project_sha256': sha(FIT), 'object_metadata': overrides,
     'prepared_by_script_sha256': sha(Path(__file__)), 'print_sent': False,
