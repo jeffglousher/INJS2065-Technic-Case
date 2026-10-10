@@ -7,8 +7,7 @@ const base = new URL('../', import.meta.url);
 const read = async path => JSON.parse(await fs.readFile(new URL(path, base), 'utf8'));
 const modelBytes = await fs.readFile(new URL('design/current.model.json', base));
 const model = JSON.parse(modelBytes);
-const reference = await read('review/incremental-fit.json');
-const cleanup = await read(reference.preservedReference);
+const reference = await read('review/current/cad-reference.json');
 const binary = process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe';
 const client = new Client(binary, 180000);
 
@@ -26,11 +25,6 @@ try {
     assert.equal(body.topology_signature, expected.topologySignature, 'Topology changed for body ' + body.id);
     const hash = crypto.createHash('sha256').update(JSON.stringify(body.mesh)).digest('hex');
     assert.equal(hash, expected.meshSha256, 'Mesh changed for body ' + body.id);
-    if (reference.preservedBodyIds.includes(body.id)) {
-      const original = cleanup.bodies.find(item => item.id === body.id);
-      assert.equal(hash, original.meshSha256, 'Unrequested geometry change for body ' + body.id);
-      assert.equal(body.topology_signature, original.topologySignature);
-    }
   }
   assert.equal(load.document.features.length, reference.featureCountAfter);
   assert(load.document.features.every(feature => feature.status.state === 'ok'));
@@ -39,7 +33,7 @@ try {
     clearance_threshold_mm: 0.1,
   });
   assert.deepEqual(fit.pairs, reference.assemblyInterference);
-  console.log(`PASS: ${reference.featureCountAfter} features; ${reference.bodyCount} reviewed meshes/topologies; ${reference.preservedBodyIds.length} preserved bodies unchanged; expected assembly contacts; zero native errors.`);
+  console.log(`PASS: ${reference.featureCountAfter} features; ${reference.bodyCount} current meshes/topologies unchanged; expected assembly contacts; zero native errors. Regression checks do not establish physical qualification.`);
 } finally {
   client.close();
 }

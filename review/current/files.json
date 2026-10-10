@@ -1,0 +1,22 @@
+{
+  "design/current.model.json": {
+    "bytes": 765727,
+    "sha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7"
+  },
+  "design/current.nbcad": {
+    "bytes": 42816,
+    "sha256": "8d7471dd020aa44d772c6baddaf56123c916b0da70e69e825cbcc374085e0478"
+  },
+  "print/assembly-petg.3mf": {
+    "bytes": 4057239,
+    "sha256": "2948262a77f76bd90cd8811ac8456a44108a224182970d49c09edd17073f7928"
+  },
+  "print/fit-test-petg.3mf": {
+    "bytes": 4003745,
+    "sha256": "86523ef6bcf2fe51b8c0c8dd86091f78e75154bc66bc32aa98fe0289bb2104e9"
+  },
+  "print/bambu-petg-basic.json": {
+    "bytes": 9821,
+    "sha256": "104405c8e4c0d8fab80ece1adf655e0e269dfce5e9d15c6ece3ceaa4d5c03264"
+  }
+}

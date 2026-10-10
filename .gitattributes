@@ -1,27 +1,4 @@
-review/hub-quality-20261008/*.json -text
-review/hub-quality-20261008/*.3mf binary
-review/hub-quality-20261008/*.png binary
-review/print-readiness-20261008/*.json -text
-review/print-readiness-20261008/*.png binary
-
-review/print-layout.json -text whitespace=cr-at-eol
-review/print-layout-20261008/*.json -text whitespace=cr-at-eol
-review/print-layout-20261008/*/*.json -text whitespace=cr-at-eol
-review/print-layout-20261008/*.3mf binary
-review/print-layout-20261008/*.png binary
-review/hex-underside-20261008/*.json -text
-review/hex-underside-20261008/*.png binary
-review/root-bevel.json -text
-review/root-ramp-20261008/*.json -text
-review/root-ramp-20261008/*.png binary
-review/root-ramp-20261008/*.3mf binary
-review/flat-clip-base.json -text
-review/flat-clip-base-20261008/*.json -text
-review/flat-clip-base-20261008/*.png binary
-review/flat-clip-base-20261008/*.3mf binary
-review/retention-fit.json -text
-review/retention-fit-20261009/*.json -text whitespace=cr-at-eol
-review/retention-fit-20261009/*.step binary
-review/retention-fit-20261009/*.png binary
-review/retention-fit-20261009/*.3mf binary
-review/retention-fit-20261009/*.nbcad binary
+*.json -text whitespace=cr-at-eol
+*.3mf binary
+*.nbcad binary
+*.png binary

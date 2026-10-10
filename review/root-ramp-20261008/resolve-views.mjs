@@ -1,3 +1,0 @@
-import fs from 'node:fs/promises';import {Client} from 'file:///C:/Users/jeffg/dev/INJS2065-Technic-Case/tools/mcp-client.mjs';
-const out='D:/noBS-CAD-Reviews/INJS2065-Technic-Case/root-ramp-20261008',c=new Client('C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe',180000);
-try{await c.start();await c.call('cad_load_project_model',{model_json:await fs.readFile(out+'/candidate.model.json','utf8')});const solutions={};for(const name of ['Assembled ISO','Exploded assembly','PETG print by object'])solutions[name]=await c.call('named_view_solution',{name});await fs.writeFile(out+'/named-view-solutions.json',JSON.stringify(solutions,null,2));}finally{c.close()}

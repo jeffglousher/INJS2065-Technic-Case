@@ -1,0 +1,43 @@
+# Current design and print specification
+
+The native CAD and both print projects describe the current fit-test candidate. Dimensions below are millimetres unless stated otherwise. [dimensions.json](review/current/dimensions.json) contains the current geometric values; it deliberately leaves qualified elastic preload, force and strain unset.
+
+## Clip, detent and housing
+
+Each clip has two rows of four blind hex pockets, full walls, flat pocket floors and four centered rounded nubs. All 16 housing hex posts retain their full 1.70 mm projection, without underside bevels. There are no detent grooves or backing indents.
+
+The nub protrusion is 0.28 mm, with a 0.80 mm crest curve radius, 0.20 mm blend radius and 1.4664 mm meridian span. The minimum corner wall in the clip plane is 0.897584 mm; flat backing is 1.45 mm. Inner hex clearance is 0.10 mm per flat. The receiving seat has a 0.50 mm radius and 0.020 mm crest-center relief; its cap starts at absolute CAD Y = 9.809663 and ends at 10.309663.
+
+The intended flex is inward toward the pocket, perpendicular to the clip's broad face. This is a backed, closed frame, not an isolated free cantilever. Undeformed local holding clearance movement is 0.056926 mm and the flank-crossing axial geometric envelope is 0.39933 mm. Neither is an accepted elastic deformation or an actual dynamic insertion displacement. Rigid installed geometry has four expected clip/housing overlap pairs of about 0.002292 mm³ each; overlap volume is not a force prediction.
+
+The sampled extrusion-envelope check has 24 nominal contacting path pairs. A hypothetical 0.02 mm setback on each contacting surface loses none; 0.03 mm loses four. This is a sensitivity check, not a measured printer tolerance or proof of retention.
+
+## Hub and rotating clearances
+
+The servo socket matches the garden auger's trial dimensions: smooth Ø5.70 × 3.70 mm, friction fit only, with 0.15 mm entry chamfer and 3.55 mm straight engagement. It has no added tabs, center screw or separate horn. The confirmed Technic cross has 4.85 mm overall span, 1.85 mm arms and 8.00 mm depth. The separating web is 3.80 mm.
+
+The hub journal is Ø7.94 mm and stationary housing aperture Ø8.35 mm: 0.205 mm radial clearance. The Ø8.00 mm bearing bore gives 0.030 mm nominal journal clearance. Overall housing-to-hub minimum clearance is 0.150 mm, a different measurement from aperture clearance. A checked Z = 40 section has 4.614 mm remaining material; this is not a global minimum-wall or strength result.
+
+![Current native OCCT sections](review/current/sections.png)
+
+## Saved print settings
+
+Both projects use Bambu X2D, a 0.4 mm nozzle, Bambu PETG Basic and a textured plate at 70 °C. Nozzle temperatures are 245 °C initially and 250 °C thereafter. [bambu-petg-basic.json](print/bambu-petg-basic.json) preserves the resolved material settings for native command-line slicing.
+
+The main process requests 0.16 mm layers, 0.20 mm first layer, four walls and 25% gyroid infill. The narrow clips slice solid. The output hub alone uses 0.08 mm layers, six walls, 100% infill, outer walls at 30 mm/s and inner walls at 60 mm/s. It is oriented servo rim down and Technic cross up. Its 5.70 mm roof bridges without supports, using thin bridges, bridge flow 0.90 and bridge speed 25 mm/s.
+
+Both shells have native painted support enforcement on the downward hex flanks: 32 enforced triangles per shell, with other faces blocked. Normal manual snug supports may start on the housing; three top interface layers use 0.20 mm interface spacing. Top/bottom Z gaps are 0.20 mm and XY gap is 0.35 mm, with two bottom interface layers. Small-overhang removal and bridge suppression are disabled for the shells. Native slicing places interface paths under all 16 posts below their first sampled tip layers, with support confined to the shells and no brim or skirt. The configured support gap is not a measured printed gap; support removal can affect mating surfaces.
+
+![Inspected Bambu Studio preview of local hex supports](review/current/print-preview.png)
+
+Fresh Bambu Studio 02.08.02.61 slicing succeeds for both projects without a reported warning. Assembly prediction is 8556.93 seconds and 22.8841 g; the four-part complete-shell fit test is 6444.97 seconds and 21.6548 g. Native receipts are [assembly-slice.json](review/current/assembly-slice.json) and [fit-test-slice.json](review/current/fit-test-slice.json).
+
+## Mechanical confidence and remaining checks
+
+There is no accepted structural solve for the current geometry. Overconstrained floor/contact studies do not qualify this backed-frame detent, and their force and strain predictions are not carried forward. Bambu PETG Basic V3 reports tensile coupon modulus of 2780 ± 65 MPa in XY and 2550 ± 100 MPa in Z; these are screening inputs, not printed-detent stiffness or allowable cyclic strain. Poisson ratio 0.38 is an assumption.
+
+A useful structural solve must represent unilateral housing contact, the actual flex mode, possible pocket-floor release and the seated state. It needs mesh/contact convergence, deformed-solid penetration checks and insertion-path refinement. Quasi-static insertion is distinct from impact dynamics; creep and fatigue need separate treatment and printed calibration.
+
+Before accepting the part, remove support cleanly and check full seating, a perceptible snap, closed seams without hand restraint, no loose sliding or wobble, and no whitening or permanent set. Check hub rotation with the bearing fitted, full servo engagement, friction-fit axial retention and torque transmission. Repeat insertion cycles and a holding dwell, then measure printed nub and seat dimensions before any further increase. No printer job has been started by this review.
+
+The regression check replays all 374 features with no native errors and preserves seven current meshes/topologies plus expected assembly contacts. All five exported print meshes are closed, connected and positive-volume at the recorded tolerance; this is not an exhaustive self-intersection check. The native saved project's model matches the canonical JSON. These checks establish geometric consistency and sliceability, not mechanical qualification.
