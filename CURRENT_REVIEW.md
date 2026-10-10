@@ -1,4 +1,6 @@
-# Current honeycomb detent assembly - 9 October 2026
+# Current honeycomb detent assembly - 10 October 2026
+
+**Latest full print project:** [Servo-rim-down hub orientation and native comparison](review/hub-orientation-20261010/README.md). The hub is flipped and its supports disabled; all meshes, other four placements/configurations and CAD remain unchanged. Complete plate estimate is approximately 2 h 21 min 25 s / 22.74 g. The servo socket roof bridges 5.70 mm; first-layer fit and bridge sag remain physical checks. No job sent; Jeff's final decision remains pending.
 
 **Prepared for Jeff's final print go/no-go:** [Decision report, current CAD pictures, complete PETG assembly and registered fit-test options](review/print-decision-20261009/README.md). The full plate has been freshly sliced without warnings; geometry remains unchanged. No printer job has been sent. Recommended next experiment is the registered fit test; Jeff can instead choose the complete prototype with the documented mechanical uncertainty.
 
@@ -14,7 +16,7 @@ The preceding [root-started hex bevel revision](review/root-ramp-20261008/README
 
 The [earlier lip-only trials](review/hex-underside-20261008/README.md) addressed the wrong starting point. They remain historical evidence; the root-started revision supersedes their active recommendation.
 
-Printing configuration: hub brim removed, hub tree supports retained, and spaced print-by-object layout retained. Canonical CAD saves assembled, exploded and print-layout views. The separate slower 0.08 mm clip candidate is an earlier settings experiment; the current project retains the original clip settings because they already slice solid. The reviews below describe earlier sources and settings.
+Earlier printing configuration: hub brim removed, hub tree supports retained, and spaced print-by-object layout retained. The 10 October full project above flips the hub and disables its supports. Canonical CAD saves assembled, exploded and print-layout views; its saved view has not been changed to the new slicer orientation. The separate slower 0.08 mm clip candidate is an earlier settings experiment; the current project retains the original clip settings because they already slice solid. The reviews below describe earlier sources and settings.
 
 [Full print-readiness review](review/print-readiness-20261008/README.md): fresh native replay, exact expected contacts, all five 3MF meshes, visual sections, and a fresh full-plate PETG slice passed. Ready for the next fit/strength-test print. Tight bearing clearance, servo friction retention and detent preload remain physical acceptance checks. No geometry or profile change was needed in that review.
 

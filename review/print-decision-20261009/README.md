@@ -1,5 +1,7 @@
 # INJS2065 PETG print decision
 
+**10 October orientation update:** The [latest full PETG project and native comparison](../hub-orientation-20261010/README.md) flip only the hub, servo rim down, with hub supports off. It estimates 2 h 21 min 25 s / 22.74 g. All CAD meshes and the other four parts/settings remain unchanged. The full plate and GUI capture below document the preceding orientation; use the linked update for the current full prototype. The registered fit project and mechanical limitations remain current.
+
 Prepared for Jeff's final go/no-go. **My recommendation is GO for a controlled fit experiment; defer functional qualification until that test passes.** The complete assembly is also prepared if Jeff chooses to print all five parts as a prototype. Neither choice establishes retention strength or service life. No print job has been sent.
 
 ## What is ready

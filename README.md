@@ -2,7 +2,7 @@
 
 Current editable CAD: [design/current.nbcad](design/current.nbcad). Canonical native feature history: [design/current.model.json](design/current.model.json).
 
-[Current print go/no-go report and prepared PETG projects](review/print-decision-20261009/README.md). Jeff makes the final print decision; no printer job has been sent.
+[Current print go/no-go report](review/print-decision-20261009/README.md). The [updated complete PETG project and hub orientation comparison](review/hub-orientation-20261010/README.md) turn the servo rim down and disable hub supports, saving approximately eight minutes and 0.38 g without changing CAD. Jeff makes the final print decision; no printer job has been sent.
 
 **Current: registered fit experiment prepared; functional qualification remains blocked.** [Contact-model correction and complete-shell PETG test](review/contact-fix-20261009/README.md) replace the cropped receiver coupon and the unsupported-floor constraints identified by the [independent adversarial review](review/adversarial-retention-20261009/README.md). The [unchanged candidate geometry](review/retention-fit-20261009/README.md) has 0.10 mm inner clearance per flat and 0.26 mm nubs. Native checks and slicing pass. Accepted holding/insertion mechanics and a successful controlled physical test are still required before selecting retention geometry or claiming readiness for functional use. Earlier force/strain and cropped-coupon acceptance recommendations remain withdrawn.
 
