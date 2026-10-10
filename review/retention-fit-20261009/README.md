@@ -1,5 +1,7 @@
 # Retuned retaining-fit candidate - 9 October 2026
 
+**Historical report, superseded for acceptance.** The cropped coupon recommendation and overconstrained force/strain estimates below are withdrawn. Use the [current print decision report](../print-decision-20261009/README.md) and [registered complete-shell test](../contact-fix-20261009/README.md). The baseline called independent below was candidate-generated; it establishes regression repeatability, not mechanical qualification. Original results remain here as traceable investigation history.
+
 **Print the mating coupon first. This revision is not qualified for a full functional assembly.** It addresses the demonstrated locating clearance and detent-margin weakness. Physical snap, preload, insertion travel, creep and retention still need testing. No printer job was started.
 
 The canonical files now contain this reviewed candidate: [current native CAD](../../design/current.nbcad), [native history](../../design/current.model.json). The [PETG coupon](retention-coupon.3mf) contains two cropped receiving halves and three complete clips. The [full candidate project](assembly-fit-candidate.3mf) is retained for inspection; its existence is not a full-print recommendation.
