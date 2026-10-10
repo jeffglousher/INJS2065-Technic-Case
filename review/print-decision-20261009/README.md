@@ -1,5 +1,7 @@
 # INJS2065 PETG print decision
 
+**Latest bridge update:** [Current complete project and hub-only short-span bridge settings](../hub-bridge-20261010/README.md) retain the flipped hub and apply bridge flow 0.90. Four native trials compare normal/thick bridging and both dedicated counterbore modes. Estimate 2 h 21 min 25 s / 22.73 g. This is for the next slice; it was not transmitted to the print observed running in Bambu Studio.
+
 **10 October orientation update:** The [latest full PETG project and native comparison](../hub-orientation-20261010/README.md) flip only the hub, servo rim down, with hub supports off. It estimates 2 h 21 min 25 s / 22.74 g. All CAD meshes and the other four parts/settings remain unchanged. The full plate and GUI capture below document the preceding orientation; use the linked update for the current full prototype. The registered fit project and mechanical limitations remain current.
 
 Prepared for Jeff's final go/no-go. **My recommendation is GO for a controlled fit experiment; defer functional qualification until that test passes.** The complete assembly is also prepared if Jeff chooses to print all five parts as a prototype. Neither choice establishes retention strength or service life. No print job has been sent.
