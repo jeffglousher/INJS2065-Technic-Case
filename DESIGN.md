@@ -2,6 +2,32 @@
 
 The native CAD and both print projects describe the current fit-test candidate. Dimensions below are millimetres unless stated otherwise. [dimensions.json](review/current/dimensions.json) contains the current geometric values; it deliberately leaves qualified elastic preload, force and strain unset.
 
+## Current review and print decision
+
+The resumed review passes CAD replay, export preflight, saved-project mesh/settings checks and a fresh assembly slice in Bambu Studio. The CAD geometry and both canonical print projects are unchanged. The supported full hex posts, 0.28 mm nubs and 0.205 mm radial aperture clearance remain the current candidate.
+
+Recommendation: proceed with the complete-shell PETG fit test, subject to the user's final go/no-go. Final mechanical acceptance remains pending. Print [fit-test-petg.3mf](print/fit-test-petg.3mf) first (about 1 h 47 min / 21.65 g), clean the support interfaces without shaving the retaining surfaces, and check both clips for full seating, a snap, no loose sliding or wobble, and no whitening or permanent set. A loose or damaged fit fails this test; measure the printed features before making another dimensional adjustment. Then check the hub's friction fit and bearing-supported rotation as described below. PETG results do not qualify PLA.
+
+[Export preflight](review/current/export-preflight.json) reports no timeline errors and five printable occurrences; the servo and bearing are intentionally excluded. Its layout check uses conservative mesh bounds, not exact sequential-print head collision analysis. The saved assembled, exploded and print-by-object CAD views remain present; the hub is flipped in both the CAD print view and the slicer layout.
+
+[Saved-project verification](review/current/print-project-check.json) confirms five closed, connected, positive-volume assembly meshes with consistent edge winding, matching four-part fit-test meshes/support paint, and the object settings described below. The native CAD file's model matches the canonical JSON, and the slice receipts match the current 3MF hashes. Portable CAD export does not carry these Bambu process overrides: use the prepared print projects.
+
+The fresh GUI slice shows all five objects, shell-only local interfaces, the flipped support-free hub, and an estimate of 2 h 23 min / 22.88 g. Bambu Studio is left open on that preview. This used the saved X2D 0.4 mm profile; live printer/AMS configuration was not synchronized. No printer job was sent.
+
+![Current sliced assembly layout](review/current/slicer-layout.png)
+
+## Current inspection views
+
+These renders use the current CAD/export meshes, with a depth buffer; they do not alter geometry. Exploded offsets are for inspection and exclude the reference servo and bearing. The enlarged corner and native OCCT sections below show the critical mating details; deformation is not simulated.
+
+![Current assembled and exploded printable parts](review/current/assembly.png)
+
+![Current clip pocket and rear faces](review/current/clip-front-back.png)
+
+![Current clamshell cavities and full hex posts](review/current/clamshell-inside.png)
+
+![Current detent corner detail](review/current/clip-and-corner.png)
+
 ## Clip, detent and housing
 
 Each clip has two rows of four blind hex pockets, full walls, flat pocket floors and four centered rounded nubs. All 16 housing hex posts retain their full 1.70 mm projection, without underside bevels. There are no detent grooves or backing indents.

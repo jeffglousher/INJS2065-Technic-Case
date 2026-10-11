@@ -6,10 +6,14 @@ Use [assembly-petg.3mf](print/assembly-petg.3mf) for all five printed parts, or 
 
 This is a fit-test candidate. Elastic preload, holding force and insertion/holding strain remain unqualified. See [design specification and remaining checks](DESIGN.md) and [sources and reuse guidance](REFERENCES.md).
 
+The resumed review passes CAD replay, export preflight, mesh/settings checks and a fresh assembly GUI slice. Recommendation: run the complete-shell fit test before mechanical acceptance. Bambu Studio is open on the assembly preview; no print was sent. [The current report](DESIGN.md#current-review-and-print-decision) includes the decision, cavity/rear/section views and slicer evidence.
+
 ![Current assembled and exploded printable parts](review/current/assembly.png)
 
 ![Current clip and detent corner](review/current/clip-and-corner.png)
 
 Run `node tools/verify-current.mjs` to replay and check the seven current meshes, topologies and assembly contacts against [the current reference](review/current/cad-reference.json). This regression check establishes repeatability, not mechanical qualification. Current section data, mesh checks, toolpath checks, file hashes and native slicing receipts are in [review/current](review/current).
+
+Run `python tools/verify-print.py` to check saved project hashes, native-model consistency, mesh closure/winding, support paint, object overrides and matching slice receipts without a printer connection. To regenerate the current mesh renders, use `python tools/render-review.py --scene scene.json` with an actual `solid_scene` response from the canonical model; the renderer requires Pillow. Inspect all generated views before presenting them.
 
 The locally user-modified `review/hub-orientation-20261010/flipped-no-support.3mf` is preserved at its original path. It is separate from the current print projects above.
