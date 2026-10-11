@@ -18,6 +18,7 @@ BG = (245, 247, 250)
 TEAL = (63, 154, 162)
 RED = (194, 66, 89)
 GREY = (144, 158, 171)
+HARDWARE = (84, 98, 117)
 NS = '{http://schemas.microsoft.com/3dmanufacturing/core/2015/02}'
 
 
@@ -112,12 +113,26 @@ def main():
     scene = json.loads(args.scene.read_text())
     check = {b['id']: b for b in scene['bodies']}
     target = ROOT/'review/current'
-    colors = {8:TEAL, 18:TEAL, 54:GREY, 173:RED, 267:RED}
+    model = json.loads((ROOT/'design/current.model.json').read_text())
+    colors = {1:HARDWARE, 8:TEAL, 18:TEAL, 53:HARDWARE, 54:GREY, 173:RED, 267:RED}
     assembled = [(scene_mesh(check[i]), color) for i, color in colors.items()]
-    offsets = {8:(0,0,-10), 18:(0,0,18), 54:(15,0,24), 173:(0,35,0), 267:(0,-35,0)}
+    view = next(v for v in model['views'] if v['name'] == 'Exploded assembly')
+    structure = model['assembly']['component_structure']
+    definitions = {d['id']:d for d in structure['definitions']}
+    occurrences = {o['id']:o for o in structure['occurrences']}
+    offsets = {}
+    for offset in view['occurrence_offsets']:
+        if offset['rotation'] != [0,0,0,1]:
+            raise ValueError('The assembly renderer requires translation-only display offsets')
+        definition = definitions[occurrences[offset['occurrence_id']]['component_id']]
+        for body_id in definition['body_ids']:
+            offsets[body_id] = offset['translation']
+    # Lift these reference-view parts clear of the upper shell so all seven parts are visible.
+    offsets[53] = (0,0,44)
+    offsets[54] = (0,0,60)
     exploded = [(scene_mesh(check[i], offsets[i]), color) for i, color in colors.items()]
-    pair(render(assembled, 'Assembled printable parts', (1,-1,.8)),
-         render(exploded, 'Exploded inspection - display offsets', (1,-1,.8)), target/'assembly.png')
+    pair(render(assembled, 'Assembled servo holder', (1,-1,.8)),
+         render(exploded, 'Exploded assembly - hardware included', (1,-1,.8)), target/'assembly.png')
     clip = project_mesh(3)
     pair(render([(clip, RED)], 'Clip pocket side - full walls and four nubs', (1,-1,1.8)),
          render([(clip, RED)], 'Clip rear / bed face - flat backing', (-1,1,-1.8)), target/'clip-front-back.png')
