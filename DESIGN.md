@@ -60,6 +60,18 @@ Fresh Bambu Studio 02.08.02.61 slicing succeeds for both projects without a repo
 
 ## Mechanical confidence and remaining checks
 
+### Contact-path follow-up
+
+The current 0.28 mm candidate has not yet been printed, as confirmed by the user. A new [native contact-path audit](review/current/contact-path.json) moves both clips along their opposing CAD Y directions in a disposable headless document. It samples 20 poses with exact OCCT overlap queries, then restores the installed poses and checks all seven source meshes/topologies against the current reference. The saved CAD and print projects are unchanged.
+
+At the installed pose, total rigid overlap across the four shell/clip pairs is 0.009168 mm³. Outward movement increases it to a sampled plateau of approximately 0.323544 mm³ at 0.8, 1.2 and 1.6 mm; it falls again near exit. The 2.5 mm sample still overlaps (0.008671 mm³ total), whereas the 2.6, 2.7 and 2.8 mm samples are clear. Opposing clips agree within 0.000001 mm³ at every sampled pose. This establishes a nominal geometric obstruction on this straight withdrawal path and a comparatively relieved seat. It does not establish a continuous collision boundary, elastic energy barrier, insertion force, holding force or actual deformation distance. Small numerical differences across the plateau do not identify a meaningful unique peak position.
+
+Moving the *whole* clips inward 0.02 mm instead produces 3.398258 mm³ total overlap; at 0.05 mm it produces 8.487109 mm³. This is consistent with substantial supporting surfaces blocking rigid inward motion. The intended deformation must therefore be local, not a whole-clip translation. These whole-solid overlaps neither prove that local flex is impossible nor quantify its available travel. A local nonlinear contact model must allow actual floor/contact release rather than prescribing inward movement to the entire clip.
+
+Recommendation remains to print the prepared complete-shell fit test before increasing the nubs or thinning any more material. If it remains loose, inspect and measure the printed nubs and seats, including damage from support removal. If it is difficult to seat, inspect the corner motion and backing/post contact before attributing the problem to PETG stiffness. Record each clip's seating, snap, wobble, removal behavior and visible permanent set. Quantitative force/strain results remain unset; the rigid sweep does not replace them.
+
+Reproduce this screen with `node tools/audit-contact-path.mjs`. It is specific to the reviewed canonical model hash and fails on missing contact pairs, asymmetric overlap, source-mesh changes or failure to reach a sampled clear pose.
+
 There is no accepted structural solve for the current geometry. Overconstrained floor/contact studies do not qualify this backed-frame detent, and their force and strain predictions are not carried forward. Bambu PETG Basic V3 reports tensile coupon modulus of 2780 ± 65 MPa in XY and 2550 ± 100 MPa in Z; these are screening inputs, not printed-detent stiffness or allowable cyclic strain. Poisson ratio 0.38 is an assumption.
 
 A useful structural solve must represent unilateral housing contact, the actual flex mode, possible pocket-floor release and the seated state. It needs mesh/contact convergence, deformed-solid penetration checks and insertion-path refinement. Quasi-static insertion is distinct from impact dynamics; creep and fatigue need separate treatment and printed calibration.

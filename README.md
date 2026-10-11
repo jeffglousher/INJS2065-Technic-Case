@@ -8,6 +8,8 @@ This is a fit-test candidate. Elastic preload, holding force and insertion/holdi
 
 The resumed review passes CAD replay, export preflight, mesh/settings checks and a fresh assembly GUI slice. Recommendation: run the complete-shell fit test before mechanical acceptance. Bambu Studio is open on the assembly preview; no print was sent. [The current report](DESIGN.md#current-review-and-print-decision) includes the decision, cavity/rear/section views and slicer evidence.
 
+The [contact-path follow-up](DESIGN.md#contact-path-follow-up) now checks 20 exact rigid poses on both sides: the installed seat has substantially less nominal overlap than the withdrawal obstruction. Whole-clip inward motion is blocked by supporting geometry, so strain analysis must model local corner flex. The current version has not yet been physically tested.
+
 ![Current assembled and exploded printable parts](review/current/assembly.png)
 
 ![Current clip and detent corner](review/current/clip-and-corner.png)
