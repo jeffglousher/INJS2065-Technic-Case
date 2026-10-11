@@ -92,6 +92,16 @@ def audit_project(filename, count):
         check(settings['brim_type'] == 'no_brim' and settings['brim_width'] == '0'
               and settings['skirt_loops'] == '0' and settings['enable_support'] == '0', 'Unexpected global brim/skirt/support')
         check(settings['layer_height'] == '0.16' and settings['wall_loops'] == '4' and settings['sparse_infill_density'] == '25%', 'Wrong main process')
+        check(settings['wall_generator'] == 'arachne', 'Shell Arachne process missing')
+        check('wall_generator' in settings['different_settings_to_system'][0].split(';'), 'GUI reload would discard Arachne')
+        bands = ET.fromstring(z.read('Metadata/layer_config_ranges.xml'))
+        expected_bands = {'1':[(5.0,10.95)], '2':[(0.2,3.6),(8.5,15.5),(18.0,24.45)]}
+        check(len(bands.findall('object')) == 2, 'Unexpected height-band object count')
+        for node in bands.findall('object'):
+            check(node.get('id') in expected_bands, 'Height band affects clip/hub')
+            check([(float(r.get('min_z')),float(r.get('max_z'))) for r in node.findall('range')] == expected_bands[node.get('id')], 'Wrong height bands')
+            check(all(len(r.findall('option')) == 1 and r.find('option').get('opt_key') == 'layer_height'
+                      and r.find('option').text == '0.12' for r in node.findall('range')), 'Wrong band options')
         rows = []
         for i, obj in enumerate(objects, 1):
             values = metadata(obj)
@@ -101,6 +111,22 @@ def audit_project(filename, count):
             check(values.get('brim_type', settings['brim_type']) == 'no_brim'
                   and values.get('brim_width', settings['brim_width']) == '0', f'{name}: unexpected brim')
             check(not row['support_paint_counts'], f'{name}: stale support paint')
+            check(len(obj.findall("part[@subtype='normal_part']")) == 1, f'{name}: unexpected printable parts')
+            modifiers = obj.findall("part[@subtype='modifier_part']")
+            if i <= 2:
+                check('wall_generator' not in values, 'Shell does not inherit the validated process generator')
+                check(len(modifiers) == 2, f'{name}: missing rail modifiers')
+                required_speeds = {'outer_wall_speed':'30','inner_wall_speed':'45','gap_infill_speed':'30',
+                                   'internal_solid_infill_speed':'45','top_surface_speed':'30','small_perimeter_speed':'25'}
+                resources = model.find(NS + 'resources')
+                for modifier in modifiers:
+                    mv = metadata(modifier)
+                    check(mv.get('name','').startswith('Technic rail quality '), 'Unknown modifier')
+                    check(all(mv.get(k) == ','.join([v]*6) for k,v in required_speeds.items()), 'Modifier nullable speeds differ')
+                    mesh = next(n for n in resources if n.get('id') == modifier.get('id'))
+                    audit_mesh(ET.tostring(mesh), mv['name'])
+            else:
+                check(not modifiers and values.get('wall_generator') == 'classic', f'{name}: unintended modifiers/generator')
             if name == 'Output hub':
                 required = {'enable_support':'0', 'layer_height':'0.08', 'wall_loops':'6', 'sparse_infill_density':'100',
                             'outer_wall_speed':'30', 'inner_wall_speed':'60',
@@ -127,6 +153,10 @@ def main():
         receipt = json.loads((ROOT / 'review/current' / receipt_name).read_text())
         check(receipt['project_sha256'] == project['project_sha256'] and receipt['native_result']['return_code'] == 0, 'Slice receipt does not match project')
         check(receipt['supports_absent'] and receipt['brims_skirts_absent'], 'Slice contains supports/brims/skirts')
+        quality = json.loads((ROOT / 'review/current/local-quality-check.json').read_text())
+        record = next(r for r in quality['projects'] if r['project'] == project['file'])
+        check(quality['passed'] and record['project_sha256'] == project['project_sha256']
+              and record['gcode_sha256'] == receipt['gcode_sha256'], 'Local toolpath receipt is stale')
         for plate in receipt['native_result']['sliced_plates']:
             check(not plate['warning_message'], 'Native slice warning')
             check(not any('support' in k.lower() or 'brim' in k.lower() or 'skirt' in k.lower()
@@ -135,7 +165,7 @@ def main():
               'limits': 'Topology and saved settings audit; no exhaustive triangle self-intersection, measured printer accuracy or physical snap/strength qualification.',
               'print_sent': False}
     (ROOT / 'review/current/print-project-check.json').write_text(json.dumps(result, indent=2)+'\n')
-    print('PASS: five assembly / four fit-test parts; closed connected positive meshes; opposite edge winding; no supports, support paint, brims or skirts; hub overrides preserved; matching slice receipts.')
+    print('PASS: five assembly / four fit-test parts; closed connected positive meshes; four non-printing rail modifiers; shell detail bands/Arachne; no supports or brims; clip/hub overrides preserved; matching slice receipts.')
 
 
 if __name__ == '__main__':

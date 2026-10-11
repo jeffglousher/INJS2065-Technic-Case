@@ -3,7 +3,7 @@
   "projects": [
     {
       "file": "print/assembly-petg.3mf",
-      "project_sha256": "985783bfa8f7e6019cb76b13cd979e270605c488d78285693f9d0dda847dc780",
+      "project_sha256": "cf4211b2d214cdca9c976ac7b5185f7c1482cb3271f2566f7330093dddace315",
       "objects": [
         {
           "name": "Lower clamshell",
@@ -61,7 +61,8 @@
             "extruder": "1",
             "enable_support": "0",
             "brim_type": "no_brim",
-            "brim_width": "0"
+            "brim_width": "0",
+            "wall_generator": "classic"
           }
         },
         {
@@ -80,7 +81,8 @@
             "extruder": "1",
             "enable_support": "0",
             "brim_type": "no_brim",
-            "brim_width": "0"
+            "brim_width": "0",
+            "wall_generator": "classic"
           }
         },
         {
@@ -119,7 +121,8 @@
             "bridge_speed": "25",
             "bridge_no_support": "1",
             "counterbore_hole_bridging": "none",
-            "enable_support": "0"
+            "enable_support": "0",
+            "wall_generator": "classic"
           }
         }
       ],
@@ -128,7 +131,7 @@
     },
     {
       "file": "print/fit-test-petg.3mf",
-      "project_sha256": "29cd5ca44bf44138d030d3f987665b7304ca643bd467c82efa147311b74fc1cf",
+      "project_sha256": "112e7fd64d754c6b8fa33b1ab08f59924372406cc4bd7d4f0c5f3dc540867289",
       "objects": [
         {
           "name": "Lower clamshell",
@@ -186,7 +189,8 @@
             "extruder": "1",
             "enable_support": "0",
             "brim_type": "no_brim",
-            "brim_width": "0"
+            "brim_width": "0",
+            "wall_generator": "classic"
           }
         },
         {
@@ -205,7 +209,8 @@
             "extruder": "1",
             "enable_support": "0",
             "brim_type": "no_brim",
-            "brim_width": "0"
+            "brim_width": "0",
+            "wall_generator": "classic"
           }
         }
       ],

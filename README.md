@@ -2,7 +2,7 @@
 
 The current editable design is [current.nbcad](design/current.nbcad), with its matching [native model](design/current.model.json): 374 features and seven bodies. The CAD construction remains editable.
 
-Use [assembly-petg.3mf](print/assembly-petg.3mf) for all five printed parts, or [fit-test-petg.3mf](print/fit-test-petg.3mf) for both complete clamshells and both clips. Both projects use Bambu X2D, 0.4 mm nozzle, Bambu PETG Basic and printing by object. Both projects have no supports, support paint, brims or skirts. Fresh native slices estimate 2 h 21 min / 22.77 g for the assembly and 1 h 46 min / 21.54 g for the fit test. No print job was sent.
+Use [assembly-petg.3mf](print/assembly-petg.3mf) for all five printed parts, or [fit-test-petg.3mf](print/fit-test-petg.3mf) for both complete clamshells and both clips. Both projects use Bambu X2D, 0.4 mm nozzle, Bambu PETG Basic and printing by object. Both projects have four local rail quality modifiers and 0.12 mm shell detail bands, with Arachne on shells and Classic on clips/hub. There are no supports, support paint, brims or skirts. Fresh native slices estimate 3 h 29 min / 23.69 g for the assembly and 2 h 54 min / 22.46 g for the fit test. No print job was sent.
 
 This is a fit-test candidate. Elastic preload, holding force and insertion/holding strain remain unqualified. See [design specification and remaining checks](DESIGN.md) and [sources and reuse guidance](REFERENCES.md).
 

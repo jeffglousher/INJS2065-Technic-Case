@@ -1,45 +1,45 @@
 {
-  "project_sha256": "985783bfa8f7e6019cb76b13cd979e270605c488d78285693f9d0dda847dc780",
-  "gcode_sha256": "c40c731d50c43c9eebb433a0b1a85f3f47287fdab4fdcfbb76c5d0d5dbdf4fdd",
+  "project_sha256": "cf4211b2d214cdca9c976ac7b5185f7c1482cb3271f2566f7330093dddace315",
+  "gcode_sha256": "ba111edc8337fb802bc7409fdff6b9c4721b40d7e05edd1c92ff07f145e9655b",
   "native_result": {
     "error_string": "Success.",
     "export_time": 0,
     "layer_height": 0.1599999964237213,
     "plate_index": 1,
-    "prepare_time": 493,
+    "prepare_time": 477,
     "return_code": 0,
     "sliced_plates": [
       {
         "feature_type_times": {
-          "Bottom surface": 61.44646453857422,
-          "Bridge": 127.21099853515625,
-          "Custom": 286.872802734375,
+          "Bottom surface": 57.034515380859375,
+          "Bridge": 72.4200439453125,
+          "Custom": 286.86468505859375,
           "Flush": 29.0,
-          "Gap infill": 401.99945068359375,
-          "Inner wall": 2654.468505859375,
-          "Internal solid infill": 862.310791015625,
-          "Outer wall": 1921.7310791015625,
-          "Overhang wall": 30.529075622558594,
-          "Sparse infill": 546.3245239257812,
-          "Top surface": 114.2540283203125,
-          "Travel": 1448.64208984375,
-          "Undefined": 1441.2962646484375
+          "Gap infill": 142.53970336914062,
+          "Inner wall": 4830.57958984375,
+          "Internal solid infill": 1007.0140991210938,
+          "Outer wall": 3457.7294921875,
+          "Overhang wall": 22.7879695892334,
+          "Sparse infill": 604.5693969726562,
+          "Top surface": 122.9462890625,
+          "Travel": 1925.9781494140625,
+          "Undefined": 1918.63427734375
         },
         "filament_change_times": 0,
         "filaments": [
           {
             "filament_id": "GFG00",
             "id": 1,
-            "main_used_g": 22.771894454956055,
-            "total_used_g": 22.771894454956055
+            "main_used_g": 23.692089080810547,
+            "total_used_g": 23.692089080810547
           }
         ],
         "generate_support_material_time": 178,
         "id": 1,
-        "infill_time": 569,
+        "infill_time": 506,
         "layer_filament_change": 0,
-        "main_predication": 8140.29248046875,
-        "make_perimeters_time": 832,
+        "main_predication": 12214.5185546875,
+        "make_perimeters_time": 1061,
         "obj_cached_cnt": 0,
         "objects": [
           {
@@ -108,9 +108,9 @@
             "triangle_count": 4920
           }
         ],
-        "sliced_time": 5492,
-        "sliced_time_with_cache": 3477,
-        "total_predication": 8477.8193359375,
+        "sliced_time": 6054,
+        "sliced_time_with_cache": 3921,
+        "total_predication": 12552.0390625,
         "triangle_count": 326554,
         "warning_message": ""
       }
@@ -130,5 +130,6 @@
   "supports_absent": true,
   "brims_skirts_absent": true,
   "clips_slice_solid": true,
+  "local_quality_validated": true,
   "print_sent": false
 }
