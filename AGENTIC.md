@@ -1,36 +1,11 @@
-# Agentic CAD process (INJS2065)
+# Working on the INJS2065 design
 
-## Source of truth
-- **SoT = JSONC scripts** — edit `design/*.nbcad.jsonc` directly with normal edit tools. Prefer small chunked JSONC (or chaptered includes when product supports).
-- Canonical tip file: `design/design_v16_52.nbcad.jsonc` (filename from VERSION). Replay that path on a **blank** document (`cad_interface` action `script`, `mode: fast`).
-- MCP one-step only for tiny live tweaks, then sync JSONC ASAP.
-- Open the latest `.nbcad` export (after live save) for live inspection / tiny MCP tweaks.
-- Do **not** create new `v16.N` folders — commit on git branches instead.
-- Do **not** use Python generators (`gen_v*.py`) as design SoT. No `gen_v*.py` stack.
+Use `design/current.model.json` and its matching saved native project `design/current.nbcad`. Keep construction features, IDs, profiles, dimensions, assembly poses and named views intact during geometry-preserving cleanup. Do not flatten the editable feature tree to eliminate process archives.
 
-## Versioning
-Version: 16.52
-- Working git branch: `cad-bot/v16.8-session-handover` (repo default). Previous tip: `cursor/v16-51-clamp-face-hex`.
-- Construction (v16.52): 27 hex cells cover the whole clip face. Walls are 1.2 mm leftovers of the open-C blank, rotation 30° so flats run along Z for the +X print. Inner pockets are blind and stop at the spine face (Y about 10.45), not through the body. Land grooves use the same centers, +0.2 mm. No lattice join. Side Technic unchanged.
-- Keep one authoritative `VERSION` / `DESIGN_VERSION` string: matching one-line `Version: M.N` in this document + embedded in the JSONC header/metadata + `design/gen_meta.json` `version` field. Do not retype divergent strings.
-- Filenames from VERSION — preferred `design/design_v{M_N}.nbcad.jsonc` (e.g. `design_v16_52.nbcad.jsonc`). That versioned file is the SoT and the replay entry. Do not keep a parallel unversioned recipe name (`injs2065-technic-clamshell.nbcad.jsonc`) as SoT.
-- **Prune on cut** — when cutting a new version, write new `design_vM_N.nbcad.jsonc`, update meta / this Version line, delete prior `design_v*.nbcad.jsonc` and any leftover `gen_v*.py`. Git keeps history. **No gen_v*.py stack.**
-- Optional versioned 3MF/`.nbcad` exports may include VERSION in their names when Jeff asks for an export.
+The current print outputs are `print/assembly-petg.3mf` and `print/fit-test-petg.3mf`; the latter has both complete shells and both clips. Use `DESIGN.md`, `REFERENCES.md` and `review/current` for current evidence and remaining qualification limits. Keep useful findings consolidated here instead of retaining dated experiment trees or duplicate output files. Put disposable experiments and build caches outside the repository.
 
-## MCP vs JSONC
-- Non-trivial: edit versioned JSONC → blank-doc script replay of `design/design_v16_52.nbcad.jsonc` (or current `design_v{M_N}`).
-- Tiny live tweak: MCP one-step, then sync JSONC ASAP (hand-patch until bi-di export ships in the CAD build you run).
-- `cad_script` today = forward MCP call dump only — not a JSONC exporter.
-- WIP product branch (source): `jackControls/noBS-CAD` `feat/jsonc-roundtrip-and-script-collections` (includes + `export_script`). **Not** in the installed 0.2.0 release yet — rebuild/restart CAD+MCP from that branch to use it.
+After an authorized CAD edit, export `cad_project_model` and save the native project together. For replay use `cad_load_project_model` with the canonical JSON. Run `node tools/verify-current.mjs`: all 374 current features must replay without errors, and seven meshes/topologies plus assembly contacts must match the current reference. This candidate-generated reference checks regression, not independently approved mechanics. Intentional changes require a newly reviewed reference; do not update an audit merely to hide a failure.
 
-## Design feedback loop
-1. Jeff reports print / body / clip results (photos OK).
-2. Agent attaches live session or opens `design/*.nbcad`.
-3. Fix via JSONC (preferred) or tiny MCP + sync.
-4. Validate (IFC / wall notes / live shots per skills).
-5. Export 3MF when Jeff asks; do not start prints unasked.
+There is no qualified elastic preload, holding force or insertion/holding strain result for the current geometry. Use the physical checks in `DESIGN.md` before accepting retention. Do not start a printer job without an instruction to print.
 
-## Pending product (does not block design)
-- Faithful model.json → JSONC export
-- Collections for part isolation in the INJS script
-- CAD/MCP rebuild from feature branch
+The locally user-modified `review/hub-orientation-20261010/flipped-no-support.3mf` must remain byte-identical during our cleanup and must not be included in our cleanup commit. Preserve other agents' worktrees, unknown files, installed runtimes and reused build caches. A directory's old task name alone does not establish current ownership. Publish reviewed design changes through PRs to `main`; do not rewrite shared remote history as a disk cleanup shortcut.

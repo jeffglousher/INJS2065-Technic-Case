@@ -1,0 +1,224 @@
+{
+  "passed": true,
+  "projects": [
+    {
+      "file": "print/assembly-petg.3mf",
+      "project_sha256": "cf4211b2d214cdca9c976ac7b5185f7c1482cb3271f2566f7330093dddace315",
+      "objects": [
+        {
+          "name": "Lower clamshell",
+          "triangles": 50570,
+          "volume_mm3": 5647.928377682502,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+          "object_overrides": {
+            "name": "Lower clamshell",
+            "extruder": "1",
+            "bridge_no_support": "0",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
+          }
+        },
+        {
+          "name": "Upper clamshell",
+          "triangles": 103792,
+          "volume_mm3": 14914.190525494672,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+          "object_overrides": {
+            "name": "Upper clamshell",
+            "extruder": "1",
+            "bridge_no_support": "0",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
+          }
+        },
+        {
+          "name": "Clip +Y",
+          "triangles": 83636,
+          "volume_mm3": 686.658377317504,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+          "object_overrides": {
+            "name": "Clip +Y",
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0",
+            "wall_generator": "classic"
+          }
+        },
+        {
+          "name": "Clip -Y",
+          "triangles": 83636,
+          "volume_mm3": 686.6583773175016,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+          "object_overrides": {
+            "name": "Clip -Y",
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0",
+            "wall_generator": "classic"
+          }
+        },
+        {
+          "name": "Output hub",
+          "triangles": 4920,
+          "volume_mm3": 1065.633295234723,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3",
+          "object_overrides": {
+            "sparse_infill_speed": "90",
+            "internal_solid_infill_speed": "90",
+            "top_surface_speed": "30",
+            "inner_wall_speed": "60",
+            "outer_wall_speed": "30",
+            "bottom_shell_thickness": "16",
+            "top_shell_thickness": "16",
+            "bottom_shell_layers": "12",
+            "top_shell_layers": "12",
+            "layer_height": "0.08",
+            "skin_infill_density": "100",
+            "skeleton_infill_density": "100",
+            "sparse_infill_pattern": "zig-zag",
+            "sparse_infill_density": "100",
+            "wall_loops": "6",
+            "name": "Output hub",
+            "extruder": "1",
+            "brim_type": "no_brim",
+            "brim_width": "0",
+            "bridge_flow": "0.9",
+            "thick_bridges": "0",
+            "bridge_speed": "25",
+            "bridge_no_support": "1",
+            "counterbore_hole_bridging": "none",
+            "enable_support": "0",
+            "wall_generator": "classic"
+          }
+        }
+      ],
+      "printer": "Bambu Lab X2D 0.4 nozzle",
+      "sequence": "by object"
+    },
+    {
+      "file": "print/fit-test-petg.3mf",
+      "project_sha256": "112e7fd64d754c6b8fa33b1ab08f59924372406cc4bd7d4f0c5f3dc540867289",
+      "objects": [
+        {
+          "name": "Lower clamshell",
+          "triangles": 50570,
+          "volume_mm3": 5647.928377682502,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+          "object_overrides": {
+            "name": "Lower clamshell",
+            "extruder": "1",
+            "bridge_no_support": "0",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
+          }
+        },
+        {
+          "name": "Upper clamshell",
+          "triangles": 103792,
+          "volume_mm3": 14914.190525494672,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+          "object_overrides": {
+            "name": "Upper clamshell",
+            "extruder": "1",
+            "bridge_no_support": "0",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
+          }
+        },
+        {
+          "name": "Clip +Y",
+          "triangles": 83636,
+          "volume_mm3": 686.658377317504,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+          "object_overrides": {
+            "name": "Clip +Y",
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0",
+            "wall_generator": "classic"
+          }
+        },
+        {
+          "name": "Clip -Y",
+          "triangles": 83636,
+          "volume_mm3": 686.6583773175016,
+          "components": 1,
+          "bad_edges": 0,
+          "bad_winding": 0,
+          "duplicate_faces": 0,
+          "collapsed_faces_at_1e_5_mm": 0,
+          "support_paint_counts": {},
+          "mesh_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+          "object_overrides": {
+            "name": "Clip -Y",
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0",
+            "wall_generator": "classic"
+          }
+        }
+      ],
+      "printer": "Bambu Lab X2D 0.4 nozzle",
+      "sequence": "by object"
+    }
+  ],
+  "weld_tolerance_mm": 1e-05,
+  "limits": "Topology and saved settings audit; no exhaustive triangle self-intersection, measured printer accuracy or physical snap/strength qualification.",
+  "print_sent": false
+}

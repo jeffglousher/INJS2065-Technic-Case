@@ -1,0 +1,44 @@
+# Sources and reusable knowledge
+
+These references support the current design and future analysis. Vendor material properties, analytical snap-fit formulas and successful slicing do not establish this part's retention, fatigue life or creep performance.
+
+## Materials and snap mechanics
+
+- [Bambu PETG Basic technical data sheet, V3](https://store.bblcdn.com/s1/default/cb94589bf7994fdcbfa833badefae9cd/Bambu_PETG_Basic_Technical_Data_Sheet.pdf): tensile coupon modulus of 2780 +/- 65 MPa in XY and 2550 +/- 100 MPa in Z. Check the sheet version, specimen conditions and actual material before reuse. PETG Basic and PETG HF differ. Reference the vendor document; no open reproduction grant was established.
+- [Covestro snap-fit design guide](https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556891135.pdf?hash=0B0654C1EA0B882DEB401F521C4E87DE&rev=75179dfd38264e398477a19a84601af5): useful beam strain, force and lead-angle concepts. A cantilever formula does not qualify the clip's backed closed frame. Reference rather than copy vendor text or figures without permission.
+- [Yoshida and Wada, Mechanics of a snap fit](https://arxiv.org/abs/2003.13566v2): elasticity, friction and geometry jointly determine engagement and disengagement. Its thin-shell idealization is not a direct model of this hex frame. Reference the paper; availability on arXiv does not itself authorize copying its figures or text.
+
+For displacement-controlled bending, local travel and structural stiffness jointly set force and strain. A longer lead-in can lower the insertion slope without lowering peak travel. A symmetric nub alone does not guarantee equal insertion and withdrawal forces because the mating contact path differs. Useful preload must survive the combined printing tolerance, wear and permanent-set window while permitting near-neutral seating.
+
+Reusable screening relationships, with their limits:
+
+- For homogeneous linear elasticity with fixed Poisson ratio, `K(E) = E K0`. At prescribed displacement, force scales with modulus while strain does not. Switching a scalar modulus is not an orthotropic analysis or a statistical uncertainty interval.
+- A uniform free-ended rectangular beam has `k = E*b*t^3/(4*L^3)` and peak strain `1.5*t*delta/L^2`. A beam fixed at both ends and loaded at its midpoint has `k = 16*E*b*t^3/L^3` and peak strain `12*t*delta/L^2`. At equal full span and travel, these idealizations differ by 64 in stiffness and eight in strain. Neither bounds this backed clip. Identify bending thickness from the load path rather than the in-plane corner width.
+- For signed travel `g_actual = g_nominal + e_relative - set_loss`, bounded relative error `T`, permanent-set loss `S` and acceptable held travel `g_allow`, guaranteed contact requires `g_nominal > T + S` and `g_nominal + T <= g_allow`. A feasible window needs `g_allow > 2*T + S`. These quantities require measurement.
+- A frictionless single-mode snap has `U(s) = 0.5*k*delta(s)^2` and axial force `k*delta(s)*delta'(s)`. The retention barrier depends on passage and seated states. Friction, multiple contacts and housing deformation require a fuller model.
+- Under maintained deformation, reaction tracks relaxation modulus; under maintained force, deformation tracks creep compliance. Room-temperature modulus, break elongation and heat-deflection temperature do not establish PETG service life.
+
+Mesh-force convergence does not prove local peak-strain convergence. Low residuals and patch checks validate numerical implementation, not the chosen boundary conditions. A round cutter does not guarantee tangent intersections, and slicing two boundary paths does not establish bead bonding, orthotropy or fatigue. Validate PLA separately even if it reproduces the same paths.
+
+## Slicer and native CAD integration
+
+- Bambu Studio [PrintConfig.cpp](https://github.com/bambulab/BambuStudio/blob/47a13eeb1d9af65ef2371e361c856e21d4f6ca72/src/libslic3r/PrintConfig.cpp), [bbs_3mf.cpp](https://github.com/bambulab/BambuStudio/blob/47a13eeb1d9af65ef2371e361c856e21d4f6ca72/src/libslic3r/Format/bbs_3mf.cpp), [Model.cpp](https://github.com/bambulab/BambuStudio/blob/47a13eeb1d9af65ef2371e361c856e21d4f6ca72/src/libslic3r/Model.cpp) and [TriangleSelector.cpp](https://github.com/bambulab/BambuStudio/blob/47a13eeb1d9af65ef2371e361c856e21d4f6ca72/src/libslic3r/TriangleSelector.cpp): native setting meanings, object overrides, 3MF support-paint serialization and selector behavior in the pinned upstream source. The installed slicing version is 02.08.02.61; an upstream version tag matching that binary was not available, so these links do not establish its exact source provenance. No source implementation is copied into this part repository. Future copying must comply with the upstream license and notices.
+- [OCCT documentation](https://dev.opencascade.org/doc/overview/html/): use the exact kernel shape for sections, distances, wall and interference queries; a tessellated display alone is not equivalent evidence. Follow OCCT license and attribution obligations when distributing implementation.
+- Application [section-view contribution PR 337](https://github.com/limo-cad/Limo-CAD/pull/337), [section hardening issue 339](https://github.com/limo-cad/Limo-CAD/issues/339), [structural analysis issue 336](https://github.com/limo-cad/Limo-CAD/issues/336) and [Rust simulation contribution PR 338](https://github.com/limo-cad/Limo-CAD/pull/338) retain the application work and research context. Their latest source and knowledge-base files remain in their separate repositories/worktrees; this part cleanup does not remove them.
+
+## Structural and world-simulation paths
+
+- [Fenris](https://github.com/InteractiveComputerGraphics/fenris): Rust finite-element building blocks; inspect the pinned version and examples before selecting constitutive/contact behavior. Its MIT license permits copying within its actual coverage, with required notices.
+- [faer](https://github.com/sarah-quinones/faer-rs): Rust linear algebra and solver infrastructure; it does not supply contact physics by itself.
+- [Rapier](https://github.com/dimforge/rapier): useful rigid-body collision and world simulation, with the repository's Apache-2.0 obligations. Rigid contact is not a substitute for deformable PETG strain analysis; inspect the license of separately hosted guides before copying them.
+- [OSQP documentation](https://osqp.org/docs/): a possible constrained numerical component; a solver's presence does not prove an adequate mechanical model.
+
+The application's [research index](https://github.com/limo-cad/Limo-CAD/blob/1a8e7491/docs/analysis/RESEARCH-INDEX.md), [knowledge and reuse audit](https://github.com/limo-cad/Limo-CAD/blob/1a8e7491/docs/analysis/SESSION-KNOWLEDGE-AUDIT.md), [source-license inspection receipts](https://github.com/limo-cad/Limo-CAD/blob/1a8e7491/docs/analysis/SOURCE-REUSE-EVIDENCE.json) and [simulation plan](https://github.com/limo-cad/Limo-CAD/blob/1a8e7491/docs/SIMULATION-EXPERIMENT.md) retain the broader capability plan. Original synthetic project prose may be consolidated under its repository's license while citing the sources it discusses. Third-party figures, standards, linked guides and vendor publications need their own permission check; repository licensing does not automatically cover everything it references. This private part's geometry remains in the private part repository.
+
+## Local slicer quality implementation
+
+- [Bambu Studio modifier guide announcement](https://forum.bambulab.com/t/bambu-studio-modifier-operation-guide/100352): manufacturer guidance on regional speed and strength settings. Referenced, not copied.
+- [Bambu Studio parameter definitions](https://github.com/bambulab/BambuStudio/blob/master/src/libslic3r/PrintConfig.cpp) and [configuration scopes](https://github.com/bambulab/BambuStudio/blob/master/src/libslic3r/PrintConfig.hpp): Classic/Arachne behavior, irregular-width gap-fill slowdown, and nullable regional speed options. Six speed entries were validated against installed Studio 02.08.02.61; scalar-only trial overrides were rejected.
+- [Bambu native 3MF implementation](https://github.com/bambulab/BambuStudio/blob/master/src/libslic3r/Format/bbs_3mf.cpp): referenced for modifier-part and height-range metadata structure. Our box-generation and audit scripts are original project code; no third-party implementation was copied into this repository. Bambu Studio source is AGPL-3.0 and its implementation licensing must be reviewed before incorporating source into another application.
+
+These references were consulted for the current local-quality changes. The decisive evidence is the fresh native G-code from the installed slicer, not assumptions about a newer upstream revision. Curve subdivision affects segment counts. Commanded line widths/speeds do not establish printed tolerances or mechanical strength.
