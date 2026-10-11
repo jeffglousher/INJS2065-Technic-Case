@@ -18,9 +18,9 @@ The reviewed GUI slice shows all five objects, no supports or brims, the flipped
 
 ## Current inspection views
 
-These renders use the current CAD/export meshes, with a depth buffer; they do not alter geometry. Exploded offsets are for inspection and exclude the reference servo and bearing. The enlarged corner and native OCCT sections below show the critical mating details; deformation is not simulated.
+These renders use the current CAD/export meshes, with a depth buffer; they do not alter geometry. The assembly overview includes the reference servo and bearing. It starts from the saved exploded-view offsets, then lifts the bearing and hub clear of the upper shell for visibility. The enlarged corner and native OCCT sections below show the critical mating details; deformation is not simulated.
 
-![Current assembled and exploded printable parts](review/current/assembly.png)
+![Current assembled and exploded servo holder, including reference hardware](review/current/assembly.png)
 
 ![Current clip pocket and rear faces](review/current/clip-front-back.png)
 
