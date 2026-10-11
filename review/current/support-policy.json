@@ -1,0 +1,66 @@
+{
+  "supports_enabled": false,
+  "brims_enabled": false,
+  "support_paint_removed": true,
+  "cad_geometry_changed": false,
+  "projects": [
+    {
+      "project": "print/assembly-petg.3mf",
+      "project_sha256": "985783bfa8f7e6019cb76b13cd979e270605c488d78285693f9d0dda847dc780",
+      "meshes": [
+        {
+          "mesh": "3D/Objects/object_1.model",
+          "geometry_without_support_paint_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_2.model",
+          "geometry_without_support_paint_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_3.model",
+          "geometry_without_support_paint_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_4.model",
+          "geometry_without_support_paint_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_5.model",
+          "geometry_without_support_paint_sha256": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3",
+          "geometry_unchanged": true
+        }
+      ]
+    },
+    {
+      "project": "print/fit-test-petg.3mf",
+      "project_sha256": "29cd5ca44bf44138d030d3f987665b7304ca643bd467c82efa147311b74fc1cf",
+      "meshes": [
+        {
+          "mesh": "3D/Objects/object_1.model",
+          "geometry_without_support_paint_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_2.model",
+          "geometry_without_support_paint_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_3.model",
+          "geometry_without_support_paint_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+          "geometry_unchanged": true
+        },
+        {
+          "mesh": "3D/Objects/object_4.model",
+          "geometry_without_support_paint_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+          "geometry_unchanged": true
+        }
+      ]
+    }
+  ],
+  "fallback_policy": "If support is later authorized, use a confirmed PETG-compatible interface material on the auxiliary extruder; no material or nozzle assignment has been guessed."
+}

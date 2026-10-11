@@ -3,7 +3,7 @@
   "projects": [
     {
       "file": "print/assembly-petg.3mf",
-      "project_sha256": "2948262a77f76bd90cd8811ac8456a44108a224182970d49c09edd17073f7928",
+      "project_sha256": "985783bfa8f7e6019cb76b13cd979e270605c488d78285693f9d0dda847dc780",
       "objects": [
         {
           "name": "Lower clamshell",
@@ -14,27 +14,15 @@
           "bad_winding": 0,
           "duplicate_faces": 0,
           "collapsed_faces_at_1e_5_mm": 0,
-          "support_paint_counts": {
-            "8": 50538,
-            "4": 32
-          },
-          "mesh_sha256": "76ca28a7bfa1bdb3504b6ff43ea248a595860d41a6afa8f64754d04b17ed9ee1",
+          "support_paint_counts": {},
+          "mesh_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
           "object_overrides": {
             "name": "Lower clamshell",
             "extruder": "1",
-            "enable_support": "1",
-            "support_type": "normal(manual)",
-            "support_style": "snug",
-            "support_on_build_plate_only": "0",
-            "support_remove_small_overhang": "0",
             "bridge_no_support": "0",
-            "support_interface_top_layers": "3",
-            "support_interface_bottom_layers": "2",
-            "support_interface_spacing": "0.2",
-            "support_bottom_interface_spacing": "0.2",
-            "support_top_z_distance": "0.2",
-            "support_bottom_z_distance": "0.2",
-            "support_object_xy_distance": "0.35"
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -46,27 +34,15 @@
           "bad_winding": 0,
           "duplicate_faces": 0,
           "collapsed_faces_at_1e_5_mm": 0,
-          "support_paint_counts": {
-            "8": 103760,
-            "4": 32
-          },
-          "mesh_sha256": "dcdc94a4e959af199b7318be928d1bd9e598b7221d9fd41b0d59ba1401da81e6",
+          "support_paint_counts": {},
+          "mesh_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
           "object_overrides": {
             "name": "Upper clamshell",
             "extruder": "1",
-            "enable_support": "1",
-            "support_type": "normal(manual)",
-            "support_style": "snug",
-            "support_on_build_plate_only": "0",
-            "support_remove_small_overhang": "0",
             "bridge_no_support": "0",
-            "support_interface_top_layers": "3",
-            "support_interface_bottom_layers": "2",
-            "support_interface_spacing": "0.2",
-            "support_bottom_interface_spacing": "0.2",
-            "support_top_z_distance": "0.2",
-            "support_bottom_z_distance": "0.2",
-            "support_object_xy_distance": "0.35"
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -82,7 +58,10 @@
           "mesh_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
           "object_overrides": {
             "name": "Clip +Y",
-            "extruder": "1"
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -98,7 +77,10 @@
           "mesh_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
           "object_overrides": {
             "name": "Clip -Y",
-            "extruder": "1"
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -130,16 +112,14 @@
             "wall_loops": "6",
             "name": "Output hub",
             "extruder": "1",
-            "enable_support": "0",
-            "support_type": "tree(auto)",
-            "support_on_build_plate_only": "1",
             "brim_type": "no_brim",
             "brim_width": "0",
             "bridge_flow": "0.9",
             "thick_bridges": "0",
             "bridge_speed": "25",
             "bridge_no_support": "1",
-            "counterbore_hole_bridging": "none"
+            "counterbore_hole_bridging": "none",
+            "enable_support": "0"
           }
         }
       ],
@@ -148,7 +128,7 @@
     },
     {
       "file": "print/fit-test-petg.3mf",
-      "project_sha256": "86523ef6bcf2fe51b8c0c8dd86091f78e75154bc66bc32aa98fe0289bb2104e9",
+      "project_sha256": "29cd5ca44bf44138d030d3f987665b7304ca643bd467c82efa147311b74fc1cf",
       "objects": [
         {
           "name": "Lower clamshell",
@@ -159,27 +139,15 @@
           "bad_winding": 0,
           "duplicate_faces": 0,
           "collapsed_faces_at_1e_5_mm": 0,
-          "support_paint_counts": {
-            "8": 50538,
-            "4": 32
-          },
-          "mesh_sha256": "76ca28a7bfa1bdb3504b6ff43ea248a595860d41a6afa8f64754d04b17ed9ee1",
+          "support_paint_counts": {},
+          "mesh_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
           "object_overrides": {
             "name": "Lower clamshell",
             "extruder": "1",
-            "enable_support": "1",
-            "support_type": "normal(manual)",
-            "support_style": "snug",
-            "support_on_build_plate_only": "0",
-            "support_remove_small_overhang": "0",
             "bridge_no_support": "0",
-            "support_interface_top_layers": "3",
-            "support_interface_bottom_layers": "2",
-            "support_interface_spacing": "0.2",
-            "support_bottom_interface_spacing": "0.2",
-            "support_top_z_distance": "0.2",
-            "support_bottom_z_distance": "0.2",
-            "support_object_xy_distance": "0.35"
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -191,27 +159,15 @@
           "bad_winding": 0,
           "duplicate_faces": 0,
           "collapsed_faces_at_1e_5_mm": 0,
-          "support_paint_counts": {
-            "8": 103760,
-            "4": 32
-          },
-          "mesh_sha256": "dcdc94a4e959af199b7318be928d1bd9e598b7221d9fd41b0d59ba1401da81e6",
+          "support_paint_counts": {},
+          "mesh_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
           "object_overrides": {
             "name": "Upper clamshell",
             "extruder": "1",
-            "enable_support": "1",
-            "support_type": "normal(manual)",
-            "support_style": "snug",
-            "support_on_build_plate_only": "0",
-            "support_remove_small_overhang": "0",
             "bridge_no_support": "0",
-            "support_interface_top_layers": "3",
-            "support_interface_bottom_layers": "2",
-            "support_interface_spacing": "0.2",
-            "support_bottom_interface_spacing": "0.2",
-            "support_top_z_distance": "0.2",
-            "support_bottom_z_distance": "0.2",
-            "support_object_xy_distance": "0.35"
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -227,7 +183,10 @@
           "mesh_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
           "object_overrides": {
             "name": "Clip +Y",
-            "extruder": "1"
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         },
         {
@@ -243,7 +202,10 @@
           "mesh_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
           "object_overrides": {
             "name": "Clip -Y",
-            "extruder": "1"
+            "extruder": "1",
+            "enable_support": "0",
+            "brim_type": "no_brim",
+            "brim_width": "0"
           }
         }
       ],

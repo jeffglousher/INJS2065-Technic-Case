@@ -1,156 +1,143 @@
 {
-  "posts_with_local_interface": 16,
-  "post_checks": [
+  "supports_absent": true,
+  "brims_skirts_absent": true,
+  "projects": [
     {
-      "shell_object": 1,
-      "post_center_local_x": -11.8,
-      "side": -1,
-      "interface_segments": 88,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
+      "project": "print/assembly-petg.3mf",
+      "project_sha256": "985783bfa8f7e6019cb76b13cd979e270605c488d78285693f9d0dda847dc780",
+      "gcode_sha256": "c40c731d50c43c9eebb433a0b1a85f3f47287fdab4fdcfbb76c5d0d5dbdf4fdd",
+      "feature_types": [
+        "Bottom surface",
+        "Bridge",
+        "Custom",
+        "Floating vertical shell",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Overhang wall",
+        "Sparse infill",
+        "Top surface"
+      ],
+      "object_feature_types": {
+        "1": [
+          "Bottom surface",
+          "Bridge",
+          "Floating vertical shell",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Sparse infill",
+          "Top surface"
+        ],
+        "2": [
+          "Bottom surface",
+          "Bridge",
+          "Floating vertical shell",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Overhang wall",
+          "Sparse infill",
+          "Top surface"
+        ],
+        "3": [
+          "Bottom surface",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Top surface"
+        ],
+        "4": [
+          "Bottom surface",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Top surface"
+        ],
+        "5": [
+          "Bridge",
+          "Custom",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Top surface"
+        ]
+      },
+      "support_features": 0,
+      "brim_skirt_features": 0,
+      "print_sent": false
     },
     {
-      "shell_object": 1,
-      "post_center_local_x": -11.8,
-      "side": 1,
-      "interface_segments": 87,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": -5.9,
-      "side": -1,
-      "interface_segments": 93,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": -5.9,
-      "side": 1,
-      "interface_segments": 98,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": 0,
-      "side": -1,
-      "interface_segments": 96,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": 0,
-      "side": 1,
-      "interface_segments": 99,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": 5.9,
-      "side": -1,
-      "interface_segments": 87,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 1,
-      "post_center_local_x": 5.9,
-      "side": 1,
-      "interface_segments": 80,
-      "highest_interface_nozzle_z_in_tip_region": 5.6,
-      "first_sampled_tip_layer_z": 5.96,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": -8.85,
-      "side": -1,
-      "interface_segments": 93,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": -8.85,
-      "side": 1,
-      "interface_segments": 99,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": -2.95,
-      "side": -1,
-      "interface_segments": 107,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": -2.95,
-      "side": 1,
-      "interface_segments": 103,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": 2.95,
-      "side": -1,
-      "interface_segments": 105,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": 2.95,
-      "side": 1,
-      "interface_segments": 102,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": 8.85,
-      "side": -1,
-      "interface_segments": 93,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
-    },
-    {
-      "shell_object": 2,
-      "post_center_local_x": 8.85,
-      "side": 1,
-      "interface_segments": 94,
-      "highest_interface_nozzle_z_in_tip_region": 19.2,
-      "first_sampled_tip_layer_z": 19.4,
-      "interface_present_below_first_sampled_tip_layer": true
+      "project": "print/fit-test-petg.3mf",
+      "project_sha256": "29cd5ca44bf44138d030d3f987665b7304ca643bd467c82efa147311b74fc1cf",
+      "gcode_sha256": "91061497ce9d46950a9fd6ff534eb7f56e319494c5ff6d75472911be00e3c6b8",
+      "feature_types": [
+        "Bottom surface",
+        "Bridge",
+        "Custom",
+        "Floating vertical shell",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Overhang wall",
+        "Sparse infill",
+        "Top surface"
+      ],
+      "object_feature_types": {
+        "1": [
+          "Bottom surface",
+          "Bridge",
+          "Floating vertical shell",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Sparse infill",
+          "Top surface"
+        ],
+        "2": [
+          "Bottom surface",
+          "Bridge",
+          "Floating vertical shell",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Overhang wall",
+          "Sparse infill",
+          "Top surface"
+        ],
+        "3": [
+          "Bottom surface",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Top surface"
+        ],
+        "4": [
+          "Bottom surface",
+          "Custom",
+          "Gap infill",
+          "Inner wall",
+          "Internal solid infill",
+          "Outer wall",
+          "Top surface"
+        ]
+      },
+      "support_features": 0,
+      "brim_skirt_features": 0,
+      "print_sent": false
     }
   ],
-  "support_segments": 2050,
-  "support_filament_mm": 37.30679,
-  "supports_only_on_clamshells": true,
-  "brims_skirts_absent": true,
-  "clip_and_hub_extrusion_trajectories_unchanged": true,
-  "nominal_commanded_beads_not_measured_print": true,
-  "print_sent": false
+  "geometry_and_placements_match_prior_commit_without_support_paint": true,
+  "print_sent": false,
+  "limits": "Native commanded toolpaths, not measured printed dimensions or unsupported underside quality."
 }

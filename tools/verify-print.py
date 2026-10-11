@@ -89,30 +89,25 @@ def audit_project(filename, count):
         check(settings['printer_settings_id'] == 'Bambu Lab X2D 0.4 nozzle', 'Wrong printer/nozzle')
         check(settings['filament_type'] == ['PETG'] and any('PETG Basic' in s for s in settings['filament_settings_id']), 'Wrong material')
         check(settings['print_sequence'] == 'by object' and metadata(cfg.find('plate'))['print_sequence'] == 'by object', 'Wrong print sequence')
-        check(settings['brim_type'] == 'no_brim' and settings['enable_support'] == '0', 'Unexpected global brim/support')
+        check(settings['brim_type'] == 'no_brim' and settings['brim_width'] == '0'
+              and settings['skirt_loops'] == '0' and settings['enable_support'] == '0', 'Unexpected global brim/skirt/support')
         check(settings['layer_height'] == '0.16' and settings['wall_loops'] == '4' and settings['sparse_infill_density'] == '25%', 'Wrong main process')
         rows = []
         for i, obj in enumerate(objects, 1):
             values = metadata(obj)
             name = values['name']
             row = audit_mesh(z.read(f'3D/Objects/object_{i}.model'), name)
-            if 'clamshell' in name:
-                required = {'enable_support':'1', 'support_type':'normal(manual)', 'support_style':'snug',
-                            'support_remove_small_overhang':'0', 'bridge_no_support':'0', 'support_on_build_plate_only':'0',
-                            'support_interface_top_layers':'3', 'support_interface_spacing':'0.2',
-                            'support_interface_bottom_layers':'2', 'support_bottom_interface_spacing':'0.2',
-                            'support_top_z_distance':'0.2', 'support_bottom_z_distance':'0.2', 'support_object_xy_distance':'0.35'}
-                check(all(values.get(k) == v for k, v in required.items()), f'{name}: support settings')
-                check(row['support_paint_counts'].get('4') == 32, f'{name}: enforcement paint missing')
-            elif name == 'Output hub':
+            check(values.get('enable_support', settings['enable_support']) == '0', f'{name}: unexpected support')
+            check(values.get('brim_type', settings['brim_type']) == 'no_brim'
+                  and values.get('brim_width', settings['brim_width']) == '0', f'{name}: unexpected brim')
+            check(not row['support_paint_counts'], f'{name}: stale support paint')
+            if name == 'Output hub':
                 required = {'enable_support':'0', 'layer_height':'0.08', 'wall_loops':'6', 'sparse_infill_density':'100',
                             'outer_wall_speed':'30', 'inner_wall_speed':'60',
                             'bridge_flow':'0.9', 'bridge_speed':'25', 'thick_bridges':'0', 'bridge_no_support':'1'}
                 check(all(values.get(k) == v for k, v in required.items()), 'Hub settings differ')
                 item = next(item for item in model.find(NS + 'build') if item.get('objectid') == obj.get('id'))
                 check([float(x) for x in item.get('transform').split()][:9] == [1,0,0,0,-1,0,0,0,-1], 'Hub is not flipped')
-            else:
-                check(values.get('enable_support', settings['enable_support']) == '0', f'{name}: unexpected support')
             row['object_overrides'] = values
             rows.append(row)
         return {'file': 'print/' + filename, 'project_sha256': sha(path), 'objects': rows,
@@ -127,15 +122,20 @@ def main():
         check(json.loads(z.read('model.json')) == json.loads((ROOT / 'design/current.model.json').read_text()), 'Native project and JSON differ')
     assembly = audit_project('assembly-petg.3mf', 5)
     fit = audit_project('fit-test-petg.3mf', 4)
-    check([r['mesh_sha256'] for r in assembly['objects'][:4]] == [r['mesh_sha256'] for r in fit['objects']], 'Fit meshes or support paint differ')
+    check([r['mesh_sha256'] for r in assembly['objects'][:4]] == [r['mesh_sha256'] for r in fit['objects']], 'Fit meshes differ')
     for project, receipt_name in [(assembly, 'assembly-slice.json'), (fit, 'fit-test-slice.json')]:
         receipt = json.loads((ROOT / 'review/current' / receipt_name).read_text())
         check(receipt['project_sha256'] == project['project_sha256'] and receipt['native_result']['return_code'] == 0, 'Slice receipt does not match project')
+        check(receipt['supports_absent'] and receipt['brims_skirts_absent'], 'Slice contains supports/brims/skirts')
+        for plate in receipt['native_result']['sliced_plates']:
+            check(not plate['warning_message'], 'Native slice warning')
+            check(not any('support' in k.lower() or 'brim' in k.lower() or 'skirt' in k.lower()
+                          for k in plate['feature_type_times']), 'Native slice has support/brim/skirt paths')
     result = {'passed': True, 'projects': [assembly, fit], 'weld_tolerance_mm': 1e-5,
               'limits': 'Topology and saved settings audit; no exhaustive triangle self-intersection, measured printer accuracy or physical snap/strength qualification.',
               'print_sent': False}
     (ROOT / 'review/current/print-project-check.json').write_text(json.dumps(result, indent=2)+'\n')
-    print('PASS: five assembly / four fit-test parts; closed connected positive meshes; opposite edge winding; native support paint and object overrides intact; matching slice receipts.')
+    print('PASS: five assembly / four fit-test parts; closed connected positive meshes; opposite edge winding; no supports, support paint, brims or skirts; hub overrides preserved; matching slice receipts.')
 
 
 if __name__ == '__main__':
