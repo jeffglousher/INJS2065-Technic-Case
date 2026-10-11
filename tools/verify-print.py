@@ -24,6 +24,49 @@ def metadata(node):
     return {n.get('key'): n.get('value') for n in node.findall('metadata') if n.get('key')}
 
 
+def audit_modifiers(model, obj, index):
+    resources = model.find(NS + 'resources')
+    resource_ids = [node.get('id') for node in resources]
+    check(len(resource_ids) == len(set(resource_ids)), 'Duplicate model resource IDs')
+    parent = next(node for node in resources if node.get('id') == obj.get('id'))
+    components = parent.find(NS + 'components')
+    modifiers = obj.findall("part[@subtype='modifier_part']")
+    expected_ids = {str(200 + (index - 1)*2 + side) for side in (1, 2)}
+    check({part.get('id') for part in modifiers} == expected_ids and len(modifiers) == 2,
+          'Unexpected or duplicate modifier IDs')
+    normal = obj.find("part[@subtype='normal_part']")
+    component_ids = [node.get('objectid') for node in components]
+    check(len(component_ids) == 3 and set(component_ids) == expected_ids | {normal.get('id')},
+          'Modifier not attached exactly once to its shell')
+    required_speeds = {'outer_wall_speed':'30','inner_wall_speed':'45','gap_infill_speed':'30',
+                       'internal_solid_infill_speed':'45','top_surface_speed':'30','small_perimeter_speed':'25'}
+    height = 10.95 if index == 1 else 24.45
+    identity_3mf = [1,0,0,0,1,0,0,0,1,0,0,0]
+    identity_matrix = [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
+    for part in modifiers:
+        values = metadata(part)
+        side = -1 if int(part.get('id')) % 2 else 1
+        check(values.get('name') == f'Technic rail quality {"-Y" if side < 0 else "+Y"}',
+              'Wrong modifier name/side')
+        check(all(values.get(key) == ','.join([value]*6) for key,value in required_speeds.items()),
+              'Modifier nullable speeds differ')
+        component = next(node for node in components if node.get('objectid') == part.get('id'))
+        check([float(v) for v in component.get('transform', '').split()] == identity_3mf,
+              'Modifier component is transformed')
+        check([float(v) for v in values.get('matrix','').split()] == identity_matrix,
+              'Modifier part is transformed')
+        mesh = next(node for node in resources if node.get('id') == part.get('id'))
+        check(mesh.get('type') == 'model' and mesh.find(NS + 'mesh') is not None,
+              'Modifier resource is not an inline mesh')
+        vertices = [tuple(float(node.get(axis)) for axis in ('x','y','z'))
+                    for node in mesh.iter(NS + 'vertex')]
+        ymin,ymax = (-12.5,-5.2) if side < 0 else (5.2,12.5)
+        corners = {(x,y,z) for x in (-21.,21.) for y in (ymin,ymax) for z in (-.01,height+.01)}
+        check(len(vertices) == 8 and set(vertices) == corners, 'Modifier bounds differ from reviewed rail coverage')
+        check(len(list(mesh.iter(NS + 'triangle'))) == 12, 'Modifier is not the reviewed box')
+        audit_mesh(ET.tostring(mesh), values['name'])
+
+
 def audit_mesh(raw, name):
     model = ET.fromstring(raw)
     vertices = [tuple(float(v.get(a)) for a in ('x', 'y', 'z')) for v in model.iter(NS + 'vertex')]
@@ -96,7 +139,8 @@ def audit_project(filename, count):
         check('wall_generator' in settings['different_settings_to_system'][0].split(';'), 'GUI reload would discard Arachne')
         bands = ET.fromstring(z.read('Metadata/layer_config_ranges.xml'))
         expected_bands = {'1':[(5.0,10.95)], '2':[(0.2,3.6),(8.5,15.5),(18.0,24.45)]}
-        check(len(bands.findall('object')) == 2, 'Unexpected height-band object count')
+        check(sorted(node.get('id') for node in bands.findall('object')) == ['1','2'],
+              'Missing or duplicate height-band object IDs')
         for node in bands.findall('object'):
             check(node.get('id') in expected_bands, 'Height band affects clip/hub')
             check([(float(r.get('min_z')),float(r.get('max_z'))) for r in node.findall('range')] == expected_bands[node.get('id')], 'Wrong height bands')
@@ -115,16 +159,7 @@ def audit_project(filename, count):
             modifiers = obj.findall("part[@subtype='modifier_part']")
             if i <= 2:
                 check('wall_generator' not in values, 'Shell does not inherit the validated process generator')
-                check(len(modifiers) == 2, f'{name}: missing rail modifiers')
-                required_speeds = {'outer_wall_speed':'30','inner_wall_speed':'45','gap_infill_speed':'30',
-                                   'internal_solid_infill_speed':'45','top_surface_speed':'30','small_perimeter_speed':'25'}
-                resources = model.find(NS + 'resources')
-                for modifier in modifiers:
-                    mv = metadata(modifier)
-                    check(mv.get('name','').startswith('Technic rail quality '), 'Unknown modifier')
-                    check(all(mv.get(k) == ','.join([v]*6) for k,v in required_speeds.items()), 'Modifier nullable speeds differ')
-                    mesh = next(n for n in resources if n.get('id') == modifier.get('id'))
-                    audit_mesh(ET.tostring(mesh), mv['name'])
+                audit_modifiers(model, obj, i)
             else:
                 check(not modifiers and values.get('wall_generator') == 'classic', f'{name}: unintended modifiers/generator')
             if name == 'Output hub':
@@ -157,6 +192,15 @@ def main():
         record = next(r for r in quality['projects'] if r['project'] == project['file'])
         check(quality['passed'] and record['project_sha256'] == project['project_sha256']
               and record['gcode_sha256'] == receipt['gcode_sha256'], 'Local toolpath receipt is stale')
+        fingerprints = record.get('non_shell_toolpath_sha256', {})
+        check(set(fingerprints) == {str(i) for i in range(3,len(project['objects'])+1)}
+              and all(len(value) == 64 and all(c in '0123456789abcdef' for c in value)
+                      for value in fingerprints.values()), 'Missing accepted clip/hub path fingerprints')
+        paths = json.loads((ROOT / 'review/current/toolpath-check.json').read_text())
+        path_record = next(r for r in paths['projects'] if r['project'] == project['file'])
+        check(path_record['project_sha256'] == project['project_sha256']
+              and path_record['gcode_sha256'] == receipt['gcode_sha256']
+              and path_record['supports_brims_skirts_absent'], 'Consolidated toolpath receipt is stale')
         for plate in receipt['native_result']['sliced_plates']:
             check(not plate['warning_message'], 'Native slice warning')
             check(not any('support' in k.lower() or 'brim' in k.lower() or 'skirt' in k.lower()

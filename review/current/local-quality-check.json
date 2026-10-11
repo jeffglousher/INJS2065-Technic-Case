@@ -97,7 +97,13 @@
         "4": true,
         "5": true
       },
-      "printable_meshes_and_placements_unchanged": true
+      "printable_meshes_and_placements_unchanged": true,
+      "baseline_commit": "3aabeafb9dcde4209b8b2af6134a0e2ff26f72af",
+      "non_shell_toolpath_sha256": {
+        "3": "4f7fe4f1393efdfc1a9b8455804ebe3f17b77829b948e1b37717313b50fc1eb0",
+        "4": "0cb8d25a102a82cd349f79dfd42aea7034b692db5cff171e83423470b390efdf",
+        "5": "43e518e040f0a24c6316731e96003440d94d0cf20c6442044d776e5332852956"
+      }
     },
     {
       "gcode_sha256": "65e8fe405ed7a092a37b024cfe4e748fd9d8e5101e558de1f82376c6367411d9",
@@ -194,7 +200,12 @@
         "3": true,
         "4": true
       },
-      "printable_meshes_and_placements_unchanged": true
+      "printable_meshes_and_placements_unchanged": true,
+      "baseline_commit": "3aabeafb9dcde4209b8b2af6134a0e2ff26f72af",
+      "non_shell_toolpath_sha256": {
+        "3": "4f7fe4f1393efdfc1a9b8455804ebe3f17b77829b948e1b37717313b50fc1eb0",
+        "4": "0cb8d25a102a82cd349f79dfd42aea7034b692db5cff171e83423470b390efdf"
+      }
     }
   ],
   "baseline_rail_stats": {

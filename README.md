@@ -6,7 +6,7 @@ Use [assembly-petg.3mf](print/assembly-petg.3mf) for all five printed parts, or 
 
 This is a fit-test candidate. Elastic preload, holding force and insertion/holding strain remain unqualified. See [design specification and remaining checks](DESIGN.md) and [sources and reuse guidance](REFERENCES.md).
 
-The resumed review passes CAD replay, export preflight, mesh/settings checks and a fresh assembly GUI slice. Recommendation: run the complete-shell fit test before mechanical acceptance. Bambu Studio is open on the assembly preview; no print was sent. [The current report](DESIGN.md#current-review-and-print-decision) includes the decision, cavity/rear/section views and slicer evidence.
+CAD replay, export preflight, mesh/settings checks and independent native slices pass. Run the complete-shell fit test before mechanical acceptance. [The current report](DESIGN.md#current-review-and-print-decision) includes the decision, cavity/rear/section views and reviewed slicer evidence.
 
 The [contact-path follow-up](DESIGN.md#contact-path-follow-up) now checks 20 exact rigid poses on both sides: the installed seat has substantially less nominal overlap than the withdrawal obstruction. Whole-clip inward motion is blocked by supporting geometry, so strain analysis must model local corner flex. The current version has not yet been physically tested.
 
@@ -18,4 +18,8 @@ Run `node tools/verify-current.mjs` to replay and check the seven current meshes
 
 Run `python tools/verify-print.py` to check saved project hashes, native-model consistency, mesh closure/winding, absence of supports/brims/skirts, object overrides and matching slice receipts without a printer connection. To regenerate the current mesh renders, use `python tools/render-review.py --scene scene.json` with an actual `solid_scene` response from the canonical model; the renderer requires Pillow. Inspect all generated views before presenting them.
 
+Run `python tools/slice-print.py` for fresh Bambu native slices and actual rail path checks. Use `--update-evidence` to refresh matching receipts after both projects pass. It sends no printer job.
+
 The locally user-modified `review/hub-orientation-20261010/flipped-no-support.3mf` is preserved at its original path. It is separate from the current print projects above.
+
+[Final adversarial review](review/current/final-review.json) records the resolved findings and validation limits. The application section viewer is on the Bevy integration branch; its main delivery depends on [PR #124](https://github.com/limo-cad/Limo-CAD/pull/124).

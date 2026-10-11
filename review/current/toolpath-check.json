@@ -1,181 +1,13 @@
 {
   "supports_absent": true,
   "brims_skirts_absent": true,
+  "print_sent": false,
   "projects": [
     {
-      "gcode_sha256": "ba111edc8337fb802bc7409fdff6b9c4721b40d7e05edd1c92ff07f145e9655b",
-      "rail_stats": {
-        "Bridge": {
-          "segments": 365,
-          "speed_min_mm_s": 25.0,
-          "speed_median_mm_s": 25.0,
-          "speed_max_mm_s": 25.0,
-          "width_min_mm": 0.449388,
-          "width_max_mm": 0.57755
-        },
-        "Floating vertical shell": {
-          "segments": 4781,
-          "speed_min_mm_s": 25.0,
-          "speed_median_mm_s": 36.0,
-          "speed_max_mm_s": 36.0,
-          "width_min_mm": 0.296871,
-          "width_max_mm": 0.658486
-        },
-        "Gap infill": {
-          "segments": 52,
-          "speed_min_mm_s": 30.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 30.0,
-          "width_min_mm": 0.0784559,
-          "width_max_mm": 0.256271
-        },
-        "Inner wall": {
-          "segments": 90062,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 45.0,
-          "speed_max_mm_s": 45.0,
-          "width_min_mm": 0.346552,
-          "width_max_mm": 0.741112
-        },
-        "Internal solid infill": {
-          "segments": 8637,
-          "speed_min_mm_s": 45.0,
-          "speed_median_mm_s": 45.0,
-          "speed_max_mm_s": 45.0,
-          "width_min_mm": 0.347512,
-          "width_max_mm": 0.666712
-        },
-        "Outer wall": {
-          "segments": 45543,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 40.0,
-          "width_min_mm": 0.352272,
-          "width_max_mm": 0.627082
-        },
-        "Overhang wall": {
-          "segments": 375,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 25.0,
-          "speed_max_mm_s": 25.0,
-          "width_min_mm": 0.378628,
-          "width_max_mm": 0.467164
-        },
-        "Sparse infill": {
-          "segments": 9900,
-          "speed_min_mm_s": 180.0,
-          "speed_median_mm_s": 180.0,
-          "speed_max_mm_s": 180.0,
-          "width_min_mm": 0.45,
-          "width_max_mm": 0.45
-        },
-        "Top surface": {
-          "segments": 723,
-          "speed_min_mm_s": 30.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 30.0,
-          "width_min_mm": 0.42,
-          "width_max_mm": 0.42
-        }
-      },
-      "shell_layer_heights_mm": {
-        "1": [
-          0.12,
-          0.16,
-          0.2
-        ],
-        "2": [
-          0.12,
-          0.16,
-          0.2
-        ]
-      },
-      "supports_brims_skirts_absent": true,
       "project": "print/assembly-petg.3mf",
       "project_sha256": "cf4211b2d214cdca9c976ac7b5185f7c1482cb3271f2566f7330093dddace315",
-      "non_shell_extrusions_match_baseline": {
-        "3": true,
-        "4": true,
-        "5": true
-      },
-      "printable_meshes_and_placements_unchanged": true
-    },
-    {
-      "gcode_sha256": "65e8fe405ed7a092a37b024cfe4e748fd9d8e5101e558de1f82376c6367411d9",
-      "rail_stats": {
-        "Bridge": {
-          "segments": 365,
-          "speed_min_mm_s": 25.0,
-          "speed_median_mm_s": 25.0,
-          "speed_max_mm_s": 25.0,
-          "width_min_mm": 0.449388,
-          "width_max_mm": 0.57755
-        },
-        "Floating vertical shell": {
-          "segments": 4781,
-          "speed_min_mm_s": 25.0,
-          "speed_median_mm_s": 36.0,
-          "speed_max_mm_s": 36.0,
-          "width_min_mm": 0.296871,
-          "width_max_mm": 0.658486
-        },
-        "Gap infill": {
-          "segments": 52,
-          "speed_min_mm_s": 30.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 30.0,
-          "width_min_mm": 0.0784559,
-          "width_max_mm": 0.256271
-        },
-        "Inner wall": {
-          "segments": 90062,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 45.0,
-          "speed_max_mm_s": 45.0,
-          "width_min_mm": 0.346552,
-          "width_max_mm": 0.741112
-        },
-        "Internal solid infill": {
-          "segments": 8637,
-          "speed_min_mm_s": 45.0,
-          "speed_median_mm_s": 45.0,
-          "speed_max_mm_s": 45.0,
-          "width_min_mm": 0.347512,
-          "width_max_mm": 0.666712
-        },
-        "Outer wall": {
-          "segments": 45543,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 40.0,
-          "width_min_mm": 0.352272,
-          "width_max_mm": 0.627082
-        },
-        "Overhang wall": {
-          "segments": 375,
-          "speed_min_mm_s": 10.0,
-          "speed_median_mm_s": 25.0,
-          "speed_max_mm_s": 25.0,
-          "width_min_mm": 0.378628,
-          "width_max_mm": 0.467164
-        },
-        "Sparse infill": {
-          "segments": 9900,
-          "speed_min_mm_s": 180.0,
-          "speed_median_mm_s": 180.0,
-          "speed_max_mm_s": 180.0,
-          "width_min_mm": 0.45,
-          "width_max_mm": 0.45
-        },
-        "Top surface": {
-          "segments": 723,
-          "speed_min_mm_s": 30.0,
-          "speed_median_mm_s": 30.0,
-          "speed_max_mm_s": 30.0,
-          "width_min_mm": 0.42,
-          "width_max_mm": 0.42
-        }
-      },
+      "gcode_sha256": "ba111edc8337fb802bc7409fdff6b9c4721b40d7e05edd1c92ff07f145e9655b",
+      "supports_brims_skirts_absent": true,
       "shell_layer_heights_mm": {
         "1": [
           0.12,
@@ -187,17 +19,27 @@
           0.16,
           0.2
         ]
-      },
-      "supports_brims_skirts_absent": true,
+      }
+    },
+    {
       "project": "print/fit-test-petg.3mf",
       "project_sha256": "112e7fd64d754c6b8fa33b1ab08f59924372406cc4bd7d4f0c5f3dc540867289",
-      "non_shell_extrusions_match_baseline": {
-        "3": true,
-        "4": true
-      },
-      "printable_meshes_and_placements_unchanged": true
+      "gcode_sha256": "65e8fe405ed7a092a37b024cfe4e748fd9d8e5101e558de1f82376c6367411d9",
+      "supports_brims_skirts_absent": true,
+      "shell_layer_heights_mm": {
+        "1": [
+          0.12,
+          0.16,
+          0.2
+        ],
+        "2": [
+          0.12,
+          0.16,
+          0.2
+        ]
+      }
     }
   ],
-  "print_sent": false,
-  "limits": "Commanded paths and sliceability validated. Segment counts depend on curve subdivision, not physical defect counts. Layer bands affect whole shell cross-sections at their heights. No measured surface finish, pin fit, unsupported underside quality or retention qualification."
+  "local_quality_evidence": "local-quality-check.json",
+  "limits": "Commanded paths and sliceability checked; no measured fit, surface finish or mechanical qualification."
 }

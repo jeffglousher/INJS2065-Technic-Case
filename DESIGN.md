@@ -4,7 +4,7 @@ The native CAD and both print projects describe the current fit-test candidate. 
 
 ## Current review and print decision
 
-The resumed review passes CAD replay, export preflight, saved-project mesh/settings checks and a fresh assembly slice in Bambu Studio. The CAD geometry is unchanged. Both canonical print projects now disable supports, brims and skirts, and all support paint has been removed. The full hex posts, 0.28 mm nubs and 0.205 mm radial aperture clearance remain the current candidate.
+CAD replay, export preflight, saved-project mesh/settings checks and independent native slices pass. Both print projects disable supports, brims and skirts, with no support paint. The current candidate has full hex posts, 0.28 mm nubs and 0.205 mm radial aperture clearance.
 
 Recommendation: proceed with the complete-shell PETG fit test, subject to the user's final go/no-go. Final mechanical acceptance remains pending. Print [fit-test-petg.3mf](print/fit-test-petg.3mf) first (about 2 h 54 min / 22.46 g), inspect the unsupported hex undersides for sagging and roughness without shaving the retaining surfaces, and check both clips for full seating, a snap, no loose sliding or wobble, and no whitening or permanent set. A loose or damaged fit fails this test; measure the printed features before making another dimensional adjustment. Then check the hub's friction fit and bearing-supported rotation as described below. PETG results do not qualify PLA.
 
@@ -12,7 +12,7 @@ Recommendation: proceed with the complete-shell PETG fit test, subject to the us
 
 [Saved-project verification](review/current/print-project-check.json) confirms five closed, connected, positive-volume assembly meshes with consistent edge winding, matching four-part fit-test meshes with no support paint, and the object settings described below. The native CAD file's model matches the canonical JSON, and the slice receipts match the current 3MF hashes. Portable CAD export does not carry these Bambu process overrides: use the prepared print projects.
 
-The fresh GUI slice shows all five objects, no supports or brims on any part, the flipped hub, and an estimate of 3 h 29 min / 23.69 g. Bambu Studio is left open on that preview. This used the saved X2D 0.4 mm profile; live printer/AMS configuration was not synchronized. No printer job was sent.
+The reviewed GUI slice shows all five objects, no supports or brims, the flipped hub, and an estimate of 3 h 29 min / 23.69 g. It used the saved X2D 0.4 mm profile; live printer/AMS configuration was not synchronized. No printer job was sent.
 
 ![Current sliced assembly layout](review/current/slicer-layout.png)
 
@@ -35,8 +35,6 @@ Each clip has two rows of four blind hex pockets, full walls, flat pocket floors
 The nub protrusion is 0.28 mm, with a 0.80 mm crest curve radius, 0.20 mm blend radius and 1.4664 mm meridian span. The minimum corner wall in the clip plane is 0.897584 mm; flat backing is 1.45 mm. Inner hex clearance is 0.10 mm per flat. The receiving seat has a 0.50 mm radius and 0.020 mm crest-center relief; its cap starts at absolute CAD Y = 9.809663 and ends at 10.309663.
 
 The intended flex is inward toward the pocket, perpendicular to the clip's broad face. This is a backed, closed frame, not an isolated free cantilever. Undeformed local holding clearance movement is 0.056926 mm and the flank-crossing axial geometric envelope is 0.39933 mm. Neither is an accepted elastic deformation or an actual dynamic insertion displacement. Rigid installed geometry has four expected clip/housing overlap pairs of about 0.002292 mm³ each; overlap volume is not a force prediction.
-
-The sampled extrusion-envelope check has 24 nominal contacting path pairs. A hypothetical 0.02 mm setback on each contacting surface loses none; 0.03 mm loses four. This is a sensitivity check, not a measured printer tolerance or proof of retention.
 
 ## Hub and rotating clearances
 
@@ -74,7 +72,7 @@ Classic is explicitly retained for both clips and the hub. Their geometry, width
 
 The assembly was also reopened from its canonical file and sliced in the GUI. Its 3 h 29 min / 23.69 g prediction matches the native Arachne result, and the speed preview was inspected. The process preset-change metadata explicitly includes `wall_generator`; without this flag GUI reload restored the system preset's Classic generator despite the resolved command-line configuration. Saved-file verification now checks that flag and shell inheritance. The final screenshots and local-quality receipt record the reviewed state.
 
-[Local quality evidence](review/current/local-quality-check.json) records baseline, Classic-detail and Arachne comparisons plus final toolpath checks. Reproduce project configuration with `python tools/configure-local-quality.py --output-directory print`, reslice both projects with the resolved PETG material, then regenerate matching receipts before running `python tools/verify-print.py`. Inspect the actual speed/line-width preview at modifier boundaries and around the pin-hole arches; a numeric speed check alone is insufficient.
+[Local quality evidence](review/current/local-quality-check.json) records the Classic/Arachne comparison and final toolpath checks. Run `python tools/slice-print.py` for fresh native slices and actual path checks. It compares clip/hub extrusion fingerprints against the accepted baseline without requiring old Git history. Add `--update-evidence` to refresh matching receipts after both projects pass. To independently rebuild that comparison, add `--baseline-ref 3aabeafb9dcde4209b8b2af6134a0e2ff26f72af` in a checkout containing that commit. Run `python tools/verify-print.py` for saved settings, modifier attachment/bounds/transforms and receipt consistency; `python tools/test-print-contracts.py` exercises misplaced and disconnected modifier failures. Configuration is reproducible with `python tools/configure-local-quality.py --output-directory print`. Inspect speed/line-width preview at modifier boundaries and pin-hole arches; numeric checks do not qualify printed finish.
 
 ![Actual toolpath comparison around the upper pin arch and hex features](review/current/local-quality-toolpaths.png)
 
