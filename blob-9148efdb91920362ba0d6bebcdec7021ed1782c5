@@ -1,0 +1,50 @@
+from pathlib import Path
+import ast,hashlib,json,subprocess,sys,zipfile,xml.etree.ElementTree as E
+sys.path.insert(0,'D:/noBS-CAD-Reviews/INJS2065-Technic-Case/slicer-challenge-20261005/python-libs')
+import numpy as np
+ROOT=Path('C:/Users/jeffg/dev/INJS2065-Technic-Case');OUT=Path(__file__).parent
+SOURCE=ROOT/'review/incremental-fit-20261010/assembly-petg-incremental-fit.3mf'
+ns={'m':'http://schemas.microsoft.com/3dmanufacturing/core/2015/02'}
+E.register_namespace('',ns['m']);E.register_namespace('p','http://schemas.microsoft.com/3dmanufacturing/production/2015/06')
+sha=lambda b:hashlib.sha256(b).hexdigest()
+with zipfile.ZipFile(SOURCE) as z:template={n:z.read(n) for n in z.namelist()}
+for gap in [.16,.20]:
+ tag=f'hex-support-gap-{int(gap*100):02d}';data=template.copy();cfg=E.fromstring(data['Metadata/model_settings.config']);paint=[]
+ settings={'enable_support':'1','support_type':'normal(manual)','support_style':'snug','support_on_build_plate_only':'0','support_remove_small_overhang':'0','bridge_no_support':'0','support_interface_top_layers':'3','support_interface_bottom_layers':'2','support_interface_spacing':'0.2','support_bottom_interface_spacing':'0.2','support_top_z_distance':str(gap),'support_bottom_z_distance':'0.2','support_object_xy_distance':'0.35'}
+ for i in [1,2]:
+  name=f'3D/Objects/object_{i}.model';r=E.fromstring(data[name]);tris=r.findall('.//m:triangle',ns)
+  vs=np.array([[float(v.get(k)) for k in ['x','y','z']] for v in r.findall('.//m:vertex',ns)])
+  indices=np.array([[int(t.get(k)) for k in ['v1','v2','v3']] for t in tris]);a=vs[indices];c=a.mean(axis=1);norm=np.cross(a[:,1]-a[:,0],a[:,2]-a[:,0]);norm/=np.linalg.norm(norm,axis=1)[:,None]
+  mask=(np.abs(c[:,1])>8.8)&(np.abs(c[:,1])<10.57)&(norm[:,2]<-.8)&(c[:,2]>(5 if i==1 else 18))&(c[:,2]<(8 if i==1 else 22))
+  assert int(mask.sum())==32
+  # Native unsplit triangle encoding: state 1=enforcer -> hex 4;
+  # state 2=blocker -> hex 8. Block every other triangle explicitly.
+  for t,selected in zip(tris,mask):t.set('paint_supports','4' if selected else '8')
+  data[name]=E.tostring(r,encoding='utf-8',xml_declaration=True)
+  obj=next(o for o in cfg.findall('object') if o.get('id')==str(100+i))
+  for k,v in settings.items():
+   old=next((m for m in obj.findall('metadata') if m.get('key')==k),None)
+   if old is None:E.SubElement(obj,'metadata',{'key':k,'value':v})
+   else:old.set('value',v)
+  # Prove all geometry and all non-paint attributes match the source.
+  check=E.fromstring(data[name])
+  for t in check.findall('.//m:triangle',ns):t.attrib.pop('paint_supports')
+  assert E.tostring(check)==E.tostring(E.fromstring(template[name]))
+  paint.append({'object':i,'enforced_triangles':np.flatnonzero(mask).tolist(),'enforced_count':32,'blocked_count':len(tris)-32,'geometry_unchanged':True})
+ for m in cfg.findall('plate/metadata'):
+  if m.get('key')=='plater_name':m.set('value',f'INJS2065 full hexes - local PETG supports - gap {gap:.2f} mm')
+ data['Metadata/model_settings.config']=E.tostring(cfg,encoding='utf-8',xml_declaration=True)
+ assert data['Metadata/project_settings.config']==template['Metadata/project_settings.config']
+ assert all(data[f'3D/Objects/object_{i}.model']==template[f'3D/Objects/object_{i}.model'] for i in [3,4,5])
+ assert data['3D/3dmodel.model']==template['3D/3dmodel.model']
+ project=OUT/f'{tag}.3mf'
+ with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
+  for n,b in data.items():z.writestr(n,b)
+ d=OUT/tag;d.mkdir(exist_ok=True)
+ cmd=['C:/Program Files/Bambu Studio/bambu-studio.exe','--load-filaments','D:/noBS-CAD-Reviews/INJS2065-Technic-Case/petg-basic-update-20261007/bambu-petg-basic-resolved.json','--slice','1','--outputdir',str(d),'--export-settings',str(d/'resolved-settings.json'),str(project)]
+ p=subprocess.run(cmd,cwd=d,capture_output=True,creationflags=subprocess.CREATE_NO_WINDOW,timeout=180);(d/'cli.log').write_bytes(p.stdout+p.stderr)
+ result=json.loads((d/'result.json').read_text());assert p.returncode==result['return_code']==0,result
+ assert not result['sliced_plates'][0]['warning_message'],result
+ report={'source_sha256':sha(SOURCE.read_bytes()),'project_sha256':sha(project.read_bytes()),'gcode_sha256':sha((d/'plate_1.gcode').read_bytes()),'painting':paint,'shell_only_overrides':settings,'native_result':result,'all_mesh_geometry_unchanged':True,'clips_hub_unchanged':True,'global_profile_and_placements_unchanged':True,'print_sent':False}
+ (OUT/f'{tag}-slice.json').write_text(json.dumps(report,indent=2)+'\n')
+ print(tag,json.dumps(result['sliced_plates'][0]),flush=True)

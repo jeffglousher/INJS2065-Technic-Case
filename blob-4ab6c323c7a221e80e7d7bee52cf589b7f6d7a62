@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-04",
+  "geometryPreserved": true,
+  "featureCountBefore": 476,
+  "featureCountAfter": 392,
+  "removedDuplicateSketches": 68,
+  "removedDuplicateDatumPlanes": 15,
+  "removedIdentityMoves": 1,
+  "bodyCount": 7,
+  "assemblyContactExactlyUnchanged": true,
+  "bodies": [
+    {
+      "id": 1,
+      "topologySignature": "connectivity-v1:13984917998651256374",
+      "meshSha256": "60c97cca70f5c72605210f457b3b227c75d1ea43d0dfc84200cc0d34955b03da"
+    },
+    {
+      "id": 8,
+      "topologySignature": "connectivity-v1:17176878675683368842",
+      "meshSha256": "b4c16af9a2a1c71a8bedb781450c35e097d39ee6cde5697929f46a69036c3cb8"
+    },
+    {
+      "id": 18,
+      "topologySignature": "connectivity-v1:12120543005982476838",
+      "meshSha256": "46a57509e9799c7910e90c1d980cb7409d7acfc967b5121c402d884663d4d5fe"
+    },
+    {
+      "id": 53,
+      "topologySignature": "connectivity-v1:12897160718602513543",
+      "meshSha256": "9736c80965711fb02a163d451d6272bebfe39dcfe88f4caf4bdbeb3723d0e049"
+    },
+    {
+      "id": 54,
+      "topologySignature": "connectivity-v1:6320437548824863118",
+      "meshSha256": "849916b4fb081f781aeefd989305d602520f55269fe825d5f0509b1438e1752f"
+    },
+    {
+      "id": 173,
+      "topologySignature": "connectivity-v1:17973097925923791118",
+      "meshSha256": "f7a9b1a7054f1e7d1348f77eb8161a69a1fe2e41895731ad4b209ec0f2883cc9"
+    },
+    {
+      "id": 267,
+      "topologySignature": "connectivity-v1:14859662534867372334",
+      "meshSha256": "bb1d1ab27eb63fadb52447fad5ae9032fa1ecd8546aa32d149520b443f815467"
+    }
+  ],
+  "archiveRoot": "D:/noBS-CAD-Reviews/INJS2065-Technic-Case/history-cleanup-20261004",
+  "qualification": "CAD equality only; preload force, insertion flex and printed retention remain physically unverified."
+}

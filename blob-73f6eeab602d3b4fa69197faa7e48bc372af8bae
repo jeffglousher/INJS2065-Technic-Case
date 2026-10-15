@@ -1,0 +1,24 @@
+{
+  "code_verification": "Independent read-only retention_mechanics_review: no blocking sign, interpolation, owner, broadphase or redundant-row defect found; not physical qualification",
+  "scripts_sha256": {
+    "contact.py": "3bbc09b74859803273e1ba25bfcce1173d1ed92b05cb5a7cf6472920c7eb337e",
+    "contact_solver.py": "86ff9f54b8ffe32693f3f5e902ea8ee3b012dee92d3274ffc564e8ffff9cf8f7",
+    "registered_project.py": "3a5229ffef7d8a26af00f486fb6fbab03dcb018bc42b70980ecd3090fe23173f",
+    "render.py": "ab71bc6bfafd6c5f72fda5ea68b1af337fa8f672137c8ba62257122dd3da58b9"
+  },
+  "verified_cases": [
+    "elastic affine patch",
+    "contact penetration and opening",
+    "gap sign and capped broadphase",
+    "accelerated vs original ray signs",
+    "native near-point query comparison",
+    "production Mesh64 Boolean crossing",
+    "finite infinitesimal-rotation rejection",
+    "redundant row removal and stronger-row retention",
+    "full production Boolean/orientation dependency fixture",
+    "warm dual signs, owner and reference-point remapping",
+    "unaccepted QP checkpoints and restart mesh identity"
+  ],
+  "canonical_geometry_changed": false,
+  "review_scope": "Read-only independent mechanics review; warm-start/checkpoint implementation re-reviewed. Numerical experiment outcome reported separately."
+}

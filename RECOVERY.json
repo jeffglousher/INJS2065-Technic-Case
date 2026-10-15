@@ -1,0 +1,176 @@
+{
+  "purpose": "Pre-cleanup recovery of every unreachable local Git object; historical work, not the current design.",
+  "date": "2026-10-14",
+  "recovered_commits": [
+    "0b85f7015fec47b5a73e349f191a10e8da2eac27",
+    "4cf3d3ee68be7c08c69555e865c01f9fbc9c6fee",
+    "bfa6283976842e85a468e65454b1f889756b0fb7"
+  ],
+  "loose_objects": [
+    {
+      "type": "blob",
+      "oid": "76c056d8c69a0e66045b12b621d3b0a829978a8c",
+      "archive_path": "blob-76c056d8c69a0e66045b12b621d3b0a829978a8c"
+    },
+    {
+      "type": "blob",
+      "oid": "e420ecb4583cc87612a1ecb006f4987d8e95e52b",
+      "archive_path": "blob-e420ecb4583cc87612a1ecb006f4987d8e95e52b"
+    },
+    {
+      "type": "blob",
+      "oid": "f5d057f6f3c22779a22b8fb86c1bf3662b6e9b90",
+      "archive_path": "blob-f5d057f6f3c22779a22b8fb86c1bf3662b6e9b90"
+    },
+    {
+      "type": "blob",
+      "oid": "fd806bb0c367d0f9f3405132c1c930f4160c948d",
+      "archive_path": "blob-fd806bb0c367d0f9f3405132c1c930f4160c948d"
+    },
+    {
+      "type": "blob",
+      "oid": "6502c817b3fbc6195fd31171c8e5d1e9202eb288",
+      "archive_path": "blob-6502c817b3fbc6195fd31171c8e5d1e9202eb288"
+    },
+    {
+      "type": "blob",
+      "oid": "88d2fde43c18f0f6898a3df7934da672563056b5",
+      "archive_path": "blob-88d2fde43c18f0f6898a3df7934da672563056b5"
+    },
+    {
+      "type": "blob",
+      "oid": "a602d746bfb3b60d9bd80e5910a09a8fe6161456",
+      "archive_path": "blob-a602d746bfb3b60d9bd80e5910a09a8fe6161456"
+    },
+    {
+      "type": "blob",
+      "oid": "33834d648058a70d8c4e84a2035f66d5b6be5fa9",
+      "archive_path": "blob-33834d648058a70d8c4e84a2035f66d5b6be5fa9"
+    },
+    {
+      "type": "blob",
+      "oid": "6343bd52d0c8197d7f7dcef62780cb7cb8b180de",
+      "archive_path": "blob-6343bd52d0c8197d7f7dcef62780cb7cb8b180de"
+    },
+    {
+      "type": "blob",
+      "oid": "cd230d56029a8ea185ad8f0a0e8ed29d87977cf6",
+      "archive_path": "blob-cd230d56029a8ea185ad8f0a0e8ed29d87977cf6"
+    },
+    {
+      "type": "blob",
+      "oid": "cf83379127488f0e0686ec5abe87a5a0c23e2cab",
+      "archive_path": "blob-cf83379127488f0e0686ec5abe87a5a0c23e2cab"
+    },
+    {
+      "type": "blob",
+      "oid": "de34b37da56b1cdbc4af3a688b741f2d4f74cf08",
+      "archive_path": "blob-de34b37da56b1cdbc4af3a688b741f2d4f74cf08"
+    },
+    {
+      "type": "blob",
+      "oid": "bbc540b085e44b34098dfd379b5c37a41602bce2",
+      "archive_path": "blob-bbc540b085e44b34098dfd379b5c37a41602bce2"
+    },
+    {
+      "type": "blob",
+      "oid": "4ab6c323c7a221e80e7d7bee52cf589b7f6d7a62",
+      "archive_path": "blob-4ab6c323c7a221e80e7d7bee52cf589b7f6d7a62"
+    },
+    {
+      "type": "blob",
+      "oid": "73f6eeab602d3b4fa69197faa7e48bc372af8bae",
+      "archive_path": "blob-73f6eeab602d3b4fa69197faa7e48bc372af8bae"
+    },
+    {
+      "type": "blob",
+      "oid": "8f16b57eefc83442eb1dd48e36858d0374782cd3",
+      "archive_path": "blob-8f16b57eefc83442eb1dd48e36858d0374782cd3"
+    },
+    {
+      "type": "blob",
+      "oid": "2e875851350035c1a41f20918185201c79f8c0d6",
+      "archive_path": "blob-2e875851350035c1a41f20918185201c79f8c0d6"
+    },
+    {
+      "type": "blob",
+      "oid": "abb70682c1a24716e73d560915ea53d53e7e9727",
+      "archive_path": "blob-abb70682c1a24716e73d560915ea53d53e7e9727"
+    },
+    {
+      "type": "blob",
+      "oid": "14f81ff862be37535fab5dcd03218edb5bcd7352",
+      "archive_path": "blob-14f81ff862be37535fab5dcd03218edb5bcd7352"
+    },
+    {
+      "type": "blob",
+      "oid": "8b581b72c1a184c1ff6210b0379e1a330a5e698a",
+      "archive_path": "blob-8b581b72c1a184c1ff6210b0379e1a330a5e698a"
+    },
+    {
+      "type": "blob",
+      "oid": "9148efdb91920362ba0d6bebcdec7021ed1782c5",
+      "archive_path": "blob-9148efdb91920362ba0d6bebcdec7021ed1782c5"
+    },
+    {
+      "type": "blob",
+      "oid": "adf83e0d785928051ea98017578c5d1949eda4c3",
+      "archive_path": "blob-adf83e0d785928051ea98017578c5d1949eda4c3"
+    },
+    {
+      "type": "blob",
+      "oid": "74d9cd001220601d89a4e3d4ff9f39a3c37e6d52",
+      "archive_path": "blob-74d9cd001220601d89a4e3d4ff9f39a3c37e6d52"
+    },
+    {
+      "type": "blob",
+      "oid": "d709569a4cbeb882936f894516172c1f2b80ad51",
+      "archive_path": "blob-d709569a4cbeb882936f894516172c1f2b80ad51"
+    },
+    {
+      "type": "blob",
+      "oid": "81ba999cad5d8cd06cf19628544df3f7fb069472",
+      "archive_path": "blob-81ba999cad5d8cd06cf19628544df3f7fb069472"
+    },
+    {
+      "type": "blob",
+      "oid": "971a57f262eb6c30f5d955202e924bdc2d2ed861",
+      "archive_path": "blob-971a57f262eb6c30f5d955202e924bdc2d2ed861"
+    },
+    {
+      "type": "blob",
+      "oid": "365dca5ba818b3e15ea76ee51d28d03422629951",
+      "archive_path": "blob-365dca5ba818b3e15ea76ee51d28d03422629951"
+    },
+    {
+      "type": "blob",
+      "oid": "113e9e73762e1220e2fe0e116e0aaa1fa6435434",
+      "archive_path": "blob-113e9e73762e1220e2fe0e116e0aaa1fa6435434"
+    },
+    {
+      "type": "blob",
+      "oid": "478ef275d0b60a36f2496c3793ee588f58017c89",
+      "archive_path": "blob-478ef275d0b60a36f2496c3793ee588f58017c89"
+    },
+    {
+      "type": "blob",
+      "oid": "73ee5db5b74c2394ddf2a073e2fd9e33da9ec33c",
+      "archive_path": "blob-73ee5db5b74c2394ddf2a073e2fd9e33da9ec33c"
+    },
+    {
+      "type": "blob",
+      "oid": "000febc9925e518cfb1328e2df141a285febfa27",
+      "archive_path": "blob-000febc9925e518cfb1328e2df141a285febfa27"
+    },
+    {
+      "type": "blob",
+      "oid": "c5ef6388034902660e8dd4bdcb2df0c6683d0d37",
+      "archive_path": "blob-c5ef6388034902660e8dd4bdcb2df0c6683d0d37"
+    },
+    {
+      "type": "blob",
+      "oid": "ee6f597f03cfcfe7f750eafa03e27d804baf5c6a",
+      "archive_path": "blob-ee6f597f03cfcfe7f750eafa03e27d804baf5c6a"
+    }
+  ]
+}

@@ -1,7 +1,0 @@
-*.json -text
-*.py -text
-*.mjs -text
-*.stl binary
-*.step binary
-*.3mf binary
-*.png binary

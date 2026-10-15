@@ -1,0 +1,11 @@
+review/hub-quality-20261008/*.json -text
+review/hub-quality-20261008/*.3mf binary
+review/hub-quality-20261008/*.png binary
+review/print-readiness-20261008/*.json -text
+review/print-readiness-20261008/*.png binary
+
+review/print-layout.json -text
+review/print-layout-20261008/*.json -text
+review/print-layout-20261008/*/*.json -text
+review/print-layout-20261008/*.3mf binary
+review/print-layout-20261008/*.png binary

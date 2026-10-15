@@ -1,0 +1,54 @@
+# Registered retention test and contact-model correction
+
+This follows the [independent adversarial review](../adversarial-retention-20261009/README.md). Canonical revision 613402c remains unchanged: full clip walls, four centered nubs per clip, hidden receiving pockets and the existing housing mouths are preserved. This work does not establish readiness for a functional print.
+
+## Corrected fit experiment
+
+[Open the registered full-shell PETG project](registered-receivers.3mf). It contains both complete clamshell halves and both nominal 0.26 mm clips, without the output hub. Original locating features and assembly mating surfaces are retained. This replaces the cropped three-variant coupon as the recommended controlled fit experiment.
+
+![Complete native receivers and clips, exploded for inspection](registered-receivers.png)
+
+The native Bambu slice passes without warnings: X2D / 0.4 mm nozzle, Bambu PETG Basic, 0.16 mm main layers, 0.20 mm first layer, four requested walls, 25% gyroid and print by object. No brim or support is enabled. Estimated complete test plate: **1 h 46 min 14 s, 21.50 g**. No print was sent. [Build and slice receipt](registered-receivers-audit.json), [independent reviewer receipt](registered-receivers-review.json), [reproduction script](registered_project.py).
+
+An independent read-only reviewer checked all four mesh payloads and print transforms byte for byte against the source full assembly. Actual extrusion reaches the original locator tips. Lower-shell and clip extrusion geometry, width, height and amount match the source. Removing the hub changes a small group of upper-shell bridge/infill paths away from the retaining surfaces, and changes one clip's last-layer speed by 0.01667 mm/s. Entire G-code identity is not claimed.
+
+### Test procedure
+
+1. Label the clips +Y and -Y immediately after removal, using their plate positions. They are nominal matching profiles, not different height variants.
+2. Fully engage the original shell locators. Use light parallel restraint between the exterior Z8 and Z42 faces; leave both clip installation faces accessible. Do not squeeze across the Y faces that carry the clips.
+3. Inspect the shell seam and locating engagement. Check that the restraint is not distorting the shells or providing friction attributed to the clip. Record the restraint and seam condition; registration alone does not guarantee a 0.020 mm physical pose tolerance.
+4. Insert each clip and record whether it reaches the seat, produces a snap, and resists pull-off and rocking. Release the external restraint and verify that the clips alone keep the shell seam seated; record behavior with and without restraint. Photograph the seating and inspect the nubs for damage or permanent set after removal.
+5. Repeat after several cycles and a seated dwell. Record material, profile, orientation and observations together. Quantitative strength or life claims require controlled force/displacement measurements and more specimens.
+
+Do not select a larger nub merely because it sounds louder. The intended mechanism is minor seated preload with inward flex during insertion; seating, wobble and permanent set matter together.
+
+## Corrected contact experiment
+
+![Native pocket floor support map](support-footprint.png)
+
+The old model fixed 41.8726 mm² of floor facing air. The new [elastic foundation](contact.py) fixes no pocket-floor nodes. [Contact solver](contact_solver.py) uses the actual closed native-exported housing surfaces, compressive frictionless contact that can open, and optional insertion driving. Holding releases the driver and the mean-motion guides.
+
+Implementation verification includes an affine elasticity patch, assembled contact-inequality signs and release, inside/outside signs, accelerated/original ray-query comparison, positive deformed tetrahedra, surface-contact quadrature refinement and full deformed-mesh Boolean intersections using double-precision `Mesh64`. It rejects unaccepted QP statuses, excessive gap/complementarity error, force-equilibrium errors and excessive infinitesimal-rotation approximation error. It stores seed provenance, mesh/source hashes, uniquely named displacement fields, final versus linearization normals and force resultants about one common world origin. Each QP is time limited; rejected statuses are saved without releasing force or strain predictions.
+
+The near-surface broadphase caps far-outside gaps at 0.205 mm, beyond the 0.20 mm sampling and 0.12 mm contact cutoffs. Deep-inside points retain the full proximity query. Capped normals and triangle IDs are invalid and excluded from contact. Sampled native near-surface queries agree with the full query within 0.000001 mm; Trimesh's full query can choose a slightly farther near-tied triangle by normal agreement. Algebraically redundant quadrature inequalities are removed only when retained vertex inequalities imply them, reassessed every QP. Every geometric sample remains in the final penetration/complementarity checks, and the full deformed solid still receives the Boolean overlap check. Redundant-row removal can redistribute individual duals, so individual contact-force weights are not a converged local pressure measurement.
+
+The independent mechanics reviewer checked interpolation, contact owners, signs and reaction bookkeeping; the added verification cases pass. This is code/model verification, not printed-part calibration. Insertion continuation is limited to 0.05 mm steps and must be compared with a finer path before interpreting a contact branch. It is quasistatic, not a dynamic snap simulation.
+
+The stiffness assumption is 2780 MPa and Poisson ratio 0.38. The modulus is the manufacturer's X-Y standard-specimen value; the Poisson ratio is an assumed screening value. Linear isotropic elasticity, rigid housing, frictionless contact and triangulated obstacles cannot establish printed orthotropy, local plasticity, creep or fatigue. The 0.0005 mm export deflection exceeds the 0.00002 mm numerical gap threshold, so solver precision is not a physical tolerance claim. Concentrated element strains need mesh/contact convergence before use as design limits.
+
+The excluded centered pilot is archived outside the repository. Its displacement and peak strain are not released holding predictions. Previous prescribed-displacement forces, strains and single-meridian insertion distance remain superseded.
+
+The first bounded free QP returned `solved inaccurate` and was rejected ([receipt](rejected-8593b7866768.json)). A subsequent free contact iteration reached sampled convergence but stopped before deformed-solid verification because an isolated dependency was missing ([receipt](dependency-rejection.json)). That dependency is now installed, and the early verification cases exercise the full production orientation/tetrahedron/Boolean path. Trial checkpoints are explicitly labeled unaccepted; they can initialize a retry but cannot supply physical predictions. These numerical/setup failures do not prove a geometry failure.
+
+## Sources and reproducibility
+
+- [Bambu PETG Basic V3 technical data](https://store.bblcdn.com/s1/default/cb94589bf7994fdcbfa833badefae9cd/Bambu_PETG_Basic_Technical_Data_Sheet.pdf): standard specimen properties, referenced rather than copied.
+- [OSQP Python interface](https://osqp.org/docs/interfaces/python.html) and [solver documentation](https://osqp.org/docs/solver/index.html): QP status, residual and complementarity checks.
+- [Trimesh proximity API](https://trimesh.org/trimesh.proximity.html): closest triangle and signed-distance convention.
+- [Manifold source](https://github.com/elalish/manifold): mesh Boolean engine; Apache-2.0. No source or documentation was copied into this design.
+
+Generated meshes, displacement arrays, installed experiment dependencies and full G-code stay outside the design tree in `D:/noBS-CAD-Reviews/INJS2065-Technic-Case/contact-fix-20261009`. Scripts retain explicit local paths for reproduction on this machine. Native source and images are genuine CAD exports, not generative illustrations.
+
+The contact experiment uses Python 3.14 and [pinned package versions](contact-requirements.txt) installed into the external experiment directory. Run `py -3 review/contact-fix-20261009/contact_solver.py --checks-only` for the early verification cases. Run with `--level .12` for a free holding experiment using the previously exported native obstacle meshes and tetrahedral mesh; `.09` selects the finer existing mesh. A checkpoint is a seed, not an accepted result. The separate `.09` mesh comparison and insertion-path refinement are required before treating numerical strains as design evidence. A holding solve seeded from a centered pilot also does not establish that insertion reaches that contact branch.
+
+Canonical JSON SHA-256: `19a73dd1a82072cfbd80a95da27a19720c7a09fef52b39dab940d3c3ec4ec340`.
