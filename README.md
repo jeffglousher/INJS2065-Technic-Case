@@ -56,7 +56,7 @@ Purchased parts:
 
 We designed and refined the holder in **[Limo CAD](https://github.com/limo-cad/Limo-CAD)**, exported the parts, then prepared the PETG print project in Bambu Studio. The editable model and saved print settings are included so you can adapt the holder to your own build.
 
-The first print fits reasonably according to the owner. Its large end grooves were traced to local slicer modifiers that split the end-wall paths. The current print project removes those modifiers and applies the slower speeds across each whole shell, preserving the fitted geometry.
+The owner reports reasonable printed fit. The print project uses slower speeds across each whole shell, with continuous end-wall paths.
 
 ## Print plate
 
@@ -69,9 +69,7 @@ It is ready for a **confirmation print**. Check the new end finish, clip seating
 ## Make your own
 
 - [Editable Limo CAD model](design/current.nbcad)
-- [Current Bambu Studio print project — all five parts](review/grooves-20261105/assembly-uniform-shells.3mf)
+- [Bambu Studio print project — all five parts](print/servo-holder.3mf)
 - [Matching editable model JSON](design/current.model.json)
 
-[Assembly notes](docs/assembly.md) · [Design and print workflow](docs/workflow.md) · [Detailed dimensions and fit](DESIGN.md) · [Latest all-parts review](review/readiness-20261106/README.md)
-
-The older projects under `print/` retain the superseded regional modifiers. Use the **current Bambu Studio print project** linked above for the next print.
+[Assembly notes](docs/assembly.md) · [Design and print workflow](docs/workflow.md) · [Dimensions and fit](DESIGN.md) · [Validation](docs/validation.json)

@@ -1,12 +1,5 @@
 """Inspect commanded Bambu extrusion speeds/widths and layer bands, without a printer."""
-import argparse
-from collections import defaultdict
-import hashlib
-import json
-import math
-from pathlib import Path
 import re
-import statistics
 
 TOKENS = re.compile(r'([A-Z])([-+]?(?:\d*\.)?\d+(?:[eE][-+]?\d+)?)')
 
@@ -58,38 +51,3 @@ def segments(path):
                        'speed':feed,'width':width,'e':extrusion,'arc':code in ('G2','G3'),
                        'arc_center':[before['X']+values.get('I',0),before['Y']+values.get('J',0)] if code in ('G2','G3') else None,
                        'clockwise':code == 'G2'}
-
-
-def rail(s):
-    if s['object'] not in (1,2):
-        return False
-    center = 55 if s['object']==1 else 175
-    # Keep 0.2 mm away from the modifier boundary to avoid straddling segment ambiguity.
-    return all(5.4 <= abs(p[1]-center) <= 12.2 for p in (s['a'],s['b']))
-
-
-def stats(rows):
-    by_feature = defaultdict(list)
-    for s in rows:
-        if rail(s) and s['z'] > 0.21:
-            by_feature[s['feature']].append(s)
-    return {k:{'segments':len(v),'speed_min_mm_s':min(s['speed'] for s in v),
-               'speed_median_mm_s':statistics.median(s['speed'] for s in v),
-               'speed_max_mm_s':max(s['speed'] for s in v),
-               'width_min_mm':min(s['width'] for s in v),'width_max_mm':max(s['width'] for s in v)}
-            for k,v in sorted(by_feature.items())}
-
-
-def audit(path):
-    rows = list(segments(path))
-    data = {'gcode_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'rail_stats':stats(rows),
-            'shell_layer_heights_mm':{str(i):sorted({round(s['layer_height'],5) for s in rows if s['object']==i and s['feature'] in ('Outer wall','Inner wall')}) for i in (1,2)},
-            'supports_brims_skirts_absent':not any(any(w in s['feature'].lower() for w in ('support','brim','skirt')) for s in rows)}
-    return data, rows
-
-
-if __name__ == '__main__':
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('gcode',type=Path)
-    args=parser.parse_args()
-    print(json.dumps(audit(args.gcode)[0],indent=2))

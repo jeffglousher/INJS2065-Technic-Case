@@ -1,0 +1,18 @@
+{
+  "canonicalModelSha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7",
+  "bodyCount": 7,
+  "featureCountAfter": 374,
+  "nativeContainerSha256": "8d7471dd020aa44d772c6baddaf56123c916b0da70e69e825cbcc374085e0478",
+  "bodies": [
+    {
+      "id": 1,
+      "topologySignature": "connectivity-v1:13984917998651256374",
+      "meshSha256": "60c97cca70f5c72605210f457b3b227c75d1ea43d0dfc84200cc0d34955b03da"
+    },
+    {
+      "id": 53,
+      "topologySignature": "connectivity-v1:12897160718602513543",
+      "meshSha256": "9736c80965711fb02a163d451d6272bebfe39dcfe88f4caf4bdbeb3723d0e049"
+    }
+  ]
+}

@@ -39,11 +39,11 @@ for the complete dimensions and clearances.
 
 ## Accept the next print
 
-The owner reports reasonable fit on the previous print. The revised slicer
-project still needs a confirmation print to establish its surface finish.
+The owner reports reasonable printed fit. A confirmation print is needed to
+establish the current project's surface finish.
 
-Check both shell ends for the repeated grooves previously caused by modifier
-boundaries. Check full seam closure, clip seating, free rotation, servo engagement,
+Check both shell ends for continuous surfaces without repeated grooves.
+Check full seam closure, clip seating, free rotation, servo engagement,
 torque transmission and axial hub retention under the intended load. Repeat
 insertion/removal cycles and a loaded holding dwell, inspecting for loosening,
 whitening or permanent set. Do not infer a holding force or lifetime from a
