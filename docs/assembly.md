@@ -1,7 +1,8 @@
 # Assembly
 
 Print the lower shell, upper shell, Clip +Y, Clip -Y and output hub in PETG.
-Add the purchased INJS2065 servo and an MR128 bearing. The housing closes with
+Add the purchased INJS2065 servo and an MR128 bearing: **8 mm bore × 12 mm outer
+diameter × 3.5 mm width** in the reference model. The housing closes with
 the two clips; there are no housing screws in this design. The hub grips the
 servo shaft by friction, without a center screw or separate horn.
 

@@ -4,6 +4,13 @@ A printable clamshell that holds an INJS2065 servo in a Technic build. Two retai
 
 ![Servo holder viewed from every side](docs/images/turntable.gif)
 
+<details>
+<summary>See a still assembled view</summary>
+
+![Assembled servo holder](docs/images/assembly.png)
+
+</details>
+
 ## The parts
 
 - Upper and lower shells with Technic mounting holes.
