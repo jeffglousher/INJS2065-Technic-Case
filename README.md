@@ -1,5 +1,7 @@
 # INJS2065 servo holder for LEGO Technic
 
+**2026-11-06 print review:** use [assembly-uniform-shells.3mf](review/grooves-20261105/assembly-uniform-shells.3mf) for the next confirmation print. It removes the regional modifiers that interrupted the end-wall paths while preserving all five printable meshes and their placement. The operator reports reasonable fit on the earlier print. The revised end finish, repeated clip retention and loaded hub operation still need physical confirmation. [All-parts review](review/readiness-20261106/README.md).
+
 A printable clamshell holder for the INJS2065 servo, with Technic mounting holes, two hex-pattern retaining clips and a bearing-supported output adapter. The adapter friction-fits the servo shaft and provides a Technic cross socket on the other side.
 
 ![Assembled and exploded servo holder](review/current/assembly.png)
@@ -24,7 +26,7 @@ CAD replay, export preflight, mesh/settings checks and independent native slices
 
 ## Validation and remaining checks
 
-The [contact-path follow-up](DESIGN.md#contact-path-follow-up) checks 20 exact rigid poses on both sides: the installed seat has substantially less nominal overlap than the withdrawal obstruction. Whole-clip inward motion is blocked by supporting geometry, so strain analysis must model local corner flex. The current version has not yet been physically tested.
+The [contact-path follow-up](DESIGN.md#contact-path-follow-up) checks 20 exact rigid poses on both sides: the installed seat has substantially less nominal overlap than the withdrawal obstruction. Whole-clip inward motion is blocked by supporting geometry, so strain analysis must model local corner flex. The operator reports reasonable printed fit; the groove-corrected slice still needs a confirmation print.
 
 Run `node tools/verify-current.mjs` to replay and check the seven current meshes, topologies and assembly contacts against [the current reference](review/current/cad-reference.json). This regression check establishes repeatability, not mechanical qualification. Current section data, mesh checks, toolpath checks, file hashes and native slicing receipts are in [review/current](review/current).
 

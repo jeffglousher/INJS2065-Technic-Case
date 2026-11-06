@@ -1,0 +1,367 @@
+{
+  "date": "2026-11-06",
+  "decision": "Proceed with a confirmation PETG print; mechanical acceptance remains pending",
+  "candidate": "C:\\Users\\jeffg\\dev\\INJS2065-Technic-Case\\review\\grooves-20261105\\assembly-uniform-shells.3mf",
+  "candidate_sha256": "5c82298914b62d42703b854298580a207495c0abf7f20c794c7ab2002c678204",
+  "parts": [
+    {
+      "name": "Lower clamshell",
+      "triangles": 50570,
+      "volume_mm3": 5647.928377682502,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "duplicate_faces": 0,
+      "collapsed_faces_at_1e_5_mm": 0,
+      "support_paint_counts": {},
+      "mesh_sha256": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+      "mesh_unchanged": true
+    },
+    {
+      "name": "Upper clamshell",
+      "triangles": 103792,
+      "volume_mm3": 14914.190525494672,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "duplicate_faces": 0,
+      "collapsed_faces_at_1e_5_mm": 0,
+      "support_paint_counts": {},
+      "mesh_sha256": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+      "mesh_unchanged": true
+    },
+    {
+      "name": "Clip +Y",
+      "triangles": 83636,
+      "volume_mm3": 686.658377317504,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "duplicate_faces": 0,
+      "collapsed_faces_at_1e_5_mm": 0,
+      "support_paint_counts": {},
+      "mesh_sha256": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+      "mesh_unchanged": true
+    },
+    {
+      "name": "Clip -Y",
+      "triangles": 83636,
+      "volume_mm3": 686.6583773175016,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "duplicate_faces": 0,
+      "collapsed_faces_at_1e_5_mm": 0,
+      "support_paint_counts": {},
+      "mesh_sha256": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+      "mesh_unchanged": true
+    },
+    {
+      "name": "Output hub",
+      "triangles": 4920,
+      "volume_mm3": 1065.633295234723,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "duplicate_faces": 0,
+      "collapsed_faces_at_1e_5_mm": 0,
+      "support_paint_counts": {},
+      "mesh_sha256": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3",
+      "mesh_unchanged": true
+    }
+  ],
+  "modifiers_absent": true,
+  "print_placements_and_layer_bands_unchanged": true,
+  "native_slice": {
+    "error_string": "Success.",
+    "export_time": 0,
+    "layer_height": 0.1599999964237213,
+    "plate_index": 1,
+    "prepare_time": 339,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 61.86705017089844,
+          "Bridge": 122.9100341796875,
+          "Custom": 286.85101318359375,
+          "Flush": 29.0,
+          "Gap infill": 143.69427490234375,
+          "Inner wall": 4880.84326171875,
+          "Internal solid infill": 1273.3092041015625,
+          "Outer wall": 3101.041748046875,
+          "Overhang wall": 18.701635360717773,
+          "Sparse infill": 695.3184814453125,
+          "Top surface": 182.85867309570312,
+          "Travel": 1522.655029296875,
+          "Undefined": 1515.3111572265625
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 22.492815017700195,
+            "total_used_g": 22.492815017700195
+          }
+        ],
+        "generate_support_material_time": 138,
+        "id": 1,
+        "infill_time": 345,
+        "layer_filament_change": 0,
+        "main_predication": 11974.4970703125,
+        "make_perimeters_time": 690,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 43.0,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "Lower clamshell",
+            "triangle_count": 50570
+          },
+          {
+            "bbox": {
+              "depth": 24.0,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 30.0,
+              "y": 163.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "Upper clamshell",
+            "triangle_count": 103792
+          },
+          {
+            "bbox": {
+              "depth": 13.867902755737305,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 48.06604766845703,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "Clip +Y",
+            "triangle_count": 83636
+          },
+          {
+            "bbox": {
+              "depth": 13.867895126342773,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 136.125,
+              "y": 168.06605529785156,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "Clip -Y",
+            "triangle_count": 83636
+          },
+          {
+            "bbox": {
+              "depth": 11.999876976013184,
+              "height": 15.700000762939453,
+              "width": 11.999755859375,
+              "x": 214.000244140625,
+              "y": 109.00006103515625,
+              "z": 6.054712287095754e-11
+            },
+            "id": 21,
+            "name": "Output hub",
+            "triangle_count": 4920
+          }
+        ],
+        "sliced_time": 4253,
+        "sliced_time_with_cache": 2798,
+        "total_predication": 12312.00390625,
+        "triangle_count": 326554,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "toolpaths": {
+    "gcode_sha256": "80c7d83c14738806b8fd026663d7b52f9dde93609197f97019ad8ca44544e869",
+    "rail_stats": {
+      "Bridge": {
+        "segments": 488,
+        "speed_min_mm_s": 25.0,
+        "speed_median_mm_s": 25.0,
+        "speed_max_mm_s": 25.0,
+        "width_min_mm": 0.437794,
+        "width_max_mm": 0.54849
+      },
+      "Floating vertical shell": {
+        "segments": 7240,
+        "speed_min_mm_s": 25.0,
+        "speed_median_mm_s": 36.0,
+        "speed_max_mm_s": 36.0,
+        "width_min_mm": 0.337721,
+        "width_max_mm": 0.666266
+      },
+      "Gap infill": {
+        "segments": 78,
+        "speed_min_mm_s": 30.0,
+        "speed_median_mm_s": 30.0,
+        "speed_max_mm_s": 30.0,
+        "width_min_mm": 0.0741338,
+        "width_max_mm": 0.400769
+      },
+      "Inner wall": {
+        "segments": 78586,
+        "speed_min_mm_s": 10.0,
+        "speed_median_mm_s": 45.0,
+        "speed_max_mm_s": 45.0,
+        "width_min_mm": 0.347792,
+        "width_max_mm": 0.741112
+      },
+      "Internal solid infill": {
+        "segments": 5245,
+        "speed_min_mm_s": 45.0,
+        "speed_median_mm_s": 45.0,
+        "speed_max_mm_s": 45.0,
+        "width_min_mm": 0.348226,
+        "width_max_mm": 0.645952
+      },
+      "Outer wall": {
+        "segments": 37664,
+        "speed_min_mm_s": 10.0,
+        "speed_median_mm_s": 30.0,
+        "speed_max_mm_s": 40.0,
+        "width_min_mm": 0.352272,
+        "width_max_mm": 0.627082
+      },
+      "Overhang wall": {
+        "segments": 298,
+        "speed_min_mm_s": 10.0,
+        "speed_median_mm_s": 10.0,
+        "speed_max_mm_s": 25.0,
+        "width_min_mm": 0.378628,
+        "width_max_mm": 0.467164
+      },
+      "Sparse infill": {
+        "segments": 12043,
+        "speed_min_mm_s": 180.0,
+        "speed_median_mm_s": 180.0,
+        "speed_max_mm_s": 180.0,
+        "width_min_mm": 0.45,
+        "width_max_mm": 0.45
+      },
+      "Top surface": {
+        "segments": 681,
+        "speed_min_mm_s": 30.0,
+        "speed_median_mm_s": 30.0,
+        "speed_max_mm_s": 30.0,
+        "width_min_mm": 0.42,
+        "width_max_mm": 0.42
+      }
+    },
+    "shell_layer_heights_mm": {
+      "1": [
+        0.12,
+        0.16,
+        0.2
+      ],
+      "2": [
+        0.12,
+        0.16,
+        0.2
+      ]
+    },
+    "supports_brims_skirts_absent": true
+  },
+  "end_wall_crossings": [
+    {
+      "object": 1,
+      "x_mm": 30.21,
+      "y_mm": 49.8,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 74,
+      "restored_layers": 74
+    },
+    {
+      "object": 1,
+      "x_mm": 30.21,
+      "y_mm": 60.2,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 74,
+      "restored_layers": 74
+    },
+    {
+      "object": 1,
+      "x_mm": 69.79,
+      "y_mm": 49.8,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 74,
+      "restored_layers": 74
+    },
+    {
+      "object": 1,
+      "x_mm": 69.79,
+      "y_mm": 60.2,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 74,
+      "restored_layers": 74
+    },
+    {
+      "object": 2,
+      "x_mm": 30.21,
+      "y_mm": 169.8,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 181,
+      "restored_layers": 181
+    },
+    {
+      "object": 2,
+      "x_mm": 30.21,
+      "y_mm": 180.2,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 181,
+      "restored_layers": 181
+    },
+    {
+      "object": 2,
+      "x_mm": 69.79,
+      "y_mm": 169.8,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 181,
+      "restored_layers": 181
+    },
+    {
+      "object": 2,
+      "x_mm": 69.79,
+      "y_mm": 180.2,
+      "continuous_layers_before": 0,
+      "continuous_layers_after": 181,
+      "restored_layers": 181
+    }
+  ],
+  "clip_hub_extrusion_geometry_unchanged": true,
+  "user_report": "Printed fit is reasonable; large end grooves reported",
+  "remaining": [
+    "Confirm end finish in a repeat print",
+    "Inspect unsupported hex undersides",
+    "Check both clips seat, retain and resist permanent set",
+    "Check hub torque retention and bearing rotation",
+    "Repeat insertion cycles and a loaded holding dwell"
+  ],
+  "print_sent": false
+}
