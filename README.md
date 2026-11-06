@@ -1,39 +1,64 @@
 # INJS2065 servo holder for LEGO Technic
 
-**2026-11-06 print review:** use [assembly-uniform-shells.3mf](review/grooves-20261105/assembly-uniform-shells.3mf) for the next confirmation print. It removes the regional modifiers that interrupted the end-wall paths while preserving all five printable meshes and their placement. The operator reports reasonable fit on the earlier print. The revised end finish, repeated clip retention and loaded hub operation still need physical confirmation. [All-parts review](review/readiness-20261106/README.md).
+A printable clamshell that holds an INJS2065 servo in a Technic build. Two retaining clips close the housing, and a bearing-supported output hub connects the servo shaft to a Technic cross socket.
 
-A printable clamshell holder for the INJS2065 servo, with Technic mounting holes, two hex-pattern retaining clips and a bearing-supported output adapter. The adapter friction-fits the servo shaft and provides a Technic cross socket on the other side.
+![Servo holder viewed from every side](docs/images/turntable.gif)
 
-![Assembled and exploded servo holder](review/current/assembly.png)
+## The parts
 
-Teal: upper and lower clamshells. Red: the two retaining clips. Light grey: the output hub. Dark grey: the reference servo and MR128 bearing, which are purchased hardware and are excluded from the print projects. The exploded image separates the parts for visibility; these display offsets are not assembly clearances.
+- Upper and lower shells with Technic mounting holes.
+- Two hex-pattern retaining clips with rounded snap nubs.
+- An output hub with a servo friction-fit socket and a Technic cross socket.
+- A purchased INJS2065 servo and MR128 bearing, shown as reference hardware.
 
-Print five parts: both clamshells, both clips and the output hub. Seat the servo and bearing in their modeled locations, fit the hub onto the servo shaft, close the shells and slide the clips onto the side hex features. Check the fits and retention described in [DESIGN.md](DESIGN.md) before putting the holder into service.
+Print the **five plastic parts in PETG**. The servo and bearing are not included on the print plate.
 
-## Files to open
+## Inside the holder
 
-The current editable design is [current.nbcad](design/current.nbcad), with its matching [native model](design/current.model.json): 374 features and seven bodies. The CAD construction remains editable.
+![Exploded servo holder with all seven parts labeled](docs/images/exploded.png)
 
-The native project includes **Assembled ISO**, **Exploded assembly** and **PETG print by object** named views.
+<details>
+<summary>See the assembled rear, underside and opposite exploded view</summary>
 
-Use [assembly-petg.3mf](print/assembly-petg.3mf) for all five printed parts, or [fit-test-petg.3mf](print/fit-test-petg.3mf) for both complete clamshells and both clips. Both projects use Bambu X2D, 0.4 mm nozzle, Bambu PETG Basic and printing by object. Both projects have four local rail quality modifiers and 0.12 mm shell detail bands, with Arachne on shells and Classic on clips/hub. There are no supports, support paint, brims or skirts. Fresh native slices estimate 3 h 29 min / 23.69 g for the assembly and 2 h 54 min / 22.46 g for the fit test. No print job was sent.
+![Assembled rear and cable side](docs/images/assembly-rear.png)
 
-This is a fit-test candidate. Elastic preload, holding force and insertion/holding strain remain unqualified. See [design specification and remaining checks](DESIGN.md) and [sources and reuse guidance](REFERENCES.md).
+![Underside and servo opening](docs/images/underside.png)
 
-CAD replay, export preflight, mesh/settings checks and independent native slices pass. Run the complete-shell fit test before mechanical acceptance. [The current report](DESIGN.md#current-review-and-print-decision) includes the decision, cavity/rear/section views and reviewed slicer evidence.
+![Exploded assembly from the opposite side](docs/images/exploded-rear.png)
 
-![Current clip and detent corner](review/current/clip-and-corner.png)
+</details>
 
-## Validation and remaining checks
+![The cavities and mounting features inside both shells](docs/images/shell-interiors.png)
 
-The [contact-path follow-up](DESIGN.md#contact-path-follow-up) checks 20 exact rigid poses on both sides: the installed seat has substantially less nominal overlap than the withdrawal obstruction. Whole-clip inward motion is blocked by supporting geometry, so strain analysis must model local corner flex. The operator reports reasonable printed fit; the groove-corrected slice still needs a confirmation print.
+<details>
+<summary>Look closer at the clips and output hub</summary>
 
-Run `node tools/verify-current.mjs` to replay and check the seven current meshes, topologies and assembly contacts against [the current reference](review/current/cad-reference.json). This regression check establishes repeatability, not mechanical qualification. Current section data, mesh checks, toolpath checks, file hashes and native slicing receipts are in [review/current](review/current).
+![Clip pocket side and flat rear face](docs/images/clip-detail.png)
 
-Run `python tools/verify-print.py` to check saved project hashes, native-model consistency, mesh closure/winding, absence of supports/brims/skirts, object overrides and matching slice receipts without a printer connection. To regenerate the current mesh renders, use `python tools/render-review.py --scene scene.json` with an actual `solid_scene` response from the canonical model; the renderer requires Pillow. Inspect all generated views before presenting them.
+![The hub's servo socket and Technic cross socket](docs/images/hub-detail.png)
 
-Run `python tools/slice-print.py` for fresh Bambu native slices and actual rail path checks. Use `--update-evidence` to refresh matching receipts after both projects pass. It sends no printer job.
+</details>
 
-The locally user-modified `review/hub-orientation-20261010/flipped-no-support.3mf` is preserved at its original path. It is separate from the current print projects above.
+## How we made it
 
-[Final adversarial review](review/current/final-review.json) records the resolved findings and validation limits.
+We designed and refined the holder in **[Limo CAD](https://github.com/limo-cad/Limo-CAD)**, exported the parts, then prepared the PETG print project in Bambu Studio. The editable model and saved print settings are included so you can adapt the holder to your own build.
+
+The first print fits reasonably according to the owner. Its large end grooves were traced to local slicer modifiers that split the end-wall paths. The current print project removes those modifiers and applies the slower speeds across each whole shell, preserving the fitted geometry.
+
+## Print plate
+
+![Five PETG parts on the reviewed Bambu print plate](docs/images/print-plate.png)
+
+The current project uses **Bambu X2D, a 0.4 mm nozzle and Bambu PETG Basic**, printing by object without supports, brims or skirts. Native slicing estimates **3 h 25 min and 22.49 g**.
+
+It is ready for a **confirmation print**. Check the new end finish, clip seating and retention, and hub engagement and bearing rotation before putting it into service. Long-term retention and loaded operation remain unqualified.
+
+## Make your own
+
+- [Editable Limo CAD model](design/current.nbcad)
+- [Current Bambu Studio print project — all five parts](review/grooves-20261105/assembly-uniform-shells.3mf)
+- [Matching editable model JSON](design/current.model.json)
+
+[Assembly notes](docs/assembly.md) · [Design and print workflow](docs/workflow.md) · [Detailed dimensions and fit](DESIGN.md) · [Latest all-parts review](review/readiness-20261106/README.md)
+
+The older projects under `print/` retain the superseded regional modifiers. Use the **current Bambu Studio print project** linked above for the next print.

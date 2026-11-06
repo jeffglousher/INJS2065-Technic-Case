@@ -1,0 +1,34 @@
+{
+  "model_sha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7",
+  "print_project": "review/grooves-20261105/assembly-uniform-shells.3mf",
+  "print_project_sha256": "5c82298914b62d42703b854298580a207495c0abf7f20c794c7ab2002c678204",
+  "printable_mesh_sha256": {
+    "8": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
+    "18": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
+    "173": "e6bdfd7168e63354b4c657f916994673fd11cabe51323f749ace7415192c5b96",
+    "267": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
+    "54": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3"
+  },
+  "hardware_source": "Native reference bodies 1 and 53, checked against review/current/cad-reference.json",
+  "hardware_mesh_sha256": {
+    "1": "60c97cca70f5c72605210f457b3b227c75d1ea43d0dfc84200cc0d34955b03da",
+    "53": "9736c80965711fb02a163d451d6272bebfe39dcfe88f4caf4bdbeb3723d0e049"
+  },
+  "printable_display_transforms": "Rigid inverse manufacturing orientation/centering, not a new CAD export",
+  "exploded_offsets": "Saved Exploded assembly translations; bearing +44 and hub +60 mm in Z for visibility",
+  "animation": "Whole-assembly turntable; illustrative camera presentation, no mechanism solve",
+  "files": {
+    "assembly-rear.png": "75438ba6fc3e404a0e081ae3de865bb29b7ddb920b3ddc5f723379332f264f6b",
+    "assembly.png": "a3d74ccc786860681b0c0c8ad8b462ae7226e8101a1c3f4e31b108f2db23332f",
+    "clip-detail.png": "c6fc2e43b1a28ef7e38420b7b246ee4ffeeaecfdf54ca45e14e5de61913c8f0b",
+    "exploded-rear.png": "a5c4dd254c162bfdbe9be7d34c22713ea16b6e85dbe1d52c7e8599e729cef8df",
+    "exploded.png": "94f4f9f28e7dd3970f27fd043a0abf0ef6b875b746c6230ef6fee82b117b5c73",
+    "hub-detail.png": "40324c66afd1bc74c484a6e15ea3bef66d2e6f3b44d8ad2c52a88b5458a90d89",
+    "print-plate.png": "57f3a22ab7d09d89969e01c6a967b01d76ebdc69eb97ed8273707489a3216315",
+    "shell-interiors.png": "0531475ec1911fe03044316530030331e015db55baf308145f407c8f7a979047",
+    "turntable.gif": "c65528971296610f95b51db4dfb2c60336799f18df4d01b0fdc97ea38b54f636",
+    "underside.png": "2587e64bd4715cb279ffe1bb1099a3e168bf9fcef28e3814d6eeed1f4ae5aaba"
+  },
+  "geometry_changed": false,
+  "print_sent": false
+}
