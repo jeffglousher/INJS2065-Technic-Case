@@ -16,9 +16,15 @@ A printable clamshell that holds an INJS2065 servo in a Technic build. Two retai
 - Upper and lower shells with Technic mounting holes.
 - Two hex-pattern retaining clips with rounded snap nubs.
 - An output hub with a servo friction-fit socket and a Technic cross socket.
-- A purchased INJS2065 servo and MR128 bearing, shown as reference hardware.
 
 Print the **five plastic parts in PETG**. The servo and bearing are not included on the print plate.
+
+## Bill of materials
+
+Purchased parts:
+
+- **1 × INJS2065 servo**
+- **1 × MR128 bearing** — 8 mm bore × 12 mm outer diameter × 3.5 mm width
 
 ## Inside the holder
 
