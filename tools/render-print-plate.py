@@ -7,10 +7,10 @@ import zipfile
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = ROOT / 'review/grooves-20261105/assembly-uniform-shells.3mf'
+PROJECT = ROOT / 'print/servo-holder.3mf'
 OUT = ROOT / 'docs/images/print-plate.png'
-receipt = json.loads((ROOT / 'review/readiness-20261106/readiness.json').read_text())
-assert hashlib.sha256(PROJECT.read_bytes()).hexdigest() == receipt['candidate_sha256']
+receipt = json.loads((ROOT / 'docs/validation.json').read_text())
+assert hashlib.sha256(PROJECT.read_bytes()).hexdigest() == receipt['project_sha256']
 plate = receipt['native_slice']['sliced_plates'][0]
 assert not plate['warning_message'] and len(plate['objects']) == 5
 ns = '{http://schemas.microsoft.com/3dmanufacturing/core/2015/02}'

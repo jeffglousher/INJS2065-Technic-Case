@@ -1,4 +1,4 @@
-"""Verify the current saved Bambu projects without dependencies or a printer connection."""
+"""Verify the current print project and saved model without a printer connection."""
 from collections import Counter
 from pathlib import Path
 import hashlib
@@ -8,64 +8,17 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-NS = '{http://schemas.microsoft.com/3dmanufacturing/core/2015/02}'
-
+NS = "{http://schemas.microsoft.com/3dmanufacturing/core/2015/02}"
 
 def check(condition, message):
     if not condition:
         raise ValueError(message)
 
-
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
-
 def metadata(node):
-    return {n.get('key'): n.get('value') for n in node.findall('metadata') if n.get('key')}
-
-
-def audit_modifiers(model, obj, index):
-    resources = model.find(NS + 'resources')
-    resource_ids = [node.get('id') for node in resources]
-    check(len(resource_ids) == len(set(resource_ids)), 'Duplicate model resource IDs')
-    parent = next(node for node in resources if node.get('id') == obj.get('id'))
-    components = parent.find(NS + 'components')
-    modifiers = obj.findall("part[@subtype='modifier_part']")
-    expected_ids = {str(200 + (index - 1)*2 + side) for side in (1, 2)}
-    check({part.get('id') for part in modifiers} == expected_ids and len(modifiers) == 2,
-          'Unexpected or duplicate modifier IDs')
-    normal = obj.find("part[@subtype='normal_part']")
-    component_ids = [node.get('objectid') for node in components]
-    check(len(component_ids) == 3 and set(component_ids) == expected_ids | {normal.get('id')},
-          'Modifier not attached exactly once to its shell')
-    required_speeds = {'outer_wall_speed':'30','inner_wall_speed':'45','gap_infill_speed':'30',
-                       'internal_solid_infill_speed':'45','top_surface_speed':'30','small_perimeter_speed':'25'}
-    height = 10.95 if index == 1 else 24.45
-    identity_3mf = [1,0,0,0,1,0,0,0,1,0,0,0]
-    identity_matrix = [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
-    for part in modifiers:
-        values = metadata(part)
-        side = -1 if int(part.get('id')) % 2 else 1
-        check(values.get('name') == f'Technic rail quality {"-Y" if side < 0 else "+Y"}',
-              'Wrong modifier name/side')
-        check(all(values.get(key) == ','.join([value]*6) for key,value in required_speeds.items()),
-              'Modifier nullable speeds differ')
-        component = next(node for node in components if node.get('objectid') == part.get('id'))
-        check([float(v) for v in component.get('transform', '').split()] == identity_3mf,
-              'Modifier component is transformed')
-        check([float(v) for v in values.get('matrix','').split()] == identity_matrix,
-              'Modifier part is transformed')
-        mesh = next(node for node in resources if node.get('id') == part.get('id'))
-        check(mesh.get('type') == 'model' and mesh.find(NS + 'mesh') is not None,
-              'Modifier resource is not an inline mesh')
-        vertices = [tuple(float(node.get(axis)) for axis in ('x','y','z'))
-                    for node in mesh.iter(NS + 'vertex')]
-        ymin,ymax = (-12.5,-5.2) if side < 0 else (5.2,12.5)
-        corners = {(x,y,z) for x in (-21.,21.) for y in (ymin,ymax) for z in (-.01,height+.01)}
-        check(len(vertices) == 8 and set(vertices) == corners, 'Modifier bounds differ from reviewed rail coverage')
-        check(len(list(mesh.iter(NS + 'triangle'))) == 12, 'Modifier is not the reviewed box')
-        audit_mesh(ET.tostring(mesh), values['name'])
-
+    return {m.get("key"):m.get("value") for m in node.findall("metadata") if m.get("key")}
 
 def audit_mesh(raw, name):
     model = ET.fromstring(raw)
@@ -119,97 +72,82 @@ def audit_mesh(raw, name):
             'support_paint_counts': dict(paint), 'mesh_sha256': hashlib.sha256(raw).hexdigest()}
 
 
-def audit_project(filename, count):
-    path = ROOT / 'print' / filename
+def audit_project():
+    evidence = json.loads((ROOT / 'docs/validation.json').read_text())
+    check(len(evidence['parts']) == 5, 'Expected five mesh reference records')
+    path = ROOT / evidence['project']
+    check(sha(path) == evidence['project_sha256'], 'Print-project hash differs')
+    check(sha(ROOT / 'design/current.model.json') == evidence['model_sha256'], 'Editable model hash differs')
+    check(sha(ROOT / 'design/current.nbcad') == evidence['native_model_sha256'], 'Native model hash differs')
+    with zipfile.ZipFile(ROOT / 'design/current.nbcad') as saved:
+        check(json.loads(saved.read('model.json')) == json.loads((ROOT / 'design/current.model.json').read_text()),
+              'Saved native model and JSON differ')
     with zipfile.ZipFile(path) as z:
+        check(z.testzip() is None, 'Damaged 3MF archive')
         settings = json.loads(z.read('Metadata/project_settings.config'))
         cfg = ET.fromstring(z.read('Metadata/model_settings.config'))
         model = ET.fromstring(z.read('3D/3dmodel.model'))
         objects = cfg.findall('object')
-        check(len(objects) == count and len(model.find(NS + 'build')) == count, f'{filename}: object count')
-        expected_names = ['Lower clamshell', 'Upper clamshell', 'Clip +Y', 'Clip -Y', 'Output hub'][:count]
-        check([metadata(o)['name'] for o in objects] == expected_names, f'{filename}: unexpected object names/order')
+        build = model.find(NS + 'build')
+        resources = model.find(NS + 'resources')
+        check(len(objects) == len(build) == len(resources) == 5, 'Expected five printable objects')
+        check(not cfg.findall(".//part[@subtype='modifier_part']"), 'Unexpected modifier volumes')
         check(settings['printer_settings_id'] == 'Bambu Lab X2D 0.4 nozzle', 'Wrong printer/nozzle')
         check(settings['filament_type'] == ['PETG'] and any('PETG Basic' in s for s in settings['filament_settings_id']), 'Wrong material')
-        check(settings['print_sequence'] == 'by object' and metadata(cfg.find('plate'))['print_sequence'] == 'by object', 'Wrong print sequence')
-        check(settings['brim_type'] == 'no_brim' and settings['brim_width'] == '0'
-              and settings['skirt_loops'] == '0' and settings['enable_support'] == '0', 'Unexpected global brim/skirt/support')
-        check(settings['layer_height'] == '0.16' and settings['wall_loops'] == '4' and settings['sparse_infill_density'] == '25%', 'Wrong main process')
-        check(settings['wall_generator'] == 'arachne', 'Shell Arachne process missing')
-        check('wall_generator' in settings['different_settings_to_system'][0].split(';'), 'GUI reload would discard Arachne')
+        check(settings['print_sequence'] == metadata(cfg.find('plate'))['print_sequence'] == 'by object', 'Wrong print sequence')
+        check(settings['enable_support'] == '0' and settings['brim_type'] == 'no_brim'
+              and settings['brim_width'] == '0' and settings['skirt_loops'] == '0', 'Unexpected supports/brim/skirt')
+        check(settings['layer_height'] == '0.16' and settings['initial_layer_print_height'] == '0.2'
+              and settings['wall_loops'] == '4' and settings['sparse_infill_density'] == '25%', 'Wrong main process')
+        check(settings['wall_generator'] == 'arachne'
+              and 'wall_generator' in settings['different_settings_to_system'][0].split(';'), 'Shell Arachne setting missing')
         bands = ET.fromstring(z.read('Metadata/layer_config_ranges.xml'))
-        expected_bands = {'1':[(5.0,10.95)], '2':[(0.2,3.6),(8.5,15.5),(18.0,24.45)]}
-        check(sorted(node.get('id') for node in bands.findall('object')) == ['1','2'],
-              'Missing or duplicate height-band object IDs')
-        for node in bands.findall('object'):
-            check(node.get('id') in expected_bands, 'Height band affects clip/hub')
-            check([(float(r.get('min_z')),float(r.get('max_z'))) for r in node.findall('range')] == expected_bands[node.get('id')], 'Wrong height bands')
-            check(all(len(r.findall('option')) == 1 and r.find('option').get('opt_key') == 'layer_height'
-                      and r.find('option').text == '0.12' for r in node.findall('range')), 'Wrong band options')
+        expected = {'1':[(5.0,10.95)], '2':[(0.2,3.6),(8.5,15.5),(18.0,24.45)]}
+        check(sorted(n.get('id') for n in bands) == ['1','2'], 'Unexpected layer-band owners')
+        for node in bands:
+            check([(float(n.get('min_z')),float(n.get('max_z'))) for n in node] == expected[node.get('id')], 'Wrong detail bands')
+            check(all(len(n) == 1 and n[0].get('opt_key') == 'layer_height' and n[0].text == '0.12' for n in node), 'Wrong band options')
+        speeds = {'outer_wall_speed':'30','inner_wall_speed':'45','gap_infill_speed':'30',
+                  'internal_solid_infill_speed':'45','top_surface_speed':'30','small_perimeter_speed':'25'}
+        names = ['Lower clamshell','Upper clamshell','Clip +Y','Clip -Y','Output hub']
+        translations = [(50,55,0),(50,175,0),(150,55,0),(150,175,0),(220,115,15.700000763)]
         rows = []
-        for i, obj in enumerate(objects, 1):
+        for i,(obj,name,record,item,resource,translation) in enumerate(zip(objects,names,evidence['parts'],build,resources,translations),1):
             values = metadata(obj)
-            name = values['name']
-            row = audit_mesh(z.read(f'3D/Objects/object_{i}.model'), name)
-            check(values.get('enable_support', settings['enable_support']) == '0', f'{name}: unexpected support')
-            check(values.get('brim_type', settings['brim_type']) == 'no_brim'
-                  and values.get('brim_width', settings['brim_width']) == '0', f'{name}: unexpected brim')
-            check(not row['support_paint_counts'], f'{name}: stale support paint')
-            check(len(obj.findall("part[@subtype='normal_part']")) == 1, f'{name}: unexpected printable parts')
-            modifiers = obj.findall("part[@subtype='modifier_part']")
+            check(values['name'] == name, 'Object names/order differ')
+            check(obj.get('id') == resource.get('id') == item.get('objectid') == str(100+i), 'Wrong component ownership')
+            check(len(obj.findall("part[@subtype='normal_part']")) == 1 and len(obj.findall('part')) == 1, 'Unexpected printable parts')
+            components = resource.find(NS+'components')
+            check(components is not None and len(components) == 1 and components[0].get('objectid') == str(i), 'Wrong mesh attachment')
+            check([float(v) for v in components[0].get('transform').split()] == [1,0,0,0,1,0,0,0,1,0,0,0], 'Unexpected component transform')
+            check(components[0].get('{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path') == f'/3D/Objects/object_{i}.model', 'Wrong mesh payload')
+            transform = [float(v) for v in item.get('transform').split()]
+            rotation = [1,0,0,0,1,0,0,0,1] if i != 5 else [1,0,0,0,-1,0,0,0,-1]
+            check(transform[:9] == rotation and all(abs(a-b)<1e-7 for a,b in zip(transform[9:],translation)), 'Wrong print placement')
+            row = audit_mesh(z.read(f'3D/Objects/object_{i}.model'),name)
+            check(row['mesh_sha256'] == record['mesh_sha256'] and not row['support_paint_counts'], 'Mesh hash or support paint differs')
+            check(values.get('enable_support',settings['enable_support']) == '0'
+                  and values.get('brim_type',settings['brim_type']) == 'no_brim', 'Unexpected per-object support/brim')
             if i <= 2:
-                check('wall_generator' not in values, 'Shell does not inherit the validated process generator')
-                audit_modifiers(model, obj, i)
+                check(all(values.get(k) == ','.join([v]*6) for k,v in speeds.items()), 'Wrong shell-wide speeds')
+                check('wall_generator' not in values, 'Shell must inherit Arachne')
             else:
-                check(not modifiers and values.get('wall_generator') == 'classic', f'{name}: unintended modifiers/generator')
-            if name == 'Output hub':
-                required = {'enable_support':'0', 'layer_height':'0.08', 'wall_loops':'6', 'sparse_infill_density':'100',
-                            'outer_wall_speed':'30', 'inner_wall_speed':'60',
-                            'bridge_flow':'0.9', 'bridge_speed':'25', 'thick_bridges':'0', 'bridge_no_support':'1'}
-                check(all(values.get(k) == v for k, v in required.items()), 'Hub settings differ')
-                item = next(item for item in model.find(NS + 'build') if item.get('objectid') == obj.get('id'))
-                check([float(x) for x in item.get('transform').split()][:9] == [1,0,0,0,-1,0,0,0,-1], 'Hub is not flipped')
-            row['object_overrides'] = values
+                check(values.get('wall_generator') == 'classic', 'Wrong clip/hub generator')
+            if i == 5:
+                check(all(values.get(k) == v for k,v in {'layer_height':'0.08','wall_loops':'6','sparse_infill_density':'100',
+                      'outer_wall_speed':'30','inner_wall_speed':'60','bridge_flow':'0.9','bridge_speed':'25',
+                      'thick_bridges':'0','bridge_no_support':'1'}.items()), 'Wrong hub process')
             rows.append(row)
-        return {'file': 'print/' + filename, 'project_sha256': sha(path), 'objects': rows,
-                'printer': settings['printer_settings_id'], 'sequence': settings['print_sequence']}
+    return rows
 
 
 def main():
-    manifest = json.loads((ROOT / 'review/current/files.json').read_text())
-    for name, entry in manifest.items():
-        check(sha(ROOT / name) == entry['sha256'], f'Current file changed: {name}')
-    with zipfile.ZipFile(ROOT / 'design/current.nbcad') as z:
-        check(json.loads(z.read('model.json')) == json.loads((ROOT / 'design/current.model.json').read_text()), 'Native project and JSON differ')
-    assembly = audit_project('assembly-petg.3mf', 5)
-    fit = audit_project('fit-test-petg.3mf', 4)
-    check([r['mesh_sha256'] for r in assembly['objects'][:4]] == [r['mesh_sha256'] for r in fit['objects']], 'Fit meshes differ')
-    for project, receipt_name in [(assembly, 'assembly-slice.json'), (fit, 'fit-test-slice.json')]:
-        receipt = json.loads((ROOT / 'review/current' / receipt_name).read_text())
-        check(receipt['project_sha256'] == project['project_sha256'] and receipt['native_result']['return_code'] == 0, 'Slice receipt does not match project')
-        check(receipt['supports_absent'] and receipt['brims_skirts_absent'], 'Slice contains supports/brims/skirts')
-        quality = json.loads((ROOT / 'review/current/local-quality-check.json').read_text())
-        record = next(r for r in quality['projects'] if r['project'] == project['file'])
-        check(quality['passed'] and record['project_sha256'] == project['project_sha256']
-              and record['gcode_sha256'] == receipt['gcode_sha256'], 'Local toolpath receipt is stale')
-        fingerprints = record.get('non_shell_toolpath_sha256', {})
-        check(set(fingerprints) == {str(i) for i in range(3,len(project['objects'])+1)}
-              and all(len(value) == 64 and all(c in '0123456789abcdef' for c in value)
-                      for value in fingerprints.values()), 'Missing accepted clip/hub path fingerprints')
-        paths = json.loads((ROOT / 'review/current/toolpath-check.json').read_text())
-        path_record = next(r for r in paths['projects'] if r['project'] == project['file'])
-        check(path_record['project_sha256'] == project['project_sha256']
-              and path_record['gcode_sha256'] == receipt['gcode_sha256']
-              and path_record['supports_brims_skirts_absent'], 'Consolidated toolpath receipt is stale')
-        for plate in receipt['native_result']['sliced_plates']:
-            check(not plate['warning_message'], 'Native slice warning')
-            check(not any('support' in k.lower() or 'brim' in k.lower() or 'skirt' in k.lower()
-                          for k in plate['feature_type_times']), 'Native slice has support/brim/skirt paths')
-    result = {'passed': True, 'projects': [assembly, fit], 'weld_tolerance_mm': 1e-5,
-              'limits': 'Topology and saved settings audit; no exhaustive triangle self-intersection, measured printer accuracy or physical snap/strength qualification.',
-              'print_sent': False}
-    (ROOT / 'review/current/print-project-check.json').write_text(json.dumps(result, indent=2)+'\n')
-    print('PASS: five assembly / four fit-test parts; closed connected positive meshes; four non-printing rail modifiers; shell detail bands/Arachne; no supports or brims; clip/hub overrides preserved; matching slice receipts.')
+    rows = audit_project()
+    evidence = json.loads((ROOT/'docs/validation.json').read_text())
+    check(evidence['native_slice']['return_code'] == 0, 'Native slice failed')
+    check(all(not p['warning_message'] and len(p['objects']) == 5 for p in evidence['native_slice']['sliced_plates']), 'Native warnings/count differ')
+    check(evidence['toolpaths']['supports_brims_skirts_absent'] and evidence['toolpaths']['clips_slice_solid'], 'Unqualified toolpaths')
+    print(f'PASS {len(rows)} closed, connected print meshes; model consistency, placement, settings and slice receipt.')
 
 
 if __name__ == '__main__':

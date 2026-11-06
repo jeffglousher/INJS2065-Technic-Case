@@ -1,5 +1,0 @@
-*.log
-original/*
-!original/result.json
-uniform/*
-!uniform/result.json

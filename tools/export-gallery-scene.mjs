@@ -6,7 +6,7 @@ import { Client } from './mcp-client.mjs';
 
 const base = new URL('../', import.meta.url);
 const source = await fs.readFile(new URL('design/current.model.json', base));
-const reference = JSON.parse(await fs.readFile(new URL('review/current/cad-reference.json', base)));
+const reference = JSON.parse(await fs.readFile(new URL('docs/model-reference.json', base)));
 assert.equal(crypto.createHash('sha256').update(source).digest('hex'), reference.canonicalModelSha256);
 const client = new Client(process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe', 180000);
 try {

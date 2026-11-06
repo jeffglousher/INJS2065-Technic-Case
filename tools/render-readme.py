@@ -17,18 +17,18 @@ from PIL import Image, ImageChops, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/images'
 OUT.mkdir(parents=True, exist_ok=True)
-spec = importlib.util.spec_from_file_location('render', ROOT / 'tools/render-review.py')
+spec = importlib.util.spec_from_file_location('render', ROOT / 'tools/mesh-render.py')
 r = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(r)
 scene = json.loads((ROOT / 'local/readme-gallery-scene.json').read_text())
 proof = json.loads((ROOT / 'local/readme-gallery-proof.json').read_text())
 model = json.loads((ROOT / 'design/current.model.json').read_text())
-candidate = ROOT / 'review/grooves-20261105/assembly-uniform-shells.3mf'
-receipt = json.loads((ROOT / 'review/readiness-20261106/readiness.json').read_text())
+candidate = ROOT / 'print/servo-holder.3mf'
+receipt = json.loads((ROOT / 'docs/validation.json').read_text())
 sha = lambda raw: hashlib.sha256(raw).hexdigest()
-assert sha(candidate.read_bytes()) == receipt['candidate_sha256']
+assert sha(candidate.read_bytes()) == receipt['project_sha256']
 native = {b['id']: b for b in scene['bodies']}
-reference = json.loads((ROOT / 'review/current/cad-reference.json').read_text())
+reference = json.loads((ROOT / 'docs/model-reference.json').read_text())
 assert sha((ROOT/'local/readme-gallery-scene.json').read_bytes()) == proof['scene_sha256']
 assert proof['model_sha256'] == reference['canonicalModelSha256'] == sha((ROOT/'design/current.model.json').read_bytes())
 assert proof['hardware_mesh_sha256'] == {str(b['id']):b['meshSha256'] for b in reference['bodies'] if b['id'] in (1,53)}
@@ -153,7 +153,7 @@ subprocess.run([sys.executable,str(ROOT/'tools/render-print-plate.py')],check=Tr
 manifest={'model_sha256':sha((ROOT/'design/current.model.json').read_bytes()),
           'print_project':str(candidate.relative_to(ROOT)).replace('\\','/'),
           'print_project_sha256':sha(candidate.read_bytes()),'printable_mesh_sha256':mesh_hashes,
-          'hardware_source':'Native reference bodies 1 and 53, checked against review/current/cad-reference.json',
+          'hardware_source':'Native reference bodies 1 and 53, checked against docs/model-reference.json',
           'hardware_mesh_sha256':proof['hardware_mesh_sha256'],
           'printable_display_transforms':'Rigid inverse manufacturing orientation/centering, not a new CAD export',
           'exploded_offsets':'Saved Exploded assembly translations; bearing +44 and hub +60 mm in Z for visibility',

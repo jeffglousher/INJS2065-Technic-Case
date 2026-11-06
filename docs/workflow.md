@@ -1,90 +1,69 @@
-# Limo CAD to a reviewed PETG print
+# Limo CAD to a PETG print
 
-## Files and views
+## Files to open
 
 Open [current.nbcad](../design/current.nbcad) in Limo CAD for the editable design.
 Its matching [model JSON](../design/current.model.json) contains 374 features and
-seven bodies. The model saves **Assembled ISO**, **Exploded assembly** and
-**PETG print by object** views. View offsets separate the parts for inspection;
-they are not assembly clearances or a constrained disassembly motion.
+seven bodies. The saved views include **Assembled ISO**, **Exploded assembly**
+and **PETG print by object**.
 
-Open [assembly-uniform-shells.3mf](../review/grooves-20261105/assembly-uniform-shells.3mf)
-in Bambu Studio for the current five-part print candidate. The `.nbcad` owns
-editable geometry. The 3MF owns saved printer, filament, placement and process
-settings. A new CAD export does not automatically inherit those Bambu overrides.
+Open [servo-holder.3mf](../print/servo-holder.3mf) in Bambu Studio for all five
+printable parts. The native model owns editable geometry; the 3MF owns the
+saved printer, filament, placement and process settings. A new CAD export does
+not automatically inherit Bambu settings.
 
-The older `print/assembly-petg.3mf` and `print/fit-test-petg.3mf` contain the
-superseded regional modifiers. The separately preserved
-`review/hub-orientation-20261010/flipped-no-support.3mf` is an owner experiment,
-not the current candidate.
+## Print settings and checks
 
-## What changed after the first print
+The project uses Bambu X2D, a 0.4 mm nozzle and Bambu PETG Basic, printing by
+object. It uses Arachne for the shells and Classic for the clips and hub.
+Shell detail bands request 0.12 mm layers, with a 0.16 mm main layer height and
+0.20 mm first layer. The hub uses 0.08 mm layers. Shell speed limits apply to
+each whole shell. There are no modifier volumes, supports, support paint,
+brims or skirts. Both clips slice solid.
 
-The owner reported reasonable fit but large grooves at the ends. Native slicing
-reproduced end-wall path interruptions at the four regional speed modifiers.
-The revised project removes those volumes and applies their speed limits to
-the entire shells. All five printable mesh payloads, print placements and shell
-layer bands remain unchanged; clip/hub settings remain intact.
+The native estimate is about 3 h 25 min and 22.49 g. It is not a printer runtime
+guarantee. Live printer and AMS configuration were not synchronized, and no
+printer job was sent. Read [assembly and acceptance](assembly.md) before use.
 
-The current project uses Arachne for the shells and Classic for clips/hub. Shell
-detail bands request 0.12 mm layers, with a 0.16 mm baseline and 0.20 mm first
-layer. There are no supports, support paint, brims or skirts. Both clips slice
-solid. The native estimate is about 3 h 25 min and 22.49 g; it is not a printer
-runtime guarantee. Live printer and AMS configuration were not synchronized.
-No printer job was sent.
+[validation.json](validation.json) records the project/model hashes, mesh checks,
+native slice and toolpath checks. These commands run without a printer connection:
 
-See [the groove investigation](../review/grooves-20261105/README.md) and
-[the latest all-parts review](../review/readiness-20261106/README.md) for exact
-project hashes, native results and remaining physical acceptance checks.
+```text
+uv run python tools/verify-print.py
+uv run python tools/slice-print.py
+```
 
-## Gallery provenance
+The first verifies the saved model and five prepared meshes against the recorded
+hashes, process settings and receipt. The second performs a fresh native slice
+in a temporary directory, checking all five objects, solid clips, shell detail
+layers, end-wall continuity probes and absence of support/brim/skirt paths.
+Add `--update-evidence` to refresh the receipt only after those checks pass.
+Set `--slicer` to the installed Bambu Studio executable if needed.
 
-The front README follows the presentation of the
-[garden-auger project](https://github.com/jeffglousher/garden-auger-technic):
-an animated overview, labeled exploded assembly, interior details, print plate
-and direct files to open. These are rendered meshes, not application screenshots.
-The turntable rotates the whole assembly for inspection; it does not simulate
-the servo, bearing contact or snap deformation.
+## Gallery
 
-The five printable gallery meshes come directly from the reviewed 3MF and are
-checked against its mesh hashes. Rigid transforms undo manufacturing orientation
-and centering for the assembled views. Servo and bearing reference meshes come
-from an isolated native replay and match their recorded reference hashes. The
-newer installed CAD build produces different shell tessellation hashes on replay,
-so those rebuilt printable meshes are deliberately excluded from the gallery.
-This does not qualify that newer replay as geometrically identical to the saved
-print. No editable model, print-project geometry or current desktop was changed.
+The gallery renders the exact prepared print meshes, with rigid display
+transforms to place them in the assembly. Servo and bearing reference meshes
+are checked against [model-reference.json](model-reference.json). The turntable
+rotates the whole assembly for inspection; it does not simulate servo operation,
+bearing contact or snap deformation. Display offsets are not assembly clearances.
 
-Explosion translations start with the model's saved **Exploded assembly** view.
-The bearing and hub are lifted further in Z for visibility. The published plate
-image is generated from the current saved 3MF placement and its matched native
-slice receipt, rather than from the old modifier project's screenshot.
+The exploded views use saved assembly translations, with the bearing and hub
+lifted further in Z for visibility. The plate image renders the saved 3MF
+placement and shows its matched native estimate. Colors identify parts, not
+filament changes. Sources and asset hashes are in
+[gallery-sources.json](gallery-sources.json).
 
-Asset hashes and sources are in [gallery-sources.json](gallery-sources.json).
-To regenerate the native hardware source and gallery, run from the repository root:
+To regenerate the hardware source and gallery:
 
 ```text
 node tools/export-gallery-scene.mjs
 uv run --with pillow python tools/render-readme.py
 ```
 
-The first command runs the installed `Limo-CAD.exe` in a separate headless
-process and refuses changed hardware hashes. The second needs Pillow and the
-current candidate and readiness receipt. Temporary `local/readme-gallery-scene.json`
-belongs to this documentation task, has a 50 MiB ceiling and is excluded from Git;
-retain it while gallery work is active, then release it after merge and no consumers.
-
-## Existing validation tools
-
-`tools/verify-print.py` checks the historical projects under `print/`, including
-their four regional modifiers. Its success does not approve the revised slice.
-`tools/review-readiness.py` audits and renders the revised candidate, using the
-locally retained original G-code for the end-wall comparison. Native output is
-ignored; clone-only reproduction needs that original comparison slice first.
-
-`tools/verify-current.mjs` replays the CAD and requires the original exact native
-mesh/topology hashes. The current installed build does not satisfy its shell mesh
-hashes. That is a replay qualification issue, not permission to overwrite the
-reviewed model or print geometry to make the check pass. The saved native model
-and JSON still match, and all five prepared print meshes retain their reviewed
-hashes. Physical snap force, creep, fatigue and loaded retention remain unqualified.
+The exporter uses the installed Limo CAD in a separate headless process and
+refuses changed hardware hashes. The renderer uses Pillow and the saved print
+meshes. Its ignored `local/` input is bounded to 50 MiB. No current desktop model
+is changed. CAD replay must be qualified before replacing prepared print meshes;
+exact native shell mesh hashes are build-dependent and are not certified by the
+gallery. The saved native model and JSON are consistent.

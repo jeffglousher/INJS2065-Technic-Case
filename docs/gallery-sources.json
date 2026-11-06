@@ -1,7 +1,7 @@
 {
   "model_sha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7",
-  "print_project": "review/grooves-20261105/assembly-uniform-shells.3mf",
-  "print_project_sha256": "5c82298914b62d42703b854298580a207495c0abf7f20c794c7ab2002c678204",
+  "print_project": "print/servo-holder.3mf",
+  "print_project_sha256": "7d0c08e9553849abe99b809e01da0dc59e1d39cab39adbb67c4cb6da2885ed65",
   "printable_mesh_sha256": {
     "8": "e0ff88dea31dfb66fce57fe147564ec3d0d64e64bc233c8a78513f179fdb070e",
     "18": "b7819efb0fc80628fb7eda6df7df0abdc1b7db1abffbbbb78818a2f13364a938",
@@ -9,7 +9,7 @@
     "267": "b0914e8971d86e4480c486d332443b72179eacb399a4d45119f772aa9b1816c0",
     "54": "c0ecd3a62535a18838825eb723475235c0808f49ecb98fa677b7662abcaf27c3"
   },
-  "hardware_source": "Native reference bodies 1 and 53, checked against review/current/cad-reference.json",
+  "hardware_source": "Native reference bodies 1 and 53, checked against docs/model-reference.json",
   "hardware_mesh_sha256": {
     "1": "60c97cca70f5c72605210f457b3b227c75d1ea43d0dfc84200cc0d34955b03da",
     "53": "9736c80965711fb02a163d451d6272bebfe39dcfe88f4caf4bdbeb3723d0e049"
