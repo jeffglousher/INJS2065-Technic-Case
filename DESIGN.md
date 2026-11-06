@@ -1,12 +1,14 @@
 # Current design and print specification
 
-The native CAD and both print projects describe the current fit-test candidate. Dimensions below are millimetres unless stated otherwise. [dimensions.json](review/current/dimensions.json) contains the current geometric values; it deliberately leaves qualified elastic preload, force and strain unset.
+The editable CAD describes the fitted geometry. Use [assembly-uniform-shells.3mf](review/grooves-20261105/assembly-uniform-shells.3mf) for the current confirmation print; the older projects under `print/` retain the superseded regional modifiers. Dimensions below are millimetres unless stated otherwise. [dimensions.json](review/current/dimensions.json) contains the geometric values; it deliberately leaves qualified elastic preload, force and strain unset.
 
 ## Current review and print decision
 
-CAD replay, export preflight, saved-project mesh/settings checks and independent native slices pass. Both print projects disable supports, brims and skirts, with no support paint. The current candidate has full hex posts, 0.28 mm nubs and 0.205 mm radial aperture clearance.
+**2026-11-06 update:** the owner reports reasonable printed fit, with end grooves traced to regional slicer modifiers. The [revised all-parts review](review/readiness-20261106/README.md) verifies the unchanged printable meshes and restored end-wall paths. Proceed with a confirmation PETG print of the revised assembly. End finish, repeated clip retention and loaded hub operation remain to be accepted physically.
 
-Recommendation: proceed with the complete-shell PETG fit test, subject to the user's final go/no-go. Final mechanical acceptance remains pending. Print [fit-test-petg.3mf](print/fit-test-petg.3mf) first (about 2 h 54 min / 22.46 g), inspect the unsupported hex undersides for sagging and roughness without shaving the retaining surfaces, and check both clips for full seating, a snap, no loose sliding or wobble, and no whitening or permanent set. A loose or damaged fit fails this test; measure the printed features before making another dimensional adjustment. Then check the hub's friction fit and bearing-supported rotation as described below. PETG results do not qualify PLA.
+The earlier geometry review recorded successful CAD replay, export preflight and native slices. Its receipts below describe the historical projects. A newer installed CAD build now produces different shell mesh hashes on replay; it has not been qualified as an identical export. The saved model and prepared print geometry have not been overwritten. The fitted design has full hex posts, 0.28 mm nubs and 0.205 mm radial aperture clearance.
+
+On the next print, inspect the unsupported hex undersides for sagging and roughness without shaving the retaining surfaces. Check both clips for full seating, a snap, no loose sliding or wobble, and no whitening or permanent set. A loose or damaged fit fails this test; measure the printed features before making another dimensional adjustment. Then check the hub's friction fit and bearing-supported rotation as described below. PETG results do not qualify PLA.
 
 [Export preflight](review/current/export-preflight.json) reports no timeline errors and five printable occurrences; the servo and bearing are intentionally excluded. Its layout check uses conservative mesh bounds, not exact sequential-print head collision analysis. The saved assembled, exploded and print-by-object CAD views remain present; the hub is flipped in both the CAD print view and the slicer layout.
 
