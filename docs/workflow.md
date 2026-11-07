@@ -7,7 +7,7 @@ remain the control design.
 
 ## Files to open
 
-Open [current.nbcad](../design/current.nbcad) in Limo CAD for the editable design.
+Open [current.limo](../design/current.limo) in Limo CAD for the editable design.
 Its matching [model JSON](../design/current.model.json) contains 374 features and
 seven bodies. The saved views include **Assembled ISO**, **Exploded assembly**
 and **PETG print by object**.
@@ -72,3 +72,7 @@ meshes. Its ignored `local/` input is bounded to 50 MiB. No current desktop mode
 is changed. CAD replay must be qualified before replacing prepared print meshes;
 exact native shell mesh hashes are build-dependent and are not certified by the
 gallery. The saved native model and JSON are consistent.
+
+The scripts find Limo CAD under the current user's local application directory.
+For another installation, set `LIMO_CAD_MCP_EXE` to the absolute path of
+`Limo-CAD.exe`. This setting is shared by the gallery exporter and retention builder.

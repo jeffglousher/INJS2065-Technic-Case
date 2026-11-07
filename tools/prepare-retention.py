@@ -183,7 +183,7 @@ for i,bid in enumerate((8,18,173,267,54),1):
 fullchecks=project(OUT/'holder-latch-A.3mf',candidate)
 
 model_path=ROOT/'design/retention/latch.model.json'
-with zipfile.ZipFile(ROOT/'design/current.nbcad') as z:manifest=json.loads(z.read('manifest.json'))
+with zipfile.ZipFile(ROOT/'design/current.limo') as z:manifest=json.loads(z.read('manifest.json'))
 manifest['model_schema_version']=json.loads(model_path.read_text())['schema_version']
 manifest['saved_at']=datetime.now(timezone.utc).isoformat()
 with zipfile.ZipFile(ROOT/'design/retention/latch.limo','w',zipfile.ZIP_DEFLATED) as z:

@@ -2,13 +2,13 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
-import { Client } from './mcp-client.mjs';
+import { Client, cadExecutable } from './mcp-client.mjs';
 
 const base = new URL('../', import.meta.url);
 const source = await fs.readFile(new URL('design/current.model.json', base));
 const reference = JSON.parse(await fs.readFile(new URL('docs/model-reference.json', base)));
 assert.equal(crypto.createHash('sha256').update(source).digest('hex'), reference.canonicalModelSha256);
-const client = new Client(process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe', 180000);
+const client = new Client(cadExecutable(), 180000);
 try {
   await client.start();
   await client.call('cad_load_project_model', {model_json: source.toString()});

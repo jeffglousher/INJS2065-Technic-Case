@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import {Client} from './mcp-client.mjs';
+import {Client, cadExecutable} from './mcp-client.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = path => fs.readFile(new URL(path, root), 'utf8');
@@ -12,7 +12,7 @@ const controlEvidence=JSON.parse(await read('docs/validation.json'));
 assert.equal(crypto.createHash('sha256').update(source).digest('hex'),controlEvidence.model_sha256,
   'Control model changed; qualify it before generating another trial');
 await fs.mkdir(new URL('local/retention/', root), {recursive:true});
-const client = new Client(process.env.NBCAD_MCP_EXE || 'C:/Users/jeffg/AppData/Local/limo-cad/bevy/Limo-CAD.exe', 180000);
+const client = new Client(cadExecutable(), 180000);
 const calls = [];
 async function call(name, args={}) {
   const result = await client.call(name,args);

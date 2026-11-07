@@ -2,12 +2,9 @@
 
 A printable clamshell that holds an INJS2065 servo in a Technic build. Two retaining clips close the housing, and a bearing-supported output hub connects the servo shaft to a Technic cross socket.
 
-**Active retention trial:** the last clips remained loose. A new printed latch
-and a six-piece PETG coupon set are ready for fit testing. Start with the
-[trial instructions and part identification](docs/retention-trial.md) and
-[receiver project](print/retention/coupons-receivers.3mf) and
-[clip project](print/retention/coupons-clips.3mf). The latch is experimental;
-mechanical acceptance is still pending. The gallery below shows the control design.
+**Start with the retention coupons.** The new tool-released latch needs printed
+fit and load testing. Follow the [test instructions and print files](docs/retention-trial.md)
+before printing a complete housing. The gallery below shows the control design.
 
 ![Servo holder viewed from every side](docs/images/turntable.gif)
 
@@ -63,20 +60,26 @@ Purchased parts:
 
 We designed and refined the holder in **[Limo CAD](https://github.com/limo-cad/Limo-CAD)**, exported the parts, then prepared the PETG print project in Bambu Studio. The editable model and saved print settings are included so you can adapt the holder to your own build.
 
-The owner reports reasonable printed fit but inadequate snap retention. The print project uses slower speeds across each whole shell, with continuous end-wall paths; the retaining geometry still needs a successful physical test.
+The last print fit reasonably, but its clips slid in loosely. The new latch
+adds a defined spring tongue and retaining shoulder. Both versions use continuous
+end-wall toolpaths; physical acceptance of the new latch is pending.
 
-## Print plate
+## Control print plate
 
 ![Five PETG parts on the reviewed Bambu print plate](docs/images/print-plate.png)
 
 The current project uses **Bambu X2D, a 0.4 mm nozzle and Bambu PETG Basic**, printing by object without supports, brims or skirts. Native slicing estimates **3 h 25 min and 22.49 g**.
 
-The next step is a **controlled retention fit test**. Identify the printed revision and measure the mating features before choosing another detent increment. Use complete, aligned shells and reuse sound printed parts where possible. Confirm end finish, clip seating and retention, and hub engagement and bearing rotation before putting it into service. Snap retention and loaded operation are not accepted.
+Print the [retention coupons](docs/retention-trial.md) first. If a coupon passes,
+test the corresponding complete housing for clip retention, end finish, hub
+engagement, bearing rotation and loaded operation before putting it into service.
 
 ## Make your own
 
-- [Editable Limo CAD model](design/current.nbcad)
-- [Bambu Studio print project — all five parts](print/servo-holder.3mf)
-- [Matching editable model JSON](design/current.model.json)
+- [Retention trial: print files, part identification and test procedure](docs/retention-trial.md)
+- [Editable Limo CAD latch model](design/retention/latch.limo)
+- [Editable Limo CAD control model](design/current.limo)
+- [Bambu Studio control project — all five parts](print/servo-holder.3mf)
+- [Control model JSON](design/current.model.json)
 
 [Assembly notes](docs/assembly.md) · [Design and print workflow](docs/workflow.md) · [Dimensions and fit](DESIGN.md) · [Validation](docs/validation.json)
