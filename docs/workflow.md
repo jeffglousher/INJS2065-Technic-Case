@@ -1,5 +1,10 @@
 # Limo CAD to a PETG print
 
+For the active latch experiment, use the separate
+[retention trial workflow](retention-trial.md). Its editable source, coupon
+plates, full A housing and validation record are linked there. The files below
+remain the control design.
+
 ## Files to open
 
 Open [current.nbcad](../design/current.nbcad) in Limo CAD for the editable design.
