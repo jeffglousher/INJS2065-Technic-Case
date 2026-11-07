@@ -192,7 +192,7 @@
     "wall_loops": 4
   },
   "print_sent": false,
-  "physical_status": "Owner reports reasonable fit; confirmation print, repeated clip retention and loaded hub operation remain pending",
+  "physical_status": "Owner reports reasonable fit but inadequate snap retention on the last print. No successful snap-retention test is recorded. Current toolpaths pass; printed end finish and mechanical acceptance remain pending.",
   "toolpaths": {
     "gcode_sha256": "3f45d8adcf2cd6c50ad26aa27a12ad501e293905bc41748a68f11f77976e3f9b",
     "supports_brims_skirts_absent": true,
@@ -259,5 +259,11 @@
         "continuous_layers": 181
       }
     ]
+  },
+  "physical_acceptance": {
+    "snap_retention": "not accepted: owner reports the last print did not provide the desired snap retention",
+    "printed_revision": "not independently identified from this report",
+    "end_finish": "continuous end-wall toolpaths verified; confirmation of printed surface finish remains pending",
+    "next_test": "Identify the printed revision and measure the clip nubs, receiver seats and play. Test retention with complete aligned shells; reuse sound printed parts where possible."
   }
 }
