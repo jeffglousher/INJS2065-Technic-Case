@@ -62,8 +62,11 @@ successful native slicing. End-wall continuity is probed on both shells. These
 checks do not exhaustively detect triangle self-intersections or establish
 printed strength. [Dimensions](docs/dimensions.json) records the geometric values.
 
-The owner reports reasonable printed fit. Proceed with a confirmation PETG print,
-then check end finish, unsupported hex undersides, seam closure, full clip
+The owner reports reasonable printed fit but inadequate snap retention on the
+last print. Snap retention is not accepted. Identify the printed revision and
+measure the mating features before choosing another detent increment. Use the
+complete aligned shells for a controlled retention test, reusing sound printed
+parts where possible. Check end finish, unsupported hex undersides, seam closure, full clip
 seating, snap retention, permanent set, hub engagement, bearing rotation, torque
 transmission and axial retention. Repeat insertion cycles and a loaded holding
 dwell. Follow [the assembly notes](docs/assembly.md). PETG results do not qualify PLA.

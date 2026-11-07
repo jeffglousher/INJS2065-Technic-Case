@@ -39,8 +39,14 @@ for the complete dimensions and clearances.
 
 ## Accept the next print
 
-The owner reports reasonable printed fit. A confirmation print is needed to
-establish the current project's surface finish.
+The owner reports reasonable printed fit but inadequate snap retention on the
+last print. No successful snap-retention result is recorded for the current
+design. Identify the printed revision and measure the printed nub, seat and
+free play before choosing another detent increment.
+
+Test with the complete shells fully aligned and seated. Reuse sound printed
+parts where possible. A cropped receiver that omits the locating features is
+not a valid substitute. Printed surface finish also needs confirmation.
 
 Check both shell ends for continuous surfaces without repeated grooves.
 Check full seam closure, clip seating, free rotation, servo engagement,
