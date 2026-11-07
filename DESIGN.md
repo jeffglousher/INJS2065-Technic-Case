@@ -1,6 +1,6 @@
 # Dimensions and print specification
 
-Dimensions are millimetres. The editable design is [current.nbcad](design/current.nbcad)
+Dimensions are millimetres. The editable design is [current.limo](design/current.limo)
 with its matching [model JSON](design/current.model.json). Use
 [servo-holder.3mf](print/servo-holder.3mf) for the five-part PETG print.
 

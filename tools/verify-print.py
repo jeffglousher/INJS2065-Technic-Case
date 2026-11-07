@@ -78,8 +78,8 @@ def audit_project():
     path = ROOT / evidence['project']
     check(sha(path) == evidence['project_sha256'], 'Print-project hash differs')
     check(sha(ROOT / 'design/current.model.json') == evidence['model_sha256'], 'Editable model hash differs')
-    check(sha(ROOT / 'design/current.nbcad') == evidence['native_model_sha256'], 'Native model hash differs')
-    with zipfile.ZipFile(ROOT / 'design/current.nbcad') as saved:
+    check(sha(ROOT / 'design/current.limo') == evidence['native_model_sha256'], 'Native model hash differs')
+    with zipfile.ZipFile(ROOT / 'design/current.limo') as saved:
         check(json.loads(saved.read('model.json')) == json.loads((ROOT / 'design/current.model.json').read_text()),
               'Saved native model and JSON differ')
     with zipfile.ZipFile(path) as z:

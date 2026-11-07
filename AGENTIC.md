@@ -1,6 +1,6 @@
 # Working on the INJS2065 holder
 
-Use `design/current.model.json` and its matching `design/current.nbcad`. Preserve
+Use `design/current.model.json` and its matching `design/current.limo`. Preserve
 construction features, identifiers, dimensions, assembly poses and named views
 when changing documentation or file organization.
 

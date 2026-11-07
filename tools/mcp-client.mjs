@@ -1,8 +1,16 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {createInterface} from 'node:readline';
+import {homedir} from 'node:os';
+import {join} from 'node:path';
+
+export function cadExecutable() {
+  const appData = process.env.LOCALAPPDATA || join(homedir(), 'AppData', 'Local');
+  return process.env.LIMO_CAD_MCP_EXE || join(appData, 'limo-cad', 'bevy', 'Limo-CAD.exe');
+}
+
 export class Client {
-  constructor(binary, timeoutMs = 60000) {
+  constructor(binary = cadExecutable(), timeoutMs = 60000) {
     this.timeoutMs = timeoutMs;
     this.next = 0;
     this.pending = new Map();
@@ -10,7 +18,8 @@ export class Client {
     this.errors = '';
     this.child.stderr.on('data', chunk => { this.errors = (this.errors + chunk).slice(-4000); });
     this.child.stdin.on('error', error => this.fail(error));
-    this.child.on('error', error => this.fail(error));
+    this.child.on('error', error => this.fail(new Error(
+      `Cannot start Limo CAD at ${binary}. Set LIMO_CAD_MCP_EXE to your installed Limo-CAD.exe.`, {cause:error})));
     this.child.on('exit', code => this.fail(new Error(`MCP exited (${code}): ${this.errors}`)));
     createInterface({ input: this.child.stdout }).on('line', line => {
       let reply;
@@ -38,7 +47,7 @@ export class Client {
     });
   }
   async start() {
-    await this.rpc('initialize', { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'part-design-goldens', version: '1' } });
+    await this.rpc('initialize', { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'limo-cad-servo-holder', version: '1' } });
     this.child.stdin.write(JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) + '\n');
   }
   async call(name, args = {}) {
