@@ -69,9 +69,14 @@ def wrap(mesh, number):
     ET.SubElement(r,tag('build'))
     return ET.tostring(r,encoding='utf-8',xml_declaration=True)
 
-def project(path, rows):
+def project(path, rows, *, outer_brim_mm=0):
     """Rows: name, mesh in print coordinates, source setting object, XY center."""
     data={k:v for k,v in TEMPLATE.items() if not k.startswith('3D/Objects/')}
+    brim_settings={'brim_type':'outer_only','brim_width':str(outer_brim_mm),'brim_object_gap':'0.1'} if outer_brim_mm else {}
+    if brim_settings:
+        process_settings=json.loads(data['Metadata/project_settings.config'])
+        process_settings.update(brim_settings)
+        data['Metadata/project_settings.config']=json.dumps(process_settings,indent=4).encode()
     config=ET.fromstring(TEMPLATE['Metadata/model_settings.config'])
     source={i:copy.deepcopy(o) for i,o in enumerate(config.findall('object'),1)}
     for o in config.findall('object'):config.remove(o)
@@ -91,6 +96,10 @@ def project(path, rows):
         checks.append(verify.audit_mesh(raw,name))
         oid=str(100+i);transform=f'1 0 0 0 1 0 0 0 1 {x} {y} 0'
         o=copy.deepcopy(source[settings]);o.set('id',oid)
+        for key,value in brim_settings.items():
+            md=o.find(f"metadata[@key='{key}']")
+            if md is None:md=ET.SubElement(o,'metadata',{'key':key})
+            md.set('value',value)
         for md in o.findall('metadata'):
             if md.get('key')=='name':md.set('value',name)
             if md.get('face_count') is not None:md.set('face_count',str(checks[-1]['triangles']))
@@ -168,7 +177,7 @@ rows=[('1 Lower registered rail',placed(coupon['control'][8],8),1,(150,55)),
       ('4 Control clip',ET.fromstring(TEMPLATE['3D/Objects/object_3.model']).find('.//'+tag('mesh')),3,(50,55)),
       ('5 Latch A 1.2 mm tongue',placed(full['A'][173],173),3,(50,175)),
       ('6 Latch B 1.0 mm tongue',placed(full['B'][173],173),3,(150,55))]
-receiver_checks=project(OUT/'coupons-receivers.3mf',rows[:3])
+receiver_checks=project(OUT/'coupons-receivers.3mf',rows[:3],outer_brim_mm=2)
 clip_checks=project(OUT/'coupons-clips.3mf',rows[3:])
 candidate=[]
 for i,bid in enumerate((8,18,173,267,54),1):

@@ -8,10 +8,15 @@ Open [coupons-receivers.3mf](../print/retention/coupons-receivers.3mf) and
 they contain six pieces in Bambu PETG Basic, with final part orientations and original build
 Z coordinates. No purchased hardware is added. No printer job has been sent.
 
-Native slicing estimates **8.51 g / 1 h 47 min** for receivers and
-**2.34 g / 22 min** for clips: **10.85 g / about 2 h 9 min** combined. Actual
+Native slicing estimates **8.65 g / about 1 h 48 min** for receivers and
+**2.34 g / 22 min** for clips: **10.99 g / about 2 h 10 min** combined. Actual
 consumption and runtime may differ. The complete A holder estimates
 **22.36 g / about 3 h 27 min**.
+
+Receiver coupons have a **2 mm outside brim with a 0.1 mm separation gap** to
+help the tall, narrow rails stay attached to the plate. This adds about 0.14 g
+and 17 seconds. Remove the brim before testing. The clips and complete holder
+remain brim-free; no supports or skirts are used on any project.
 
 ![The receiver plate and the clip plate](images/retention-coupons.png)
 
