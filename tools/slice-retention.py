@@ -48,7 +48,12 @@ def main(binary):
             verify.check(not plate['warning_message'] and len(plate['objects'])==count,'Native warnings or missing objects')
             gcode=out/'plate_1.gcode';rows=list(audit.segments(gcode))
             verify.check({r['object'] for r in rows}==set(range(1,count+1)),'Unexpected toolpath objects')
-            verify.check(not any(any(k in r['feature'].lower() for k in ('support','brim','skirt')) for r in rows),'Unexpected support/brim/skirt')
+            verify.check(not any(any(k in r['feature'].lower() for k in ('support','skirt')) for r in rows),'Unexpected support/skirt')
+            brims=[r for r in rows if 'brim' in r['feature'].lower()]
+            verify.check(bool(brims)==(label=='receivers'),'Receiver brim missing or unexpected brim on another project')
+            if label=='receivers':
+                verify.check({r['object'] for r in brims}=={1,2,3},'Not every receiver has a brim')
+                verify.check(all(abs(r['z']-.2)<.001 for r in brims),'Brim extends above the first layer')
             clips=(1,2,3) if label=='clips' else (3,4) if label=='holder' else ()
             verify.check(not any(r['object'] in clips and r['feature']=='Sparse infill' for r in rows),'Clip contains sparse infill')
             probes=[]
@@ -80,7 +85,8 @@ def main(binary):
                             probes.append({'object':obj,'xy_mm':[x,y],'continuous_layers':len(layers)})
             record['native_slice']=result
             record['toolpaths']={'gcode_sha256':hashlib.sha256(gcode.read_bytes()).hexdigest(),
-                'no_support_brim_skirt':True,'clips_solid':True,'probes':probes}
+                'no_support_or_skirt':True,'brim_objects':sorted({r['object'] for r in brims}),
+                'clips_solid':True,'probes':probes}
             print(f'PASS {label}: {plate["total_predication"]:.2f} s, {plate["filaments"][0]["total_used_g"]:.2f} g',flush=True)
     path.write_text(json.dumps(evidence,indent=2)+'\n')
 

@@ -153,7 +153,7 @@
   "projects": {
     "receivers": {
       "path": "print/retention/coupons-receivers.3mf",
-      "sha256": "2fabec04f7b39a0491c7c3046176d199f9aecc386236a432c21c295725069e2d",
+      "sha256": "4c980b752275f06acdb23a078d1ae4b99e9237c26a5672b3b93856b63afcb2ad",
       "parts": [
         {
           "name": "1 Lower registered rail",
@@ -197,39 +197,40 @@
         "export_time": 0,
         "layer_height": 0.1599999964237213,
         "plate_index": 1,
-        "prepare_time": 50,
+        "prepare_time": 67,
         "return_code": 0,
         "sliced_plates": [
           {
             "feature_type_times": {
               "Bridge": 7.696959972381592,
-              "Custom": 286.27667236328125,
+              "Brim": 32.41636657714844,
+              "Custom": 286.2478332519531,
               "Flush": 29.0,
               "Gap infill": 0.5069258809089661,
-              "Inner wall": 2927.4921875,
-              "Internal solid infill": 457.1636047363281,
-              "Outer wall": 1820.093017578125,
+              "Inner wall": 2919.697265625,
+              "Internal solid infill": 457.1772766113281,
+              "Outer wall": 1817.4541015625,
               "Overhang wall": 20.32489585876465,
               "Sparse infill": 20.802043914794922,
               "Top surface": 18.71061134338379,
-              "Travel": 851.4671630859375,
-              "Undefined": 844.72119140625
+              "Travel": 846.9725952148438,
+              "Undefined": 840.2266235351562
             },
             "filament_change_times": 0,
             "filaments": [
               {
                 "filament_id": "GFG00",
                 "id": 1,
-                "main_used_g": 8.507160186767578,
-                "total_used_g": 8.507160186767578
+                "main_used_g": 8.646044731140137,
+                "total_used_g": 8.646044731140137
               }
             ],
-            "generate_support_material_time": 36,
+            "generate_support_material_time": 43,
             "id": 1,
-            "infill_time": 58,
+            "infill_time": 73,
             "layer_filament_change": 0,
-            "main_predication": 6095.3935546875,
-            "make_perimeters_time": 206,
+            "main_predication": 6112.87744140625,
+            "make_perimeters_time": 240,
             "obj_cached_cnt": 0,
             "objects": [
               {
@@ -272,9 +273,9 @@
                 "triangle_count": 12244
               }
             ],
-            "sliced_time": 1785,
-            "sliced_time_with_cache": 1411,
-            "total_predication": 6432.92431640625,
+            "sliced_time": 2151,
+            "sliced_time_with_cache": 1706,
+            "total_predication": 6450.37939453125,
             "triangle_count": 29270,
             "warning_message": ""
           }
@@ -292,8 +293,13 @@
         "wall_loops": 4
       },
       "toolpaths": {
-        "gcode_sha256": "fdc1204ba858faa9ea2bb02ceea7539b632b53d8192d0132b777d809c6330a2e",
-        "no_support_brim_skirt": true,
+        "gcode_sha256": "ff4a4a781ae6355785230c081a1a14848f9007d47eaad01268b4aa12b820f9f7",
+        "no_support_or_skirt": true,
+        "brim_objects": [
+          1,
+          2,
+          3
+        ],
         "clips_solid": true,
         "probes": []
       }
@@ -344,7 +350,7 @@
         "export_time": 0,
         "layer_height": 0.1599999964237213,
         "plate_index": 1,
-        "prepare_time": 188,
+        "prepare_time": 220,
         "return_code": 0,
         "sliced_plates": [
           {
@@ -370,12 +376,12 @@
                 "total_used_g": 2.342982530593872
               }
             ],
-            "generate_support_material_time": 22,
+            "generate_support_material_time": 28,
             "id": 1,
-            "infill_time": 52,
+            "infill_time": 63,
             "layer_filament_change": 0,
             "main_predication": 992.06982421875,
-            "make_perimeters_time": 112,
+            "make_perimeters_time": 138,
             "obj_cached_cnt": 0,
             "objects": [
               {
@@ -418,8 +424,8 @@
                 "triangle_count": 23128
               }
             ],
-            "sliced_time": 808,
-            "sliced_time_with_cache": 576,
+            "sliced_time": 911,
+            "sliced_time_with_cache": 623,
             "total_predication": 1329.5760498046875,
             "triangle_count": 129884,
             "warning_message": ""
@@ -439,7 +445,8 @@
       },
       "toolpaths": {
         "gcode_sha256": "773b430c9378a3f65cd520f2e7d40fa36d54e84fc087b4956fda7b1bc73dc772",
-        "no_support_brim_skirt": true,
+        "no_support_or_skirt": true,
+        "brim_objects": [],
         "clips_solid": true,
         "probes": [
           {
@@ -551,7 +558,7 @@
         "export_time": 0,
         "layer_height": 0.1599999964237213,
         "plate_index": 1,
-        "prepare_time": 165,
+        "prepare_time": 170,
         "return_code": 0,
         "sliced_plates": [
           {
@@ -579,12 +586,12 @@
                 "total_used_g": 22.361526489257812
               }
             ],
-            "generate_support_material_time": 123,
+            "generate_support_material_time": 146,
             "id": 1,
-            "infill_time": 331,
+            "infill_time": 480,
             "layer_filament_change": 0,
             "main_predication": 12074.375,
-            "make_perimeters_time": 651,
+            "make_perimeters_time": 938,
             "obj_cached_cnt": 0,
             "objects": [
               {
@@ -653,8 +660,8 @@
                 "triangle_count": 4920
               }
             ],
-            "sliced_time": 4214,
-            "sliced_time_with_cache": 2852,
+            "sliced_time": 5083,
+            "sliced_time_with_cache": 3222,
             "total_predication": 12411.8818359375,
             "triangle_count": 132578,
             "warning_message": ""
@@ -674,7 +681,8 @@
       },
       "toolpaths": {
         "gcode_sha256": "482825c738191a4177c40636f9974d224bf7cf1d0b779c4bc279158ee68f08ce",
-        "no_support_brim_skirt": true,
+        "no_support_or_skirt": true,
+        "brim_objects": [],
         "clips_solid": true,
         "probes": [
           {
