@@ -216,7 +216,7 @@ for title,subset,color in [('Receiver plate',rows[:3],render.TEAL),('Clip plate:
     plates.append(render.render(parts,title,(1,-1,2),(720,720)))
 render.pair(*plates,images/'retention-coupons.png')
 
-evidence={'status':'experimental; unprinted; fit screening only','source_model_sha256':sha(ROOT/'design/current.model.json'),
+evidence={'status':'experimental; physical fit and retention unaccepted','source_model_sha256':sha(ROOT/'design/current.model.json'),
  'candidate_model_sha256':sha(model_path),'candidate_archive_sha256':sha(ROOT/'design/retention/latch.limo'),
  'replay_comparison':replay,'seated_contacts':contacts,
  'hook_withdrawal_0_25_mm_overlap_mm3':blocked,'hook_release_probe':release,
@@ -224,6 +224,6 @@ evidence={'status':'experimental; unprinted; fit screening only','source_model_s
  'coupon_crop':{'y_min_mm':7.6,'original_xyz_preserved':True,'stiffness_equivalence_established':False},
  'projects':{'receivers':{'path':'print/retention/coupons-receivers.3mf','sha256':sha(OUT/'coupons-receivers.3mf'),'parts':receiver_checks},
              'clips':{'path':'print/retention/coupons-clips.3mf','sha256':sha(OUT/'coupons-clips.3mf'),'parts':clip_checks},
-             'holder':{'path':'print/retention/holder-latch-A.3mf','sha256':sha(OUT/'holder-latch-A.3mf'),'parts':fullchecks}},'print_sent':False}
+             'holder':{'path':'print/retention/holder-latch-A.3mf','sha256':sha(OUT/'holder-latch-A.3mf'),'parts':fullchecks}}}
 (ROOT/'docs/retention-validation.json').write_text(json.dumps(evidence,indent=2)+'\n')
 print('PASS: replay comparison, seated clearance, hook capture/release and eleven prepared meshes. Native slicing remains required.')

@@ -1,0 +1,414 @@
+{
+  "status": "native checks passed; physical fit and retention unaccepted",
+  "path": "print/retention/coupons-complete.3mf",
+  "sha256": "f47581ca9d67f34c489573d58eadfe5c8e47513b9be1a8813561a0321bfbcd06",
+  "source_project_sha256": {
+    "receivers": "4c980b752275f06acdb23a078d1ae4b99e9237c26a5672b3b93856b63afcb2ad",
+    "clips": "c5c8cebed8369c5fc911d8d2b02a1d35a695099a96312f3b327682d23ecfd467"
+  },
+  "geometry_and_original_layer_bands_preserved": true,
+  "single_filament": "Bambu PETG Basic",
+  "print_sequence": "by object",
+  "parts": [
+    {
+      "object": 1,
+      "name": "1 Lower registered rail",
+      "source": "receivers",
+      "source_object": 1,
+      "mesh_sha256": "344d289b7fba0fbca537fa1098d05ce368f12d1fb2caf95c4b42dd1f24eb79cf",
+      "center_xy_mm": [
+        60,
+        28
+      ],
+      "mesh_bounds_mm": [
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          7.6,
+          12.0
+        ],
+        [
+          0.0,
+          10.95
+        ]
+      ]
+    },
+    {
+      "object": 2,
+      "name": "2 Control upper rail",
+      "source": "receivers",
+      "source_object": 2,
+      "mesh_sha256": "7740c9560e860e130928f706a38f0a2656104e80cdae8ae6c62070228510cdfc",
+      "center_xy_mm": [
+        60,
+        128
+      ],
+      "mesh_bounds_mm": [
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -12.0,
+          -7.6
+        ],
+        [
+          0.0,
+          24.45
+        ]
+      ]
+    },
+    {
+      "object": 3,
+      "name": "3 Latch upper rail A and B",
+      "source": "receivers",
+      "source_object": 3,
+      "mesh_sha256": "3c457161fb33c61a30014f02429b0d83f9975a48086e52a23a90f703a2138d7a",
+      "center_xy_mm": [
+        60,
+        224
+      ],
+      "mesh_bounds_mm": [
+        [
+          -20.0,
+          20.0
+        ],
+        [
+          -12.0,
+          -7.6
+        ],
+        [
+          0.0,
+          24.45
+        ]
+      ]
+    },
+    {
+      "object": 4,
+      "name": "4 Control clip",
+      "source": "clips",
+      "source_object": 1,
+      "mesh_sha256": "0e18617aead4c9e8ecf7fe1bf7f710841cf4e89be889f4172494f55d5e673ea9",
+      "center_xy_mm": [
+        180,
+        40
+      ],
+      "mesh_bounds_mm": [
+        [
+          -13.875,
+          13.875
+        ],
+        [
+          -6.933950306,
+          6.933950306
+        ],
+        [
+          0.0,
+          2.95
+        ]
+      ]
+    },
+    {
+      "object": 5,
+      "name": "5 Latch A 1.2 mm tongue",
+      "source": "clips",
+      "source_object": 2,
+      "mesh_sha256": "d5b5551c5d4f44d3452c5ddde757e12f059b3c50ceea4f5b72336c0c19b1c708",
+      "center_xy_mm": [
+        180,
+        128
+      ],
+      "mesh_bounds_mm": [
+        [
+          -13.875,
+          13.875
+        ],
+        [
+          -6.933702987,
+          6.933702987
+        ],
+        [
+          0.0,
+          4.05
+        ]
+      ]
+    },
+    {
+      "object": 6,
+      "name": "6 Latch B 1.0 mm tongue",
+      "source": "clips",
+      "source_object": 3,
+      "mesh_sha256": "97554a771d6293a2c807d694945dd938bca81588b1bc2a8b502cd1c72574f507",
+      "center_xy_mm": [
+        180,
+        216
+      ],
+      "mesh_bounds_mm": [
+        [
+          -13.875,
+          13.875
+        ],
+        [
+          -6.933702987,
+          6.933702987
+        ],
+        [
+          0.0,
+          4.05
+        ]
+      ]
+    }
+  ],
+  "native_slice": {
+    "error_string": "Success.",
+    "layer_height": 0.1599999964237213,
+    "peak_rss_mb": 256.16796875,
+    "plate_index": 1,
+    "return_code": 0,
+    "sliced_plates": [
+      {
+        "feature_type_times": {
+          "Bottom surface": 24.019550323486328,
+          "Bridge": 7.696959972381592,
+          "Brim": 32.423377990722656,
+          "Custom": 287.62689208984375,
+          "Flush": 29.0,
+          "Gap infill": 95.62586975097656,
+          "Inner wall": 3159.848388671875,
+          "Internal solid infill": 596.4977416992188,
+          "Outer wall": 2091.563232421875,
+          "Overhang wall": 20.556228637695312,
+          "Sparse infill": 20.802066802978516,
+          "Top surface": 62.92677688598633,
+          "Travel": 1028.89599609375,
+          "Undefined": 1020.7734375
+        },
+        "filament_change_times": 0,
+        "filaments": [
+          {
+            "filament_id": "GFG00",
+            "id": 1,
+            "main_used_g": 10.98896598815918,
+            "total_used_g": 10.98896598815918
+          }
+        ],
+        "id": 1,
+        "layer_filament_change": 0,
+        "main_predication": 7111.828125,
+        "obj_cached_cnt": 0,
+        "objects": [
+          {
+            "bbox": {
+              "depth": 4.400001525878906,
+              "height": 10.949999809265137,
+              "width": 40.0,
+              "x": 40.0,
+              "y": 35.599998474121094,
+              "z": 0.0
+            },
+            "id": 5,
+            "name": "1 Lower registered rail",
+            "triangle_count": 4810
+          },
+          {
+            "bbox": {
+              "depth": 4.40000057220459,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 40.0,
+              "y": 116.0,
+              "z": 0.0
+            },
+            "id": 9,
+            "name": "2 Control upper rail",
+            "triangle_count": 12216
+          },
+          {
+            "bbox": {
+              "depth": 4.40000057220459,
+              "height": 24.450000762939453,
+              "width": 40.0,
+              "x": 40.0,
+              "y": 212.0,
+              "z": 0.0
+            },
+            "id": 13,
+            "name": "3 Latch upper rail A and B",
+            "triangle_count": 12244
+          },
+          {
+            "bbox": {
+              "depth": 13.867902755737305,
+              "height": 2.950000047683716,
+              "width": 27.75,
+              "x": 166.125,
+              "y": 33.06604766845703,
+              "z": 0.0
+            },
+            "id": 17,
+            "name": "4 Control clip",
+            "triangle_count": 83636
+          },
+          {
+            "bbox": {
+              "depth": 13.867403030395508,
+              "height": 4.050000190734863,
+              "width": 27.75,
+              "x": 166.125,
+              "y": 121.06629943847656,
+              "z": 0.0
+            },
+            "id": 21,
+            "name": "5 Latch A 1.2 mm tongue",
+            "triangle_count": 23120
+          },
+          {
+            "bbox": {
+              "depth": 13.867403030395508,
+              "height": 4.050000190734863,
+              "width": 27.75,
+              "x": 166.125,
+              "y": 209.06629943847656,
+              "z": 0.0
+            },
+            "id": 25,
+            "name": "6 Latch B 1.0 mm tongue",
+            "triangle_count": 23128
+          }
+        ],
+        "times": {
+          "conflict_check_time": 51,
+          "detect_overhangs_time": 7,
+          "export_gcode_time": 1951,
+          "flush_plan_time": 0,
+          "generate_support_material_time": 39,
+          "infill_generate_time": 41,
+          "infill_time": 106,
+          "ironing_time": 0,
+          "make_perimeters_time": 366,
+          "multifilament_segment_2d_time": 0,
+          "other_slice_time": 7,
+          "prepare_infill_time": 65,
+          "region_split_time": 0,
+          "skirt_brim_time": 19,
+          "slice_layers_time": 111,
+          "sliced_time": 2601,
+          "sliced_time_with_cache": 1970,
+          "support_detect_time": 0,
+          "support_interface_time": 0,
+          "support_normal_generate_time": 0,
+          "support_toolpath_time": 0,
+          "support_tree_generate_time": 0,
+          "toolpath_time": 30,
+          "wall_time": 255,
+          "wipe_tower_time": 7
+        },
+        "total_predication": 7449.33251953125,
+        "triangle_count": 159154,
+        "warning_message": ""
+      }
+    ],
+    "sparse_infill_density": 25.0,
+    "times": {
+      "export_3mf_time": 0,
+      "export_slicedata_time": 0,
+      "export_time": 0,
+      "import_time": 224,
+      "load_slicedata_time": 0,
+      "prepare_time": 227
+    },
+    "upward_compatible_machine": [
+      "Bambu Lab A1 0.4 nozzle",
+      "Bambu Lab P2S 0.4 nozzle",
+      "Bambu Lab H2S 0.4 nozzle",
+      "Bambu Lab H2D 0.4 nozzle",
+      "Bambu Lab H2D Pro 0.4 nozzle",
+      "Bambu Lab H2C 0.4 nozzle",
+      "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 4
+  },
+  "gcode_sha256": "bfef722de1338a4e3870af2707226e2020dee06cf27fbfac044dd9abcb642548",
+  "toolpath_checks": [
+    {
+      "object": 1,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 82
+    },
+    {
+      "object": 2,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 192
+    },
+    {
+      "object": 3,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 193
+    },
+    {
+      "object": 4,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 18
+    },
+    {
+      "object": 5,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 26
+    },
+    {
+      "object": 6,
+      "layer_schedule_matches_source": true,
+      "extrusion_layer_count": 26
+    },
+    {
+      "object": 5,
+      "slot_center_xy_mm": [
+        173.475,
+        128.45
+      ],
+      "extrusion_center_distance_mm": 0.5099999999999909
+    },
+    {
+      "object": 5,
+      "slot_center_xy_mm": [
+        173.475,
+        130.25
+      ],
+      "extrusion_center_distance_mm": 0.5099999999999909
+    },
+    {
+      "object": 6,
+      "slot_center_xy_mm": [
+        173.475,
+        216.65
+      ],
+      "extrusion_center_distance_mm": 0.5099999999999909
+    },
+    {
+      "object": 6,
+      "slot_center_xy_mm": [
+        173.475,
+        218.25
+      ],
+      "extrusion_center_distance_mm": 0.5099999999999909
+    }
+  ],
+  "print_run": {
+    "date": "2026-11-16",
+    "printer": "Bambu Pizza",
+    "material": "PETG",
+    "color": "green",
+    "ams_slot": "A4",
+    "single_plate": true,
+    "object_count": 6,
+    "bed_leveling": "On",
+    "flow_dynamics_calibration": "On",
+    "timelapse": "Off",
+    "desktop_estimate_g": 10.97,
+    "desktop_estimate_seconds": 7415,
+    "observed_state": "Homing toolhead; layer 0/523; bed heating to 70 C",
+    "physical_fit_accepted": false
+  }
+}
