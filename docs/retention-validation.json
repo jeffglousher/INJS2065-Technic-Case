@@ -1,5 +1,5 @@
 {
-  "status": "experimental; unprinted; fit screening only",
+  "status": "experimental; physical fit and retention unaccepted",
   "source_model_sha256": "0a2c7fece94665ea40207f6ad02bcbf55774debcdd0a8dd09387bb2cfa75e1c7",
   "candidate_model_sha256": "030cac879d48a46b363fe93b4917d1311fc964f0bf95ee9b77006d6aaa09ee9c",
   "candidate_archive_sha256": "53bb2eb10d0aea06d7aa79683a966300cd31bb0ad6fc97b6abbf7bc4f88173a7",
@@ -752,6 +752,5 @@
         ]
       }
     }
-  },
-  "print_sent": false
+  }
 }

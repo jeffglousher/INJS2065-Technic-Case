@@ -2,7 +2,8 @@
 
 A printable clamshell that holds an INJS2065 servo in a Technic build. Two retaining clips close the housing, and a bearing-supported output hub connects the servo shaft to a Technic cross socket.
 
-**Start with the retention coupons.** The new tool-released latch needs printed
+**Start with the [single-plate PETG coupon set](print/retention/coupons-complete.3mf).**
+It includes three clips and their three receiver rails in one color. The new tool-released latch needs printed
 fit and load testing. Follow the [test instructions and print files](docs/retention-trial.md)
 before printing a complete housing. The gallery below shows the control design.
 
